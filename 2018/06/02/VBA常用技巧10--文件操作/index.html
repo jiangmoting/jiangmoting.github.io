@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            VBA常用技巧10--文件操作 | 
+        
+        TT ❤ LL 印迹
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/June/favicon.png">
+    <link rel="icon" href="/img/June/favicon.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="生长的印迹">
+    <meta name="keywords" content=",VBA">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/atelier-dune-light.min.css?ZfnESUNClnkZBE6Ec0djTA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #6c5c7b !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #6c5c7b !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #6c5c7b !important;
+  }
+
+  .toTop {
+    background: #c06c84 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #c06c84;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #c06c84;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #c06c84;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/June/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="TT ❤ LL 印迹">
+    <meta name="msapplication-starturl" content="http://jiangmoting.com/2018/06/02/VBA常用技巧10--文件操作/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="TT ❤ LL 印迹">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/June/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://jiangmoting.com/2018/06/02/VBA常用技巧10--文件操作/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="VBA常用技巧10--文件操作 | TT ❤ LL 印迹">
+    <meta property="og:image" content="/img/June/favicon.png">
+    <meta property="og:description" content="生长的印迹">
+    <meta property="og:article:tag" content="VBA"> 
+
+    
+        <meta property="article:published_time" content="Sat Jun 02 2018 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Tue Jun 05 2018 06:30:33 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://jiangmoting.com/2018/06/02/VBA常用技巧10--文件操作/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://jiangmoting.com/2018/06/02/VBA常用技巧10--文件操作/index.html",
+    "headline": "VBA常用技巧10--文件操作",
+    "datePublished": "Sat Jun 02 2018 00:00:00 GMT+0800",
+    "dateModified": "Tue Jun 05 2018 06:30:33 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "绛墨铤",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/June/avatar.png"
+        },
+        "description": "心有猛虎，细嗅蔷薇"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "TT ❤ LL 印迹",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/June/favicon.png"
+        }
+    },
+    "keywords": ",VBA",
+    "description": "生长的印迹",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第10章-文件操作"><span class="post-toc-number">1.</span> <span class="post-toc-text">第10章     文件操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧170-导入文本文件"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">技巧170     导入文本文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#170-1-使用查询表导入"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">170-1    使用查询表导入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#170-2-使用Open-语句导入"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">170-2    使用Open 语句导入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#170-3-使用OpenText方法"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">170-3    使用OpenText方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#171-1-使用Print-语句"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">171-1    使用Print # 语句</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#171-2-另存为文本文件"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">171-2    另存为文本文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧172-文件修改的日期和时间"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">技巧172     文件修改的日期和时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧173-查找文件或文件夹"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">技巧173     查找文件或文件夹</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧174-获得当前文件夹的名称"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">技巧174     获得当前文件夹的名称</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧175-创建和删除文件夹"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">技巧175     创建和删除文件夹</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧176-重命名文件或文件夹"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">技巧176     重命名文件或文件夹</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧177-复制指定的文件"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">技巧177     复制指定的文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧178-删除指定的文件"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">技巧178     删除指定的文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧179-搜索特定的文件"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">技巧179     搜索特定的文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧180-使用WSH处理文件"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">技巧180     使用WSH处理文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#180-1-获取文件信息"><span class="post-toc-number">1.10.1.</span> <span class="post-toc-text">180-1    获取文件信息</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#180-2-查找文件"><span class="post-toc-number">1.10.2.</span> <span class="post-toc-text">180-2    查找文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#180-3-移动文件"><span class="post-toc-number">1.10.3.</span> <span class="post-toc-text">180-3    移动文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#180-4-复制文件"><span class="post-toc-number">1.10.4.</span> <span class="post-toc-text">180-4    复制文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#180-5-删除文件"><span class="post-toc-number">1.10.5.</span> <span class="post-toc-text">180-5    删除文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#180-7-复制文件夹"><span class="post-toc-number">1.10.6.</span> <span class="post-toc-text">180-7    复制文件夹</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#180-8-移动文件夹"><span class="post-toc-number">1.10.7.</span> <span class="post-toc-text">180-8    移动文件夹</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#180-9-删除文件夹"><span class="post-toc-number">1.10.8.</span> <span class="post-toc-text">180-9    删除文件夹</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#180-10-导入文本文件"><span class="post-toc-number">1.10.9.</span> <span class="post-toc-text">180-10    导入文本文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#180-11-创建文本文件"><span class="post-toc-number">1.10.10.</span> <span class="post-toc-text">180-11    创建文本文件</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/June/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                VBA常用技巧10--文件操作
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/June/avatar.png" width="44px" height="44px" alt="Author Avatar">
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>绛墨铤</strong>
+        <span>6月 02, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/VBA/">VBA</a>
+    </li></ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=VBA常用技巧10--文件操作&url=http://jiangmoting.com/2018/06/02/VBA常用技巧10--文件操作/index.html&pic=http://jiangmoting.com/img/June/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=VBA常用技巧10--文件操作&url=http://jiangmoting.com/2018/06/02/VBA常用技巧10--文件操作/index.html&via=绛墨铤" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://jiangmoting.com/2018/06/02/VBA常用技巧10--文件操作/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://jiangmoting.com/2018/06/02/VBA常用技巧10--文件操作/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="第10章-文件操作"><a href="#第10章-文件操作" class="headerlink" title="第10章     文件操作"></a>第10章     文件操作</h2><h3 id="技巧170-导入文本文件"><a href="#技巧170-导入文本文件" class="headerlink" title="技巧170     导入文本文件"></a>技巧170     导入文本文件</h3><p>在实际应用中，我们经常从软件中将数据导出为文本文件，在需要将这些文本文件导入到Excel中时可以使用以下的方法。</p>
+<h4 id="170-1-使用查询表导入"><a href="#170-1-使用查询表导入" class="headerlink" title="170-1    使用查询表导入"></a>170-1    使用查询表导入</h4><p>在Excel VBA中可以使用Add方法新建查询表后导入文本文件，如下面的代码所示。</p>
+<pre><code class="vb">Sub AddQuery()
+    Sheet1.UsedRange.ClearContents
+    With Sheet1.QueryTables.Add( _
+        Connection:=&quot;TEXT;&quot; &amp; ThisWorkbook.Path &amp; &quot;\工资表.txt&quot;, _
+        Destination:=Range(&quot;A1&quot;))
+        .TextFilePlatform = 936
+        .TextFileCommaDelimiter = True
+        .Refresh
+    End With
+End Sub
+代码解析：
+AddQuery过程使用QueryTable对象的Add方法新建查询表后将文本文件“工资表.txt”的内容导入到工作表中。
+应用于QueryTable对象的Add方法新建一个查询表，返回QueryTable对象，该对象代表新建的查询表，语法如下：
+expression.Add(Connection, Destination, Sql)
+参数expression是必需的，返回一个QueryTables对象。
+参数Connection是必需的，查询表的数据源。如果数据源是文本文件，是“TEXT;&lt;文本文件路径和名称&gt;”形式的字符串，其他数据源请参阅帮助。
+参数Destination是必需的，Range类型，查询表目标区域左上角单元格用于放置生成的查询表的区域。目标区域必须在包含expression 指定的QueryTables对象的工作表上。
+参数Sql是可选的，在ODBC数据源上运行的SQL查询字符串，当将QueryTable对象、文本文件、或是ADO或DAO Recordset对象指定为数据源时不能使用该参数。
+第3行到第5行代码在工作表中建立对位于同一目录中的“工资表.txt”文本文件的查询，并将查询结果放置到工作表中。
+第6行代码设置导入的文本文件的原始格式，QueryTables对象的TextFilePlatform属性返回或设置正向查询表中导入的文本文件的原始格式，默认值是在“文本导入向导”的“文件原始格式”选项中的当前设置。
+第7行代码设置文本文件导入查询表中时，是以逗号作为分隔符。
+第8行代码使用Refresh方法更新外部数据区域，应用于QueryTable对象的Refresh方法更新外部数据区域，语法如下：
+expression.Refresh(BackgroundQuery)
+参数expression是必需的，返回一个QueryTable对象。
+参数BackgroundQuery是可选的的，只用于基于SQL查询结果的QueryTable。</code></pre>
+<h4 id="170-2-使用Open-语句导入"><a href="#170-2-使用Open-语句导入" class="headerlink" title="170-2    使用Open 语句导入"></a>170-2    使用Open 语句导入</h4><p>使用Open语句输入文本文件，如下面的代码所示。</p>
+<pre><code class="vb">Sub OpenText()
+    Dim Filename As String
+    Dim myText As String
+    Dim mArr() As String
+    Dim i As Integer
+    Dim j As Integer
+    Filename = ThisWorkbook.Path &amp; &quot;\工资表.txt&quot;
+    j = 1
+    Sheet1.UsedRange.ClearContents
+    Open Filename For Input As #1
+    Do While Not EOF(1)
+        Line Input #1, myText
+        mArr = Split(myText, &quot;,&quot;)
+        For i = 0 To UBound(mArr)
+            Sheet1.Cells(j, i + 1) = mArr(i)
+        Next
+        j = j + 1
+    Loop
+    Close #1
+End Sub
+代码解析：
+OpenText过程使用Open语句将文本“工资表.txt”的内容输入到工作表中。
+第10行代码使用Open语句打开文本文件以完成对文本文件的输入。Open语句能够对文件输入/输出（I/O），语法如下：。
+Open pathname For mode [Access access] [lock] As [#]filenumber [Len=reclength]
+Pathname是必需的，指定文件名，该文件名可能还包括目录、文件夹及驱动器。
+mode是必需的，指定文件方式，有Append、Binary、Input、Output、或Random方式。如果未指定方式，则以Random访问方式打开文件。
+Access是可选的，说明打开的文件可以进行的操作，有Read、Write、或Read Write操作。
+lock是可选的，说明限定于其它进程打开的文件的操作，有Shared、Lock Read、Lock Write、和Lock Read Write操作。
+filenumber是必需的，一个有效的文件号，范围在 1 到 511 之间。使用FreeFile函数可得到下一个可用的文件号。
+reclength是可选的，小于或等于 32，767（字节）的一个数。对于用随机访问方式打开的文件，该值就是记录长度。对于顺序文件，该值就是缓冲字符数。
+第11行代码使用Do...Loop 语句重复执行第12行到第17行代码，直到文本文件的结尾。EOF函数返回一个Integer，它返回Boolean值True，表明已经到达为Random或顺序Input打开的文件结尾，语法如下：
+EOF(filenumber)
+参数filenumber是必需的，是一个Integer，包含任何有效的文件号。
+第12行代码使用Line Input # 语句读入一行数据并将其赋予变量myText。Line Input # 语句从已打开的顺序文件中读出一行并将它分配给String变量，语法如下：
+Line Input #filenumber, varname
+Filenumber是必需的，任何有效的文件号。
+varnamer是必需的，有效的Variant或String变量名。
+第13行代码使用Split函数按逗号作为分隔符分开这行字符，赋值数组mArr。关于Split函数请参阅技巧169-2。
+第14行到第16行代码将数组mArr循环赋值给单元格，请参阅技巧169-1。
+第19行代码关闭文本文件。Close语句关闭Open语句所打开的输入/输出 (I/O) 文件，语法如下：
+Close [filenumberlist]
+参数filenumberlist是可选的，为一个或多个文件号，如省略则将关闭所有由Open语句打开的活动文件。</code></pre>
+<h4 id="170-3-使用OpenText方法"><a href="#170-3-使用OpenText方法" class="headerlink" title="170-3    使用OpenText方法"></a>170-3    使用OpenText方法</h4><p>使用OpenText方法载入一个文本文件并将其作为包含单个工作表的工作簿处理，如下面的代码所示。</p>
+<pre><code class="vb">Sub OpenText()
+    Dim myFileName As String
+    myFileName = &quot;工资表.txt&quot;
+    Sheet1.UsedRange.ClearContents
+    Workbooks.OpenText _
+        Filename:=ThisWorkbook.Path &amp; &quot;\&quot; &amp; myFileName, _
+        StartRow:=1, DataType:=xlDelimited, Comma:=True
+    With ActiveWorkbook
+        With .Sheets(&quot;工资表&quot;).Range(&quot;A1&quot;).CurrentRegion
+            ThisWorkbook.Sheets(&quot;Sheet1&quot;).Range(&quot;A1&quot;).Resize(.Rows.Count, .Columns.Count).Value = .Value
+        End With
+        .Close False
+    End With
+End Sub
+代码解析：
+OpenText过程使用OpenText方法载入“工资表.txt”文本文件并将其数据写入到工作表中。
+第5行到第7行代码使用OpenText方法载入“工资表.txt”文本文件。OpenText方法载入一个文本文件，并将其作为包含单个工作表的工作簿进行分列处理，然后在此工作表中放入经过分列处理的文本文件数据，语法如下：
+expression.OpenText(FileName, Origin, StartRow, DataType, TextQualifier, ConsecutiveDelimiter, Tab, Semicolon, Comma, Space, Other, OtherChar, FieldInfo, TextVisualLayout, DecimalSeparator, ThousandsSeparator, TrailingMinusNumbers, Local)
+其中参数FileName是必需的，指定要载入并作分列处理的文件名称。
+参数StartRow是可选的，作分列处理的起始行号，默认值为 1。
+参数DataType是可选的，在文件中指定数据的列格式。
+参数Comma是可选的，如果该值为True，则将分隔符设为逗号。
+其他参数请参阅VBA中的帮助文档。
+第9行到第11行代码将作为工作表打开的文本文件中的数据写入到工作表中。
+第13行代码使用Close方法关闭打开的文本文件。
+技巧171     将数据写入文本文件
+在需要时可以将Excel中的数据写入到文本文件中，有以下方法可以实现。</code></pre>
+<h4 id="171-1-使用Print-语句"><a href="#171-1-使用Print-语句" class="headerlink" title="171-1    使用Print # 语句"></a>171-1    使用Print # 语句</h4><p>使用Print # 语句将数据写入文本文件中，如下面的代码所示。</p>
+<pre><code class="vb">Sub PrintText()
+    Dim myFileName As String
+    Dim myDataAr() As Variant
+    Dim myStr As String
+    Dim myRow As Integer
+    Dim myCol As Integer
+    Dim i As Integer
+    Dim j As Integer
+    On Error Resume Next
+    myFileName = &quot;工资表.txt&quot;
+    Kill ThisWorkbook.Path &amp; &quot;\&quot; &amp; myFileName
+    With Sheet1
+        myRow = .Range(&quot;A65536&quot;).End(xlUp).Row
+        myCol = .Range(&quot;IV1&quot;).End(xlToLeft).Column
+        ReDim myDataAr(1 To myRow, 1 To myCol)
+        For i = 1 To myRow
+            For j = 1 To myCol
+                myDataAr(i, j) = .Cells(i, j).Value
+            Next
+        Next
+        Open ThisWorkbook.Path &amp; &quot;\&quot; &amp; myFileName For Output As #1
+        For i = 1 To UBound(myDataAr, 1)
+            myStr = &quot;&quot;
+            For j = 1 To UBound(myDataAr, 2)
+                myStr = myStr &amp; CStr(myDataAr(i, j)) &amp; &quot;,&quot;
+            Next
+            myStr = Left(myStr, (Len(myStr) - 1))
+            Print #1, myStr
+        Next
+        Close #1
+    End With
+    MsgBox &quot;文件保存成功!&quot;
+End Sub
+代码解析：
+PrintText过程将工作表中数据写入到文本文件“工资表.txt”中。
+第11行代码使用Kill方法删除同一目录中可能存在的同名文本文件。
+第13、14行使用单元格的End属性取得工作表中已使用数据的行、列号，关于End属性请参阅技巧3 。
+第15行代码重新定义动态数组myDataAr的大小。关于动态数组请参阅技巧169-3。
+第16行到第20行代码将工作表数据赋给数组myDataAr。
+第21行代码使用Open语句打开文本文件以完成对文本文件的输入。关于Open语句请参阅技巧170-2。
+第22行到第29行代码使用Print #语句将数组myDataAr中的所有元素写入到文本文件中。Print #语句将格式化显示的数据写入顺序文件中，语法如下：
+Print #filenumber, [outputlist]
+Filenumber是必需的，任何有效的文件号。
+第30行代码Close语句关闭文本文件。</code></pre>
+<h4 id="171-2-另存为文本文件"><a href="#171-2-另存为文本文件" class="headerlink" title="171-2    另存为文本文件"></a>171-2    另存为文本文件</h4><p>使用SaveAs方法将工作表另存为文本文件，如下面的代码所示。</p>
+<pre><code class="vb">Sub SaveText()
+    Dim myFileName As String
+    myFileName = &quot;工资表.txt&quot;
+    On Error Resume Next
+    Kill ThisWorkbook.Path &amp; &quot;\&quot; &amp; myFileName
+    Application.ScreenUpdating = False
+    Worksheets(&quot;Sheet1&quot;).Copy
+    ActiveWorkbook.SaveAs Filename:=ThisWorkbook.Path _
+        &amp; &quot;\&quot; &amp; myFileName, _
+        FileFormat:=xlCSV
+    MsgBox &quot;文件保存成功!&quot;
+    ActiveWorkbook.Close SaveChanges:=False
+    Application.ScreenUpdating = True
+End Sub
+代码解析：
+SaveText过程将工作表“Sheet1”保存为文本文件。
+第4、5行代码使用Kill方法删除同一目录中可能存在的同名文本文件。
+第7行代码使用Copy方法复制工作表“Sheet1”。
+第8行到第10行代码使用SaveAs方法将文件保存为文本文件。应用于Workbook对象的SaveAs方法保存对不同文件中的工作表的更改，语法如下：
+expression.SaveAs(FileName, FileFormat, Password, WriteResPassword, ReadOnlyRecommended, CreateBackup, AccessMode, ConflictResolution, AddToMru, TextCodepage, TextVisualLayout, Local)
+其中参数Filename表示要保存的文件名。可包含完整路径。如果不指定路径，Microsoft Excel 将文件保存到当前文件夹中。
+其中参数FileFormat指定保存文件时使用的文件格式，在本例中指定为xlCSV即保存为文本文件。
+第12行代码使用Close方法关闭活动工作簿。</code></pre>
+<h3 id="技巧172-文件修改的日期和时间"><a href="#技巧172-文件修改的日期和时间" class="headerlink" title="技巧172     文件修改的日期和时间"></a>技巧172     文件修改的日期和时间</h3><p>在VBA过程中如果需要获得文件最后修改的日期和时间，可以使用FileDateTime函数，如下面的代码所示。</p>
+<pre><code class="vb">Sub myDateTime()
+    Dim Stmp As String
+    Dim myDateTime As Date
+    Stmp = ThisWorkbook.Path &amp; &quot;\&quot; &amp; ThisWorkbook.Name
+    myDateTime = FileDateTime(Stmp)
+    MsgBox Stmp &amp; &quot;最后修改时间是：&quot; &amp; Chr(13) &amp; myDateTime
+End Sub
+代码解析：
+myDateTime过程使用消息框显示文件最后修改的日期和时间。
+FileDateTime函数返回一个文件被创建或最后修改后的日期和时间，语法如下：
+FileDateTime(pathname)
+pathname 参数是必需的，用来指定文件名的字符串表达式。pathname 可以包含目录或文件夹、以及驱动器。
+第4行代码使用变量Stmp保存代码所在工作簿的路径和名称。
+第5行代码使用变量myDateTime保存FileDateTime函数返回的日期和时间。
+运行myDateTime过程结果如图 172 1所示。
+
+图 172 1    文件最后修改的日期和时间</code></pre>
+<h3 id="技巧173-查找文件或文件夹"><a href="#技巧173-查找文件或文件夹" class="headerlink" title="技巧173     查找文件或文件夹"></a>技巧173     查找文件或文件夹</h3><p>在磁盘中查找文件或文件夹，可以使用Dir函数，如下面的代码所示。</p>
+<pre><code class="vb">Sub mydir()
+    Dim mydir As String
+    Dim b As Byte
+    b = 1
+    Range(&quot;A:A&quot;).ClearContents
+    mydir = Dir(ThisWorkbook.Path &amp; &quot;\*.xls&quot;, vbNormal)
+    Do While mydir &lt;&gt; &quot;&quot;
+        Cells(b, 1) = mydir
+        mydir = Dir
+        b = b + 1
+    Loop
+End Sub
+代码解析：
+Mydir过程使用Dir函数在代码所在工作簿的文件夹中查找所有的Excel文件，找到后写入到工作表的A列单元格中。
+第2行代码声明变量mydir保存返回的文件名称。
+第3行代码声明变量b保存返回的文件数目。
+第4行代码设置变量b的初始值。
+第5行代码清除A列所有数据。
+第6行代码使用Dir函数在代码所在工作簿的文件夹中查找Excel文件。Dir函数返回一个String，用以表示一个文件名、目录名或文件夹名称，语法如下：
+Dir[(pathname[, attributes])]
+参数pathname是可选的，用来指定文件名的字符串表达式，可能包含目录或文件夹、以及驱动器。如果没有找到pathname，则会返回零长度字符串 (&quot;&quot;)。
+参数attributes是可选的，常数或数值表达式，其总和用来指定文件属性，如表格 173 1所示。如果省略，则会返回不包含属性的匹配文件。
+常数    值    描述
+vbNormal    0    (缺省) 指定没有属性的文件。
+vbReadOnly    1    指定无属性的只读文件。
+vbHidden    2    指定无属性的隐藏文件。
+VbSystem    4    指定无属性的系统文件，在Macintosh中不可用。
+vbVolume    8    指定卷标文件；如果指定了其它属性，则忽略。vbVolume 在Macintosh中不可用。
+vbDirectory    16    指定无属性文件及其路径和文件夹。
+vbAlias    64    指定的文件名是别名，只在Macintosh上可用。
+表格 173 1    attributes设置值
+注意 在第一次调用Dir函数时，必须指定pathname，否则会产生错误。
+第7行到第11行代码将返回的文件名称写入到A列单元格中。Dir函数会返回匹配 pathname参数的第一个文件名，若想得到其他匹配pathname参数的文件名，需再一次调用Dir函数，且不要使用参数。如果已没有合乎条件的文件，则Dir函数会返回一个零长度字符串 (&quot;&quot;)。
+运行Mydir过程工作表中如图 173 1所示。</code></pre>
+<h3 id="技巧174-获得当前文件夹的名称"><a href="#技巧174-获得当前文件夹的名称" class="headerlink" title="技巧174     获得当前文件夹的名称"></a>技巧174     获得当前文件夹的名称</h3><p>在处理文件时经常需要获得当前文件夹的名称，此时可以使用CurDir函数，如下面的代码所示。</p>
+<pre><code class="vb">Sub CurFolder()
+    MsgBox CurDir(&quot;F&quot;)
+End Sub
+CurFolder过程使用消息框显示F盘中的当前文件夹名称。
+CurDir函数返回一个Variant类型的文件路径。如果需要返回字符串类型的文件路径则使用CurDir$，语法如下：
+CurDir[(drive)]
+参数drive是可选的，字符串表达式，指定一个存在的驱动器。如果没有指定驱动器，或参数drive 是零长度字符串 (&quot;&quot;)，则CurDir函数会返回当前驱动器的路径。
+假设示例文件保存在F盘的“VBA常用技巧\示例文件\第10章 文件操作”文件夹中，运行CurFolder过程结果如图 174 1所示。
+
+图 174 1    获得当前文件夹的名称</code></pre>
+<h3 id="技巧175-创建和删除文件夹"><a href="#技巧175-创建和删除文件夹" class="headerlink" title="技巧175     创建和删除文件夹"></a>技巧175     创建和删除文件夹</h3><p>可以在程序运行时创建和删除文件夹，如下面的代码所示。</p>
+<pre><code class="vb">Sub TempFolder()
+    On Error Resume Next
+    MkDir ThisWorkbook.Path &amp; &quot;\Temp&quot;
+End Sub
+代码解析：
+TempFolder过程使用MkDir语句在示例所在的文件夹中创建“Temp”文件夹。MkDir语句创建一个新的目录或文件夹，语法如下：
+MkDir path
+参数path是必需的，指定所要创建的目录或文件夹的字符串表达式，可以包含驱动器。如果没有指定驱动器，则在当前驱动器上创建新的目录或文件夹。
+第2行代码启动错误处理程序，因为在创建过程中如果文件夹中已存在相同名称的“Temp”文件夹会发生 “路径未找到”错误，所以使用On Error Resume Next语句忽略错误。
+第3行代码使用MkDir语句创建“Temp”文件夹。</code></pre>
+<p>如果需要删除不需要的文件夹可以使用RmDir语句，如下面的代码所示。</p>
+<pre><code class="vb">Sub RmFolder()
+    On Error Resume Next
+    RmDir ThisWorkbook.Path &amp; &quot;\Temp&quot;
+End Sub
+代码解析：
+RmFolder过程使用RmDir语句删除在示例所在的文件夹中创建“Temp”文件夹。RmDir语句删除一个存在的目录或文件夹，语法如下：
+RmDir path
+参数path是必需的，指定所要创建的目录或文件夹的字符串表达式，可以包含驱动器。如果没有指定驱动器，则在当前驱动器上创建新的目录或文件夹。
+第2行代码启动错误处理程序，因为在使用RmDir语句删除并不存在的文件夹或删除含有文件的文件夹时会发生 “路径未找到”错误，所以使用On Error Resume Next语句忽略错误。
+第3行代码使用RmDir语句删除“Temp”文件夹。如果“Temp”文件夹中含有文件可以在删除文件夹之前，先使用Kill语句来删除所有文件，请参阅技巧178 。</code></pre>
+<h3 id="技巧176-重命名文件或文件夹"><a href="#技巧176-重命名文件或文件夹" class="headerlink" title="技巧176     重命名文件或文件夹"></a>技巧176     重命名文件或文件夹</h3><p>使用Name语句可以重命名文件或文件夹，如下面的代码所示。</p>
+<pre><code class="vb">Sub Filename()
+    On Error Resume Next
+    Name ThisWorkbook.Path &amp; &quot;\123&quot; As ThisWorkbook.Path &amp; &quot;\ABC&quot;
+    Name ThisWorkbook.Path &amp; &quot;\123.xls&quot; As ThisWorkbook.Path &amp; &quot;\ABC\ABC.xls&quot;
+End Sub
+Filename过程使用Name语句重命名示例文件所在文件夹中的“123”文件夹和“123.xls”Excel文件并将重命名后的Excel文件移动到重命名后的文件夹中。
+Name语句重新命名一个文件、目录、或文件夹，语法如下：
+Name oldpathname As newpathname
+参数oldpathname是必需的，字符串表达式，指定已存在的文件名和位置，可以包含目录或文件夹、以及驱动器。
+参数newpathname是必需的，字符串表达式，指定新的文件名和位置，可以包含目录或文件夹、以及驱动器。
+第2行代码启动错误处理程序，因为在重命名过程中如果参数oldpathname指定的文件或文件夹不存在会发生 “文件未找到”错误，所以使用On Error Resume Next语句忽略错误。
+第3行代码使用Name语句将示例文件所在文件夹中的“123”文件夹重命名为“ABC”文件夹。
+第4行代码使用Name语句将示例文件所在文件夹中的“123.xls”Excel文件重命名为“ABC.xls”文件并移动到“ABC”文件夹中。
+在运行Filename过程前请确认示例文件所在文件夹中包含一个“123”文件夹和一个“123.xls”Excel文件。</code></pre>
+<h3 id="技巧177-复制指定的文件"><a href="#技巧177-复制指定的文件" class="headerlink" title="技巧177     复制指定的文件"></a>技巧177     复制指定的文件</h3><p>如果需要把文件从一个地方复制到另一个地方，可以使用FileCopy语句复制文件，如下面的代码所示。</p>
+<pre><code class="vb">Sub CopyFile()
+    Dim SourceFile As String
+    Dim DestinationFile As String
+    SourceFile = ThisWorkbook.Path &amp; &quot;\123.xls&quot;
+    DestinationFile = ThisWorkbook.Path &amp; &quot;\ABC\abc.xls&quot;
+    FileCopy SourceFile, DestinationFile
+End Sub
+代码解析：
+CopyFile过程使用FileCopy语句将示例文件所在文件夹中的“123.xls”Excel文件复制到示例文件目录下的“ABC”文件夹中并重新命名为“abc.xls”。
+FileCopy语句复制一个文件，语法如下：
+FileCopy source, destination
+Source参数是必需的，字符串表达式，用来表示要被复制的文件名。source参数可以包含目录或文件夹、以及驱动器。
+destination参数是必需的，字符串表达式，用来指定要复制的目地文件名。destination参数 可以包含目录或文件夹、以及驱动器。
+注意 不能对一个已打开的文件使用 FileCopy 语句，否则会产生错误。
+第4行代码指定被复制的文件名称和路径。
+第5行代码指定目的文件名称和路径，如果已存在相同名称的文件则会覆盖原文件。
+第6行代码使用FileCopy语句复制文件。</code></pre>
+<h3 id="技巧178-删除指定的文件"><a href="#技巧178-删除指定的文件" class="headerlink" title="技巧178     删除指定的文件"></a>技巧178     删除指定的文件</h3><p>使用Kill方法删除指定的文件，如下面的代码所示。</p>
+<pre><code class="vb">Sub KillFile()
+    Dim myFile As String
+    myFile = ThisWorkbook.Path &amp; &quot;\123.xls&quot;
+    If Dir(myFile) &lt;&gt; &quot;&quot; Then Kill myFile
+End Sub
+代码解析：
+KillFile过程使用Kill方法示例文件所在文件夹中的“123.xls”文件。
+第3行代码指定所要删除文件的路径和文件名称。
+第4行代码使用Dir函数返回指定文件名，（关于Dir函数请参阅技巧173 ）如果存在该文件则使用Kill语句删除。Kill语句从磁盘中删除文件，语法如下：
+Kill pathname
+参数pathname是必需的，用来指定一个文件名的字符串表达式，可以包含目录或文件夹、以及驱动器。
+在Microsoft Windows中，Kill方法支持多字符 (*) 和单字符(?)的统配符来指定多重文件，如需要删除当前目录下所有*. Xls文件可以使用下面的代码：
+Kill &quot;*.xls&quot;
+注意 使用Kill方法不能删除已打开的文件，否则会产生错误。</code></pre>
+<h3 id="技巧179-搜索特定的文件"><a href="#技巧179-搜索特定的文件" class="headerlink" title="技巧179     搜索特定的文件"></a>技巧179     搜索特定的文件</h3><p>如果需要对文件夹中所有的Excel文件进行相同的操作，那么可以使用Execute方法进行文件搜索，示例代码如下所示。</p>
+<pre><code class="vb">Sub Sort()
+    Dim i As Byte
+    Application.ScreenUpdating = False
+    With Application.FileSearch
+        .LookIn = ThisWorkbook.Path
+        .FileType = msoFileTypeExcelWorkbooks
+        If .Execute &gt; 0 Then
+            For i = 1 To .FoundFiles.Count
+                If .FoundFiles(i) &lt;&gt; ThisWorkbook.FullName Then
+                    Workbooks.Open .FoundFiles(i)
+                    With ActiveWorkbook
+                        .Sheets(&quot;Sheet1&quot;).Range(&quot;A1&quot;) = &quot;最后打开时间：&quot; &amp; Now
+                        .Close True
+                    End With
+                End If
+            Next
+        End If
+    End With
+    Application.ScreenUpdating = True
+End Sub
+代码解析：
+Sort过程搜索同一目录中的所有Excel文件并对其进行操作。
+第3行代码关闭屏幕更新功能，加快代码的运行速度。
+第4行代码为文件搜索创建一个FoundFiles对象。
+第5行代码设置要搜索的文件夹，应用于FoundFiles对象的LookIn属性返回或设置在指定的文件搜索过程中要搜索的文件夹。
+第6行代码设置搜索的文件类型为Excel文件，应用于FoundFiles对象的FileType属性返回或设置文件搜索过程中要查找的文件类型，设置为msoFileTypeExcelWorkbooks返回Excel文件。
+第7行代码开始对指定文件进行搜索，应用于FoundFiles对象的Execute方法用于搜索文件，语法如下：
+expression.Execute(SortBy, SortOrder, AlwaysAccurate)
+参数expression是必需的，返回一个FoundFiles对象。
+参数SortBy是可选的，用于对返回的文件进行排序。
+参数SortOrder是可选的，表明所返回文件的排序顺序。
+参数AlwaysAccurate是可选的，设置为True使文件搜索包括上次更新文件索引以来添加、修改或删除的文件。
+在使用Execute方法搜索文件时，如果没有找到文件，则返回零(0)，如果找到一个或多个文件，则返回一个正数。
+第8行代码使用For...Next 语句遍历Execute方法返回的返回的文件列表。应用于FoundFiles对象的FoundFiles属性返回一个FoundFiles对象，代表由文件搜索过程中返回的文件列表。
+第9行代码判断返回的单个FoundFiles对象的名称是否是示例文件的名称，如果否则执行后续代码。
+第10行代码使用应用于Workbooks对象的Open方法打开由返回的单个FoundFiles对象代表的工作簿。
+第11行到第14行代码在打开的活动工作簿的工作表中写入打开时间后保存、关闭活动工作簿。
+运行Sort过程将打开示例所在文件夹中所有的Excel文件并对其进行相应的操作。</code></pre>
+<h3 id="技巧180-使用WSH处理文件"><a href="#技巧180-使用WSH处理文件" class="headerlink" title="技巧180     使用WSH处理文件"></a>技巧180     使用WSH处理文件</h3><p>Windows Scripting Host(WSH)可以创建一些控制Windows操作系统和应用程序以及从操作系统中获取信息的小程序，而使用WSH的FileSystemObject对象可以用来处理文件系统。<br>在使用WSH处理文件时，必需使用CreateObject函数创建一个ActiveX对象（FileSystemObject对象），用来提供访问计算机的文件系统，如下面的代码所示：<br>Dim MyFile As Object<br>Set MyFile = CreateObject(“Scripting.FileSystemObject”)<br>上面的代码首先声明一个名为MyFile的对象变量，然后使用CreateObject函数创建一个ActiveX对象并将该对象赋给对象变量。<br>CreateObject函数创建并返回一个对ActiveX对象的引用，语法如下：<br>CreateObject(class,[servername])<br>其中参数class是必需的，要创建的应用程序名称和类，使用appname.objecttype这种语法，appname指定该对象的应用程序名称，objecttype指定该对象的类型或类。<br>在声明了对象变量MyFile为Windows Scripting库的FileSystemObject对象后就能使用该对象的属性、方法来处理文件系统。</p>
+<h4 id="180-1-获取文件信息"><a href="#180-1-获取文件信息" class="headerlink" title="180-1    获取文件信息"></a>180-1    获取文件信息</h4><p>如果需要获得指定文件的信息，可以使用File对象的Getfile方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub Fileinfo()
+    Dim MyFile As Object
+    Dim Str As String
+    Dim StrMsg As String
+    Str = ThisWorkbook.Path &amp; &quot;\123.xls&quot;
+    Set MyFile = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+    With MyFile.Getfile(Str)
+        StrMsg = StrMsg &amp; &quot;文件名称：&quot; &amp; .Name &amp; Chr(13) _
+            &amp; &quot;文件创建日期：&quot; &amp; .DateCreated &amp; Chr(13) _
+            &amp; &quot;文件修改日期：&quot; &amp; .DateLastModified &amp; Chr(13) _
+            &amp; &quot;文件访问日期：&quot; &amp; .DateLastAccessed &amp; Chr(13) _
+            &amp; &quot;文件保存路径：&quot; &amp; .ParentFolder
+    End With
+    MsgBox StrMsg
+    Set MyFile = Nothing
+End Sub
+代码解析：
+Fileinfo过程使用Getfile方法获取示例所在文件夹中的“123.xls”文件的信息。
+第5行代码将文件路径名称赋给变量Str。
+第6行代码使用CreateObject函数创建FileSystemObject对象并将该对象赋给变量MyFile。
+第7行代码使用Getfile方法返回一个File对象。Getfile方法返回一个和指定路径中文件相对应的File对象，语法如下：
+object.GetFile(filespec)
+参数object是必需的，FileSystemObject对象的名称。
+参数filespec是必需的，指定文件的路径。
+第8行到第12行代码根据File对象的属性取得文件信息，File对象的常用属性如表格 180 1所示。
+属性    描述
+Name    文件名称
+DateCreated    文件创建日期
+DateLastModified    文件最后修改日期
+DateLastAccessed    文件最后访问日期
+ParentFolder    文件的父文件夹
+Path    文件的完整路径
+Type    文件类型
+Size    以字节表示的文件大小
+表格 180 1    File对象的常用属性
+运行Fileinfo过程使用消息框显示“123.xls”文件的信息，如图 180 1所示。
+
+图 180 1    获取文件信息</code></pre>
+<h4 id="180-2-查找文件"><a href="#180-2-查找文件" class="headerlink" title="180-2    查找文件"></a>180-2    查找文件</h4><p>使用FileSystemObject对象的FileExists方法可以查找指定的文件，如下面的代码所示。</p>
+<pre><code class="vb">Sub FileExis()
+    Dim MyFile As Object
+    Dim Str As String
+    Dim StrMsg As String
+    Str = ThisWorkbook.Path &amp; &quot;\123.xls&quot;
+    Set MyFile = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+    If MyFile.FileExists(Str) Then
+        MsgBox &quot;文件已找到!&quot;
+    Else
+        MsgBox &quot;文件不存在!&quot;
+    End If
+    Set MyFile = Nothing
+End Sub
+代码解析：
+FileExis过程使用FileExists方法查找示例所在文件夹中是否存在“123.xls”文件。
+第6行代码使用CreateObject函数创建FileSystemObject对象并将该对象赋给变量MyFile。
+第7行代码使用FileExists方法可以查找文件。应用于FileSystemObject对象的FileExists方法查找指定的文件，语法如下：
+object.FileExists(filespec)
+参数object是必需的，FileSystemObject对象的名称。
+参数filespec是必需的，要确定是否存在的文件的名字。如果文件不在当前文件夹中，必须提供一个完整的路径说明。
+使用FileExists方法查找文件时如果指定的文件存在，返回True，若不存在，则返回False，根据返回值可以确定所要查找的文件是否存在。</code></pre>
+<h4 id="180-3-移动文件"><a href="#180-3-移动文件" class="headerlink" title="180-3    移动文件"></a>180-3    移动文件</h4><p>如果需要把文件从一个地方移动到另一个地方，可以使用FileSystemObject对象的MoveFile方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub MoveFile()
+    Dim MyFile As Object
+    On Error Resume Next
+    Set MyFile = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+    MyFile.MoveFile ThisWorkbook.Path &amp; &quot;\123.xls&quot;, ThisWorkbook.Path &amp; &quot;\ABC\&quot;
+    Set MyFile = Nothing
+End Sub
+代码解析：
+MoveFile过程使用MoveFile方法将示例文件所在文件夹中的“123.xls”文件移动到“ABC”文件夹中。
+第4行代码使用CreateObject函数创建FileSystemObject对象并将该对象赋给变量MyFile。
+第5行代码使用MoveFile方法移动文件。应用于FileSystemObject对象的MoveFile方法将一个或多个文件从一个地方移动到另一个地方，语法如下：
+object.MoveFile source, destination 
+参数object是必需的， FileSystemObject对象的名称。
+参数source是必需的，一个或多个要移动文件的路径，source参数字符串在路径的最后部件中可以使用通配符。
+参数destinatio是必需的，一个或多个文件要移动到的目标路径，不能使用通配符。
+运行MoveFile过程将示例文件所在文件夹中的“123.xls”文件移动到同一目录中的“ABC”文件夹。</code></pre>
+<h4 id="180-4-复制文件"><a href="#180-4-复制文件" class="headerlink" title="180-4    复制文件"></a>180-4    复制文件</h4><p>如果需要把文件从一个地方复制到另一个地方，可以使用CopyFile方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub CopyFile()
+    Dim MyFile As Object
+    On Error Resume Next
+    Set MyFile = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+    MyFile.CopyFile ThisWorkbook.Path &amp; &quot;\123.xls&quot;, ThisWorkbook.Path &amp; &quot;\ABC\&quot;
+    Set MyFile = Nothing
+End Sub
+代码解析：
+CopyFile过程使用CopyFile方法将示例文件所在文件夹中的“123.xls”文件复制到“ABC”文件夹中。
+第4行代码使用CreateObject函数创建FileSystemObject对象并将该对象赋给变量MyFile。
+第5行代码使用CopyFile方法复制文件。应用于FileSystemObject对象的CopyFile方法把一个或多个文件从一个地方复制到另一个地方，语法如下：
+object.CopyFile source, destination[, overwrite]
+参数object是必需的， FileSystemObject对象的名字。
+参数source是必需的，指明一个或多个要被复制文件的字符串文件说明，可以包括通配符。
+参数destination是必需的，指明参数source中的一个或多个文件要被复制到的接受端的字符串，不允许有通配符。
+参数overwrite是可选的，表示存在的文件是否被覆盖。如果是True，文件将被覆盖；如果是False，它们不被覆盖，缺省值是True。
+注意 如果参数destination指定的接受端具有只读属性设置，不论参数overwrite的值如何设置，CopyFile方法都将失败。
+运行CopyFile过程将示例文件所在文件夹中的“123.xls”文件复制到“ABC”文件夹中。</code></pre>
+<h4 id="180-5-删除文件"><a href="#180-5-删除文件" class="headerlink" title="180-5    删除文件"></a>180-5    删除文件</h4><p>如果需要删除一个指定的文件，可以使用DeleteFile方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub DelFile()
+    Dim MyFile As Object
+    On Error Resume Next
+    Set MyFile = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+    MyFile.DeleteFile ThisWorkbook.Path &amp; &quot;\123.xls&quot;
+    Set MyFile = Nothing
+End Sub
+代码解析：
+DelFile过程使DeleteFile方法删除示例文件所在文件夹中的“123.xls”文件。
+第4行代码使用CreateObject函数创建FileSystemObject对象并将该对象赋给变量MyFile。
+第5行代码使用DeleteFile方法复制文件。应用于FileSystemObject对象的DeleteFile方法删除一个指定的文件，语法如下：
+object.DeleteFile filespec[, force]
+参数object是必需的， FileSystemObject对象的名字。
+参数filespec是必需的，指明要删除文件的名字，可以在最后的路径部件中包含通配符。
+参数force是可选的，如果要删除具有只读属性设置的文件，其值为True。如果其值为False（缺省），则不能删除具有只读属性设置的文件。
+运行DelFile过程删除示例文件所在文件夹中的“123.xls”文件。</code></pre>
+<p>180-6    创建文件夹<br>如果需要创建一个文件夹，可以使用CreateFolder方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub CreFolder()
+    Dim MyFile As Object
+    On Error Resume Next
+    Set MyFile = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+    MyFile.CreateFolder (ThisWorkbook.Path &amp; &quot;\ABC&quot;)
+    Set MyFile = Nothing
+End Sub
+代码解析：
+CreFolder过程使CreateFolder方法在示例文件所在文件夹中创建一个“ABC”文件夹。
+第4行代码使用CreateObject函数创建FileSystemObject对象并将该对象赋给变量MyFile。
+第5行代码使用CreateFolder方法创建文件夹。应用于FileSystemObject对象的CreateFolder方法创建一个文件夹，语法如下：
+object.CreateFolder(foldername)
+参数object是必需的， FileSystemObject对象的名字。
+参数foldername是必需的，字符串表达式，指明要创建文件夹的名称和路径。
+运行CreFolder过程将在示例文件所在文件夹中创建一个“ABC”文件夹。</code></pre>
+<h4 id="180-7-复制文件夹"><a href="#180-7-复制文件夹" class="headerlink" title="180-7    复制文件夹"></a>180-7    复制文件夹</h4><p>如果需要复制文件夹，可以使用CopyFolder方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub CopyFolder()
+    Dim MyFile As Object
+    Set MyFile = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+    MyFile.CopyFolder ThisWorkbook.Path &amp; &quot;\ABC&quot;, ThisWorkbook.Path &amp; &quot;\123&quot;
+    Set MyFile = Nothing
+End Sub
+代码解析：
+CopyFolder过程使CopyFolder方法将示例文件所在文件夹中的“ABC”文件夹复制并改名为“123”文件夹。
+第3行代码使用CreateObject函数创建FileSystemObject对象并将该对象赋给变量MyFile。
+第4行代码使用CopyFolder方法复制文件夹。应用于FileSystemObject对象的CreateObject方法从一个地方递归地复制一个文件夹到另一个地方，语法如下：
+object.CopyFolder source, destination[, overwrite]
+参数object是必需的， FileSystemObject对象的名字。
+参数source是必需的，指明一个或多个被复制文件夹的字符串文件夹说明，可以包括通配符。
+参数destination是必需的，被复制文件夹和子文件夹的接受端的字符串，不允许有通配符。
+参数overwrite是可选的，表示已存在的文件夹是否被覆盖。如果为True，文件被覆盖，如果为False，文件不被覆盖。缺省值为True。
+如果参数source中包含通配符或参数destination以路径分隔符（\）为结尾，则认为参数destination是一个已存在的文件夹，在其中复制相匹配的文件夹和子文件夹。否则认为参数destination是一个要创建的文件夹的名字。
+运行CopyFolder过程将示例文件所在文件夹中的“ABC”文件夹复制并改名为“123”文件夹。</code></pre>
+<h4 id="180-8-移动文件夹"><a href="#180-8-移动文件夹" class="headerlink" title="180-8    移动文件夹"></a>180-8    移动文件夹</h4><p>如果需要移动文件夹，可以使用MoveFolder方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub MoveFolder()
+    Dim MyFile As Object
+    On Error Resume Next
+    Set MyFile = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+    MyFile.MoveFolder ThisWorkbook.Path &amp; &quot;\123&quot;, &quot;F:\123&quot;
+    Set MyFile = Nothing
+End Sub
+代码解析：
+MoveFolder过程使MoveFolder方法将示例文件所在文件夹中的“123”文件夹移动到F盘中。
+第4行代码使用CreateObject函数创建FileSystemObject对象并将该对象赋给变量MyFile。
+第5行代码使MoveFolder方法移动文件夹。应用于FileSystemObject对象的MoveFolder方法将一个或多个文件夹从一个地方移动到另一个地方，语法如下：
+object.MoveFolder source, destination
+参数object是必需的， FileSystemObject对象的名字。
+参数source是必需的，指明一个或多个要移动文件夹的字符串文件夹说明，在路径的最后部件中可以包括通配符。
+参数destination是必需的，一个或多个文件夹要移动到的目标路径，不能包含通配符。
+如果参数source中包含通配符或参数destination以路径分隔符（\）为结尾，则认为参数destination是一个已存在的文件夹，在此文件夹中移动相匹配的文件。否则认为参数destination是一个要创建的文件夹的名字。
+运行MoveFolder过程将示例文件所在文件夹中的“123”文件夹移动到F盘中。</code></pre>
+<h4 id="180-9-删除文件夹"><a href="#180-9-删除文件夹" class="headerlink" title="180-9    删除文件夹"></a>180-9    删除文件夹</h4><p>如果需要删除一个文件夹，可以使用DeleteFolder方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub DelFolder()
+    Dim MyFile As Object
+    On Error Resume Next
+    Set MyFile = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+    MyFile.DeleteFolder ThisWorkbook.Path &amp; &quot;\123&quot;
+    Set MyFile = Nothing
+End Sub
+代码解析：
+DelFolder过程使DeleteFolder方法删除示例文件所在文件夹中的“123”文件夹。
+第4行代码使用CreateObject函数创建FileSystemObject对象并将该对象赋给变量MyFile。
+第5行代码使用DeleteFolder方法删除文件。应用于FileSystemObject对象的DeleteFolder方法删除一个指定的文件夹和其中的内容，语法如下：
+object.DeleteFolder folderspec[, force]
+参数object是必需的， FileSystemObject对象的名字。
+参数filespec是必需的，指明要删除的文件夹的名称，可以在最后的路径部件中包含通配符。
+参数force是可选的，如果要删除具有只读属性设置的文件夹，其值为True。如果其值为False（缺省），则不能删除具有只读属性设置的文件夹。
+运行DelFolder过程删除示例文件所在文件夹中的“123.xls”文件夹。</code></pre>
+<h4 id="180-10-导入文本文件"><a href="#180-10-导入文本文件" class="headerlink" title="180-10    导入文本文件"></a>180-10    导入文本文件</h4><p>如果需要从文本文件中导入数据，可以使用OpenTextFile方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub OpenText()
+    Dim MyFile As Object
+    Dim mArr() As String
+    Dim j As Integer, i As Integer
+    j = 1
+    Sheet1.UsedRange.ClearContents
+    Set MyFile = CreateObject(&quot;Scripting.FileSystemObject&quot;) _
+        .OpenTextFile(ThisWorkbook.Path &amp; &quot;\&quot; &amp; &quot;工资表.txt&quot;)
+    Do While Not MyFile.AtEndOfStream
+        mArr = Split(MyFile.ReadLine, &quot;,&quot;)
+        For i = 0 To UBound(mArr)
+            Sheet1.Cells(j, i + 1) = mArr(i)
+        Next
+        j = j + 1
+    Loop
+    MyFile.Close
+    Set MyFile = Nothing
+End Sub
+代码解析：
+OpenText过程使用OpenTextFile方法打开示例文件所在文件夹中的“工资表.txt”文件并将数据导入到工作表中。
+第7、8行代码使用OpenTextFile方法打开文本文件。应用于FileSystemObject对象的OpenTextFile方法打开一个指定的文件并返回一个TextStream对象，该对象可用于对文件进行读操作或追加操作，语法如下：
+object.OpenTextFile(filename[, iomode[, create[, format]]])
+参数object是必需的，FileSystemObject对象的名字。
+参数filename是必需的，需要打开的文件名称。
+参数iomode是可选的，表示输入/输出方式，设置值如表格 180 2所示。
+常数    值    描述
+ForReading    1    打开一个只读文件，不能对此文件进行写操作。
+ForAppending    8    打开一个文件并写到文件的尾部。
+
+表格 180 2    iomode参数设置值
+参数create是可选的，它表示如果指定的参数filename不存在是否可以创建一个新文件。如果创建新文件，其值为True。若不创建文件其值为False。缺省值为False。
+参数format是可选的，打开文件的格式，设置值如表格 180 3所示。
+常数    值    描述
+TristateUseDefault    -2    使用系统缺省打开文件
+TristateTrue    -1    以 Unicode 格式打开文件
+TristateFalse    0    以 ASCII 格式打开文件
+表格 180 3    format参数设置值
+第9行代码开始对文本文件进行读操作。应用于TextStream对象的AtEndOfStream属性指示文件指针是否位于TextStream文件中的结尾，如果是返回True，否则返回False。
+第10行代码使用Split函数将逐行读取的字符串以逗号进行分隔后赋给数组mArr。关于Split函数请参阅技巧169-2。
+应用于TextStream对象的ReadLine方法从一个TextStream文件读取一整行（到换行符但不包括换行符）并返回得到的字符串，语法如下：
+object.ReadLine
+参数object是必需的，TextStream对象的名字。
+第11行到第14行代码将数组元素写入到工作表的单元格。
+第15行代码重新读取下一行数据。
+第16行使用Close方法关闭打开的文本文件。
+运行OpenText过程将“工资表.txt”文件的数据导入到工作表中。</code></pre>
+<h4 id="180-11-创建文本文件"><a href="#180-11-创建文本文件" class="headerlink" title="180-11    创建文本文件"></a>180-11    创建文本文件</h4><p>如果需要将工作表中的数据保存为文本文件，可以创建一个文本文件用于保存数据。<br>使用CreateTextFile方法创建文本文件，如下面的代码所示。</p>
+<pre><code class="vb">Sub CreText()
+    Dim MyFile As Object
+    Dim myStr As String
+    Dim j As Integer, i As Integer
+    Set MyFile = CreateObject(&quot;Scripting.FileSystemObject&quot;) _
+        .CreateTextFile(ThisWorkbook.Path &amp; &quot;\&quot; &amp; &quot;工资表.txt&quot;, True)
+        For i = 1 To Range(&quot;A65536&quot;).End(xlUp).Row
+            myStr = &quot;&quot;
+            For j = 1 To Range(&quot;IV&quot;&amp; i).End(xlToLeft).Column
+                myStr = myStr &amp; Cells(i, j) &amp; &quot;,&quot;
+            Next
+            myStr = Left(myStr, (Len(myStr) - 1))
+            MyFile.WriteLine (myStr)
+        Next
+    MyFile.Close
+    Set MyFile = Nothing
+End Sub
+代码解析：
+CreText过程使CreateTextFile方法创建一个指定名称的文本文件并将工作表数据写入到文件内。
+第5、6行代码使用CreateObject函数创建FileSystemObject对象并将该对象赋给变量MyFile后使用CreateTextFile方法创建一个指定名称的文本文件。
+应用于FileSystemObject对象的CreateTextFile方法创建一个指定的文件并且返回一个用于该文件读写的TextStream对象，语法如下：
+object.CreateTextFile(filename[, overwrite[, unicode]])
+参数object是必需的，FileSystemObject对象的名字。
+参数filename是必需的，需要创建的文件名称。
+参数overwrite是可选的，表示是否覆盖已存在文件。如果可被覆盖其值为True，其值为False时不能覆盖，如果省略，则已存在文件不能覆盖。
+参数unicode是可选的，表示文件是作为一个Unicode文件创建的还是作为一个ASCII文件创建的。如果作为一个Unicode文件创建，其值为True，作为一个ASCII 文件创建，其值为False，如果省略，则认为是一个ASCII文件。
+第7行代码逐行读取工作表数据。
+第8行代码清空字符串变量myStr的内容，用来保存下一行的数据。
+第9行代码遍历当前行的所有单元格。
+第10行代码将当前行的所有单元格保存到字符串变量myStr中并以逗号进行分隔。
+第12行代码去除保存在字符串变量myStr中当前行数据的最后一个逗号。
+第13行代码使用WriteLine方法将当前行数据写入到创建的文本文件。
+应用于TextStream对象的WriteLine方法写入一个指定的字符串和换行符到一个TextStream文件中，语法如下：
+object.WriteLine([string])
+参数object是必需的，TextStream对象的名字。
+参数string是可选的，要写入文件的正文。如果省略，写入一个换行符。
+第15行使用Close方法关闭打开的文本文件。</code></pre>
+<p>还可以使用OpenTextFile方法创建文本文件，如下面的代码所示。</p>
+<pre><code class="vb">Sub OpenText()
+    Dim MyFile As Object
+    Dim myStr As String
+    Dim j As Integer, i As Integer
+    Set MyFile = CreateObject(&quot;Scripting.FileSystemObject&quot;) _
+        .OpenTextFile(ThisWorkbook.Path &amp; &quot;\&quot; &amp; &quot;工资表.txt&quot;, 8, True)
+        For i = 1 To Range(&quot;A65536&quot;).End(xlUp).Row
+            myStr = &quot;&quot;
+            For j = 1 To Range(&quot;IV&quot; &amp; i).End(xlToLeft).Column
+                myStr = myStr &amp; Cells(i, j) &amp; &quot;,&quot;
+            Next
+            myStr = Left(myStr, (Len(myStr) - 1))
+            MyFile.WriteLine (myStr)
+        Next
+    MyFile.Close
+    Set MyFile = Nothing
+End Sub
+代码解析：
+OpenText过程使OpenTextFile方法创建一个指定名称的文本文件并将工作表数据写入到文件内。
+应用于FileSystemObject对象的OpenTextFile方法打开一个指定的文件并返回一个 TextStream对象，该对象可用于对文件进行读操作或追加操作，请参阅技巧180-10。 
+示例中将OpenTextFile方法的iomode参数设置为8，打开文本文件后在文件的尾部进行追加操作；将create参数设置为True，如果指定的文本文件不存在则创建一个新文件。
+注意 如果重复运行OpenText过程将在文本文件中重复写入工作表数据，所以OpenTextFile方法更适用于对文本文件进行追加操作。
+OpenText过程的其他代码请参阅CreText过程的代码解析。
+运行CreText过程和OpenText过程将在示例所在的文件夹中创建一个名称为“工资表”的文本文件并将工作表数据读入到文件内。</code></pre>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/06/03/VBA常用技巧11--其他应用/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/05/31/VBA常用技巧9--函数的使用/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/June/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/June/avatar.png" alt="绛墨铤's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        jluyantt@163.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="https://mail.163.com/" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">album</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archiveshl/2018/06/">六月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archiveshl/2018/05/">五月 2018<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archiveshl/2018/04/">四月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archiveshl/2018/03/">三月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archiveshl/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a>
+            </li></ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/生の术/">生の术<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/categories/生の迹/">生の迹<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/生の道/">生の道<span class="sidebar_archives-count">1</span></a>
+            </li></ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="tags">
+                
+                    <i class="material-icons sidebar-material-icons">sentiment_very_satisfied</i>
+                
+                tags
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="华彩">
+                
+                    <i class="material-icons sidebar-material-icons">favorite_border</i>
+                
+                华彩
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            TT & LL @ <script type="text/javascript">var  fd = new Date();document.write("印迹深度："+ (((fd.getFullYear()-2018)*12 + (fd.getMonth()-0))*30 + (fd.getDate()-18)) + " 天 ");</script>
+            
+                <br>
+                
+                    <a>2018年01月18日15点25分，缘起</a>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">绛墨铤</div>
+                <div class="footer-develop-div">我的足迹</div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

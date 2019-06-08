@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            VBA常用技巧4--Shape（图形）、Chart（图表）对象 | 
+        
+        TT ❤ LL 印迹
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/June/favicon.png">
+    <link rel="icon" href="/img/June/favicon.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="生长的印迹">
+    <meta name="keywords" content=",VBA">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/atelier-dune-light.min.css?ZfnESUNClnkZBE6Ec0djTA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #6c5c7b !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #6c5c7b !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #6c5c7b !important;
+  }
+
+  .toTop {
+    background: #c06c84 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #c06c84;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #c06c84;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #c06c84;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/June/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="TT ❤ LL 印迹">
+    <meta name="msapplication-starturl" content="http://jiangmoting.com/2018/05/13/VBA常用技巧4--Shape（图形）、Chart（图表）对象/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="TT ❤ LL 印迹">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/June/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://jiangmoting.com/2018/05/13/VBA常用技巧4--Shape（图形）、Chart（图表）对象/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="VBA常用技巧4--Shape（图形）、Chart（图表）对象 | TT ❤ LL 印迹">
+    <meta property="og:image" content="/img/June/favicon.png">
+    <meta property="og:description" content="生长的印迹">
+    <meta property="og:article:tag" content="VBA"> 
+
+    
+        <meta property="article:published_time" content="Sun May 13 2018 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Tue Jun 05 2018 06:29:40 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://jiangmoting.com/2018/05/13/VBA常用技巧4--Shape（图形）、Chart（图表）对象/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://jiangmoting.com/2018/05/13/VBA常用技巧4--Shape（图形）、Chart（图表）对象/index.html",
+    "headline": "VBA常用技巧4--Shape（图形）、Chart（图表）对象",
+    "datePublished": "Sun May 13 2018 00:00:00 GMT+0800",
+    "dateModified": "Tue Jun 05 2018 06:29:40 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "绛墨铤",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/June/avatar.png"
+        },
+        "description": "心有猛虎，细嗅蔷薇"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "TT ❤ LL 印迹",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/June/favicon.png"
+        }
+    },
+    "keywords": ",VBA",
+    "description": "生长的印迹",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第4章-Shape（图形）、Chart（图表）对象"><span class="post-toc-number">1.</span> <span class="post-toc-text">第4章     Shape（图形）、Chart（图表）对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧53-在工作表中添加图形"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">技巧53     在工作表中添加图形</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧54-导出工作表中的图片"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">技巧54     导出工作表中的图片</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧55-在工作表中添加艺术字"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">技巧55     在工作表中添加艺术字</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧56-遍历工作表中的图形"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">技巧56     遍历工作表中的图形</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧57-移动、旋转图片"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">技巧57     移动、旋转图片</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧58-工作表中自动插入图片"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">技巧58     工作表中自动插入图片</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧59-固定工作表中图形的位置"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">技巧59     固定工作表中图形的位置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧60-使用VBA自动生成图表"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">技巧60     使用VBA自动生成图表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧61-使用独立窗口显示图表"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">技巧61     使用独立窗口显示图表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技巧62-导出工作表中的图表"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">技巧62     导出工作表中的图表</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/June/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                VBA常用技巧4--Shape（图形）、Chart（图表）对象
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/June/avatar.png" width="44px" height="44px" alt="Author Avatar">
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>绛墨铤</strong>
+        <span>5月 13, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/VBA/">VBA</a>
+    </li></ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=VBA常用技巧4--Shape（图形）、Chart（图表）对象&url=http://jiangmoting.com/2018/05/13/VBA常用技巧4--Shape（图形）、Chart（图表）对象/index.html&pic=http://jiangmoting.com/img/June/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=VBA常用技巧4--Shape（图形）、Chart（图表）对象&url=http://jiangmoting.com/2018/05/13/VBA常用技巧4--Shape（图形）、Chart（图表）对象/index.html&via=绛墨铤" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://jiangmoting.com/2018/05/13/VBA常用技巧4--Shape（图形）、Chart（图表）对象/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://jiangmoting.com/2018/05/13/VBA常用技巧4--Shape（图形）、Chart（图表）对象/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="第4章-Shape（图形）、Chart（图表）对象"><a href="#第4章-Shape（图形）、Chart（图表）对象" class="headerlink" title="第4章     Shape（图形）、Chart（图表）对象"></a>第4章     Shape（图形）、Chart（图表）对象</h2><h3 id="技巧53-在工作表中添加图形"><a href="#技巧53-在工作表中添加图形" class="headerlink" title="技巧53     在工作表中添加图形"></a>技巧53     在工作表中添加图形</h3><p>如果需要在工作表中添加图形对象，可以使用AddShape方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub AddShape()
+    Dim myShape As Shape
+    On Error Resume Next
+    Sheet1.Shapes(&quot;myShape&quot;).Delete
+    Set myShape = Sheet1.Shapes.AddShape(msoShapeRectangle, 40, 120, 280, 30)
+    With myShape
+        .Name = &quot;myShape&quot;
+        With .TextFrame.Characters
+            .Text = &quot;单击将选择Sheet2!&quot;
+            With .Font
+                .Name = &quot;华文行楷&quot;
+                .FontStyle = &quot;常规&quot;
+                .Size = 22
+                .ColorIndex = 7
+            End With
+        End With
+        With .TextFrame    
+            .HorizontalAlignment = -4108
+            .VerticalAlignment = -4108
+        End With
+        .Placement = 3
+     End With
+    myShape.Select
+    With Selection.ShapeRange
+        With .Line
+            .Weight = 1
+            .DashStyle = msoLineSolid
+            .Style = msoLineSingle
+            .Transparency = 0
+            .Visible = msoTrue
+            .ForeColor.SchemeColor = 40
+            .BackColor.RGB = RGB(255, 255, 255)
+        End With
+        With .Fill
+            .Transparency = 0
+            .Visible = msoTrue
+            .ForeColor.SchemeColor = 41
+            .OneColorGradient 1, 4, 0.23
+        End With
+    End With
+    Sheet1.Range(&quot;A1&quot;).Select
+    Sheet1.Hyperlinks.Add Anchor:=myShape, Address:=&quot;&quot;, _
+        SubAddress:=&quot;Sheet2!A1&quot;, ScreenTip:=&quot;选择Sheet2!&quot;
+    Set myShape = Nothing
+End Sub
+代码解析：
+AddShape过程在工作表中添加一个矩形并设置其外观等属性。
+第2行代码声明变量myShape的对象类型。
+第3、4行代码删除可能存在的名称为“myShape”的图形对象。
+第5行代码使用AddShape方法在工作表中添加一个矩形。当该方法应用于Shapes对象时，返回一个Shape对象，该对象代表工作表中的新自选图形，语法如下：
+expression.AddShape(Type, Left, Top, Width, Height)
+参数expression是必需的，返回一个Shapes对象。
+参数Type是必需的，指定要创建的自选图形的类型。
+参数Left和Top是必需的，以磅为单位给出自选图形边框左上角的位置。
+参数Width和Height是必需的，以磅为单位给出自选图形边框的宽度和高度。
+第7行代码将新建图形命名为“myShape”，向Shapes集合添加新的图形时，将对新添加的图形赋以默认的名称，若要为图形指定更有意义的名称，可指定其Name属性。
+第8行到第16行代码为矩形添加文字，并设定其格式。
+其中第8行代码使用TextFrame 属性和Characters方法返回该矩形的字符区域。应用于Shape对象的TextFrame 属性返回一个TextFrame对象，该对象包含指定图形对象的对齐和定位属性；Characters方法返回一个Characters对象，该对象代表某个图形的文本框中的字符区域，语法如下：
+expression.Characters(Start, Length)
+参数expression是必需的，返回一个指定文本框内Characters对象的表达式。
+参数Start是可选的，表示将要返回的第一个字符，如果此参数设置为 1 或被忽略，则Characters方法会返回以第一个字符为起始字符的字符区域。
+参数Length是可选的，表示要返回的字符个数。如果此参数被忽略，则Characters方法会返回该字符串的剩余部分（由Start参数指定的字符以后的所有字符）。
+第9行代码为矩形添加文字，应用于Characters对象的Text属性返回或设置对象的文本，为可读写的String类型。
+第10行到第15行代码设置矩形中文字的属性，应用于Characters对象Font属性返回一个Font对象，该对象代表指定对象的字体属性（字体名称、字体大小、字体颜色等），第11行代码设置字体名称，第12行代码设置字体样式，第13行代码设置字体大小，第14行代码颜色。
+第17行到第20行代码设定矩形中文字的对齐方式。应用于TextFrame对象的HorizontalAlignment属性返回或设置指定对象的水平对齐方式，可为表格 53 1所示的XlHAlign常量之一。</code></pre>
+<p>常量    值    描述<br>xlHAlignCenter    -4108    居中<br>xlHAlignCenterAcrossSelection    7    靠左<br>xlHAlignDistributed    -4117    分散对齐<br>xlHAlignFill    5    分散对齐<br>xlHAlignGeneral    1    靠左<br>xlHAlignJustify    -4130    两端对齐<br>xlHAlignLeft    -4131    靠左<br>xlHAlignRight    -4152    靠右<br>表格 53 1    HorizontalAlignment属性的XlHAlign常量<br>应用于TextFrame对象的VerticalAlignment属性返回或设置指定对象的垂直对齐方式，可为表格 53 2所示的XlHAlign常量之一。<br>常量    值    描述<br>xlVAlignCenter    -4108    居中<br>xlVAlignJustify    -4130    两端对齐<br>xlVAlignBottom    -4107    靠下<br>xlVAlignDistributed    -4117    分散对齐<br>xlVAlignTop    -4160    靠上<br>表格 53 2    VerticalAlignment属性的XlHAlign常量<br>第21行代码设置矩形大小和位置不随单元格而变，应用于Shape对象的Placement属性返回或设置对象与所在的单元格之间的附属关系，可为表格 53 3所示的XlPlacement常量之一。<br>常量    值    描述<br>xlFreeFloating    3    大小、位置均固定<br>xlMove    2    大小固定、位置随单元格而变<br>xlMoveAndSize    1    大小、位置随单元格而变<br>表格 53 3    XlPlacement常量<br>第24行到第32行代码设置矩形的边框线条格式，应用于ShapeRange集合的Line属性返回一个LineFormat 对象，该对象包含指定图形的线条格式属性。<br>其中第26行代码设置矩形线条粗细，第27行代码设置矩形线条的虚线样式，第28行代码设置矩形填充的透明度，第29行代码设置矩形为可见，第30行代码设置矩形的前景色，第31行代码设置矩形填充背景的颜色。<br>第33行到第38行代码设置矩形的内部填充格式，应用于ShapeRange集合的Fill属性返回FillFormat对象，该对象包含指定的图表或图形的填充格式属性。<br>其中第35行代码设置矩形内部的透明度，第36行代码设置矩形内部为可见，第37行代码设置矩形内部的前景色，第38行代码将矩形内部指定填充设为单色渐变，应用于 FillFormat对象的OneColorGradient方法将指定填充设为单色渐变，语法如下：<br>expression.OneColorGradient(Style, Variant, Degree)<br>其中参数Style是必需的，底纹样式，可为表格 54 1所示的MsoGradientStyle常量之一。<br>常量    值    描述<br>msoGradientDiagonalDown    4    斜下<br>msoGradientDiagonalUp    3    斜上<br>msoGradientFromCenter    7    无<br>msoGradientFromCorner    5    角部幅射<br>msoGradientFromTitle    6    中心幅射<br>msoGradientHorizontal    1    水平<br>msoGradientMixed    -2    无<br>msoGradientVertical    2    垂直<br>表格 53 4    MsoGradientStyle常量<br>参数Variant是必需的，渐变变量。取值范围为 1 到 4 之间，分别与“填充效果”对话框中“渐变”选项卡的四个渐变变量相对应。如果GradientStyle 设为 msoGradientFromCenter，则Variant参数只能设为 1 或 2。<br>参数Degree是必需的，灰度。取值范围为 0.0（表示最深）到 1.0（表示最浅）之间。<br>第42、43行代码为矩形对象添加超链接，应用于Hyperlinks对象的Add方法向指定的区域或图形添加超链接，语法如下：<br>expression.Add(Anchor, Address, SubAddress, ScreenTip, TextToDisplay)<br>参数expression是必需的，返回一个Hyperlinks对象。<br>参数Anchor是必需的，超链接的位置。可为Range对象或Shape对象。<br>参数Address是必需的，超链接的地址。<br>参数SubAddress是必需的，超链接的子地址。<br>参数ScreenTip是可选的，当鼠标指针停留在超链接上时所显示的屏幕提示。<br>参数TextToDisplay是可选的，要显示的超链接的文本。<br>运行AddShape过程结果如图 53 1所示。</p>
+<p>图 53 1    在工作表中添加图形</p>
+<h3 id="技巧54-导出工作表中的图片"><a href="#技巧54-导出工作表中的图片" class="headerlink" title="技巧54     导出工作表中的图片"></a>技巧54     导出工作表中的图片</h3><p>有时需要将工作表中的图形对象保存为单独的图像文件，可以使用Export方法将工作表中的图片以文件形式导出，如下面的代码所示。</p>
+<pre><code class="vb">Sub ExportShp()
+    Dim Shp As Shape
+    Dim FileName As String
+    For Each Shp In Sheet1.Shapes
+        If Shp.Type = msoPicture Then
+            FileName = ThisWorkbook.Path &amp; &quot;\&quot; &amp; Shp.Name &amp; &quot;.gif&quot;
+            Shp.Copy
+            With Sheet1.ChartObjects.Add(0, 0, Shp.Width + 28, Shp.Height + 30).Chart
+                .Paste
+                .Export FileName, &quot;gif&quot;
+                .Parent.Delete
+            End With
+        End If
+    Next
+End Sub
+代码解析：
+ExportShp过程将Sheet1工作表的所有图片以文件形式导出到同一目录中。
+第4行代码使用For Each...Next 语句遍历Sheet1工作表中的所有图形。
+第5行代码判断图形的类型是否为图片，应用于Shape对象的Type属性返回或设置图形类型，可以为表格 54 1所示的MsoShapeType常量之一。</code></pre>
+<p>常量    值    说明<br>msoShapeTypeMixed    -2    混合型图形<br>msoAutoShape    1    自选图形<br>msoCallout    2    没有边框线的标注<br>msoChart    3    图表<br>msoComment    4    批注<br>msoFreeform    5    任意多边形<br>msoGroup    6    图形组合<br>msoFormControl    8    窗体控件<br>msoLine    9    线条<br>msoLinkedOLEObject    10    链接式或内嵌OLE对象<br>msoLinkedPicture    11    剪贴画或图片<br>msoOLEControlObject    12    ActiveX 控件<br>msoPicture    13    图片<br>msoTextEffect    15    艺术字<br>msoTextBox    17    文本框<br>msoDiagram    21    组织结构图或其他图示<br>表格 54 1    MsoShapeType常量<br>第6行代码使用字符串变量FileName记录需导出图形的路径和名称。<br>第7行代码复制图形，应用于Shape对象的Copy方法将对象复制到剪贴板。<br>第8行代码使用Add方法在工作表中添加一个图表，应用于ChartObjects对象的Add 方法创建新的嵌入图表，语法如下：<br>expression.Add(Left, Top, Width, Height)<br>参数expression是必需的，返回一个ChartObjects对象。<br>参数Left、参数Top是必需的，以磅为单位给出新对象的初始坐标，该坐标是相对于工作表上单元格A1的左上角或图表的左上角的坐标。<br>参数Width、参数Height是必需的，以磅为单位给出新对象的初始大小。<br>第9行代码使用Paste方法将图形粘贴到新的嵌入图表中，应用于Chart对象的Paste方法将剪贴板中的图表数据粘贴到指定的图表中，语法如下：<br>expression.Paste(Type)<br>参数expression是必需的，返回一个Chart对象。<br>参数Type是可选的的，如果剪贴板中有图表，本参数指定要粘贴的图表信息。可为以下XlPasteType常量之一：xlFormats、xlFormulas或xlAll。默认值为xlAll，如果剪贴板中是数据不是图表，则不能使用本参数。<br>第10行代码使用Export方法将图表导出到同一目录中，应用于Chart对象的Export方法以图形格式导出图表，语法如下：<br>expression.Export(Filename, FilterName, Interactive)<br>其中参数Filename是必需的，被导出的文件的名称。<br>第10行代码删除新建的图表。因为Chart对象是不能使用Delete方法直接删除的，应先使用Parent属性返回指定对象的父对象，然后使用Delete方法删除。</p>
+<h3 id="技巧55-在工作表中添加艺术字"><a href="#技巧55-在工作表中添加艺术字" class="headerlink" title="技巧55     在工作表中添加艺术字"></a>技巧55     在工作表中添加艺术字</h3><p>在工作表中插入艺术字，可以使用AddTextEffect方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub TextEffect()
+    Dim myShape As Shape
+    On Error Resume Next
+    Sheet1.Shapes(&quot;myShape&quot;).Delete
+    Set myShape = Sheet1.Shapes.AddTextEffect _
+            (PresetTextEffect:=msoTextEffect15, _
+            Text:=&quot;我爱 Excel Home&quot;, FontName:=&quot;宋体&quot;, FontSize:=36, _
+            FontBold:=msoFalse, FontItalic:=msoFalse, _
+            Left:=100, Top:=100)
+    With myShape
+        .Name = &quot;myShape&quot;
+        With .Fill
+            .Solid
+            .ForeColor.SchemeColor = 55
+            .Transparency = 0
+        End With
+        With .Line
+            .Weight = 1.5
+            .DashStyle = msoLineSolid
+            .Style = msoLineSingle
+            .Transparency = 0
+            .ForeColor.SchemeColor = 12
+            .BackColor.RGB = RGB(255, 255, 255)
+        End With
+    End With
+    Set myShape = Nothing
+End Sub
+代码解析：
+TextEffect过程在工作表中插入艺术字并设置其格式。
+第3、4行代码删除工作表中可能存在的艺术字，以免重复添加。
+第5行到第9行代码使用AddTextEffect方法在工作表中插入艺术字，AddTextEffect方法创建艺术字对象。返回一个Shape对象，该对象代表新建的艺术字对象，语法如下：
+expression.AddTextEffect(PresetTextEffect, Text, FontName, FontSize, FontBold, FontItalic, Left, Top)
+参数expression是必需的，返回一个Shapes对象。
+参数PresetTextEffect是必需的，艺术字预置文本效果，可为MsoPresetTextEffect 常量之一，等同于在工作表中插入艺术字时的样式选项卡，如图 55 1所示。</code></pre>
+<p>图 55 1    艺术字样式<br>参数Text是必需的，艺术字对象中的文字。<br>参数FontName是必需的，艺术字对象中所用的字体名称。<br>参数FontSize是必需的，以磅为单位给出艺术字对象中所用的字体大小。<br>参数FontBold是必需的，在艺术字中要加粗的字体。<br>参数FontItalic是必需的，在艺术字中要倾斜的字体。<br>参数Left和参数Top是必需的，相对于文档的左上角、顶部，以磅为单位给出艺术字对象边框左上角的位置。<br>第11行代码将艺术字对象重命名为“myShape”。<br>第12行到第16行代码设置艺术字对象的填充格式。其中第13行代码将填充格式设置为均一的颜色，应用于FillFormat 对象的Solid方法将指定的填充格式设置为均一的颜色，可用本方法将带有渐进色、纹理、图案或背景的填充格式转换为单色的填充格式。第14行代码设置填充的颜色。第15行代码设置填充的透明度。<br>第17行到第24行代码设置艺术字对象的线条格式属性。其中第18行代码设置线条粗细，第19行代码设置线条虚线样式，第20行代码设置线条区域的样式，第21行代码设置线条的透明度，第22行代码设置前景色，第23行代码设置填充背景的颜色。<br>运行TextEffect过程工作表中如图 55 2所示。</p>
+<p>图 55 2    工作表中插入艺术字</p>
+<h3 id="技巧56-遍历工作表中的图形"><a href="#技巧56-遍历工作表中的图形" class="headerlink" title="技巧56     遍历工作表中的图形"></a>技巧56     遍历工作表中的图形</h3><p>工作表中的多个图形，如果使用系统缺省名称，如“文本框1”、“文本框2”这样前面是固定的字符串，后面是序号的，可以使用For…Next 语句遍历图形，如下面的代码所示。</p>
+<pre><code class="vb">Sub ErgShapes_1()
+    Dim i As Integer
+    For i = 1 To 4
+       Sheet1.Shapes(&quot;文本框 &quot; &amp; i).TextFrame.Characters.Text = &quot;&quot;
+    Next
+End Sub
+代码解析：
+ErgShapes_1过程清除工作表中四个图形文本框中的文字。
+第3行到第5行代码，使用Shapes属性在工作表上的三个图形文本框中循环。
+Shapes属性返回Shapes对象，代表工作表或图形工作表上的所有图形，可以使用Shapes（index）返回单个的Shape对象，其中index是图形的名称或索引号。
+返回单个的Shape对象后使用TextFrame 属性和Characters方法清除文本框中的字符，关于Shape对象的TextFrame 属性和Characters方法请参阅技巧53 。
+如果图形的名称没有规律，可以使用For Each...Next </code></pre>
+<p>语句循环遍历所有图形，根据Type属性返回的图形类型进行相应的操作，如下面的代码所示。</p>
+<pre><code class="vb">Sub ErgShapes_2()
+    Dim myShape As Shape
+    Dim i As Integer
+    i = 1
+    For Each myShape In Sheet1.Shapes
+        If myShape.Type = msoTextBox Then
+            myShape.TextFrame.Characters.Text = &quot;这是第&quot; &amp; i &amp; &quot;个文本框&quot;
+            i = i + 1
+        End If
+    Next
+End Sub
+代码解析：
+ErgShapes_2过程在工作表中的所有图形文本框中写入文本。
+第5行代码使用For Each...Next 语句循环遍历工作表中所有的图形对象。
+第6行到第9行代码如果图形对象是文本框则在文本框中写入文本。其中第6行代码根据Type属性判断图形对象是否为文本框，应用于Shape对象的Type属性返回或设置图形类型，MsoShapeType类型，请参阅表格 54 1 。
+第7行代码根据返回的Type属性值在所有的文本框内写入相应的文本，如图 56 1所示。</code></pre>
+<p>图 56 1    遍历所有的文本框</p>
+<h3 id="技巧57-移动、旋转图片"><a href="#技巧57-移动、旋转图片" class="headerlink" title="技巧57     移动、旋转图片"></a>技巧57     移动、旋转图片</h3><p>工作表中的图片可以移动、旋转，如下面的代码所示。</p>
+<pre><code class="vb">Sub MoveShape()
+    Dim i As Long
+    Dim j As Long
+    With Sheet1.Shapes(1)
+        For i = 1 To 3000 Step 5
+           .Top = Sin(i * (3.1416 / 180)) * 100 + 100
+           .Left = Cos(i * (3.1416 / 180)) * 100 + 100
+           .Fill.ForeColor.RGB = i * 100
+            For j = 1 To 10
+                .IncrementRotation -2
+                DoEvents
+            Next
+        Next
+    End With
+End Sub
+代码解析：
+MoveShape过程移动、旋转工作表中的图片并不断改变其填充的前景色。
+第6行代码设置图片的Top属性值，应用于Shape对象的Top属性设置图形的顶端到工作表顶端的距离。在循环的过程中使用Sin函数将Top属性值设置为一个圆形的弧度值。Sin函数返回指定参数的正弦值，语法如下：
+Sin(number)
+参数number表示一个以弧度为单位的角。
+Sin函数取一角度为参数值，并返回角的对边长度除以斜边长度的比值，将角度除以180后即能角度转换为弧度。
+第7行代码设置图片的Left属性值，应用于Shape对象的Left属性设置图形从左边界至 A 列左边界（在工作表中）或图表区左边界（在图表工作表中）的距离。在循环的过程中使用Cos函数将Left属性值设置为一个圆形的弧度值。Cos函数返回指定一个角的余弦值，语法如下：
+Cos(number)
+参数number表示一个以弧度为单位的角。
+Cos函数的number参数为一个角，并返回直角三角形两边的比值，该比值为角的邻边长度除以斜边长度之商，将角度除以180后即能角度转换为弧度。
+第8行代码设置图片填充的前景色随着循环的过程不断的变化。使用Fill属性返回一个FillFormat对象，FillFormat对象代表图形的填充格式，其ForeColor 属性设置对象填充的前景色。
+第9行到第11行代码在图形移动的过程中使用IncrementRotation方法设置图形绕 z 轴的转角，IncrementRotation方法以指定的度数为增量，更改指定的图形绕 z 轴的转角，语法如下：
+expression.IncrementRotation(Increment)
+参数expression是必需的，返回一个Shape对象。
+参数Increment是必需的，以度为单位指定图形在水平方向的旋转量，正值使图形按顺时针方向旋转，负值使图形按逆时针方向旋转。
+其中第11行是关键的代码，使用DoEvents函数转让控制权，否则达不到预计的视觉效果。
+运行MoveShape过程，工作表的图形在自身进行逆时针方向旋转的同时沿着一个圆形的弧度进行移动，并不断改变其填充的颜色。</code></pre>
+<h3 id="技巧58-工作表中自动插入图片"><a href="#技巧58-工作表中自动插入图片" class="headerlink" title="技巧58     工作表中自动插入图片"></a>技巧58     工作表中自动插入图片</h3><p>在日常工作中经常需要在工作表中插入大量图片，比如在如图 58 1所示的工作表中需要根据A列的名称在C列插入保存在同一目录中的相应的图片，如果使用手工插入不仅非常繁琐且极易出错，而使用VBA代码可以很好的完成操作。</p>
+<p>图 58 1    需插入图片的工作表<br>示例代码如下：</p>
+<pre><code class="vb">Sub insertPic()
+    Dim i As Integer
+    Dim FilPath As String
+    Dim rng As Range
+    Dim s As String
+    With Sheet1
+        For i = 3 To .Range(&quot;a65536&quot;).End(xlUp).Row
+            FilPath = ThisWorkbook.Path &amp; &quot;\&quot; &amp; .Cells(i, 1).Text &amp; &quot;.jpg&quot;
+            If Dir(FilPath) &lt;&gt; &quot;&quot; Then
+                .Pictures.Insert(FilPath).Select
+                Set rng = .Cells(i, 3)
+                With Selection
+                    .Top = rng.Top + 1
+                    .Left = rng.Left + 1
+                    .Width = rng.Width - 1
+                    .Height = rng.Height - 1
+                End With
+            Else
+                s = s &amp; Chr(10) &amp; .Cells(i, 1).Text
+            End If
+        Next
+        .Cells(3, 1).Select
+    End With
+    If s &lt;&gt; &quot;&quot; Then
+        MsgBox s &amp; Chr(10) &amp; &quot;没有照片!&quot;
+    End If
+End Sub
+代码解析：
+insertPic过程使用Insert方法在工作表中插入图片。
+第7行代码开始For...Next循环，循环的终值由工作表中A列单元格的行数所决定。
+第8行代码字符串变量FilPath保存A列名称单元格所对应的图片文件的路径和文件名，本例中图片文件的文件名应和A列中的名称一致。
+第9行到第11行代码使用Dir函数在同一文件夹中查找与A列单元格中的名称相对应的图片文件，如果对应的图片文件存在则使用Insert方法将图片插入到工作表中，并将C列的单元格赋给变量rng。
+Dir函数返回一个String，用以表示一个文件名、目录名或文件夹名称，它必须与指定的模式或文件属性、或磁盘卷标相匹配。如果已没有合乎条件的文件，则Dir函数会返回一个零长度字符串 (&quot;&quot;)。
+第12行到第17行代码，当图片片插入到工作表时其实是插入到活动单元格的，此时需设置图片的Top属性和Left属性将图片移动到C列所对应的单元格中，并设置其Width属性和Height属性使其适应所在单元格的大小。
+第18、19行代码如果在同一文件夹中没有与A列单元格对应的图片文件，则使用字符串变量s保存没有图片文件的名称。
+第24行到第26行代码如果字符串变量s不等于空白说明文件夹中缺少图片文件，使用消息框提示。
+运行insertPic过程工作表如图 58 2所示。
+
+图 58 2    插入图片后的工作表
+如果文件夹中缺少对应的图片文件，则会进行提示，如图 58 3所示。</code></pre>
+<p>图 58 3    缺少图片文件提示</p>
+<h3 id="技巧59-固定工作表中图形的位置"><a href="#技巧59-固定工作表中图形的位置" class="headerlink" title="技巧59     固定工作表中图形的位置"></a>技巧59     固定工作表中图形的位置</h3><p>工作表中插入的图片，一般都是固定的尺寸和固定的单元格区域中的，但在实际使用中可能因一些人为的因素导致图片位置偏移或尺寸变化，此时可以使用VBA代码进行调整，如下面的代码所示。</p>
+<pre><code class="vb">Sub ShapeAddress()
+    Dim rng As Range
+    Set rng = Sheet1.Range(&quot;B4:E22&quot;)
+    With Sheet1.Shapes(&quot;Picture 1&quot;)
+        .Rotation = 0
+        .Select
+        With Selection
+            .Top = rng(1).Top + 1
+            .Left = rng(1).Left + 1
+            .Width = rng.Width - 0.5
+            .Height = rng.Height - 0.5
+        End With
+    End With
+    Range(&quot;A1&quot;).Select
+End Sub
+代码解析：
+ShapeAddress过程调整指定图形在工作表中的位置。
+第3行代码变量rng保存工作表中插入图片的单元格区域。。
+第5行代码设置图片的转角，应用于Shape对象Rotation属性以度为单位返回或设置图形的转角，设置为正值向右偏转，设置为负值向左偏转，设置为零图片则保持90度垂直。
+第7行到第12行代码设置图片的Top属性和Left属性将图片移动到变量rng所保存的单元格区域中，并设置其Width属性和Height属性使其适应所在单元格区域的大小。
+第14行代码选择A1单元格，不然图片会处于选中状态。
+经过以上设置，工作表中的图片“Picture 1”不管处于什么状态都可以一键恢复其原来的大小、位置。</code></pre>
+<h3 id="技巧60-使用VBA自动生成图表"><a href="#技巧60-使用VBA自动生成图表" class="headerlink" title="技巧60     使用VBA自动生成图表"></a>技巧60     使用VBA自动生成图表</h3><p>在实际工作中我们常用图表来表现数据间的某种相对关系，一般采用手工插入的方式，而使用VBA代码可以在工作表中自动生成图表，如下面的示例代码。</p>
+<pre><code class="vb">Sub ChartAdd()
+    Dim myRange As Range
+    Dim myChart As ChartObject
+    Dim R As Integer
+    With Sheet1
+        .ChartObjects.Delete
+        R = .Range(&quot;A65536&quot;).End(xlUp).Row
+        Set myRange = .Range(&quot;A&quot; &amp; 1 &amp; &quot;:B&quot; &amp; R)
+        Set myChart = .ChartObjects.Add(120, 40, 400, 250)
+        With myChart.Chart
+            .ChartType = xlColumnClustered
+            .SetSourceData Source:=myRange, PlotBy:=xlColumns
+            .ApplyDataLabels ShowValue:=True
+            .HasTitle = True
+            .ChartTitle.Text = &quot;图表制作示例&quot;
+            With .ChartTitle.Font
+                .Size = 20
+                .ColorIndex = 3
+                .Name = &quot;华文新魏&quot;
+            End With
+            With .ChartArea.Interior
+                .ColorIndex = 8
+                .PatternColorIndex = 1
+                .Pattern = xlSolid
+            End With
+            With .PlotArea.Interior
+                .ColorIndex = 35
+                .PatternColorIndex = 1
+                .Pattern = xlSolid
+            End With
+            .SeriesCollection(1).DataLabels.Delete
+            With .SeriesCollection(2).DataLabels.Font
+                .Size = 10
+                .ColorIndex = 5
+            End With
+        End With
+    End With
+    Set myRange = Nothing
+    Set myChart = Nothing
+End Sub
+代码解析：
+ChartAdd过程在工作表中自动生成图表，图表类型为簇状柱形图。
+第6行代码使用Delete方法删除工作表中已经存在的图表，而ChartObjects方法返回代表工作表中单个嵌入图表（ChartObject对象）或所有嵌入图表的集合（ChartObjects对象）的对象，语法如下：
+expression.ChartObjects(Index)
+其中参数Index是可选的，指定图表的名称或号码。该参数可以是数组，用于指定多个图表，因为示例中只有一个图表，所以无需指定其Index参数。
+第8行代码指定图表的数据源。
+第9行代码使用Add方法创建一个新图表，应用于ChartObjects对象的Add方法创建新的嵌入图表，语法如下：
+expression.Add(Left, Top, Width, Height)
+参数Left、Top是必需的，以磅为单位给出新对象的初始坐标，该坐标是相对于工作表上单元格A1的左上角或图表的左上角的坐标。
+参数Width、Height是必需，以磅为单位给出新对象的初始大小。
+第10行代码使用Chart属性返回新创建的图表，应用于ChartObject对象的Chart属性返回一个Chart对象，该对象代表指定对象所包含的图表。
+第11行代码指定新创建图表的图表类型，应用于Chart对象的ChartType属性返回或设置图表的类型，可以为XlChartType常量之一，具体请参阅VBA帮助。本例中设置为xlColumnClustered即图表类型为簇状柱形图。
+第12行代码指定图表的数据源和绘图方式，应用于Chart对象的SetSourceData方法为指定图表设置源数据区域，语法如下：
+expression.SetSourceData(Source, PlotBy)
+参数expression是必需的，该表达式返回一个Chart对象。
+参数Source是可选的，源数据的区域。
+参数PlotBy是可选的，指定数据绘制方式，可为xlColumns（系列产生在列）或xlRows（系列产生在行）。
+第13行代码使用ApplyDataLabels方法使图表显示数据标签和数据点的值，应用于Chart对象的ApplyDataLabels方法将数据标签应用于图表中的某一数据点、某一数据系列或所有数据系列，语法如下：
+expression.ApplyDataLabels(Type, LegendKey, AutoText, HasLeaderLines, ShowSeriesName, ShowCategoryName, ShowValue, ShowPercentage, ShowBubbleSize, Separator)
+参数expression是必需的，该表达式返回一个Chart对象。
+参数Type是可选的，要应用的数据标签的类型，可为表格 60 1所列的XlDataLabelsType 常量之一。</code></pre>
+<p>常量    值    描述<br>xlDataLabelsShowBubbleSizes    6    无<br>xlDataLabelsShowLabelAndPercent    5    占总数的百分比及数据点所属的分类。仅用于饼图或圆环图。<br>xlDataLabelsShowPercent    3    占总数的百分比。仅用于饼图或圆环图。<br>xlDataLabelsShowLabel    4    数据点所属的分类。<br>xlDataLabelsShowNone    -4142    无数据标签。<br>xlDataLabelsShowValue    2    数据点的值，若未指定本参数，默认使用此设置。<br>表格 60 1    XlDataLabelsType 常量<br>参数LegendKey是可选的，如果该值为True，则显示数据点旁的图例项标示。默认值为False。<br>参数AutoText是可选的，如果对象根据内容自动生成正确的文字，则该值为True。<br>参数HasLeaderLines是可选的，如果数据系列具有引导线，则该值为True。<br>参数ShowSeriesName是可选的，数据标签的系列名称。<br>参数ShowCategoryName是可选的，数据标签的分类名称。<br>参数ShowValue是可选的，数据标签的值。<br>参数ShowPercentage是可选的，数据标签的百分比。<br>参数ShowBubbleSize是可选的，数据标签的气泡尺寸。<br>参数Separator是可选的，数据标签的分隔符。<br>第14、15行代码设置新创建的图表有可见的标题并设置图表标题的文字。应用于Chart对象的HasTitle属性，如果坐标轴或图表有可见标题，则该值为True，而ChartTitle属性返回一个ChartTitle对象，代表指定图表的标题。<br>第16行到第20行代码设置图表标题文字的格式。<br>第21行到第25行代码设置图表区的颜色。<br>第26行到第30行代码设置绘图区的颜色。<br>第31行代码删除图表上第一个数据系列中的数据标签。SeriesCollection方法返回图表或图表组中单个数据系列（Series对象)或所有数据系列的集合（SeriesCollection集合)的对象，语法如下：<br>expression.SeriesCollection(Index)<br>可选的Index参数指定数据系列的名称或编号。<br>而DataLabels方法则返回代表数据系列中的单个数据标签（DataLabel对象）或所有数据标签的集合（DataLabels集合）的对象，语法如下：<br>expression.DataLabels(Index)<br>可选的Index参数指定数据系列中的数据标签的编号。<br>第32行到第36行代码设置图表上第二个数据系列中的数据标签的字体格式。<br>运行ChartAdd过程，在工作表中创建簇状柱形图，如图 60 1所示。</p>
+<p>图 60 1    创建簇状柱形图</p>
+<h3 id="技巧61-使用独立窗口显示图表"><a href="#技巧61-使用独立窗口显示图表" class="headerlink" title="技巧61     使用独立窗口显示图表"></a>技巧61     使用独立窗口显示图表</h3><p>如果需要将工作表中嵌入的图表显示在独立的窗口中，可以使用下面的代码。</p>
+<pre><code class="vb">Sub ChartShow()
+    With Sheet1.ChartObjects(1)
+        .Activate
+        .Chart.ShowWindow = True
+    End With
+    With ActiveWindow
+        .Top = 50
+        .Left = 50
+        .Width = 400
+        .Height = 280
+        .Caption = ThisWorkbook.Name
+    End With
+End Sub
+代码解析：
+ChartShow过程，将工作表中嵌入的图表显示在独立的窗口中。
+第2行到第5行代码将工作表中指定图表的ShowWindow属性设置为True，使用独立的窗口显示该图表。
+第7、8行代码指定活动窗口显示的位置。
+第9、10行代码调整活动窗口的大小使之适应图表的大小。
+第11行代码指定活动窗口标题栏中显示的标题。
+运行ChartShow过程结果如图 61 1所示。</code></pre>
+<p>图 61 1    使用独立窗口显示图表</p>
+<h3 id="技巧62-导出工作表中的图表"><a href="#技巧62-导出工作表中的图表" class="headerlink" title="技巧62     导出工作表中的图表"></a>技巧62     导出工作表中的图表</h3><p>如果需要将工作表中的图表保存为单独的图像文件，可以使用Export方法以图形文件格式导出图表，示例代码如下。</p>
+<pre><code class="vb">Sub ExportChart()
+    Dim myChart As Chart
+    Dim myFileName As String
+    Set myChart = Sheet1.ChartObjects(1).Chart
+    myFileName = &quot;myChart.jpg&quot;
+    On Error Resume Next
+    Kill ThisWorkbook.Path &amp; &quot;\&quot; &amp; myFileName
+    myChart.Export Filename:=ThisWorkbook.Path _
+        &amp; &quot;\&quot; &amp; myFileName, Filtername:=&quot;JPG&quot;
+    MsgBox &quot;图表已保存在[&quot; &amp; ThisWorkbook.Path &amp; &quot;]文件夹中!&quot;
+    Set myChart = Nothing
+End Sub
+代码解析：
+ExportChart过程使用Export方法将工作表中的图表以图形文件的形式导出。
+第4行代码指定工作表中的图表对象。
+第5行代码指定图形文件保存的文件名。
+第6、7行代码使用Kill语句删除文件夹中原有的图形文件。当文件夹中指定删除的文件不存在时Kill语句会出错所以需要使用On Error语句忽略错误。
+第8、9行代码使用Export方法将图表导出到同一目录中，应用于Chart对象的Export方法以图形文件格式导出图表，语法如下：
+expression.Export(Filename, FilterName, Interactive)
+其中参数Filename是必需的，被导出的文件的名称，示例中加上了文件保存的路径。
+参数FilterName是可选的，被导出的文件的图形格式，示例中文件以JPG文件格式保存。
+### 技巧63     多图表制作
+如果需要，我们可以为工作表中的每一个数据区域创建一张图表，在如图 63 1所示的工作表区域中，需要为每一个员工的全年数据创建一张图表。</code></pre>
+<p>图 63 1    数据区域<br>示例代码如下：</p>
+<pre><code class="vb">Sub ChartsAdd()
+    Dim myChart As ChartObject
+    Dim i As Integer
+    Dim R As Integer
+    Dim m As Integer
+    R = Sheet1.Range(&quot;A65536&quot;).End(xlUp).Row - 1
+    m = Abs(Int(-(R / 4)))
+    Sheet2.ChartObjects.Delete
+    For i = 1 To R
+        Set myChart = Sheet2.ChartObjects.Add _
+            (Left:=(((i - 1) Mod m) + 1) * 350 - 320, _
+            Top:=((i - 1) \ m + 1) * 220 - 210, _
+            Width:=330, Height:=210)
+        With myChart.Chart
+            .ChartType = xlColumnClustered
+            .SetSourceData Source:=Sheet1.Range(&quot;B2:M2&quot;).Offset(i - 1), _
+            PlotBy:=xlRows
+            With .SeriesCollection(1)
+                .XValues = Sheet1.Range(&quot;B1:M1&quot;)
+                .Name = Sheet1.Range(&quot;A2&quot;).Offset(i - 1)
+                .ApplyDataLabels AutoText:=True, ShowValue:=True
+                .DataLabels.Font.Size = 10
+            End With
+            .HasLegend = False
+            With .ChartTitle
+                .Left = 5
+                .Top = 1
+                .Font.Size = 14
+                .Font.Name = &quot;华文行楷&quot;
+            End With
+            With .PlotArea.Interior
+                .ColorIndex = 2
+                .PatternColorIndex = 1
+                .Pattern = xlSolid
+            End With
+            .Axes(xlCategory).TickLabels.Font.Size = 10
+            .Axes(xlValue).TickLabels.Font.Size = 10
+        End With
+    Next
+    Sheet2.Select
+    Set myChart = Nothing
+End Sub
+代码解析：
+ChartsAdd过程根据数据工作表A列的人数在图表工作表中创建图表并分4行排列整齐。
+第6行代码取得数据工作表中需要创建图表的人数。
+第7行代码计算图表工作表每行需要排列的图表数目，共分4行排列。使用Int函数返回图表数目除4行后的整数部分，使用负值是为了向上取整数，最后使用Abs函数返回绝对值，将负值转化为正值。
+第8行代码使用Delete方法删除图表工作表中存在的所有图表。
+第9行代码开始For...Next循环，循环的终值由需要创建的图表数目决定。
+第10行到第13行代码使用Add方法在图表工作表中创建嵌入的图表，关于应用于ChartObjects对象的Add方法请参阅技巧60 。其中第11、12行代码根据循环计数器的数值设置新创建图表的Left和Top属性使之依次排列。第13行代码设置图表的大小。
+第15行代码设置新创建图表的类型。
+第16、17行代码根据循环计数器的数值分别设置新创建图表的数据源。
+第18行到第23行代码设置图表第一个数据系列的名称、数据标签和字体格式。
+第24行代码删除图表中的图例。
+第25行到第30行代码设置图表的标题。
+第31行到第35行代码设置图表的绘图区。
+第36、37行代码设置图表坐标轴的字体大小。
+关于图表的设置请参阅技巧60 。
+运行ChartsAdd过程图表工作表中如所示。</code></pre>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/05/22/VBA常用技巧5--Application对象/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/05/10/VBA常用技巧3--Wordbook(工作簿)对象/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/June/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/June/avatar.png" alt="绛墨铤's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        jluyantt@163.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="https://mail.163.com/" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">album</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archiveshl/2018/06/">六月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archiveshl/2018/05/">五月 2018<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archiveshl/2018/04/">四月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archiveshl/2018/03/">三月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archiveshl/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a>
+            </li></ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/生の术/">生の术<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/categories/生の迹/">生の迹<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/生の道/">生の道<span class="sidebar_archives-count">1</span></a>
+            </li></ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="tags">
+                
+                    <i class="material-icons sidebar-material-icons">sentiment_very_satisfied</i>
+                
+                tags
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="华彩">
+                
+                    <i class="material-icons sidebar-material-icons">favorite_border</i>
+                
+                华彩
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            TT & LL @ <script type="text/javascript">var  fd = new Date();document.write("印迹深度："+ (((fd.getFullYear()-2018)*12 + (fd.getMonth()-0))*30 + (fd.getDate()-18)) + " 天 ");</script>
+            
+                <br>
+                
+                    <a>2018年01月18日15点25分，缘起</a>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">绛墨铤</div>
+                <div class="footer-develop-div">我的足迹</div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
