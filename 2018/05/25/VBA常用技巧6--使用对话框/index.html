@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="jiangmoting, autumn">
+    <title>
+        TT ❤ LL 印迹
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script>
+        infiniteScroll()
+
+        // for mobile menu
+        $(function () {
+            $('.social-button').click(function () {
+                if ($('.social-links').hasClass('hide-links')) {
+                    $('.social-links').removeClass('hide-links')
+                } else {
+                    $('.social-links').addClass('hide-links')
+                }
+            })
+        })
+    </script>
+</head>
+
+    <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <div class="container">
+            <header class="header">
+    <h1 class="title">
+        <a href="/" class="logo">
+            TT ❤ LL 印迹
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <nav class="links">
+        <button class="social-button">
+            menu
+        </button>
+        <ul class="social-links hide-links">
+            
+                <li>
+                    <a href="http://nipponcolors.com/">
+                        当下
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://nipponcolors.com/">
+                        未来
+                    </a>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+                <main class="main">
+                    <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/生の术/">
+            生の术
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        VBA常用技巧6--使用对话框
+    </h2>
+    <ul class="post-date">
+        <li>
+            2018-05-25
+        </li>
+        <li>
+            绛墨铤
+        </li>
+    </ul>
+    <div class="post-content">
+        <h2 id="第6章-使用对话框"><a href="#第6章-使用对话框" class="headerlink" title="第6章     使用对话框"></a>第6章     使用对话框</h2><h3 id="技巧73-使用Msgbox函数"><a href="#技巧73-使用Msgbox函数" class="headerlink" title="技巧73     使用Msgbox函数"></a>技巧73     使用Msgbox函数</h3><h4 id="73-1-显示简单的提示信息"><a href="#73-1-显示简单的提示信息" class="headerlink" title="73-1    显示简单的提示信息"></a>73-1    显示简单的提示信息</h4><p>在使用Excel的过程中，如果需要向用户显示简单的提示信息，可以使用MsgBox函数显示一个消息框，如下面的代码所示。</p>
+<pre><code class="vb">Sub mymsgbox()
+    MsgBox &quot;欢迎光临Excel Home!&quot;
+End Sub
+代码解析：
+Mymsgbox过程使用MsgBox函数显示一个消息框。MsgBox函数用于显示提示信息，语法如下：
+MsgBox(prompt[, buttons] [, title] [, helpfile, context])
+参数prompt是必需的，代表在消息框中作为信息显示的字符或字符串，最多只能接受约1024个字符，取决于所使用字符的宽度。
+参数buttons是可选的，用于指定消息框中显示按钮的数目及类型、使用的图标样式、缺省按钮以及消息框的强制回应等。如果省略，则buttons参数的缺省值为0，消息框只显示“确定”按钮。
+参数title是可选的，代表在消息框标题栏中作为标题的字符或字符串。如果省略，则在标题栏中显示“Microsoft Excel”。
+参数helpfile和参数context是可选的，用来为消息框提供上下文相关帮助的帮助文件和帮助主题。如果提供了其中一个参数，则必须提供另一个参数，两者缺一不可。
+运行Mymsgbox过程，显示如图 73 1所示的消息框。</code></pre>
+<h4 id="73-2-定制个性化的消息框"><a href="#73-2-定制个性化的消息框" class="headerlink" title="73-2    定制个性化的消息框"></a>73-2    定制个性化的消息框</h4><p>如果希望MsgBox函数显示的消息框具有特定的按钮、图标和标题栏，那么可以使用MsgBox函数的buttons参数和title参数，如下面的代码所示。</p>
+<pre><code class="vb">Sub Specialmsbox()
+    MsgBox Prompt:=&quot;欢迎光临 Excel Home!&quot;, _
+        Buttons:=vbOKCancel + vbInformation, _
+        Title:=&quot;Excel Home&quot;
+End Sub
+代码解析：
+Specialmsbox过程使用MsgBox函数显示一个具有特定的按钮、图标和标题栏的消息框。
+第3行代码设置消息框的Buttons参数，使消息框显示时具有“确定”、“取消”按钮和信息消息图标。MsgBox函数的buttons参数设置值如表格 73 1所示。</code></pre>
+<p>参数组    常数    值    描述<br>第一组设置消息框按钮数目和类型    vbOKOnly    0    只显示“确定”按钮（默认设置）<br>    VbOKCancel    1    显示“确定”和“取消”按钮<br>    VbAbortRetryIgnore    2    显示“放弃”、“重试”、和“忽略”按钮<br>    VbYesNoCancel    3    显示“是”、“否”和“取消”按钮<br>    VbYesNo    4    显示“是”和“否”按钮<br>    VbRetryCancel    5    显示“重试”和“取消”按钮<br>第二组设置图标的风格    VbCritical    16    显示危险消息图标<br>    VbQuestion    32    显示警告询问图标<br>    VbExclamation    48    显示警告消息图标<br>    VbInformation    64    显示信息消息图标<br>第三组设置默认按钮    vbDefaultButton1    0    第一个按钮为默认按钮<br>    vbDefaultButton2    256    第二个按钮为默认按钮<br>    vbDefaultButton3    512    第三个按钮为默认按钮<br>    vbDefaultButton4    768    第四个按钮为默认按钮<br>第四组设置消息框特征    vbApplicationModal    0    应用程序模式：用户必须对消息框作出响应才能继续使用当前的应用程序<br>    vbSystemModal    4096    系统模式：应用程序都被挂起直至用户对消息框作出响应<br>第五组附加选项    vbMsgBoxHelpButton    16384    在消息框上添加“帮助”按钮<br>    VbMsgBoxSetForeground    65536    将消息框设置为前景窗口<br>    vbMsgBoxRight    524288    显示右对齐的消息框<br>    vbMsgBoxRtlReading    1048576    指定在希伯来和阿拉伯语系统中显示的文本应当从右到左阅读<br>表格 73 1    MsgBox函数的buttons参数值<br>在设定buttons参数值时，这些值可以相加使用，但每一组中只能选择一个值。在程序代码中也可以使用buttons参数的常数名称，而不必使用实际数值。<br>第4行代码将消息框的Title参数设置为“Excel Home”，使消息框的标题栏显示“Excel Home”。<br>运行Specialmsbox过程后，显示一个如图 73 2所示的消息框，该消息框具有“Excel Home”标题、信息消息图标和“确定”、“取消”按钮并以“确定”按钮作为默认按钮。 </p>
+<p>图 73 2    具有特定按钮、图标和标题栏的消息框</p>
+<h4 id="73-3-获得消息框的返回值"><a href="#73-3-获得消息框的返回值" class="headerlink" title="73-3    获得消息框的返回值"></a>73-3    获得消息框的返回值</h4><p>如果希望能根据用户对于消息框的不同选择，进行相应的操作，可以对消息框的返回值进行判断，如下面的代码所示。</p>
+<pre><code class="vb">Private Sub Workbook_BeforeClose(Cancel As Boolean)
+    Dim iMsg As Integer
+    iMsg = MsgBox(&quot;文件即将关闭,是否保存?&quot;, 3 + 32)
+    Select Case iMsg
+        Case 6
+            Me.Save
+        Case 7
+            Me.Saved = True
+        Case 2
+            Cancel = True
+    End Select
+End Sub
+代码解析：
+工作簿的BeforeClose过程，在关闭工作簿前使用MsgBox函数显示一个消息框，并根据用户的回应用进行相应的操作。
+第3行代码，使用MsgBox函数显示一个具有“是”、“否”和“否”按钮的消息框，并把用户的回应，即消息框的返回值赋给变量iMsg。MsgBox是一个函数，这意味着它将返回一个值，如果希望获得返回值，可使用和第3行相似的代码，此时如果不使用括号将参数封闭起来，则会提示编译错误，如图 73 3所示。
+
+图 73 3    提示编译错误
+第4行到第11行代码，Select Case结构语句，根据变量iMsg的值判断用户的回应，如果变量iMsg的值为6，说明用户选择了“是”按钮，则使用Save方法保存工作簿；如果变量iMsg的值为7，说明用户选择了“否”按钮，则将工作簿的Saved属性设置为True，不保存更改而直接关闭工作簿。关于Save方法和Saved属性请参阅技巧45-2。如果变量iMsg的值为2，说明用户选择了“取消”按钮，是将BeforeClose过程的Cancel 参数设置为True，取消关闭工作簿操作。
+MsgBox函数的返回值如表格 73 2所示，在程序代码中也可以使用常数名称，而不必使用实际数值。</code></pre>
+<p>常数    值    描述<br>vbOK    1    确定<br>vbCancel    2    取消<br>vbAbort    3    放弃<br>vbRetry    4    重试<br>vbIgnore    5    忽略<br>vbYes    6    是<br>vbNo    7    否<br>表格 73 2    MsgBox函数的返回值<br>在关闭本工作簿时将显示一个如图 73 4所示的消息框，询问用户是否保存，并根据用户的回应用进行相应的操作。</p>
+<p>图 73 4    询问消息框</p>
+<h4 id="73-4-在消息框中排版"><a href="#73-4-在消息框中排版" class="headerlink" title="73-4    在消息框中排版"></a>73-4    在消息框中排版</h4><p>如果在消息框中显示的字符串很长，比如是一段多行的文字内容，为了达到美观的效果，需要首字缩进，并将各行分隔开来，如下面代码所示。</p>
+<pre><code class="vb">Sub Newlinemsbox()
+    MsgBox Space(4) &amp; &quot;欢迎来到 ExcelHome 技术论坛，全球最领先的 Excel 技术论坛之一。&quot; &amp; Chr(10) _
+        &amp; Space(4) &amp; &quot;在这里，我们讨论 Microsoft  Office 系列产品的应用技术，重点讨论&quot; &amp; Chr(10) _
+        &amp; &quot;Microsoft Excel。&quot; &amp; Chr(10) _
+        &amp; Space(4) &amp; &quot;本论坛从属于 Excel Home 这一全球最大的华语 Excel 技术门户，目前&quot; &amp; Chr(10) _
+        &amp; &quot;是个人、非营利性质的网站学习平台。&quot; &amp; Chr(10) _
+        &amp; Space(4) &amp; &quot;Let’s do it better! 这是 Excel Home 的口号，我们的宗旨是帮助大&quot; &amp; Chr(10) _
+        &amp; &quot;家解决在使用Office软件中的问题，提升自己的应用技能。&quot;
+End Sub
+代码解析：
+Newlinemsbox过程使用消息框显示一段经过排版后的文本内容。
+代码中使用Space 函数在每段的首字前插入4个空格，使首字缩进，在需要换行的地方插入换行符 （Chr(10)） 将各行分隔开来。也可以使用回车符 （Chr(13)）、或是回车与换行符的组合 （Chr(13) &amp; Chr（10)）换行。
+在程序代码中也可以使用vbCrLf、vbNewLine等常数，而不必使用Chr 函数，如表格 73 3所示。</code></pre>
+<p>常数    等于    描述<br>vbCrLf    Chr(13) + Chr(10)    回车符与换行符结合<br>vbCr    Chr(13)    回车符<br>vbLf    Chr(10)    换行符<br>vbNewLine    Chr(13) + Chr(10) or, on the Macintosh, Chr(13)    平台指定的新行字符<br>表格 73 3    回车符与换行符<br>运行Newlinemsbox过程, 用消息框显示一段经过排版后的文本内容,效果如图 73 5所示。</p>
+<p>图 73 5    在消息框中排版</p>
+<h4 id="73-5-对齐消息框中显示的信息"><a href="#73-5-对齐消息框中显示的信息" class="headerlink" title="73-5    对齐消息框中显示的信息"></a>73-5    对齐消息框中显示的信息</h4><p>在用消息框显示如图 73 6所示的工作表中多行多列的单元格区域时，如果只用换行符（Chr(10)）等进行换行，而数据列没有对齐，会使显示的信息显得杂乱无章，缺乏可读性，如图 73 7所示。</p>
+<p>图 73 6    工作表单元格区域</p>
+<p>图 73 7    没有对列进行分隔的消息框<br>为了达到消息框中显示信息各列对齐的效果，在使用换行符（Chr(10)）等进行换行的基础上，还需要使用制表符（Chr(9)）或常数vbTab，对数据列进行分隔，使之排列整齐，如下面代码所示。</p>
+<pre><code class="vb">Sub Outmsbox()
+    Dim sMsg As String
+    Dim iRow As Integer
+    Dim iCom As Integer
+    For iRow = 1 To 11
+        For iCom = 1 To 5
+            sMsg = sMsg &amp; Cells(iRow, iCom) &amp; Chr(9)
+        Next
+        sMsg = sMsg &amp; Chr(10)
+    Next
+    MsgBox sMsg
+End Sub
+代码解析：
+Outmsbox过程使用两层循环读取当前工作表中A1到E11单元格的内容，并用消息框显示出来。
+第7行代码，iCom循环中在把逐列读取的单元格内容赋给变量myMsg时插入一个制表符（Chr(9)），对列进行分隔。
+第9行代码，iRow循环中在读取下一行单元格内容赋给变量myMsg时插入一个换行符（Chr(10)），对行进行换行。
+运行Outmsbox过程将用消息框显示当前工作表中A1至E11单元格区域中的内容，并排列整齐，如图 73 8所示。</code></pre>
+<h3 id="技巧74-自动关闭的消息框"><a href="#技巧74-自动关闭的消息框" class="headerlink" title="技巧74     自动关闭的消息框"></a>技巧74     自动关闭的消息框</h3><p>在程序执行完毕后给用户一个提示信息，但用MsgBox函数显示的消息框将一直保持，需要用户单击“确定”或“关闭”按钮才会关闭。如果希望显示的消息框自动关闭，那么可以使用以下方法显示消息框。</p>
+<pre><code class="vb">74-1    使用WshShell.Popup方法显示消息框
+Sub WshShell()
+    Dim WshShell As Object
+    Set WshShell = CreateObject(&quot;Wscript.Shell&quot;)
+    WshShell.popup &quot;执行完毕!&quot;, 2, &quot;提示&quot;, 64
+    Set WshShell = Nothing
+End Sub
+代码解析：
+WshShell过程使用WshShell.Popup方法显示消息框，2秒后自动关闭。
+WshShell.Popup方法的语法如下：
+WshShell.Popup(strText, [natSecondsToWait], [strTitle], [natType]) = intButton
+参数strText是必需的，与Msgbox的Prompt参数类似，代表在消息框中作为信息显示的字符或字符串。如果显示的内容超过一行，可以在每一行之间用换行符 （Chr(10)）等将各行分隔开来。
+参数natSecondsToWait是可选的，其时间单位为妙。如果提供natSecondsToWait参数且其值大于零，则消息框在natSecondsToWait 参数指定的秒数后关闭。
+参数strTitle是可选的，代表在消息框标题栏中作为标题的字符或字符串，若省略，则窗口标题为“Windows 脚本宿主”。
+参数natType是可选的，指定消息框中显示按钮的数目及类型、使用的图标样式、缺省按钮以及消息框的强制回应等，与MsgBox函数buttons参数相同，请参阅技巧73-2中的表格 73 1。
+参数intButton指示用户所单击的按扭编号，与MsgBox函数的返回值相同，请参阅技巧73-3中的表格 73 2。若用户在natSecondsToWait 秒之前不单击按扭，则返回值为 -1 。
+运行WshShell过程显示一个如图 74 1所示消息框，无需点击“确定”按纽，2秒后自动关闭。</code></pre>
+<h4 id="74-2-使用API函数显示消息框"><a href="#74-2-使用API函数显示消息框" class="headerlink" title="74-2    使用API函数显示消息框"></a>74-2    使用API函数显示消息框</h4><p>使用API函数也可以达到这一效果，如下面的代码所示。</p>
+<pre><code class="vb">Public Declare Function SetTimer Lib &quot;user32&quot; ( _
+    ByVal hWnd As Long, _
+    ByVal nIDEvent As Long, _
+    ByVal uElaspe As Long, _
+    ByVal lpTimerFunc As Long) As Long
+Public Declare Function KillTimer Lib &quot;user32&quot; ( _
+    ByVal hWnd As Long, _
+    ByVal nIDEvent As Long) As Long
+    Dim TID As Long
+Sub Test()
+    TID = SetTimer(0, 0, 2000, AddressOf CloseTest)
+    MsgBox &quot;执行完毕!&quot;
+End Sub
+Sub CloseTest(ByVal hWnd As Long, ByVal uMsg As Long, ByVal idevent As Long, _
+    ByVal Systime As Long)
+    Application.SendKeys &quot;~&quot;, True
+    KillTimer 0, TID
+End Sub
+代码解析：
+第1行代码到第9行代码是API函数声明。
+Test过程显示一个消息框并在3秒钟后运行CloseTest过程。
+CloseTest过程发送一个确定键给Excel程序关闭显示的消息框。
+运行Test过程显示一个如图 74 2所示的消息框并在2秒钟后关闭。</code></pre>
+<h3 id="技巧75-使用InputBox函数"><a href="#技巧75-使用InputBox函数" class="headerlink" title="技巧75     使用InputBox函数"></a>技巧75     使用InputBox函数</h3><h4 id="75-1-简单的数据输入"><a href="#75-1-简单的数据输入" class="headerlink" title="75-1    简单的数据输入"></a>75-1    简单的数据输入</h4><p>Excel的使用过程中，有时需要用户输入简单的数据，此时可以使用InputBox函数显示一个对话框，供用户在对话框中输入数据信息，如下面的代码所示。</p>
+<pre><code class="vb">Sub myInputBox()
+    Dim sInt As String
+    Dim r As Integer
+    r = Sheet1.Range(&quot;A65536&quot;).End(xlUp).Row
+    sInt = InputBox(&quot;请输入人员姓名：&quot;)
+    If Len(Trim(sInt)) &gt; 0 Then
+        Sheet1.Cells(r + 1, 1) = sInt
+    Else
+        MsgBox &quot;您没有输入内容!&quot;
+    End If
+End Sub
+代码解析：
+myInputBox过程使用InputBox函数显示一个对话框供用户在对话框中输入数据，InputBox函数显示一个对话框，等待用户输入正文或按下按钮，并返回包含文本框内容的字符串，语法如下：
+InputBox(prompt[, title] [, default] [, xpos] [, ypos] [, helpfile, context])
+参数prompt是必需的，作为对话框消息出现的字符串表达式。
+参数title是可选的，作为显示在对话框标题栏中的字符串表达式，如果省略title参数，则在标题栏中显示“Microsoft Excel”。
+参数default是可选的，显示在文本框中的字符串表达式，在没有其它输入时作为缺省值，如果省略default参数，则文本框为空。
+参数xpos是可选的，指定对话框的左边与屏幕左边的水平距离。如果省略xpos参数，则对话框会在水平方向居中。
+参数ypos是可选的，指定对话框的上边与屏幕上边的距离。如果省略ypos参数，则对话框被放置在屏幕垂直方向距下边大约三分之一的位置。
+参数helpfile和参数context是可选的，为对话框提供上下文相关的帮助和编号，如果提供了其中一个参数，则必须提供另一个参数，两者缺一不可。
+第5行代码，使用InputBox函数显示一个提示用户输入邮政编码的对话框，其中“请输入人员姓名：”是必需的prompt参数，其他参数使用缺省值。
+第4行代码，使用Len函数和Trim函数判断返回的去除空格后的字符串长度。如果字符串长度大于零，说明用户单击了对话框的“确定”按钮，则将用户输入的数据写到工作表的A列单元格。如果返回的是长度为零的字符串，说明用户单击了对话框的“取消”按钮，则显示一条提示消息。
+因为当用户单击对话框的“确定”按钮后，InputBox函数返回包含文本框内容的字符串，如果用户单击对话框的“取消”按钮则返回一个长度为零的字符串（&quot;&quot;），通过返回的字符串长度可以判断用户做出的选择。
+运行sInput过程将显示一个提示用户输入数据的对话框，如图 75 1所示。</code></pre>
+<h4 id="75-2-使用对话框输入密码"><a href="#75-2-使用对话框输入密码" class="headerlink" title="75-2    使用对话框输入密码"></a>75-2    使用对话框输入密码</h4><p>使用InputBox函数显示的对话框输入密码简单方便，但有个明显的缺陷，就是输入过程中不能用占位符显示密码，不够安全。借助API函数可以在输入密码过程中以占位符“*”号来显示密码，如下面的代码所示。</p>
+<pre><code class="vb">Public Declare Function FindWindow Lib &quot;user32&quot; Alias &quot;FindWindowA&quot; (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
+Public Declare Function FindWindowEx Lib &quot;user32&quot; Alias &quot;FindWindowExA&quot; (ByVal hWnd1 As Long, ByVal hWnd2 As Long, ByVal lpsz1 As String, ByVal lpsz2 As String) As Long
+Public Declare Function SendMessage Lib &quot;user32&quot; Alias &quot;SendMessageA&quot; (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
+Public Declare Function timeSetEvent Lib &quot;winmm.dll&quot; (ByVal uDelay As Long, ByVal uResolution As Long, ByVal lpFunction As Long, ByVal dwUser As Long, ByVal uFlags As Long) As Long
+Public Declare Function timeKillEvent Lib &quot;winmm.dll&quot; (ByVal uID As Long) As Long
+Public Declare Function GetTickCount Lib &quot;kernel32&quot; () As Long
+Public Const EM_SETPASSWORDCHAR = &amp;HCC
+Public lTimeID As Long
+Sub TimeProc(ByVal uID As Long, ByVal uMsg As Long, ByVal dwUser As Long, ByVal dw1 As Long, ByVal dw2 As Long)
+    Dim hwd As Long
+    hwd = FindWindow(&quot;#32770&quot;, &quot;密码&quot;)
+    If hwd &lt;&gt; 0 Then
+        hwd = FindWindowEx(hwd, 0, &quot;edit&quot;, vbNullString)
+        SendMessage hwd, EM_SETPASSWORDCHAR, 42, 0
+        timeKillEvent lTimeID
+    End If
+  End Sub
+Sub Password()
+    Dim Password As Variant
+    lTimeID = timeSetEvent(10, 0, AddressOf TimeProc, 1, 1)
+    Password = InputBox(&quot;请输入密码：&quot;, &quot;密码&quot;)
+    If Password = &quot;123456&quot; Then
+        MsgBox &quot;密码正确!&quot;
+    Else
+        MsgBox &quot;密码错误!&quot;
+    End If
+End Sub
+代码解析：
+Password过程使用InputBox函数显示一个输入密码的对话框，并且以占位符“*”号显示输入的密码。
+第1行到第8行代码，API函数声明。
+第9行到第17行代码，TimeProc过程是timeSetEvent的回调函数，获得对话框句柄。
+第18行到第27行代码，Password过程显示一个提示用户输入密码的对话框。
+运行Password过程将显示一个密码输入框，输入的密码以占位符“*”号代替，如图 75 2所示。</code></pre>
+<h3 id="技巧76-使用InputBox方法"><a href="#技巧76-使用InputBox方法" class="headerlink" title="技巧76     使用InputBox方法"></a>技巧76     使用InputBox方法</h3><p>在Excel中输入简单的数据可以使用InputBox函数显示的对话框，但是如果输入的数据类型不匹配时，过程运行时会产生意外错误。为了避免此类情况发生，可以使用另一种获得用户输入的方式——InputBox方法。</p>
+<h4 id="76-1-输入指定类型的数据"><a href="#76-1-输入指定类型的数据" class="headerlink" title="76-1    输入指定类型的数据"></a>76-1    输入指定类型的数据</h4><p>使用InputBox方法输入数据时可以指定数据的类型，如下面的代码所示。</p>
+<pre><code class="vb">Sub dInput()
+    Dim dInput As Double
+    Dim r As Integer
+    r = Sheet1.Range(&quot;A65536&quot;).End(xlUp).Row
+    dInput = Application.InputBox(Prompt:=&quot;请输入数字：&quot;, Type:=1)
+    If dInput &lt;&gt; False Then
+        Sheet1.Cells(r + 1, 1).Value = dInput
+    Else
+        MsgBox &quot;你已取消了输入!&quot;
+    End If
+End Sub
+代码解析：
+dInput过程使用InputBox方法显示一个提示用户输入数字的对话框。
+InputBox方法显示一个接收用户输入的对话框，返回此对话框中输入的信息，语法如下：
+expression.InputBox(Prompt, Title, Default, Left, Top, HelpFile, HelpContextId, Type)
+参数expression是必需的，返回一个Application对象。
+参数Prompt是必需的，作为对话框消息显示的字符串表达式。
+参数Title是可选的，作为显示在对话框标题栏中的字符串表达式。如果省略Title参数，将使用默认的标题。
+参数Default是可选的，在对话框显示时出现在文本框中的初始值。如果省略Default参数，则文本框为空。
+参数Left是可选的，指定对话框相对于屏幕左上角的 x 坐标。
+参数Top是可选的，指定对话框相对于屏幕左上角的 y 坐标。
+参数HelpFile和参数HelpContextId是可选的，为对话框提供上下文相关的帮助和编号，如果提供了其中一个参数，则必须提供另一个参数，两者缺一不可。
+参数Type是可选的，指定返回的数据类型。如果省略Type参数，对话框将返回文本。
+InputBox方法的语法和InputBox函数的语法相似，最大的区别在于最后一个参数——Type。通过Type参数可以指定返回值的数据类型，表格 76 1列出了Type参数可以使用的数值。</code></pre>
+<p>数值    期望的返回值<br>0    一个公式<br>1    一个数字<br>2    文本（字符串）<br>4    一个逻辑值，例如true或false<br>8    一个单元格引用<br>16    一个错误值<br>64    一个值的数组<br>表格 76 1    Type参数的值<br>这些数值可以相加使用，如果希望返回数字和文本，可以将Type参数设置为1+2。<br>InputBox方法与InputBox函数相比，优点是内置的出错处理。在第5行代码中将Type参数值设置为1，这意味着对话框只能输入数值。当用户输入的不是数值时，显示一个如图 76 1所示的消息框提示输入错误。</p>
+<p>图 76 1    提示输入错误<br>第6行到第10行代码，如果用户单击对话框的“确定”按钮，将用户输入的数字写入工作表的A列单元格。如果用户单击对话框的“取消”按钮，则显示一条提示消息。<br>InputBox方法和InputBox函数的另一个区别是，当用户单击“取消”按纽时返回False而不是长度为零的字符串。<br>运行dInput过程将显示一个提示用户输入数字的对话框，如图 76 2所示。</p>
+<p>图 76 2    InputBox方法显示的对话框<br>注意 在VBA代码中，Application.InputBox 调用的是InputBox方法，不带对象识别符的InputBox调用的是InputBox 函数。\</p>
+<h4 id="76-2-获得单元格区域地址"><a href="#76-2-获得单元格区域地址" class="headerlink" title="76-2    获得单元格区域地址"></a>76-2    获得单元格区域地址</h4><p>InputBox方法很适合用户选择工作表单元格区域，并对所选择的单元格区域进行操作，如下面的代码所示。</p>
+<pre><code class="vb">Sub RngInput()
+    Dim rng As Range
+    On Error GoTo line
+    Set rng = Application.InputBox(&quot;请使用鼠标选择单元格区域：&quot;, , , , , , , 8)
+    rng.Interior.ColorIndex = 15
+line:
+End Sub
+代码解析：
+RngInput过程使用InputBox方法显示一个对话框，提示用户在工作表中选择一个单元格区域，并改变所选单元格区域内部的颜色。
+第3行代码，错误处理语句。因为当对话框显示后，如果用户单击“取消”按钮，将显示一错误信息，如图 76 3所示，所以必需使用On Error GoTo语句来绕过错误。
+
+图 76 3    提示运行错误
+第4行代码，使用Set语句将用户选择的单元格区域赋给变量rng。当Type参数设置为8时，将返回一个Range对象，必须用Set 语句将结果指定给一个Range对象。
+第5行代码，改变用户所选单元格区域内部的颜色。
+运行RngInput过程，将显示一个对话框，提示用户在工作表中选择一个单元格区域，并改变所选单元格区域内部的颜色，如图 76 4所示。</code></pre>
+<p>图 76 4    使用InputBox方法获得区域地址</p>
+<h3 id="技巧77-内置对话框"><a href="#技巧77-内置对话框" class="headerlink" title="技巧77     内置对话框"></a>技巧77     内置对话框</h3><h4 id="77-1-调用内置的对话框"><a href="#77-1-调用内置的对话框" class="headerlink" title="77-1    调用内置的对话框"></a>77-1    调用内置的对话框</h4><p>如果需要使用“打开”、“打印”等Excel内置对话框已经具有的功能，可以使用代码直接调用这些内置的对话框，如下面的代码所示。</p>
+<pre><code class="vb">Sub DialogOpen()
+    Application.Dialogs(xlDialogOpen).Show arg1:=ThisWorkbook.Path &amp; &quot;\*.xls&quot;
+End Sub
+代码解析：
+DialogOpen过程显示内置的“打开”对话框并选定示例所在的文件夹。
+显示内置对话框语法如下：
+Application.Dialogs(xlDialogConst).Show
+Dialogs集合代表所有的内置对话框，每个Dialog对象代表一个内置对话框，不能新建内置对话框或向该集合中添加内置对话框。
+参数xlDialogConst是内置对话框的内置常量，每个常量都以“xlDialog”开头，其后是对话框的名称，如“打开”对话框的常量为“xlDialogOpen”。常用内置对话框的内置常量如表格 77 1所示。</code></pre>
+<p>常量    值    说明<br>xlDialogActiveCellFont    476    单元格格式(字体）<br>xlDialogBorder    45    单元格格式(边框）<br>xlDialogCellProtection    46    单元格格式(保护）<br>xlDialogDeleteFormat    111    单元格格式(数字）<br>xlDialogFormatNumber    42    单元格格式(数字）<br>xlDialogPatterns    84    单元格格式(图案）<br>xlDialogClear    52    清除<br>xlDialogColumnWidth    47    列宽<br>xlDialogRowHeight    127    行高<br>xlDialogConditionalFormatting    583    条件格式<br>xlDialogDefineName    61    定义名称<br>xlDialogDefineStyle    229    样式<br>xlDialogDisplay    27    显示选项<br>xlDialogFont    26    字体<br>xlDialogSetBackgroundPicture    509    工作表背景<br>xlDialogInsert    55    插入<br>xlDialogInsertHyperlink    596    插入超链接<br>xlDialogInsertPicture    342    插入图片<br>xlDialogNew    119    新建工作簿<br>xlDialogOpen    1    打开<br>xlDialogSaveAs    5    另存为<br>xlDialogWorkbookCopy    283    移动或复制工作表（建立副本）<br>xlDialogWorkbookInsert    354    插入工作表<br>xlDialogWorkbookMove    282    移动或复制工作表<br>xlDialogWorkbookName    386    重命名工作表<br>xlDialogWorkbookNew    302    新建工作表<br>xlDialogWorkbookProtect    417    保护工作簿<br>xlDialogPageSetup    7    页面设置<br>xlDialogPrint    8    打印内容<br>xlDialogPrinterSetup    9    打印机设置<br>xlDialogPrintPreview    222    打印预览<br>xlDialogSetPrintTitles    23    设置打印标题<br>xlDialogRun    17    宏<br>xlDialogTable    41    模拟运算表<br>xlDialogSendMail    189    发送邮件<br>表格 77 1    内置对话框的内置常量<br>显示内置对话框使用Show方法，应用于Dialog对象的Show方法语法如下：<br>expression.Show(Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, Arg17, Arg18, Arg19, Arg20, Arg21, Arg22, Arg23, Arg24, Arg25, Arg26, Arg27, Arg28, Arg29, Arg30)<br>参数expression是必需的，返回Dialog对象之一。<br>参数arg1到参数arg30是可选的，仅应用于内置对话框，是命令的初始参数。若要查找要设置的参数，请在内置对话框参数列表中查找对应的对话框常量。<br>运行alogOpen过程，显示内置的“打开”对话框，并且直接选定示例所在的文件夹，如图 77 1所示。</p>
+<p>图 77 1    使用内置对话框</p>
+<h4 id="77-2-获取选定文件的文件名"><a href="#77-2-获取选定文件的文件名" class="headerlink" title="77-2    获取选定文件的文件名"></a>77-2    获取选定文件的文件名</h4><p>如果只希望获取用户在显示的内置 “打开”对话框中选定文件的文件名，而不想真正打开该文件，那么可以使用GetOpenFilename方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub OpenFilename()
+    Dim Filename As Variant
+    Dim mymsg As Integer
+    Dim i As Integer
+    Filename = Application.GetOpenFilename(Title:=&quot;删除文件&quot;, MultiSelect:=True)
+    If IsArray(Filename) Then
+        mymsg = MsgBox(&quot;是否删除所选文件?&quot;, vbYesNo, &quot;提示&quot;)
+        If mymsg = vbYes Then
+            For i = 1 To UBound(Filename)
+                Kill Filename(i) &#39;经询问用户后使用Kill语句从磁盘中删除用户选定的文件
+            Next
+        End If
+    End If
+End Sub
+代码解析：
+OpenFilename过程使用GetOpenFilename方法显示标准的内置“打开”对话框，获取用户选定文件的文件名后使用Kill语句删除。
+GetOpenFilename方法显示标准的内置“打开”对话框，获取文件名，语法如下：
+expression.GetOpenFilename(FileFilter, FilterIndex, Title, ButtonText, MultiSelect)
+参数expression是必需的，返回一个Application对象。
+参数FileFilter是可选的，指定文件筛选条件的字符串。如果省略，则默认参数值为“所有文件(*.*)”。
+参数FilterIndex是可选的，指定默认文件筛选条件的索引号，取值范围为 1 到由 FileFilter 所指定的筛选条件数目。如果省略，或者取值大于可用筛选数目，则采用第一个文件筛选条件。
+参数Title是可选的，指定对话框的标题。如果省略，则使用“打开”作为标题。
+参数ButtonText是可选的，仅用于Macintosh。
+参数MultiSelect是可选的，如果该值为True，则允许选定多个文件名，如果该值为False，则只允许选定单个文件名。默认值为False。
+第5行代码显示标准的“打开”对话框，将对话框的标题设置为“删除文件”，将MultiSelect参数设置为True，允许选定多个文件。
+第6行代码，获得返回值。当用户选定文件后，返回的是选定的文件名或用户输入的文件名。因为MultiSelect参数已设置为True，所以返回值将是一个包含所有选定文件名的数组（即使仅选定了一个文件名）。如果用户取消了对话框，则该值为False。
+第8行到第12行代码，经询问用户后使用Kill语句从磁盘中删除用户选定的文件。
+运行OpenFilename过程，显示标准的内置“打开”对话框，删除用户选定的文件，如所图 77 2示。
+注意 VBA中数组下界默认从0开始，但使用GetOpenFilename方法选择多个文件时返回的包含选定文件名的数组下界是从1开始。</code></pre>
+<h4 id="77-3-使用“另存为”对话框"><a href="#77-3-使用“另存为”对话框" class="headerlink" title="77-3    使用“另存为”对话框"></a>77-3    使用“另存为”对话框</h4><p>在备份文件时可以使用GetSaveAsFilename方法显示标准的内置“另存为”对话框，获取备份文件的文件名和保存路径，而无须真正保存任何文件。如下面的代码所示。</p>
+<pre><code class="vb">Sub CopyFilename()
+    Dim NowWorkbook As Workbook
+    Dim FileName As String
+    On Error GoTo line
+    FileName = Application.GetSaveAsFilename _
+        (InitialFileName:=&quot;D:\&quot; &amp; Date &amp; &quot; &quot; &amp; ThisWorkbook.Name, _
+        fileFilter:=&quot;Excel files(*.xls),*.xls,All files (*.*),*.*&quot;, _
+        Title:=&quot;数据备份&quot;)
+    If FileName &lt;&gt; &quot;False&quot; Then
+        Set NowWorkbook = Workbooks.Add
+        With NowWorkbook
+            .SaveAs FileName
+            ThisWorkbook.Sheets(&quot;Sheet2&quot;).UsedRange.Copy _
+            .Sheets(&quot;Sheet1&quot;).Range (&quot;A1&quot;)
+            .Save
+        End With
+        GoTo line
+    End If
+    Exit Sub
+line:
+    ActiveWorkbook.Close
+End Sub
+代码解析：
+CopyFilename过程使用GetSaveAsFilename方法显示标准的内置“另存为”对话框，获取备份文件的文件名和保存路径，新建工作簿保存备份数据。
+第4行代码，错误处理语句。备份过程中，如果已存在同名工作簿，会出现如图 77 3所示的提示，如果选择了“否”，此时新工作簿已经建立，在执行第12行代码时发生错误，使程序中断，所以使用GoTo语句执行第21行代码，关闭新建立的工作簿。
+
+图 77 3    文件已存在提示
+第5行代码，使用GetSaveAsFilename方法显示标准的内置“另存为”对话框。GetSaveAsFilename方法的语法如下：
+expression.GetSaveAsFilename(InitialFilename, FileFilter, FilterIndex, Title, ButtonText)
+参数expression是必需的，返回一个Application对象。
+参数InitialFilename是可选的，指定建议的文件名。如果省略，将活动工作簿的名称作为建议的文件名。
+参数FileFilter是可选的，指定文件筛选条件的字符串。
+参数FilterIndex是可选的，指定默认文件筛选条件的索引号，取值范围为 1 到 FileFilter 指定的筛选条件数目之间。如果省略，或者取值大于可用筛选数目，则采用第一个文件筛选条件。
+参数Title是可选的，指定对话框标题。如果省略，则使用默认标题。
+参数ButtonText是可选的，仅用于 Macintosh。
+第6行代码，设置对话框的保存路径为D盘，保存文件名为日期加工作簿名称。
+第7行代码，设置对话框文件保存类型为Excel文件类型。如果需要设置为文本类型需设置为“文本文件(*.txt), *.txt”，而如果是图片文件则需设置为“图片文件(*.bmp;*.jpg),* bmp;*.jpg”。
+第8行代码，设置对话框的标题为“数据备份”。
+第9行代码，如果用户没有取消操作。
+第10行到第16行代码，使用Add方法新建工作簿保存到对话框选定的路径中，将数据备份到新工作簿中。
+第17行代码，使用GoTo语句执行第21行代码，关闭新建工作簿和开启屏幕刷新。
+运行CopyFilename过程，显示内置“另存为”对话框，供用户备份工作簿数据，如图 77 4所示。</code></pre>
+<h3 id="技巧78-调用操作系统“关于”对话框"><a href="#技巧78-调用操作系统“关于”对话框" class="headerlink" title="技巧78     调用操作系统“关于”对话框"></a>技巧78     调用操作系统“关于”对话框</h3><p>VBA程序开发完成后，有时需要一个“关于”对话框，除了使用窗体外，还可以调用操作系统的“关于”对话框，显示自定义的内容，如下面的代码所示。</p>
+<pre><code class="vb">Private Declare Function ShellAbout Lib &quot;shell32.dll&quot; Alias &quot;ShellAboutA&quot; ( _
+        ByVal hwnd As Long, ByVal szApp As String, _
+        ByVal szOtherStuff As String, ByVal hIcon As Long) As Long
+Private Declare Function FindWindow Lib &quot;user32&quot; Alias &quot;FindWindowA&quot; ( _
+        ByVal lpClassName As String, ByVal lpWindowName As String) As Long
+Private Sub CommandButton1_Click()
+    Dim ApphWnd As Long
+    ApphWnd = FindWindow(&quot;XLMAIN&quot;, Application.Caption)
+    ShellAbout ApphWnd, &quot;财务处理系统&quot;, &quot;yuanzhuping@yeah.net  0513-86548930&quot;, 0
+End Sub
+代码解析：
+第1行到第5行代码是API函数声明。
+第8、9行代码调用操作系统的“关于”对话框并显示自定义的内容。
+代码运行后显示如图 78 1所示的对话框。</code></pre>
+
+    </div>
+</article>
+                </main>
+                <aside class="aside">
+                    <section class="aside-section">
+                        
+    <h1>Categories</h1>
+
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/生の术/">生の术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生の迹/">生の迹</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生の道/">生の道</a></li></ul>
+
+                    </section>
+                    <section class="aside-section">
+                        
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archiveshl/2018/">2018</a></li></ul>
+
+
+                    </section>
+                    <section class="aside-section tag">
+                        
+    <h1>Tags</h1>
+
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VBA/">VBA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据科学/">数据科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自言语/">自言语</a></li></ul>
+
+                    </section>
+                </aside>
+        </div>
+    </body>
+
+</html>

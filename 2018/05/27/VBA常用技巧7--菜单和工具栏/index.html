@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="jiangmoting, autumn">
+    <title>
+        TT ❤ LL 印迹
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script>
+        infiniteScroll()
+
+        // for mobile menu
+        $(function () {
+            $('.social-button').click(function () {
+                if ($('.social-links').hasClass('hide-links')) {
+                    $('.social-links').removeClass('hide-links')
+                } else {
+                    $('.social-links').addClass('hide-links')
+                }
+            })
+        })
+    </script>
+</head>
+
+    <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <div class="container">
+            <header class="header">
+    <h1 class="title">
+        <a href="/" class="logo">
+            TT ❤ LL 印迹
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <nav class="links">
+        <button class="social-button">
+            menu
+        </button>
+        <ul class="social-links hide-links">
+            
+                <li>
+                    <a href="http://nipponcolors.com/">
+                        当下
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://nipponcolors.com/">
+                        未来
+                    </a>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+                <main class="main">
+                    <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/生の术/">
+            生の术
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        VBA常用技巧7--菜单和工具栏
+    </h2>
+    <ul class="post-date">
+        <li>
+            2018-05-27
+        </li>
+        <li>
+            绛墨铤
+        </li>
+    </ul>
+    <div class="post-content">
+        <h2 id="第7章-菜单和工具栏"><a href="#第7章-菜单和工具栏" class="headerlink" title="第7章     菜单和工具栏"></a>第7章     菜单和工具栏</h2><h3 id="技巧79-在菜单中添加菜单项"><a href="#技巧79-在菜单中添加菜单项" class="headerlink" title="技巧79     在菜单中添加菜单项"></a>技巧79     在菜单中添加菜单项</h3><p>在Excel工作表的菜单中可以添加新的菜单项和子菜单，如下面的代码所示。</p>
+<pre><code class="vb">Sub myTools()
+    Dim myTools As CommandBarPopup
+    Dim myCap As Variant
+    Dim myid As Variant
+    Dim i As Byte
+    myCap = Array(&quot;基础应用&quot;, &quot;VBA程序开发&quot;, &quot;函数与公式&quot;, &quot;图表与图形&quot;, &quot;数据透视表&quot;)
+    myid = Array(281, 283, 285, 287, 292)
+    With Application.CommandBars(&quot;Worksheet menu bar&quot;)
+        .Reset
+        Set myTools = .Controls(&quot;帮助(&amp;H)&quot;).Controls.Add(Type:=msoControlPopup, Before:=1)
+        With myTools
+            .Caption = &quot;Excel Home 技术论坛&quot;
+            .BeginGroup = True
+            For i = 1 To 5
+                With .Controls.Add(Type:=msoControlButton)
+                    .Caption = myCap(i - 1)
+                    .FaceId = myid(i - 1)
+                    .OnAction = &quot;myC&quot;
+            End With
+            Next
+        End With
+    End With
+    Set myTools = Nothing
+End Sub
+代码解析：
+myTools过程使用Add方法在Excel工作表菜单栏中的“帮助”菜单中添加一个标题为“Excel Home 技术论坛”的菜单项和5个子菜单。
+第2行到第5行代码声明变量类型。
+第6、7行代码使用Array函数创建两个数组用于保存子菜单的名称和图标ID。
+第9行代码，在添加菜单项前先使用Reset方法重置菜单栏以免重复添加菜单项。Reset方法重置一个内置控件，恢复该控件原来对应的动作，并将各属性恢复成初始状态，语法如下：
+expression.Reset
+参数expression 是必需的，返回一个命令栏或命令栏控件对象。
+第10行代码，使用Add方法在Excel工作表菜单栏中的“帮助”菜单中添加菜单项。Add方法应用于CommandBarControls对象时，新建一个CommandBarControl对象并添加到指定命令栏上的控件集合，语法如下：
+expression.Add(Type, Id, Parameter, Before, Temporary)
+参数expression 是必需的，返回一个CommandBarControls对象，代表命令栏中的所有控件。
+参数Type是可选的，添加到指定命令栏的控件类型，可以为表格 79 1所列的MsoControlType常数之一。
+
+常数    值    控件类型
+msoControlButton    1    命令按钮
+msoControlEdit    2    文本框
+msoControlDropdown    3    下拉列表控制框
+msoControlComboBox    4    下拉组合控制框
+msoControlPopup    10    弹出式控件
+表格 79 1    MsoControlType常数
+因为在本例中将添加的是带有子菜单的菜单项，所以将参数Type设置为弹出式控件。
+参数Id是可选的，标识整数。如果将该参数设置为 1或者忽略，将在命令栏中添加一个空的指定类型的自定义控件。
+参数Parameter是可选的，对于内置控件，该参数用于容器应用程序运行命令。对于自定义控件，可以使用该参数向Visual Basic过程传递信息，或用其存储控件信息。
+参数Before是可选的，表示新控件在命令栏上位置的数字。新控件将插入到该位置控件之前。如果忽略该参数，控件将添加到指定命令栏的末端。本例中将Before参数设置为1，菜单项添加到“帮助”菜单的顶端。
+参数Temporary是可选的。设置为True将使添加的菜单项为临时的，在关闭应用程序时删除。默认值为False。
+第12行代码，设定新添加菜单项的Caption属性为“Excel Home 技术论坛”。Caption属性返回或设置命令栏控件的标题。
+第13行代码，设置新添加菜单项的BeginGroup属性为True，分组显示。
+第14行到第19行代码，在“Excel Home 技术论坛”菜单项上添加五个子菜单并设置其Caption属性、FaceId属性和OnAction属性。
+FaceId属性设置出现在菜单标题左侧的图标，以数字表示，一个数字代表一个内置的图标。</code></pre>
+<p>OnAction属性设置一个VBA的过程名，该过程在用户单击子菜单时运行，本例中设置为下面的过程。</p>
+<pre><code class="vb">Public Sub myC()
+    MsgBox &quot;您选择了： &quot; &amp; Application.CommandBars.ActionControl.Caption
+End Sub
+代码解析：
+myC过程是单击新添加子菜单所运行过程，为了演示方便在这里只使用MsgBox函数显示所其Caption属性。</code></pre>
+<p>删除新添加的菜单项及子菜单的代码如下所示。</p>
+<pre><code class="vb">Sub DelmyTools()
+    Application.CommandBars(&quot;Worksheet menu bar&quot;).Reset
+End Sub
+代码解析：
+DelmyTools过程使用Reset方法重置菜单栏，删除添加的菜单项及子菜单。
+为了在打开工作簿时自动添加菜单项，需要在工作簿的Activate事件中调用myTools过程，如下面的代码所示。
+Private Sub Workbook_Activate()
+    Call myTools
+End Sub
+为了在关闭工作簿时删除新添加的菜单项，还需要在工作簿的Deactivate事件中调用DelmyTools过程，如下面的代码所示。
+Private Sub Workbook_Deactivate()
+    Call DelmyTools
+End Sub
+如果希望这个菜单为所有工作簿使用，那么就应该在工作簿的Open事件中调用myTools过程，在BeforeClose事件中调用DelmyTools过程。
+运行myTools过程，将在Excel工作表菜单栏中的“帮助”菜单中添加一个名为“Excel Home 技术论坛”的菜单项及五个子菜单，如图 79 1所示。
+
+图 79 1    在“帮助”菜单中添加菜单项及子菜单</code></pre>
+<h3 id="技巧80-在菜单栏指定位置添加菜单"><a href="#技巧80-在菜单栏指定位置添加菜单" class="headerlink" title="技巧80     在菜单栏指定位置添加菜单"></a>技巧80     在菜单栏指定位置添加菜单</h3><p>除了可以在工作表菜单中添加菜单项外，还可以在工作表菜单栏的指定位置添加菜单，如下面的代码所示。</p>
+<pre><code class="vb">Sub AddNewMenu()
+    Dim HelpMenu As CommandBarControl
+    Dim NewMenu As CommandBarPopup
+    With Application.CommandBars(&quot;Worksheet menu bar&quot;)
+        .Reset
+        Set HelpMenu = .FindControl(ID:=.Controls(&quot;帮助(&amp;H)&quot;).ID)
+        If HelpMenu Is Nothing Then
+            Set NewMenu = .Controls.Add(Type:=msoControlPopup)
+        Else
+            Set NewMenu = .Controls.Add(Type:=msoControlPopup, _
+                Before:=HelpMenu.Index)
+        End If
+        With NewMenu
+            .Caption = &quot;统计(&amp;S)&quot;
+            With .Controls.Add(Type:=msoControlButton)
+                .Caption = &quot;输入数据(&amp;D)&quot;
+                .FaceId = 162
+                .OnAction = &quot;&quot;
+            End With
+            With .Controls.Add(Type:=msoControlButton)
+                .Caption = &quot;汇总数据(&amp;T)&quot;
+                .FaceId = 590
+                .OnAction = &quot;&quot;
+            End With
+        End With
+    End With
+    Set HelpMenu = Nothing
+    Set NewMenu = Nothing
+End Sub
+代码解析：
+AddNewMenu过程使用Add方法在工作表“帮助”菜单前添加一个标题为“统计”的菜单和两个菜单项。
+第6行代码，使用FindControl方法在工作表菜单栏中查找“帮助”菜单。应用于CommandBars对象的FindControl方法返回一个符合指定条件的CommandBarControl对象。语法如下：
+expression.FindControl(Type, Id, Tag, Visible, Recursive)
+参数expression是必需的，返回一个CommandBars对象。
+参数Type是可选的，要查找控件的类型。
+参数Id是可选的，要查找控件的标识符。
+参数Tag是可选的，要查找控件的标记值。
+参数Visible是可选，如果该值为True，那么只查找屏幕上显示的命令栏控件。默认值为False。
+参数Recursive是可选的，如果该值为True，那么将在命令栏及其全部弹出式子工具栏中查找。此参数仅应用于CommandBar对象。默认值为False。
+如果没有控件符合搜索条件，那么FindControl方法返回Nothing。
+第7行到第12行代码，如果工作表菜单栏中存在“帮助”菜单，将“统计”菜单添加到“帮助”菜单之前，否则添加到工作表菜单栏末尾。
+第12行到第25行代码，在“统计”菜单中添加两个子菜单并设置其各种属性。
+运行AddNewMenu过程，将在工作表菜单栏的“帮助”菜单之前添加一个“统计”菜单，如图 80 1所示。
+
+图 80 1    在工作表菜单栏中添加菜单</code></pre>
+<h3 id="技巧81-屏蔽和删除工作表菜单"><a href="#技巧81-屏蔽和删除工作表菜单" class="headerlink" title="技巧81     屏蔽和删除工作表菜单"></a>技巧81     屏蔽和删除工作表菜单</h3><p>如果不希望用户使用工作表菜单栏的部分功能，可以把菜单或菜单项屏蔽或删除，如下面的代码所示。</p>
+<pre><code class="vb">Sub Shibar()
+    With Application.CommandBars(&quot;Worksheet menu bar&quot;)
+        .Reset
+        .Controls(&quot;工具(&amp;T)&quot;).Controls(&quot;宏(&amp;M)&quot;).Enabled = False
+        .Controls(&quot;数据(&amp;D)&quot;).Delete
+    End With
+End Sub
+代码解析：
+Shibar过程屏蔽 “工具”菜单中的“宏”菜单项，删除菜单栏中的“数据”菜单。
+第3行代码，使用Reset方法重置工作表菜单栏。
+第4行代码，将“宏”菜单项的Enabled属性设置为False，使之无效。
+Enabled属性决定命令栏或命令栏控件是否激活，如果将该属性设置为 False，那么该菜单项将无效。
+第5行代码，使用Delete方法将“数据”菜单从工作表菜单栏中删除。
+Delete方法应用于命令栏或命令栏控件时，从集合中删除指定对象，语法如下：
+expression.Delete(Temporary)
+参数expression是必需的，返回命令栏或命令栏控件对象之一。
+参数Temporary是可选的，设置为True将从当前会话中删除控件，应用程序在下次会话时将再次显示控件。
+运行Shibar过程，将屏蔽工作表“工具”菜单中的“宏”菜单项和删除工作表菜单栏中的“数据”菜单，如图 81 1所示。
+
+图 81 1    屏蔽和删除工作表菜单</code></pre>
+<h3 id="技巧82-改变系统菜单的操作"><a href="#技巧82-改变系统菜单的操作" class="headerlink" title="技巧82     改变系统菜单的操作"></a>技巧82     改变系统菜单的操作</h3><p>利用VBA甚至可以改变系统菜单的默认操作，使之达到自定义菜单的效果，如下面的代码所示。</p>
+<pre><code class="vb">Dim WithEvents Saveas As CommandBarButton
+Private Sub Workbook_Open()
+    Set Saveas = Application.CommandBars(&quot;File&quot;).Controls(&quot;另存为(&amp;A)...&quot;)
+End Sub
+Private Sub Saveas_Click(ByVal Ctrl As Office.CommandBarButton, CancelDefault As Boolean)
+    CancelDefault = True
+    MsgBox &quot;本工作簿禁止另存!&quot;
+End Sub
+代码解析：
+第1行代码，在模块级别中使用关键词WithEvents声明变量Saveas是用来响应由CommandBarButton对象触发事件的对象变量。
+第2行到第4代码工作簿的Open事件过程，在工作簿打开时将变量Saveas赋值为系统菜单的“另存为”菜单。
+因为在声明变量Saveas时使用了关键词WithEvents，不能同时使用New关键词隐式地创建对象，所以在使用变量Saveas之前，必须使用Set语句将变量赋值为一个已有对象。
+第5行到第8代码变量Saveas的单击事件过程，改变系统菜单“另存为”的默认操作。
+变量Saveas的Click事件在用户单击系统菜单“另存为”时发生，语法如下：
+Private Sub CommandBarButton_Click(ByVal Ctrl As CommandBarButton,
+    ByVal CancelDefault As Boolean)
+参数Ctrl是必需的，指示初始化该事件的CommandBarButton控件。
+参数CancelDefault是必需的，Boolean类型，如果执行了与CommandBarButton控件关联的默认操作，该值为False。除非其他过程或加载项取消了此操作。
+第6、7行代码，将CancelDefault参数设置为True，使单击“另存为”菜单时并不执行默认操作而只显示一个消息框。
+将工作簿保存、关闭后，重新打开，单击“另存为”菜单并不执行默认操作，只显示一个消息框，如图 82 1所示。</code></pre>
+<p>图 82 1    改变系统菜单的默认操作</p>
+<h3 id="技巧83-定制自己的系统菜单"><a href="#技巧83-定制自己的系统菜单" class="headerlink" title="技巧83     定制自己的系统菜单"></a>技巧83     定制自己的系统菜单</h3><p>使用VBA开发的小型应用系统完成后，Excel原有的菜单栏完全可以舍弃不用，只使用自定义的菜单栏，更加方便快捷，如下面的代码所示。</p>
+<pre><code class="vb">Sub AddNowBar()
+    Dim NewBar As CommandBar
+    On Error Resume Next
+    With Application
+        .CommandBars(&quot;Standard&quot;).Visible = False 
+        .CommandBars(&quot;Formatting&quot;).Visible = False 
+        .CommandBars(&quot;Stop Recording&quot;).Visible = False
+        .CommandBars(&quot;toolbar list&quot;).Enabled = False
+        .CommandBars.DisableAskAQuestionDropdown = True
+        .DisplayFormulaBar = False 
+        .CommandBars(&quot;NewBar&quot;).Delete
+    End With
+    Set NewBar = Application.CommandBars.Add(Name:=&quot;NewBar&quot;, Position:=msoBarTop, MenuBar:=True, Temporary:=True)
+    With NewBar
+        .Visible = True
+        With .Controls.Add(Type:=msoControlPopup)
+            .Caption = &quot;系统设置(&amp;X)&quot;
+            .BeginGroup = True
+            With .Controls.Add(Type:=msoControlButton)
+                .Caption = &quot;保存(&amp;S)&quot;
+                .BeginGroup = True
+                .FaceId = 1975
+            End With
+            With .Controls.Add(Type:=msoControlButton)
+                .Caption = &quot;备份(&amp;B)&quot;
+                .BeginGroup = True
+                .FaceId = 747
+            End With
+        End With
+        With .Controls.Add(Type:=msoControlPopup)
+            .Caption = &quot;会计凭证(&amp;P)&quot;
+            .BeginGroup = True
+            With .Controls.Add(Type:=msoControlButton)
+                .Caption = &quot;录入(&amp;L)&quot;
+                .BeginGroup = True
+                .FaceId = 197
+            End With
+            With .Controls.Add(Type:=msoControlButton)
+                .Caption = &quot;审核(&amp;S)&quot;
+                .BeginGroup = True
+                .FaceId = 714
+            End With
+        End With
+        With .Controls.Add(Type:=msoControlPopup)
+            .Caption = &quot;会计账簿(&amp;Z)&quot;
+            .BeginGroup = True
+            With .Controls.Add(Type:=msoControlButton)
+                .Caption = &quot;记账(&amp;L)&quot;
+                .BeginGroup = True
+                .FaceId = 65
+            End With
+            With .Controls.Add(Type:=msoControlButton)
+                .Caption = &quot;结账(&amp;S)&quot;
+                .BeginGroup = True
+                .FaceId = 47
+            End With
+        End With
+        With .Controls.Add(Type:=msoControlPopup)
+            .Caption = &quot;会计报表(&amp;B)&quot;
+            .BeginGroup = True
+            With .Controls.Add(Type:=msoControlPopup)
+                .Caption = &quot;资产负债表(&amp;Y)&quot;
+                .BeginGroup = True
+                With .Controls.Add(Type:=msoControlButton)
+                    .Caption = &quot;月报(&amp;M)&quot;
+                    .BeginGroup = True
+                    .FaceId = 1180
+                End With
+                    With .Controls.Add(Type:=msoControlButton)
+                        .Caption = &quot;年报(&amp;Y)&quot;
+                        .BeginGroup = True
+                        .FaceId = 1188
+                    End With
+                End With
+            With .Controls.Add(Type:=msoControlPopup)
+                .Caption = &quot;损益表(&amp;S)&quot;
+                .BeginGroup = True
+                With .Controls.Add(Type:=msoControlButton)
+                    .Caption = &quot;月报(&amp;M)&quot;
+                    .BeginGroup = True
+                    .FaceId = 1180
+                End With
+                With .Controls.Add(Type:=msoControlButton)
+                    .Caption = &quot;年报(&amp;Y)&quot;
+                    .BeginGroup = True
+                    .FaceId = 1188
+                End With
+            End With
+        End With
+        With .Controls.Add(Type:=msoControlButton)
+            .Caption = &quot;退出系统(&amp;C)&quot;
+            .BeginGroup = True
+            .Style = msoButtonCaption
+        End With
+    End With
+    Set NewBar = Nothing
+End Sub
+代码解析：
+AddNowBar过程使用Add方法创建自定义菜单栏替换工作表菜单栏。
+第2行代码定义变量NwBar为命令栏。
+第3行代码忽略错误语句，以免第11行代码在删除可能不存在的“NewBar”菜单栏时发生错误。
+第5行代码隐藏“常用”工具栏。
+第6行代码隐藏“格式”工具栏。
+第7行代码隐藏“停止录制”工具栏。
+第8行代码屏蔽工具栏的右键快捷菜单。
+第9行代码屏蔽工具栏的“键入需要帮助的问题”下拉框。
+第10行代码屏蔽工具栏的编辑栏。
+第11行代码，在添加命令栏前先删除“NewBar”菜单栏，以免重复增加。
+第13行代码，使用Add方法创建命令栏。Add方法应用于CommandBars对象的语法如下：
+expression.Add(Name, Position, MenuBar, Temporary)
+参数expression是必需的，返回一个CommandBars对象，该对象代表应用程序中的命令栏，新建命令栏的控件均以该对象为载体。
+参数Name是可选的，设置新建命令栏的标题。如果忽略该参数，则为新建命令栏指定默认标题，本例中设置新建命令栏的标题为“NewBar”。
+参数Position是可选的，设置新建命令栏的位置或类型，可以为表格 83 1所列的 MsoBarPosition常数之一。
+常数    说明
+msoBarLeft、msoBarTop、msoBarRight 和 msoBarBottom    指定新命令栏的左侧、顶部、右侧和底部坐标
+msoBarFloating    指定新命令栏不固定
+msoBarPopup    指定新命令栏为快捷菜单
+msoBarMenuBar    仅适用于 Macintosh 机
+表格 83 1    MsoBarPosition 常数
+本例中设置“NewBar”命令栏的Position参数为msoBarTop，使“NewBar”命令栏位于Excel窗口的顶部。
+参数MenuBar是可选的，设置为True 将以新命令栏替换活动菜单栏，默认值为False。
+在本例中，设置“NewBar”命令栏的MenuBar属性为True，以“NewBar”命令栏替换活动菜单栏。
+参数Temporary是可选的，设置为True将使新建命令栏为临时命令栏，在关闭应用程序时删除，默认值为False。
+在本例中，设置“NewBar”命令栏的Temporary属性为True，使“NewBar”命令栏为临时命令栏，在关闭应用程序时删除。
+第15行代码，设置“NewBar”命令栏为可见的。
+第16行到95行代码，使用Add方法在“NewBar”命令栏中添加菜单、菜单项及子菜单并设置其各项属性，参阅技巧79 。</code></pre>
+<p>恢复Excel原有的菜单栏的代码如下：</p>
+<pre><code class="vb">Sub DelNowBar()
+    On Error Resume Next
+    With Application
+        .CommandBars(&quot;Standard&quot;).Visible = True
+        .CommandBars(&quot;Formatting&quot;).Visible = True
+        .CommandBars(&quot;Stop Recording&quot;).Visible = True
+        .CommandBars(&quot;toolbar list&quot;).Enabled = True
+        .CommandBars.DisableAskAQuestionDropdown = False
+        .DisplayFormulaBar = True
+        .CommandBars(&quot;NewBar&quot;).Delete
+    End With
+End Sub
+代码解析：
+DelNowBar过程取消 “常用”、“格式”和“停止录制”工具栏的的隐藏，恢复“键入需要帮助的问题”下拉框和编辑栏，删除“NewBar”命令栏。
+运行AddNowBar过程，工作表菜单栏如图 83 1所示。
+
+图 83 1    定制自己的系统菜单</code></pre>
+<h3 id="技巧84-改变菜单按钮图标"><a href="#技巧84-改变菜单按钮图标" class="headerlink" title="技巧84     改变菜单按钮图标"></a>技巧84     改变菜单按钮图标</h3><p>利用VBA可以改变系统菜单的默认图标，使之达到自定义按钮图标的效果，如下面的代码所示。</p>
+<pre><code class="vb">Sub myCbarCnt()
+    Dim myCbarCnt As CommandBarControl
+    With Sheet1.Shapes.AddShape(17, 1000, 1000, 30, 30)
+        .Fill.ForeColor.SchemeColor = 29
+        .CopyPicture
+        .Delete
+    End With
+    Set myCbarCnt = Application.CommandBars(&quot;Standard&quot;).Controls(1)
+    myCbarCnt.PasteFace
+    Set myCbarCnt = Nothing
+End Sub
+Sub DelmyCbarCnt()
+    Application.CommandBars(&quot;Standard&quot;).Controls(1).Reset
+End Sub
+代码解析：
+myCbarCnt过程改变系统菜单的“新建”按钮的图标。
+第3行代码使用Shape对象的AddShape方法在工作表中新建一个自选图形。应用于Shape对象的AddShape方法请参阅技巧53 。
+在本例中将新建图形的Left参数和Top参数设置为较大的数值使新建的自选图形不在当前窗口的可视区域内。
+第4行代码设置新建自选图形的颜色。
+第5行代码使用CopyPicture方法将新建自选图形作为图片复制到剪贴板。CopyPicture方法的语法如下：
+expression.CopyPicture(Appearance, Format)
+参数expression是必需的，一个有效的对象。
+参数Appearance是可选的，指定图片的复制方式。
+参数Format是可选的，图片的格式。
+第6行代码使用Delete方法删除新建的自选图形。
+第8行代码使用Set语句将系统菜单的“新建”按钮赋给变量myCbarCnt。
+第9行代码PasteFace方法将新建的自选图形粘贴到“新建”按钮中。PasteFace方法将“剪贴板”的内容粘贴到指定命令栏按钮控件上，语法如下：
+expression.PasteFace
+参数expression是必需的，返回一个CommandBarButton对象。
+DelmyCbarCnt过程使用Reset方法恢复“新建”按钮的默认图标。
+运行myCbarCnt过程结果如图 84 1所示。
+
+图 84 1    改变“新建”按钮的图标</code></pre>
+<h3 id="技巧85-右键快捷菜单增加菜单项"><a href="#技巧85-右键快捷菜单增加菜单项" class="headerlink" title="技巧85     右键快捷菜单增加菜单项"></a>技巧85     右键快捷菜单增加菜单项</h3><p>在Excel的右键快捷菜单中可以添加新的菜单项，如下面的代码所示。</p>
+<pre><code class="vb">Sub MyCmb()
+    Dim MyCmb As CommandBarButton
+    With Application.CommandBars(&quot;Cell&quot;)
+        .Reset
+        Set MyCmb = .Controls.Add(Type:=msoControlButton, _
+            ID:=2521, Before:=.Controls.Count, Temporary:=True)
+            MyCmb.BeginGroup = True
+        End With
+    Set MyCmb = Nothing
+End Sub
+代码解析：
+MyCmb过程使用Add方法在Excel的右键快捷菜单中添加内置的“打印”菜单项。
+在使用Add方法添加菜单项时将Id参数设置为2521，添加的就是内置的“打印”菜单项。将Before属性设置成右键快捷菜单中最后一个控件的值，使“打印”菜单项添加到右键快捷菜单中最后一个控件之前。将Temporary参数设置成True，在关闭应用程序时从右键快捷菜单中删除“打印”菜单项。
+运行MyCmb过程，将在Excel右键快捷菜单中添加 “打印”菜单项，如图 85 1所示
+
+图 85 1    在右键快捷菜单中添加菜单项</code></pre>
+<h3 id="技巧86-自定义右键快捷菜单"><a href="#技巧86-自定义右键快捷菜单" class="headerlink" title="技巧86     自定义右键快捷菜单"></a>技巧86     自定义右键快捷菜单</h3><p>在工作表中创建自定义的右键快捷菜单替换Excel默认的右键快捷菜单，如下面的代码所示。</p>
+<pre><code class="vb">Sub Mycell()
+    With Application.CommandBars.Add(&quot;Mycell&quot;, msoBarPopup)
+        With .Controls.Add(Type:=msoControlButton)
+            .Caption = &quot;会计凭证&quot;
+            .FaceId = 9893
+        End With
+        With .Controls.Add(Type:=msoControlButton)
+            .Caption = &quot;会计账簿&quot;
+            .FaceId = 284
+        End With
+        With .Controls.Add(Type:=msoControlPopup)
+            .Caption = &quot;会计报表&quot;
+            With .Controls.Add(Type:=msoControlButton)
+                .Caption = &quot;月报&quot;
+                .FaceId = 9590
+            End With
+            With .Controls.Add(Type:=msoControlButton)
+                .Caption = &quot;季报&quot;
+                .FaceId = 9591
+            End With
+            With .Controls.Add(Type:=msoControlButton)
+                .Caption = &quot;年报&quot;
+                .FaceId = 9592
+            End With
+        End With
+        With .Controls.Add(Type:=msoControlButton)
+            .Caption = &quot;凭证打印&quot;
+            .FaceId = 9614
+            .BeginGroup = True
+        End With
+        With .Controls.Add(Type:=msoControlButton)
+            .Caption = &quot;账簿打印&quot;
+            .FaceId = 707
+        End With
+        With .Controls.Add(Type:=msoControlButton)
+            .Caption = &quot;报表打印&quot;
+            .FaceId = 986
+        End With
+    End With
+End Sub
+代码解析：
+Mycell过程在Excel工作表中创建自定义的右键快捷菜单。
+第2行代码，使用Add方法添加名称为“Mycell”命令栏，设置“Mycell”命令栏的Position属性为msoBarPopup，使“Mycell”命令栏为快捷菜单。关于Position参数的MsoBarPosition常数请参阅技巧83 中的表格 83 1。
+第3行到第39行代码，使用Add方法在“Mycell”命令栏中添加菜单和菜单项，并设置其各项属性。</code></pre>
+<p>为了让自定义右键快捷菜单替换Excel默认的右键快捷菜单，并且只在右键单击Sheet1工作表时显示，需要在Sheet1工作表的BeforeRightClick事件中写入下面的代码。</p>
+<pre><code class="vb">Private Sub Worksheet_BeforeRightClick(ByVal Target As Range, Cancel As Boolean)
+    Application.CommandBars(&quot;Mycell&quot;).ShowPopup
+    Cancel = True
+End Sub
+代码解析：
+工作表的BeforeRightClick事件过程，在右键单击工作表时，将“Mycell”命令栏作为右键快捷菜单，在当前光标位置显示。
+工作表BeforeRightClick事件语法如下：
+Private Sub expression_BeforeRightClick(ByVal Target As Range, Cancel As Boolean)
+参数expression是必需的，Worksheet类型对象。
+参数Target 是可选的，右键单击发生时最靠近鼠标指针的单元格。
+参数Cancel是可选的，当事件发生时为False。如果在事件过程中将Cancel参数设为True，则该过程执行结束之后不进行默认的右键单击操作。
+第2行代码，使用ShowPopup方法将“Mycell”命令栏作为右键快捷菜单，在当前光标位置显示。
+ShowPopup方法的语法如下：
+expression.ShowPopup(x, y)
+参数expression是必需的，返回一个CommandBar对象。
+参数x是可选的，快捷菜单所在位置的 x 坐标。如果省略此参数，将使用当前光标位置的x坐标。
+参数y是可选的，快捷菜单所在位置的y坐标。如果省略此参数，将使用当前光标位置的y坐标。
+当用鼠标右键单击工作表中任意单元格时激活BeforeRightClick事件，此事件先于默认的右键单击操作。在使用ShowPopup方法显示“Mycell”命令栏后，将Cancel参数设置为True，过程执行结束之后不进行默认的右键单击操作，Excel右键快捷菜单就不会显示。
+运行Mycell过程后，右键单击Sheet1工作表，在工作表中显示自定义右键快捷菜单，如图 86 1所示。</code></pre>
+<h3 id="技巧87-使用右键菜单制作数据有效性"><a href="#技巧87-使用右键菜单制作数据有效性" class="headerlink" title="技巧87     使用右键菜单制作数据有效性"></a>技巧87     使用右键菜单制作数据有效性</h3><p>在工作表中输入数据时可以使用自定义右键菜单制作数据有效性，如下面的代码所示。</p>
+<pre><code class="vb">Sub Mycell()
+    Dim arr As Variant
+    Dim i As Integer
+    Dim Mycell As CommandBar
+    On Error Resume Next
+    Application.CommandBars(&quot;Mycell&quot;).Delete
+    arr = Array(&quot;经理室&quot;, &quot;办公室&quot;, &quot;生技科&quot;, &quot;财务科&quot;, &quot;营业部&quot;)
+    Set Mycell = Application.CommandBars.Add(&quot;Mycell&quot;, 5)
+    For i = 0 To 4
+        With Mycell.Controls.Add(1)
+            .Caption = arr(i)
+            .OnAction = &quot;MyOnAction&quot;
+        End With
+    Next
+End Sub
+Sub MyOnAction()
+    ActiveCell = Application.CommandBars.ActionControl.Caption
+End Sub
+代码解析：
+Mycell过程创建自定义的右键菜单，请参阅技巧86 。
+MyOnAction过程是点击自定义右键菜单所运行的过程，将所选右键菜单的名称写入活动单元格。</code></pre>
+<p>为了使自定义的右键菜单在Sheet1工作表的特定区域中显示，需要在VBE中双击Sheet1表后写入下面的代码。</p>
+<pre><code class="vb">Private Sub Worksheet_BeforeRightClick(ByVal Target As Range, Cancel As Boolean)
+    If Target.Column = 2 Then
+        Call Mycell
+        Application.CommandBars(&quot;Mycell&quot;).ShowPopup
+        Cancel = True
+    End If
+End Sub
+代码解析：
+工作表的BeforeRightClick事件过程，在右键单击工作表时，将“Mycell”命令栏作为右键快捷菜单，在当前光标位置显示，请参阅技巧86 。
+在工作表的B列中点击右键结果如图 87 1所示。</code></pre>
+<h3 id="技巧88-禁用工作表右键菜单"><a href="#技巧88-禁用工作表右键菜单" class="headerlink" title="技巧88     禁用工作表右键菜单"></a>技巧88     禁用工作表右键菜单</h3><p>有时并不希望用户使用工作表中的右键菜单对工作表进行操作，那么可以使用下面的代码禁用工作表右键菜单。</p>
+<pre><code class="vb">Sub DisBar()
+    Dim myBar As CommandBar
+    For Each myBar In CommandBars
+        If myBar.Type = msoBarTypePopup Then
+            myBar.Enabled = False
+        End If
+    Next
+End Sub
+代码解析：
+DisBar过程禁用工作表中所有的右键菜单。
+第3行代码使用For Each...Next 语句遍历CommandBars集合。CommandBars集合代表应用程序中所有的命令栏。
+第4行代码根据命令栏的Type属性判断命令栏是否为右键菜单。应用于 CommandBar对象的Type属性返回命令栏的类型，可以为表格 88 1所列的MsoBarType 常量之一。</code></pre>
+<p>常量    值    描述<br>msoBarTypeMenuBar    1    菜单栏<br>msoBarTypeNormal    0    工具栏<br>msoBarTypePopup    2    右键快捷菜单<br>表格 88 1    MsoBarType 常量<br>第5行代码将CommandBars集合中右键快捷菜的Enabled属性设置为False，使之无效。<br>运行DisBar过程将禁用工作表中所有的右键菜单，需要恢复时只需将其Enabled属性设置为True即可。</p>
+<h3 id="技巧89-创建自定义工具栏"><a href="#技巧89-创建自定义工具栏" class="headerlink" title="技巧89     创建自定义工具栏"></a>技巧89     创建自定义工具栏</h3><p>为了方便用户操作，在Excel原有的的工具栏上，还可以创建自定义的工具栏，如下面的代码所示。</p>
+<pre><code class="vb">Sub NowToolbar()
+    Dim arr As Variant
+    Dim id As Variant
+    Dim i As Integer
+    Dim Toolbar As CommandBar
+    On Error Resume Next
+    Application.CommandBars(&quot;MyToolbar&quot;).Delete
+    arr = Array(&quot;会计凭证&quot;, &quot;会计账簿&quot;, &quot;会计报表&quot;, &quot;凭证打印&quot;, &quot;账簿打印&quot;, &quot;报表打印&quot;)
+    id = Array(9893, 284, 9590, 9614, 707, 986)
+    Set Toolbar = Application.CommandBars.Add(&quot;MyToolbar&quot;, msoBarTop)
+        With Toolbar
+            .Protection = msoBarNoResize
+            .Visible = True
+            For i = 0 To 5
+                With .Controls.Add(Type:=msoControlButton)
+                    .Caption = arr(i)
+                    .FaceId = id(i)
+                    .BeginGroup = True
+                    .Style = msoButtonIconAndCaptionBelow
+                End With
+            Next
+        End With
+    Set Toolbar = Nothing
+End Sub
+代码解析：
+NowToolbar过程使用Add方法在Excel窗口中创建自定义工具栏。应用于CommandBars对象的Add方法请参阅技巧83 。
+第10行代码，使用Add方法在菜单栏上创建名称为“MyToolbar”的命令栏，创建时设置新命令栏的Position参数为msoBarTop，使新命令栏位于应用程序窗口的顶部。如果将Position参数设置成msoBarFloating，新命令栏为浮动工具栏，如图 89 1所示。
+
+图 89 1    浮动命令栏
+关于Position参数的MsoBarPosition常数请参阅技巧83 中的表格 83 1。
+第12行代码，设置“MyToolbar”命令栏的Protection属性为msoBarNoResize。应用于CommandBar对象的Protection属性指定命令栏的保护类型，可以为表格 89 1所列的MsoBarProtection常数之一。</code></pre>
+<p>常数    值    说明<br>msoBarNoProtection    0    不受保护，可自定义(缺省值)<br>msoBarNoCustomize    1    不能自定义<br>msoBarNoResize    2    不能调整大小<br>msoBarNoMove    4    不能移动<br>msoBarNoChangeVisible    8    不能更改可见状态<br>msoBarNoChangeDock    16    不能改变停靠的位置<br>msoBarNoVerticalDock    32    不能沿窗口左侧或右侧停放<br>msoBarNoHorizontalDock    64    不能沿窗口顶部或底部停放<br>表格 89 1    MsoBarProtection常数<br>第14行到第21代码，使用Add方法在新命令栏中添加按钮控件，设置按钮控件的各项属性。其中第19行代码，设置按钮控件的Style属性为msoButtonIconAndCaptionBelow，使工具栏按钮显示时包含图标和标题，且标题位于图标之下。<br>应用于CommandBar对象的Style属性返回或设置工具栏按钮的显示方式，可以为表格 89 2所列的MsoButtonStyle常数之一。<br>常数    值    说明<br>msoButtonIcon    1    包含图标的按钮<br>msoButtonCaption    2    包含标题的按钮<br>ButtonIconandCaption    3    包含图标和标题的按钮<br>msoButtonIconAndCaptionBelow    11    包含图标和标题，且标题位于底部的按钮<br>msoButtonIconAndWrapCaption    7    包含图标和标题，且标题自动换行的按钮<br>msoButtonWrapCaption    14    包含标题，且标题自动换行的按钮<br>表格 89 2    MsoButtonStyle常数<br>运行NowToolbar过程，将在Excel窗口的顶部创建一个自定义的工具栏，如图 89 2所示。</p>
+<p>图 89 2    创建自定义工具栏</p>
+<h3 id="技巧90-自定义工具栏按钮图标"><a href="#技巧90-自定义工具栏按钮图标" class="headerlink" title="技巧90     自定义工具栏按钮图标"></a>技巧90     自定义工具栏按钮图标</h3><p>在创建自定义的工具栏时，除了可以为工具栏按钮添加Excel内置的图标外，还能为工具栏按钮添加自定义的图标，如下面的代码所示。</p>
+<pre><code class="vb">Sub AddCustomButton()
+    Dim xBar As CommandBar
+    Dim xButton As CommandBarButton
+    On Error Resume Next
+    Application.CommandBars(&quot;CustomBar&quot;).Delete
+    Set xBar = CommandBars.Add(&quot;CustomBar&quot;, msoBarTop)
+    Set xButton = xBar.Controls.Add(msoControlButton)
+    With xButton
+        .Picture = LoadPicture(ThisWorkbook.Path &amp; &quot;\P.BMP&quot;)
+        .Mask = LoadPicture(ThisWorkbook.Path &amp; &quot;\M.BMP&quot;)
+        .TooltipText = &quot;Excel Home 论坛&quot;
+    End With
+    xBar.Visible = True
+    Set xBar = Nothing
+    Set xButton = Nothing
+End Sub
+代码解析：
+AddCustomButton过程创建自定义工具栏，并设置工具栏的按钮自定义图标。
+第6、7行代码，使用Add方法在Excel窗口中添加自定义工具栏和按钮。请参阅技巧89 。
+第9行代码，设置工具栏按钮的Picture属性为同一目录中的p.bmp图片。
+应用于CommandBarButton 对象的Picture属性返回一个IPictureDisp对象，表示 CommandBarButton对象的图像，语法如下：
+expression.Picture
+参数是必需的，返回一个CommandBarButton对象。
+指定对象的Picture属性就能设置对象的图像。
+第10行代码，设置工具栏按钮的Mask属性为同一目录中的m.bmp图片。
+为了使工具栏按钮图标透明显示，在指定对象的Picture属性后，还需要指定对象的Mask属性。
+应用于CommandBarButton 对象的Mask属性返回表示CommandBarButton对象的屏蔽图像的IPictureDisp对象，语法如下：
+expression.Mask
+参数是必需的，返回一个CommandBarButton对象。
+屏蔽图像决定按钮图像透明的部分。在创建作为屏蔽图像使用的图像时，所有要透明的区域应该为白色，所有要显示的区域应该为黑色。
+第11行代码，设置按钮的“屏幕提示”为“ExcelHome论坛”。
+运行AddCustomButton过程，创建自定义工具栏，并设置工具栏按钮的图标，如图 90 1所示。
+
+图 90 1    自定义工具栏图标</code></pre>
+<h3 id="技巧91-自定义工作簿图标"><a href="#技巧91-自定义工作簿图标" class="headerlink" title="技巧91     自定义工作簿图标"></a>技巧91     自定义工作簿图标</h3><p>Excel标题栏的图标是默认的，而借助API函数可以自定义工作簿标题栏图标，如下面的代码所示。</p>
+<pre><code class="vb">Private Declare Function FindWindow Lib &quot;user32&quot; Alias &quot;FindWindowA&quot; (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
+Private Declare Function DrawMenuBar Lib &quot;user32&quot; (ByVal hWnd As Long) As Long
+Private Declare Function SetFocus Lib &quot;user32&quot; (ByVal hWnd As Long) As Long
+Private Declare Function SendMessage Lib &quot;user32&quot; Alias &quot;SendMessageA&quot; (ByVal hWnd As Long, ByVal wMsg As Long, ByVal wParam As Integer, ByVal lParam As Long) As Long
+Private Declare Function ExtractIcon Lib &quot;shell32.dll&quot; Alias &quot;ExtractIconA&quot; (ByVal hInst As Long, ByVal lpszExeFileName As String, ByVal nIconIndex As Long) As Long
+Private Const WM_SETICON = &amp;H80
+Private Sub Workbook_Open()
+    Dim IStyle As Long
+    Dim hIcon As Long
+    Dim hWndForm As Long
+    hWndForm = FindWindow(vbNullString, Application.Caption)
+    hIcon = ExtractIcon(0, ActiveWorkbook.Path &amp; &quot;\p.bmp&quot;, 0)
+    SendMessage hWndForm, WM_SETICON, True, hIcon
+    SendMessage hWndForm, WM_SETICON, False, hIcon
+End Sub
+代码解析：
+工作簿打开后使用API函数自定义工作簿标题栏的图标。
+第1行到第6行代码，API函数声明。
+第7行到第15行代码，工作簿的Open事件过程，把工作簿标题栏默认的图标更改为同一文件夹下的p.bmp图片。
+工作簿打开后标题栏如图 91 1所示，任务栏图标如图 91 2所示。
+
+图 91 1    自定义工作簿标题和图标
+
+图 91 2    任务栏图标</code></pre>
+<h3 id="技巧92-移除工作表的最小最大化和关闭按钮"><a href="#技巧92-移除工作表的最小最大化和关闭按钮" class="headerlink" title="技巧92     移除工作表的最小最大化和关闭按钮"></a>技巧92     移除工作表的最小最大化和关闭按钮</h3><p>如果不希望工作表的最小、最大化和关闭按钮出现在菜单栏中，可以使用以下代码去除：<br>ActiveWorkbook.Protect , , True<br>代码解析：<br>使用Protect方法对工作簿进行保护。Protect方法应用于Workbook对象的时保护工作簿使其不至被修改，语法如下：<br>expression.Protect(Password, Structure, Windows)<br>参数expression是必需的，该表达式返回一个Workbook对象。<br>参数Password是可选的，为工作表或工作簿指定区分大小写的密码。<br>参数Structure是可选的，如果为True，则保护工作簿结构（工作表的相对位置）。默认值为False。<br>参数Windows是可选的，如果为True，则保护工作簿窗口。<br>恢复工作表的最大、最小化和关闭按钮的代码如下：<br>ActiveWorkbook.Protect , , False<br>在本例中将Windows参数设置为True，使工作簿窗口受到保护，工作表的最小、最大化和关闭按钮及图标不出现在菜单栏中，如图 92 1所示。</p>
+<p>图 92 1    移除工作表最小、最大化和关闭按钮</p>
+<h3 id="技巧93-在工具栏上添加下拉列表框"><a href="#技巧93-在工具栏上添加下拉列表框" class="headerlink" title="技巧93     在工具栏上添加下拉列表框"></a>技巧93     在工具栏上添加下拉列表框</h3><p>如果需要在工具栏中添加类似“字体”这样的下拉列表控制框控件，那么可以使用下面的代码。</p>
+<pre><code class="vb">Sub AddDropdown()
+    Dim myDropdown As Object
+    Dim myCap As Variant
+    Dim i As Integer
+    myCap = Array(&quot;基础应用&quot;, &quot;VBA程序开发&quot;, &quot;函数与公式&quot;)
+    Call DeleteButton
+    Set myDropdown = Application.CommandBars(&quot;Formatting&quot;).Controls _
+        .Add(Type:=msoControlDropdown, Before:=1)
+    With myDropdown
+        .Caption = &quot;请选择版块&quot;
+        .OnAction = &quot;myOnA&quot;
+        .Style = msoComboNormal
+        For i = 0 To UBound(myCap)
+            .AddItem myCap(i)
+        Next
+        .ListIndex = 1
+    End With
+End Sub
+Sub DeleteButton()
+    With Application.CommandBars(&quot;Formatting&quot;).Controls(1)
+        If .Caption = &quot;请选择版块&quot; Then .Delete
+    End With
+End Sub
+Sub myOnA()
+    Dim myList As Byte
+    myList = Application.CommandBars(&quot;Formatting&quot;) _
+        .Controls(1).ListIndex
+    ActiveWorkbook.FollowHyperlink _
+    Address:=&quot;http://club.excelhome.net/forum-&quot; &amp; myList &amp; &quot;-1.html&quot;, NewWindow:=True
+End Sub
+代码解析：
+AddDropdown过程使用Add方法在工具栏中添加下拉列表控制框控件。
+第5行代码使用Array函数创建一个数组用于保存下拉列表控制框控件加载列表项所需的元素。
+第6行代码先运行第19行到第23行的DeleteButton过程删除可能存在的下拉列表控制框控件，以免重复添加。DeleteButton过程判断工具栏中第一个控件的Caption属性是否为“请选择版块”，如果是则删除该下拉列表控制框控件。
+第7、8行代码使用Add方法在工具栏中添加下拉列表控制框控件。应用于 CommandBarControls 对象的Add方法请参阅技巧79 。示例中将其参数Type设置为msoControlDropdown，添加的就是下拉列表控制框控件。
+第10行代码设置下拉列表控制框控件的Caption属性，应用于 CommandBarControls 对象的Caption属性返回或设置指定命令栏控件的题注文字，也可作为默认的“屏幕提示”显示。
+第11行代码设置改变下拉列表控制框控件的内容时要运行的过程为第24行到第30行代码的myOnA过程。myOnA过程根据下拉列表控制框控件的ListIndex属性值打开Excel Home论坛中相应的版块。
+第12行代码设置下拉列表控制框控件的样式。Style属性返回或设置命令栏控件的显示方式，该属性值可设置为表格 93 1所列MsoComboStyle常量之一。
+常量    值    描述
+msoComboLabel    1    显示标签
+msoComboNormal    0    不显示标签
+表格 93 1    MsoComboStyle常量
+第13行到第15行代码使用AddItem方法将数组中的元素添加到下拉列表控制框控件的列表项中。
+第16行代码将下拉列表控制框控件的ListIndex属性设置为1，使其显示第一条列表项。
+运行AddDropdown过程，工具栏如图 93 1所示。
+
+图 93 1    添加下拉列表控制框控件</code></pre>
+<h3 id="技巧94-屏蔽工作表的复制功能"><a href="#技巧94-屏蔽工作表的复制功能" class="headerlink" title="技巧94     屏蔽工作表的复制功能"></a>技巧94     屏蔽工作表的复制功能</h3><p>有时我们并不希望用户对工作表中的数据进行复制粘贴操作，此时可以把所有的复制功能都屏蔽，如下面的代码所示。</p>
+<pre><code class="vb">    Dim CmdCtrls As CommandBarControls
+    Dim Cmd As CommandBarControl
+Sub ProCopy()
+    Set CmdCtrls = Application.CommandBars.FindControls(ID:=19)
+    For Each Cmd In CmdCtrls
+        Cmd.Enabled = False
+    Next
+    Application.CellDragAndDrop = False
+    Application.OnKey (&quot;^c&quot;), &quot;&quot;
+End Sub
+Sub StaCopy()
+    Set CmdCtrls = Application.CommandBars.FindControls(ID:=19)
+    For Each Cmd In CmdCtrls
+        Cmd.Enabled = True
+    Next
+    Application.CellDragAndDrop = True
+    Application.OnKey (&quot;^c&quot;)
+End Sub
+代码解析：
+第1、2行代码在模块顶部声明两个模块级的变量。
+第3行到第10行代码ProCopy过程，屏蔽工作表中所有的复制功能。其中第4行到第7行代码使用FindControls方法将所有与“复制”相关的命令栏控件赋给变量CmdCtrls后将其Enabled设置为False。关于FindControls方法请参阅技巧80 。
+第8行代码屏蔽单元格拖放功能，关于应用于Application对象的CellDragAndDrop属性请参阅技巧10 。
+第9行代码屏蔽&lt;Ctrl+C&gt;组合键功能，关于应用于Application 对象的OnKey方法请参阅技巧68 。
+第11行到第18行代码StaCopy过程，恢复所有的复制功能。
+### 技巧95     禁用工具栏的自定义
+在Excel中，用户可以通过依次单击菜单“视图”→“工具栏”→“自定义”，显示“自定义”选项卡来调整菜单栏和工具栏，如图 95 1、图 95 2所示。
+
+图 95 1    自定义功能
+
+图 95 2    自定义选项卡</code></pre>
+<p>如果不希望用户使用“自定义”选项卡来调整菜单栏和工具栏，可以禁用工具栏的自定义功能，如下面的代码所示。</p>
+<pre><code class="vb">Sub nCustomize()
+    Application.CommandBars.DisableCustomize = True
+End Sub
+代码解析：
+nCustomize 过程禁用工具栏的自定义功能，应用于CommandBars 集合对象的DisableCustomize属性设置是否禁用工具栏的自定义。如果禁用，返回True，否则返回False。
+用于启用工具栏的自定义的代码是：
+Sub yCustomize()
+    Application.CommandBars.DisableCustomize = False
+End Sub
+运行nCustomize过程，禁用工具栏的自定义对话框，自定义菜单项消失,如图 95 3所示。
+
+图 95 3    禁用工具栏的自定义</code></pre>
+<h3 id="技巧96-屏蔽所有的命令栏"><a href="#技巧96-屏蔽所有的命令栏" class="headerlink" title="技巧96     屏蔽所有的命令栏"></a>技巧96     屏蔽所有的命令栏</h3><p>在使用自定义的操作界面时，需要屏蔽Excel中所有的命令栏，可以使用下面的代码。</p>
+<pre><code class="vb">Sub Shielding_1()
+    Dim i As Integer
+    For i = 1 To Application.CommandBars.Count
+        Application.CommandBars(i).Enabled = False
+    Next
+End Sub
+代码解析：
+Shielding_1过程使用For...Next语句遍历Excel命令栏，并将其Enabled属性设置为False，使之无效。\</code></pre>
+<p>还可以使用For Each…Next 语句遍历所有的CommandBars对象，代码如下：</p>
+<pre><code class="vb">Sub Shielding_2()
+    Dim Cmd As CommandBar
+    For Each Cmd In Application.CommandBars
+        Cmd.Enabled = False
+    Next
+End Sub
+运行Shielding_1或Shielding_2过程工作簿如图 96 1所示。</code></pre>
+<p>图 96 1    屏蔽所有的命令栏<br>在需要恢复时只需将Enabled属性设置为True即可，如下面的代码所示。</p>
+<pre><code class="vb">Sub Recovery_1()
+    Dim i As Integer
+    For i = 1 To Application.CommandBars.Count
+        Application.CommandBars(i).Enabled = True
+    Next
+End Sub
+Sub Recover_2()
+    Dim Cmd As CommandBar
+    For Each Cmd In Application.CommandBars
+        Cmd.Enabled = True
+    Next
+End Sub
+代码解析：
+Recovery_1和Recover_2过程分别使用For...Next语句和For Each...Next 语句遍历所有的CommandBars对象，设置其Enabled属性为True，显示所有的命令栏。</code></pre>
+<h3 id="技巧97-恢复Excel的命令栏"><a href="#技巧97-恢复Excel的命令栏" class="headerlink" title="技巧97     恢复Excel的命令栏"></a>技巧97     恢复Excel的命令栏</h3><p>如果用户经常添加、删除Excel的菜单和工具栏而又没有及时恢复的话，有时会破坏Excel默认的用户界面，即使用Reset方法也不能恢复成初始状态。<br>此时可以在电脑的本地硬盘中查找扩展名为<em>.xlb的文件，该文件在电脑中的位置会因Excel版本的不同而不同，在XP操作系统中，该文件位于系统盘的Documents and Settings\Administrator\Application Data\Microsoft\Excel文件夹，其中Administrator是电脑的用户名。找到它最简单的方法是使用Windows的搜索功能。按&lt;Win+F&gt;组合键调出Windows的搜索窗口，然后用</em>.xlb为目标在本地硬盘中进行搜索，如图 97 1所示。</p>
+<p>图 97 1    搜索*.xlb文件<br>如果搜索没有结果，请检查“更多高级选项”中是否选中“搜索隐藏的文件和文件夹”选项，如图 97 2所示。</p>
+<p>图 97 2    搜索隐藏的文件和文件夹<br>对Excel用户界面的任何修改都会保存在<em>.xlb文件中，找到后删除该文件，然后重新启动Excel。Excel会重新创建一个</em>.xlb文件，而菜单和工具栏也会全部恢复成初始状态。</p>
+
+    </div>
+</article>
+                </main>
+                <aside class="aside">
+                    <section class="aside-section">
+                        
+    <h1>Categories</h1>
+
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/生の术/">生の术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生の迹/">生の迹</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生の道/">生の道</a></li></ul>
+
+                    </section>
+                    <section class="aside-section">
+                        
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archiveshl/2018/">2018</a></li></ul>
+
+
+                    </section>
+                    <section class="aside-section tag">
+                        
+    <h1>Tags</h1>
+
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VBA/">VBA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据科学/">数据科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自言语/">自言语</a></li></ul>
+
+                    </section>
+                </aside>
+        </div>
+    </body>
+
+</html>

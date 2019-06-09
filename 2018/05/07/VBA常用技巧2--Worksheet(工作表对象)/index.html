@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="jiangmoting, autumn">
+    <title>
+        TT ❤ LL 印迹
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script>
+        infiniteScroll()
+
+        // for mobile menu
+        $(function () {
+            $('.social-button').click(function () {
+                if ($('.social-links').hasClass('hide-links')) {
+                    $('.social-links').removeClass('hide-links')
+                } else {
+                    $('.social-links').addClass('hide-links')
+                }
+            })
+        })
+    </script>
+</head>
+
+    <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <div class="container">
+            <header class="header">
+    <h1 class="title">
+        <a href="/" class="logo">
+            TT ❤ LL 印迹
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <nav class="links">
+        <button class="social-button">
+            menu
+        </button>
+        <ul class="social-links hide-links">
+            
+                <li>
+                    <a href="http://nipponcolors.com/">
+                        当下
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://nipponcolors.com/">
+                        未来
+                    </a>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+                <main class="main">
+                    <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/生の术/">
+            生の术
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        VBA常用技巧2--Worksheet(工作表对象)
+    </h2>
+    <ul class="post-date">
+        <li>
+            2018-05-07
+        </li>
+        <li>
+            绛墨铤
+        </li>
+    </ul>
+    <div class="post-content">
+        <h2 id="第2章-Worksheet（工作表）对象"><a href="#第2章-Worksheet（工作表）对象" class="headerlink" title="第2章     Worksheet（工作表）对象"></a>第2章     Worksheet（工作表）对象</h2><h3 id="技巧21-引用工作表的方式"><a href="#技巧21-引用工作表的方式" class="headerlink" title="技巧21     引用工作表的方式"></a>技巧21     引用工作表的方式</h3><p>VBA中，在不同的工作表之间转换或者对不同工作表中的单元格区域进行操作时，需要指定引用的工作表，通常有下面几种方法：</p>
+<h4 id="21-1-使用工作表的名称"><a href="#21-1-使用工作表的名称" class="headerlink" title="21-1    使用工作表的名称"></a>21-1    使用工作表的名称</h4><p>工作表名称是指显示在工作表标签中的文本，工作表名称可以使用WorkSheets集合和Sheets集合两种引用方式，如下面的代码所示。</p>
+<pre><code class="vb">Sub ShActivate()
+    Worksheets(&quot;索引号&quot;).Activate
+    &#39;Sheets(&quot;索引号&quot;).Activate
+End Sub
+第3、4行代码都激活工作簿中名称为“索引号”的工作表，激活后“索引号”工作表将成为活动工作表。
+WorkSheets集合包含所有的工作表，而Sheets集合不仅包含工作表集合WorkSheets，还包含图表集合Charts、宏表集合Excel4MacroSheets与MS Excel 5.0对话框集合DialogSheets等。
+任何时刻工作簿中只有一个工作表是活动工作表。</code></pre>
+<h4 id="21-2-使用工作表的索引号"><a href="#21-2-使用工作表的索引号" class="headerlink" title="21-2    使用工作表的索引号"></a>21-2    使用工作表的索引号</h4><p>工作表索引号是指工作表在工作簿中的位置，Excel根据工作表在工作表标签中的位置以1开始从左向右进行编号。下面的代码选中并激活当前工作簿中第1个工作表：</p>
+<pre><code class="vb">Sub ShIndex()
+    Worksheets(1).Select
+End Sub
+单个WorkSheet对象的Select方法与Activate方法的主要区别在于Select方法要求工作表可视。
+注意 当工作簿包括工作表、宏表、图表等时，使用索引号引用工作表如Sheets(1)与WorkSheets(1)引用的可能不是同一个表。
+使用Worksheet对象的Index属性可以返回工作表的索引号，如下面的代码所示。</code></pre>
+<pre><code class="vb">Sub ShInde()
+    MsgBox Worksheets(&quot;索引号&quot;).Index
+End Sub</code></pre>
+<h4 id="21-3-使用工作表的代码名称"><a href="#21-3-使用工作表的代码名称" class="headerlink" title="21-3    使用工作表的代码名称"></a>21-3    使用工作表的代码名称</h4><p>使用Worksheet对象的CodeName属性可以返回工作表的代码名称，如下面的代码所示。</p>
+<pre><code class="vb">Sub ShCodeName()
+    MsgBox Sheets(1).CodeName
+End Sub
+工作表的代码名称显示在VBE工程资源管理器窗口中，在属性窗口中能够修改工作表代码名称
+在VBA中能够直接使用工作表的代码名称引用工作表，即使工作表的名称被修改，代码仍然能够正常运行。</code></pre>
+<h4 id="21-4-使用ActiveSheet属性引用活动工作表"><a href="#21-4-使用ActiveSheet属性引用活动工作表" class="headerlink" title="21-4    使用ActiveSheet属性引用活动工作表"></a>21-4    使用ActiveSheet属性引用活动工作表</h4><p>使用ActiveSheet属性可以返回活动工作表，如下面的代码所示。</p>
+<pre><code class="vb">Sub ShActive()
+    MsgBox ActiveSheet.Name
+End Sub
+ActiveSheet属性应用于AppActivate对象、Window对象和Workbook对象时，如果未给出对象识别符，返回活动工作簿中的活动工作表。</code></pre>
+<h3 id="技巧22-选择工作表的方法"><a href="#技巧22-选择工作表的方法" class="headerlink" title="技巧22     选择工作表的方法"></a>技巧22     选择工作表的方法</h3><p>在VBA中需要激活或者选择某个工作表时使用Select方法或Activate方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub SelectSh()
+    Worksheets(&quot;Sheet2&quot;).Select
+End Sub
+Sub ActivateSh()
+    Worksheets(&quot;Sheet2&quot;).Activate
+End Sub
+代码解析：
+SelectSh过程使用Select方法选择“Sheet2”工作表，而ActivateSh过程则使用Activate方法选择“Sheet2”工作表，从表面看两者的作用是相同的，但是如果“Sheet2”工作表是隐藏的，Activate方法可以正常运行，而Select方法将会出现错误</code></pre>
+<p>如果需要同时选中工作簿中的所有工作表，则只能使用Select方法而不能使用Activate方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub SelectShs() &#39;遍历工作表并使用带参数的Select方法选中所有工作表
+    Dim Shs As Worksheet
+    For Each Shs In Worksheets
+        Shs.Select False
+    Next
+End Sub
+Sub SelectSheets() &#39;使用Worksheets集合的Select方法选中集合中所有的对象
+    Worksheets.Select
+End Sub
+Sub ArraySheets()
+    Worksheets(Array(1, 2, 3)).Select
+End Sub
+应用于Worksheet对象的Select方法的语法如下：
+Select(Replace)
+参数Replace是可选的,如果该值为True，则用指定对象替代当前选定对象。如果该值为False，则延伸当前选定对象以包括任何以前选定的对象。
+ArraySheets过程使用Array 函数返回工作簿中的前三张工作表并使用Worksheets集合的Select方法选中前三张工作表。</code></pre>
+<h3 id="技巧23-遍历工作表的方法"><a href="#技巧23-遍历工作表的方法" class="headerlink" title="技巧23     遍历工作表的方法"></a>技巧23     遍历工作表的方法</h3><p>在Excel应用中经常需要遍历工作簿中所有的工作表，有以下两种方法可以实现。</p>
+<h4 id="23-1-使用For…Next-语句"><a href="#23-1-使用For…Next-语句" class="headerlink" title="23-1    使用For…Next 语句"></a>23-1    使用For…Next 语句</h4><p>使用For…Next 语句遍历工作簿中所有的工作表，如下面的代码所示。</p>
+<pre><code class="vb">Sub ShCount1()
+    Dim c As Integer
+    Dim i As Integer
+    Dim s As String
+    c = Worksheets.Count
+    For i = 1 To c
+        s = s &amp; Worksheets(i).Name &amp; Chr(13)
+    Next
+    MsgBox &quot;工作簿中含有以下工作表:&quot; &amp; Chr(13) &amp; s
+End Sub
+代码解析：
+ShCount1过程使用For...Next 语句遍历工作簿中所有的工作表，并用消息框显示所有的工作表名称。
+       第5行代码根据Worksheet对象的Count属性返回工作簿中工作表的数量赋给变量c。应用于Worksheet对象的Count属性返回Worksheets集合中工作表的数量，语法如下：
+expression.Count
+第6行代码开始For...Next 语句循环。For...Next 语句以指定次数来重复执行一组语句，语法如下：
+For counter = start To end [Step step]
+    [statements]
+    [Exit For]
+    [statements]
+Next [counter]
+参数counter是必需的，用做循环计数器的数值变量。
+参数start是必需的，循环计数器的初值。
+      参数end是必需的，循环计数器的终值。
+      参数step是可选的，环计数器的步长，缺省值为 1。
+      参数statements是可选的，放在For和Next之间的一条或多条语句，它们将被执行指定的次数。
+      第7行代码在For...Next循环中根据工作表的索引号取得所有工作表的名称赋给字符串变量s。
+运行ShCount过程结果如图 23 1所示。</code></pre>
+<h4 id="23-2-使用For-Each…Next-语句"><a href="#23-2-使用For-Each…Next-语句" class="headerlink" title="23-2    使用For Each…Next 语句"></a>23-2    使用For Each…Next 语句</h4><p>使用For Each…Next语句遍历工作簿中所有的工作表，如下面的代码所示。</p>
+<pre><code class="vb">Sub ShCount2()
+    Dim Sh As Worksheet
+    Dim s As String
+    For Each Sh In Worksheets
+        s = s &amp; Sh.Name &amp; Chr(13)
+    Next
+    MsgBox &quot;工作簿中含有以下工作表:&quot; &amp; Chr(13) &amp; s
+End Sub
+代码解析：
+ShCount2过程使用For Each...Next语句遍历工作簿中所有的工作表，并用消息框显示所有工作表名称。
+第4行代码使用For Each...Next语句遍历Worksheets集合中所有元素。For Each...Next语句针对一个数组或集合中的每个元素，重复执行一组语句，语法如下：
+For Each element In Group
+    [statements]
+    [Exit For]
+    [statements]
+Next [element]
+参数element是必需的，用来遍历集合或数组中所有元素的变量。
+参数group是必需的，对象集合或数组的名称。
+参数statements是可选的，针对对象集合或数组中的每一项执行的一条或多条语句。
+第5行代码将返回的工作表的名称赋给字符串变量s。
+运行ShCount2过程结果如图 23 1所示。</code></pre>
+<h3 id="技巧24-在工作表中上下翻页"><a href="#技巧24-在工作表中上下翻页" class="headerlink" title="技巧24     在工作表中上下翻页"></a>技巧24     在工作表中上下翻页</h3><p>如果需要在工作簿的工作表中进行上下翻页，可以使用下面的代码。</p>
+<pre><code class="vb">Sub DownSheet()
+    Dim i As Integer
+    i = Worksheets.Count
+    If ActiveSheet.Index &lt; i Then
+        Worksheets(ActiveSheet.Index + 1).Activate
+    Else
+        Worksheets(1).Activate
+    End If
+End Sub
+Sub UpSheet()
+    Dim i As Integer
+    i = Worksheets.Count
+    If ActiveSheet.Index &gt; 1 Then
+        Worksheets(ActiveSheet.Index - 1).Activate
+    Else
+        Worksheets(i).Activate
+    End If
+End Sub
+代码解析：
+DownSheet过程向下翻页，第3、12行代码使用Worksheets对象的Count属性取得工作表的数目，第4行到第7行代码根据Index属性判断活动工作表是否是工作簿中的最后一张工作表。如果活动工作表不是最后一张工作表则激活活动工作表的下一张工作表，否则激活第一张工作表。
+UpSheet过程向上翻页，第13行到第16行代码根据Index属性判断活动工作表是否是工作簿中的第一张工作表。如果活动工作表不是第一张工作表则激活活动工作表的上一张工作表，否则激活最后一张工作表。</code></pre>
+<h3 id="技巧25-工作表的添加与删除"><a href="#技巧25-工作表的添加与删除" class="headerlink" title="技巧25     工作表的添加与删除"></a>技巧25     工作表的添加与删除</h3><p>在工作簿中添加工作表使用Add方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub Addsh() &#39;Addsh过程使用Add方法在工作簿中新建“数据”工作表
+    Dim Sh As Worksheet &#39;声明变量Sh为工作表对象
+    With Worksheets
+        Set Sh = .Add(after:=Worksheets(.Count)) &#39;使用Add方法在工作簿的最后新建“数据”工作表
+        Sh.Name = &quot;数据&quot;
+    End With
+End Sub
+Add 方法应用于Sheets和Worksheets对象时新建工作表、图表或宏表，语法如下：
+expression.Add(Before, After, Count, Type)
+参数Before是可选的，指定工作表对象，新建的工作表将置于此工作表之前。
+参数After是可选的，指定工作表对象，新建的工作表将置于此工作表之后。
+如果Before和 After两者均省略，则新建的工作表将插入到活动工作表之前。
+参数Count可选，要新建的工作表的数目。默认值为 1。
+参数Type可选，指定新建的工作表类型。
+第5行代码将添加的工作表重命名为“数据”。</code></pre>
+<p>如果需要在工作簿中批量添加工作表，可以使用下面的代码。</p>
+<pre><code class="vb">Sub Addsh_2()
+    Dim i As Integer
+    Dim sh As Worksheet
+    For i = 1 To 10
+        Set sh = Sheets.Add(after:=Sheets(Sheets.Count))
+        sh.Name = i
+    Next
+End Sub
+代码解析：
+Addsh_2过程使用For...Next 语句和Add方法在工作簿中添加10张工作表并将添加的工作表依次重命名。
+在使用以上代码往工作簿中添加工作表时，如果工作簿中已存在相同名称的工作表，运行时会发生错误，代码中断，如图 25 1所示。</code></pre>
+<p>图 25 1    运行错误提示<br>为了避免此错误的发生，可以在添加前先删除所有的工作表，如下面的代码所示。</p>
+<pre><code class="vb">Sub Delsh()
+    Dim sh As Worksheet
+    For Each sh In ThisWorkbook.Sheets
+        If sh.Name &lt;&gt; &quot;工作表的添加与删除&quot; Then
+            Application.DisplayAlerts = False
+            sh.Delete
+            Application.DisplayAlerts = True
+        End If
+    Next
+End Sub
+代码解析：
+Delsh过程使用Delete方法删除工作簿中除了“工作表的添加与删除”工作表以外所有的工作表。
+第3行代码使用For Each...Next语句遍历代码所在工作簿中所有的工作表。
+第4行到第7行代码判断工作表名称是否为“工作表的添加与删除”,如果不是则使用Delete方法删除。其中第5行代码将Application对象的DisplayAlerts属性设置为False，使删除时不显示如图 25 2所示系统警告对话框。
+第6行代码使用Delete方法删除工作表，应用于工作表对象的Delete方法删除指定的对象，语法如下：
+expression.Delete
+参数expression是必需的，该表达式返回“应用于”列表中的对象之一。
+在运行添加工作表代码前先删除工作簿中的工作表虽然可以避免同名错误,但也可能误删除有用的工作表,因此更为严谨的方法是在添加前先判断工作簿中是否存在相同名称的工作表,然后再进行下一步的操作。</code></pre>
+<p>对于单张工作表可以使用下面的代码。</p>
+<pre><code class="vb">Sub Addsh_3()
+    Dim Sh As Worksheet
+    For Each Sh In Worksheets
+        If Sh.Name = &quot;数据&quot; Then
+            MsgBox &quot;工作簿中已有&quot;&quot;数据&quot;&quot;工作表,不能重复添加!&quot;
+            Exit Sub
+        End If
+    Next
+    With Worksheets
+        Set Sh = .Add(after:=Worksheets(.Count))
+        Sh.Name = &quot;数据&quot;
+    End With
+End Sub
+代码解析：
+Addsh_3过程在使用Add方法在工作簿中新建“数据”工作表时首先判断工作簿中是否存在“数据”工作表，如果已存在“数据”工作表则不运行添加工作表的代码而只显示一个消息框进行提示。
+
+还可以使用错误处理语句来绕过错误，如下面的代码所示。
+
+​```vb
+Sub Addsh_4()
+    Dim sh As Worksheet
+    On Error GoTo line
+    With Worksheets
+        Set sh = .Add(after:=Worksheets(.Count))
+        sh.Name = &quot;数据&quot;
+    End With
+    Exit Sub
+line:
+    MsgBox &quot;工作簿中已有&quot;&quot;数据&quot;&quot;工作表,不能重复添加!&quot;
+    Application.DisplayAlerts = False
+    Worksheets(Worksheets.Count).Delete
+    Application.DisplayAlerts = True
+End Sub
+代码解析：
+Addsh_4过程是先使用Add方法在工作簿中新建“数据”工作表，如果工作簿中已存在同名的工作表则使用GoTo语句转移到指定的line行处进行提示并删除已添加还没有重命名的工作表，也就是工作簿中最后一张工作表。</code></pre>
+<p>如果是批量添加工作表，使用上述方法时，添加工作表和已有工作表重名时，后面即使没有重名的工作表也不能添加，所以应先使用错误处理语句忽略错误，待全部添加好以后再删除多余的工作表，如下面的代码所示。</p>
+<pre><code class="vb">Sub Addsh_5()
+    Dim i As Integer, arr
+    Dim sh As Worksheet
+    On Error Resume Next
+    arr = Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    For i = 0 To UBound(arr)
+        With Worksheets
+            Set sh = .Add(after:=Sheets(.Count))
+            sh.Name = arr(i)
+        End With
+    Next
+    Application.DisplayAlerts = False
+    For Each sh In Worksheets
+        If sh.Name Like &quot;Sheet*&quot; Then sh.Delete
+    Next
+    Application.DisplayAlerts = True
+End Sub
+代码解析：
+Addsh_5过程使用Add方法在工作簿中添加10张工作表并重新命名为1到10，如果工作簿中已有相同名称的工作表则不添加。
+第4行代码错误处理语句，当发生重名错误时忽略错误，继续添加工作表。
+第5行到第11行代码在工作簿中添加10张工作表并重新命名为1到10，如果工作簿中已有相同名称的工作表则忽略错误重命名时发生的错误，此时工作簿中添加的工作表会以系统赋与的名称命名，如“Sheet1”。
+第12行到第15行代码使用For Each...Next语句遍历工作簿中所有的工作表，将工作簿中凡是以“Sheet”开头的工作表删除。</code></pre>
+<h3 id="技巧26-禁止删除指定工作表"><a href="#技巧26-禁止删除指定工作表" class="headerlink" title="技巧26     禁止删除指定工作表"></a>技巧26     禁止删除指定工作表</h3><p>在工作表事件中是没有工作表删除事件的，为了防止用户误删除重要的工作表，除了使用保护工作簿方法外，还可以使用下面的代码。</p>
+<pre><code class="vb">Public Ctl As CommandBarControl
+Sub DelSht()
+    Set Ctl = Application.CommandBars.FindControl(ID:=847)
+    Ctl.OnAction = &quot;MyDelSht&quot;
+End Sub
+Sub ResSht()
+    Set Ctl = Application.CommandBars.FindControl(ID:=847)
+    Ctl.OnAction = &quot;&quot;
+End Sub
+Sub MyDelSht()
+    If VBA.UCase$(ActiveSheet.CodeName) = &quot;SHEET2&quot; Then
+        MsgBox &quot;禁止删除&quot; &amp; ActiveSheet.Name &amp; &quot;工作表!&quot;
+    Else
+        ActiveSheet.Delete
+    End If
+End Sub
+代码解析：
+DelSht过程将工作表标签右键菜单中的“删除工作表”菜单的OnAction属性设置为“MyDelSht”。
+第3行代码使用Set语句将工作表标签右键菜单中的“删除工作表”菜单赋给变量Ctl，并将其OnAction属性设置为MyDelSht过程，该菜单被单击时将运行“MyDelSht”过程而不是系统默认的设置。OnAction属性返回或设置一个VBA的过程名，该过程在用户单击或更改某命令栏控件的值时运行。
+ResSht过程将工作表标签右键菜单中的“删除工作表”菜单的OnAction属性恢复为默认设置。
+MyDelSht过程判断所要删除的工作表的代码名称是否是“SHEET2”，如果是则禁止删除该表而只显示一个提示消息框。</code></pre>
+<p>为了不影响其他工作簿的使用，在VBE中双击ThisWorkbook写入下面的代码。</p>
+<pre><code class="vb">Private Sub Workbook_Activate()
+    Call DelSht
+End Sub
+Private Sub Workbook_Deactivate()
+    Call ResSht
+End Sub
+代码解析：
+工作簿的Activate事件和Deactivate事件代码，在工作簿激活时运行DelSht过程，在关闭或打开其他工作簿时运行ResSht过程，这样只禁止删除本工作簿中“SHEET2”工作表，并不影响其他工作簿。
+当删除本工作簿中的“SHEET2”工作表时，并不会显示如图 26 1所示的消息框，而只会显示如图 26 2所示的禁止删除工作表的消息框。</code></pre>
+<p>图 26 2    禁止删除工作表</p>
+<h3 id="技巧27-自动建立工作表目录"><a href="#技巧27-自动建立工作表目录" class="headerlink" title="技巧27     自动建立工作表目录"></a>技巧27     自动建立工作表目录</h3><p>如果在工作簿中有许多工作表，使用时往往会建立一张目录表并插入超链接以方便选择工作表。但是如果工作簿中的工作表经常添加和删除，使用手工建立目录很不方便，此时可以使用工作表的Activate事件自动建立工作表的目录，如下面的代码所示。</p>
+<pre><code class="vb">Private Sub Worksheet_Activate()
+    Dim sh As Worksheet
+    Dim a As Integer
+    Dim R As Integer
+    R = Sheet1.[A65536].End(xlUp).Row
+    a = 2
+    If Sheet1.Cells(2, 1) &lt;&gt; &quot;&quot; Then
+        Sheet1.Range(&quot;A2:A&quot; &amp; R).ClearContents
+    End If
+    For Each sh In Worksheets
+        If sh.CodeName &lt;&gt; &quot;Sheet1&quot; Then
+            Sheet1.Cells(a, 1).Value = sh.Name
+            a = a + 1
+        End If
+    Next
+End Sub
+代码解析：
+工作表的Activate事件，在“目录”工作表激活时自动建立工作簿中除“目录”工作表外所有工作表的目录。
+第2、3、4行代码声明变量类型。
+第5行代码取得A列最后非空单元格的行号。
+第6行代码设置变量a的初始值为2，从A2单元格开始建立工作表目录。
+第7行到第9行代码判断是否存在工作表目录，如果存在先清空原来的目录，以便更新目录。
+第10行到第15代码遍历工作簿的所有工作表，将除“目录”工作表外所有工作表的名称写入到A列单元格中。</code></pre>
+<p>为了建立到各工作表的链接，使用工作表的SelectionChange事件，如下面的代码所示。</p>
+<pre><code class="vb">Private Sub Worksheet_SelectionChange(ByVal Target As Range)
+    Dim R As Integer
+    R = Sheet1.[A65500].End(xlUp).Row
+    On Error Resume Next
+    If Target.Count = 1 Then
+       If Target.Column = 1 Then
+            If Target.Row &gt; 1 And Target.Row &lt;= R Then
+                Sheets(Target.Value).Select
+            end if
+        end if
+    end if
+end sub
+代码解析：
+工作表的selectionchange事件，当选择a列工作表目录中工作表名称时自动选择该单元格所对应的工作表。
+第5、6、7行代码限制该事件触发的条件。
+第8行代码选择单元格所对应的工作表。
+“目录”工作表激活后自动在a列建立工作簿中除“目录”工作表以外所有表的目录，如图 27 1所示。</code></pre>
+<p>图 27 1    自动建立工作表目录</p>
+<h3 id="技巧28-工作表的深度隐藏"><a href="#技巧28-工作表的深度隐藏" class="headerlink" title="技巧28     工作表的深度隐藏"></a>技巧28     工作表的深度隐藏</h3><p>在使用vba开发的工作簿文件完成交与用户使用后，我们往往希望用户在打开工作簿时启用宏，此时除了使用“禁用宏则关闭工作簿”的功能外，还可以隐藏所有有数据的工作表，如果用户在打开工作簿时禁用宏则只显示一张空白的工作表，达到强制启用宏的效果，代码如下：</p>
+<pre><code class="vb">dim sh as worksheet
+private sub workbook_beforeclose(cancel as boolean)
+    sheet1.visible = true
+    for each sh in thisworkbook.sheets
+        if sh.name &lt;&gt; &quot;空白&quot; then
+            sh.visible = xlsheetveryhidden
+        end if
+    next
+    activeworkbook.save
+end sub
+private sub workbook_open()
+    for each sh in thisworkbook.sheets
+        if sh.name &lt;&gt; &quot;空白&quot; then
+              sh.Visible = xlSheetVisible
+        End If
+    Next
+    Sheet1.Visible = xlSheetVeryHidden
+End Sub
+代码解析：
+第2行到第10行代码是工作簿的BeforeClose事件过程，在工作簿关闭前隐藏除“空白”表以外的所有的工作表。
+第3行代码将“空白”表的Visible属性设置为True，使其可见。
+应用于Charts和Worksheets对象的Visible属性决定对象是否可见，语法如下：
+expression.Visible
+参数expression是必需的，该表达式返回上面的对象之一。
+Visible属性可以设置为表格 28 1所示的XlSheetVisibility常量之一。</code></pre>
+<p>常量    值    描述<br>xlSheetHidden    0    隐藏对象，可以通过“格式”→“工作表”→“取消隐藏”菜单使对象重新可见，等同于设置为False。<br>xlSheetVisible    -1    使对象重新可见，等同于设置为True。<br>xlSheetVeryHidden    2    隐藏对象，使该对象重新可见的唯一方法是将此属性设置为True或xlSheetVisible。<br>表格 28 1    XlSheetVisibility常量<br>第4行到第8行代码使用For Each…Next语句遍历工作簿中所有的工作表，将除“空白”表以外的所有工作表的Visible属性设置为xlSheetVeryHidden，使之隐藏。<br>Visible属性设置为xlSheetVeryHidden后工作表不能通过“格式”→“工作表”→“取消隐藏”菜单来显示隐藏的工作表。<br>第9行代码使用Save方法保存代码所在工作簿的更改，在关闭工作簿时不显示如图 28 1所示的消息框。</p>
+<p>图 28 1    工作簿保存提示<br>第10行到第18行代码是工作簿的Open事件过程，在打开工作簿时将除“空白”表以外的所有工作表的Visible属性设置为xlSheetVisible，取消隐藏。如果打开工作簿时禁用宏，则工作簿中除了“空白”表以外，其他的工作表还处于深度隐藏的状态，如图 28 2所示，这样就达到强制用户启用宏的效果，当然这还需要VBA工程保护的配合。</p>
+<p>图 28 2    工作表深度隐藏</p>
+<h3 id="技巧29-防止更改工作表的名称"><a href="#技巧29-防止更改工作表的名称" class="headerlink" title="技巧29     防止更改工作表的名称"></a>技巧29     防止更改工作表的名称</h3><p>工作表的名称显示在工作表标签上，除了在相应的功能菜单中可以对其进行重命名操作外，在工作表标签上双击鼠标也能修改工作表名称。一旦修改了工作表名称，可能就会产生一连串的问题，例如在其他工作簿中对该工作表的引用将会失效，通过工作表名称引用工作表的代码也将出错。<br>Excel没有提供修改工作表名称的相关事件，要禁止用户修改工作表名称，需采取其他一些技巧。比如在工作表BeforeClose事件中检验工作表名称，如果工作表名称不是指定的字符串，则将其修改为指定字符串，即保持工作表名称不变，代码如下。</p>
+<pre><code class="vb">Private Sub Workbook_BeforeClose(Cancel As Boolean)
+    If Sheet1.Name &lt;&gt; &quot;Excel Home&quot; Then Sheet1.Name = &quot;Excel Home&quot;
+    ThisWorkbook.Save
+End Sub
+代码解析：
+工作簿的BeforeClose事件过程，在关闭当前工作簿时判断Sheet1工作表名称，如果不是指定的字符串“Excel Home”，则将其恢复为“Excel Home”后保存工作簿，从而避免更改Sheet1工作表名称。</code></pre>
+<h3 id="技巧30-工作表中一次插入多行"><a href="#技巧30-工作表中一次插入多行" class="headerlink" title="技巧30     工作表中一次插入多行"></a>技巧30     工作表中一次插入多行</h3><p>在工作表的中插入多行空行，需要使用Insert方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub InSertRows_1()
+    Dim i As Integer
+    For i = 1 To 3
+        Sheet1.Rows(3).Insert
+    Next
+End Sub
+代码解析：
+InSertRows_1过程使用Insert方法在如图 30 1所示的数据区域的第2行和第3行之间插入三行空行。
+Insert方法应用于Range对象时在工作表或宏表中插入一个单元格或单元格区域，其他单元格作相应移位以腾出空间，语法如下：
+expression.Insert(Shift, CopyOrigin)
+参数expression是必需的，该表达式返回一个Range对象。
+参数Shift是可选的，指定单元格的移动方向。可为以下XlInsertShiftDirection常量之一：xlShiftToRight或xlShiftDown。如果省略本参数，Microsoft Excel将依据该区域的形状决定移动方向。
+参数CopyOrigin是可选的，复制的起点。</code></pre>
+<p>还可以使用引用多行的方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub InSertRows_2()
+    Sheet2.Range(&quot;A3&quot;).EntireRow.Resize(3).Insert
+End Sub
+代码解析：
+InSertRows_2过程通过引用多行区域的方法实现一次插入多行。
+第2行代码中的Range(“A3”).EntireRow属性返回Range(“A3”)单元格所在的一整行，然后使用Resize属性调整行数后插入三行空行。
+也可以直接指定相应行再调整行数后插入空行，如下面的示例代码：
+Sub InSertRows_3()
+    Sheet3.Rows(3).Resize(3).Insert
+End Sub
+运行以上过程，工作表中如图 30 2所示。</code></pre>
+<p>图 30 2    插入三行空行</p>
+<h3 id="技巧31-删除工作表中的空行"><a href="#技巧31-删除工作表中的空行" class="headerlink" title="技巧31     删除工作表中的空行"></a>技巧31     删除工作表中的空行</h3><p>如果需要删除如图 31 1所示的工作表中所有的空行，可以使用下面的代码。</p>
+<p>图 31 1    需删除空行的工作表区域</p>
+<pre><code class="vb">Sub DelBlankRow() &#39;DelBlankRow过程删除工作表中已使用的区域的所有空行。
+    Dim rRow As Long
+    Dim LRow As Long
+    Dim i As Long
+    rRow = Sheet1.UsedRange.Row &#39;获得工作表中已使用区域的首行行号，其中使用UsedRange属性返回工作表中已使用的区域
+    LRow = rRow + Sheet1.UsedRange.Rows.Count - 1 &#39;获得工作表中已使用区域的最后一行行号
+    For i = LRow To rRow Step -1 &#39;从最大行数至最小行数循环判断指定行是否为空行，若为空行则删除该行
+        If Application.WorksheetFunction.CountA(Rows(i)) = 0 Then
+            Rows(i).Delete
+        End If
+    Next
+End Sub
+注意 此处一定要从最大行数至最小行数开始循环判断，因为如果工作表中存在两行及两行以上的相邻空行，从最小行数开始循环删除的话，当第一行空行被删除后，被删除行下面的一行会往上移位，而此时For...Next循环的计数器已经加1，所以会出现漏删除的现象。
+其中第8、9行代码使用工作表CountA函数判断当前行已使用单元格的数量，如果为零说明此行是空行则使用Delete删除。
+应用于Range对象的Delete方法删除对象，语法如下：
+expression.Delete(Shift)
+参数expression是必需的，返回一个Range对象。
+参数Shift是可选的，指定删除单元格时替补单元格的移位方式。可为以下 XlDeleteShiftDirection常量之一：xlShiftToLeft或xlShiftUp。如果省略该参数，则Microsoft Excel将根据区域的图形决定移位方式。
+运行DelBlankRow过程工作表区域如图 31 2所示。</code></pre>
+<h3 id="技巧32-删除工作表的重复行"><a href="#技巧32-删除工作表的重复行" class="headerlink" title="技巧32     删除工作表的重复行"></a>技巧32     删除工作表的重复行</h3><p>在实际应用中，可能需要删除如图 32 1所示的工作表中A列的重复内容而只保留一行，那么可以借助工作表CountIf函数来完成，如下面的代码所示。</p>
+<p>图 32 1    需删除重复行的工作表区域</p>
+<pre><code class="vb">Sub DeleteRow()
+    Dim R As Integer
+    Dim i As Integer
+    With Sheet1
+        R = .[a65536].End(xlUp).Row
+        For i = R To 1 Step -1
+            If WorksheetFunction.CountIf(.Columns(1), .Cells(i, 1)) &gt; 1 Then
+                .Rows(i).Delete
+            End If
+        Next
+    End With
+End Sub
+代码解析：
+DeleteRow过程删除工作表A列重复单元格所在的整行内容，只保留一行。
+第5行代码取得工作表中A列的最后一个非空单元格的行号，关于Range对象的End属性请参阅技巧3 。
+第6行到第10行代码从最大行数至最小行数循环判断A列单元格内容是否重复并删除重复单元格所在的整行。和技巧32 一样，此处For...Next循环也要从最大行数至最小行数开始循环判断，否则可能会删除不净。其中第7、8行代码使用工作表CountIf函数判断单元格内容是否重复，如果重复则删除该单元格所在的行。</code></pre>
+<p>图 32 2    删除重复行的工作表区域</p>
+<h3 id="技巧33-定位删除特定内容所在的行"><a href="#技巧33-定位删除特定内容所在的行" class="headerlink" title="技巧33     定位删除特定内容所在的行"></a>技巧33     定位删除特定内容所在的行</h3><p>如果需要删除如图 33 1所示的工作表区域中特定内容所在的行，可以使用定位的方法快速删除，无需使用For…Next循环对单元格逐个进行判断。</p>
+<p>图 33 1    需删除的工作表区域<br>示例代码如下：</p>
+<pre><code class="vb">Sub SpecialDelete()
+    Dim R As Integer
+    With Sheet1
+        R = .Range(&quot;a65536&quot;).End(xlUp).Row
+        .Range(&quot;a2:a&quot; &amp; R).Replace &quot;Excel&quot;, &quot;&quot;, 2
+        .Columns(1).SpecialCells(4).EntireRow.Delete
+    End With
+End Sub
+代码解析：
+SpecialDelete过程删除工作表A列单元格中显示为“Excel”的行。
+第5行代码使用Replace方法将工作表A列中显示为“Excel”的单元格内容替换成空白。关于Replace方法请参阅技巧6 。
+第6行代码使用SpecialCells方法定位到工作表A列中所有的空单元格，使用Range对象的EntireRow属性返回其所在的整个行一次性删除。关于SpecialCells方法请参阅技巧4 。
+运行SpecialDelete过程工作表区域如图 33 2所示。</code></pre>
+<h3 id="技巧34-判断是否选中整行"><a href="#技巧34-判断是否选中整行" class="headerlink" title="技巧34     判断是否选中整行"></a>技巧34     判断是否选中整行</h3><p>通过当前选择的单元格区域的单元格数目与行数或列数相比较，判断用户是否选中了整行或整列，如下面的代码所示。</p>
+<pre><code class="vb">Private Sub Worksheet_SelectionChange(ByVal Target As Range)
+    If Target.Rows.Count = 1 Then
+        If Target.Columns.Count = 256 Then
+            MsgBox &quot;您选中了整行,当前行号&quot; &amp; Target.Row
+        End If
+    End If
+End Sub
+代码解析：
+工作表的SelectionChange事件，判断用户是否选中了工作表中一整行单元格区域。
+第2行代码中的Target.Rows.Count返回目标区域的行数，确定用户当前选择区域的总行数是否为1。
+第3行代码中的Target.Columns.Count返回目标区域的列数，确定用户当前选择区域总列数是否为256。
+第4行代码当用户选中一整行时显示一个消息框，提示用户当前选择的行号，如图 34 1所示。
+如果需要判断是否选中了整列，只需将上面代码中的总行数修改为65536，总列数修改为1。</code></pre>
+<h3 id="技巧35-限制工作表的滚动区域"><a href="#技巧35-限制工作表的滚动区域" class="headerlink" title="技巧35     限制工作表的滚动区域"></a>技巧35     限制工作表的滚动区域</h3><p>如果希望限制工作表中滚动的区域，可以通过设置WorkSheet对象的ScrollArea属性来实现。ScrollArea属性使用以A1样式的区域引用形式（字符串类型）返回或设置工作表允许滚动的区域。当设置了工作表滚动区域之后，用户不能选定滚动区域之外的单元格，但仍然可以选定区域之外的其他对象（例如图形、按钮等），同时工作表的一些相应功能可能被禁止（例如工作表全选、选中整行或整列等）。<br>在VBE中的工程管理窗口选择相应工作表对象，然后在其属性窗口中设置ScrollArea属性，即可限制工作表中滚动的区域，如图 35 1所示。</p>
+<p>图 35 1    设置ScrollArea属性<br>但是Excel不会记忆该项设置，当再次打开该工作簿时，ScrollArea属性将被重置，用户必须重新设置ScrollArea属性才能限制工作表中的滚动区域，解决方法是使用代码在工作簿打开时对ScrollArea属性进行设置，如下面的代码所示。</p>
+<pre><code class="vb">Private Sub Workbook_Open()
+    Sheet1.ScrollArea = &quot;B4:H12&quot;
+End Sub
+代码解析：
+工作簿的Open事件，在打开该工作簿时设置Sheet1工作表的滚动区域为“B4:H12”单元格区域。
+如果需要取消滚动区域的限制，可以将ScrollArea属性值设置为空，如下面的代码所示。
+Sheet1.ScrollArea = &quot;&quot;</code></pre>
+<h3 id="技巧36-复制自动筛选后的数据区域"><a href="#技巧36-复制自动筛选后的数据区域" class="headerlink" title="技巧36     复制自动筛选后的数据区域"></a>技巧36     复制自动筛选后的数据区域</h3><p>用户在对如图 36 1所示的数据列表进行自动筛选后，往往希望将自动筛选的结果复制到其它地方。</p>
+<p>图 36 1    筛选结果<br>这时可以通过获取该列表区域中可见单元格的方法得到筛选结果的单元格区域，并复制到工作表Sheet2中，如下面的代码所示。</p>
+<pre><code class="vb">Sub CopyFilter() &#39;将Sheet1表中的筛选结果复制到工作表Sheet2中
+    Sheet2.Cells.Clear &#39;清除Sheet2表中数据
+    With Sheet1
+        If  .FilterMode Then &#39;判断Sheet1表是否处于自动筛选状态
+            .AutoFilter.Range.SpecialCells(12).Copy Sheet2.Cells(1, 1)
+        End If
+    End With
+End Sub
+FilterMode属性返回工作表是否处于筛选模式，如果指定工作表中包含已筛选序列且该序列中含有隐藏行，则该值为True。
+第5行代码通过AutoFilter对象的Range属性返回工作表的自动筛选列表区域，再使用SpecialCells方法获取该列表区域中可见单元格（SpecialCells方法请参阅技巧4 ），得到筛选结果的单元格区域，然后使用Copy方法将结果区域复制到工作表Sheet2中，应用于Range对象的Copy方法将单元格区域复制到指定的区域或剪贴板中，语法如下：
+expression.Copy(Destination)
+参数expression是必需的，该表达式返回一个Range对象。
+参数Destination是可选的，指定区域要复制到的目标区域。如果省略该参数，则将该区域复制到剪贴板中。</code></pre>
+<p>图 36 2    复制筛选区域</p>
+<h3 id="技巧37-使用高级筛选获得不重复记录"><a href="#技巧37-使用高级筛选获得不重复记录" class="headerlink" title="技巧37     使用高级筛选获得不重复记录"></a>技巧37     使用高级筛选获得不重复记录</h3><p>在如图 37 1所示的数据列表中，如果要将其中不重复的记录复制到另一工作表中，则可以通过高级筛选功能实现。</p>
+<p>图 37 1    数据列表<br>示例代码如下：</p>
+<pre><code class="vb">Sub Filter()
+    Sheet1.Range(&quot;A1&quot;).CurrentRegion.AdvancedFilter _
+        Action:=xlFilterCopy, Unique:=True, _
+        CopyToRange:=Sheet2.Range(&quot;A1&quot;)
+End Sub
+代码解析：
+Filter过程使用AdvancedFilter方法对单元格A1的当前区域筛选不重复的记录，并将筛选结果复制到工作表Sheet2中。应用于Range集合的AdvancedFilter方法语法如下：
+AdvancedFilter(Action, CriteriaRange, CopyToRange, Unique)
+参数Action是必需的，可以为表格 37 1所列的XlFilterAction常量之一。
+XlFilterAction 常量    值    描述
+xlFilterCopy    2    将筛选结果复制到其他位置
+xlFilterInPlace    1    在原有区域显示筛选结果
+表格 37 1    XlFilterAction常量
+参数CriteriaRange指定高级筛选操作的条件区域，缺省时表示没有条件限制。
+参数CopyToRange表示指定被复制行的目标区域，仅当Action为xlFilterCopy时有效，否则忽略本参数。
+参数Unique指示是否选择不重复的记录，如果其值为True，则重复出现的记录仅保留一条；如果其值为 False（默认值），则筛选出所有符合条件的记录。
+运行FilterUnique过程，结果如图 37 2所示。</code></pre>
+<p>图 37 2    得到不重复记录结果</p>
+<h3 id="技巧38-工作表的保护与解除保护"><a href="#技巧38-工作表的保护与解除保护" class="headerlink" title="技巧38     工作表的保护与解除保护"></a>技巧38     工作表的保护与解除保护</h3><p>在在实际应用中，Excel编制的报表、表格、程序等，往往在单元格中设置了公式、函数、自定义格式等，为了防止在使用过程中修改或无意中修改这些设置，一般使用Excel的工作表保护功能来保护这些设置。<br>但是程序中可能会使用代码对受保护的工作表进行操作，此时如果没有解除工作表保护，运行出现错误，如图 38 1所示。</p>
+<p>图 38 1    运行错误提示<br>解决方法是在运行操作工作表的代码前先使用代码解除工作表保护，待操作完毕后再保护工作表，如下面的代码所示。</p>
+<pre><code class="vb">Sub ShProtect()
+    With Sheet1
+        .Unprotect Password:=&quot;12345&quot;
+        .Cells(1, 1) = 100
+        .Protect Password:=&quot;12345&quot;
+    End With
+End Sub
+代码解析：
+ShProtect过程在受保护的工作表中对单元格进行操作，其中第3行代码使用Unprotect方法解除工作表的保护。应用于Worksheet 对象的Unprotect方法解除工作表的保护，如果工作表不是受保护的，则此方法不起作用，所以在解除之前无需判断工作表是否受保护，其语法如下：
+expression.Unprotect(Password)
+参数expression是必需的，该表达式返回一个Worksheet 对象。
+参数Password是可选的，指定用于解除工作表的保护的密码，此密码是区分大小写的。
+第4、5行代码在单元格录入数据后使用Protect方法重新保护工作表。应用于Worksheet对象的Protect方法保护工作表使其不至被修改，语法如下：
+expression.Protect(Password, DrawingObjects, Contents, Scenarios, UserInterfaceOnly, AllowFormattingCells, AllowFormattingColumns, AllowFormattingRows, AllowInsertingColumns, AllowInsertingRows, AllowInsertingHyperlinks, AllowDeletingColumns, AllowDeletingRows, AllowSorting, AllowFiltering, AllowUsingPivotTables) 
+其中参数expression是必需的，该表达式返回一个Worksheet对象。
+参数Password是可选的，为一个字符串，该字符串为工作表指定区分大小写的密码。
+其他参数都是可选参数，其功能等同于如图 38 2所示的工作表保护对话框中的各项选项，具体请参阅VBA帮助。</code></pre>
+<p>如果一个Excel文件使用时间过长，忘记了工作表保护时设置的密码，那么也可以使用VBA解除工作表的保护，代码如下：</p>
+<pre><code class="vb">Sub RemoveShProtect()
+    Dim i1 As Integer, i2 As Integer, i3 As Integer
+    Dim i4 As Integer, i5 As Integer, i6 As Integer
+    Dim i7 As Integer, i8 As Integer, i9 As Integer
+    Dim i10 As Integer, i11 As Integer, i12 As Integer
+    On Error Resume Next
+    If ActiveSheet.ProtectContents = False Then
+        MsgBox &quot;该工作表没有保护密码！&quot;
+        Exit Sub
+    End If
+    For i1 = 65 To 66: For i2 = 65 To 66: For i3 = 65 To 66
+    For i4 = 65 To 66: For i5 = 65 To 66: For i6 = 65 To 66
+    For i7 = 65 To 66: For i8 = 65 To 66: For i9 = 65 To 66
+    For i10 = 65 To 66: For i11 = 65 To 66: For i12 = 32 To 126
+        ActiveSheet.Unprotect Chr(i1) &amp; Chr(i2) &amp; Chr(i3) &amp; Chr(i4) &amp; Chr(i5) _
+        &amp; Chr(i6) &amp; Chr(i7) &amp; Chr(i8) &amp; Chr(i9) &amp; Chr(i10) &amp; Chr(i11) &amp; Chr(i12)
+        If ActiveSheet.ProtectContents = False Then
+            MsgBox &quot;已经解除了工作表保护！&quot;
+            Exit Sub
+        End If
+    Next: Next: Next: Next: Next: Next
+    Next: Next: Next: Next: Next: Next
+End Sub
+代码解析：
+RemoveShProtect过程解除工作表的保护。
+其中第7行到第10行代码判断工作表是否受保护，ProtectContents属性返回工作表的保护状态，如果工作表的内容处于保护状态，则该值为True。
+第11行到第22行代码使用For...Next 语句和Chr函数来返回指定字符码所代表的字符串组合不断地尝试解除工作表保护，一旦工作表的ProtectContents属性返回False说明已经解除工作表保护。</code></pre>
+<h3 id="技巧39-奇偶页打印"><a href="#技巧39-奇偶页打印" class="headerlink" title="技巧39     奇偶页打印"></a>技巧39     奇偶页打印</h3><p>在Excel中却没有提供打印奇数页和偶数页的功能，用户可以使用VBA在Excel中实现该功能，如下面的代码所示。</p>
+<pre><code class="vb">Sub PrintOddPage()
+    Dim TotalPg As Integer
+    TotalPg = ExecuteExcel4Macro(&quot;GET.DOCUMENT(50)&quot;)
+    For i = 1 To TotalPg Step 2
+        ActiveSheet.PrintOut From:=i, To:=i
+    Next
+End Sub
+代码解析：
+第3行代码使用Excel 4.0宏表函数获取总页数，通过该函数获取总页数而无需判断分页符。
+第4行到第6行代码逐页打印所有奇数页，其中第5行代码中的参数From和To指定打印的开始页数和结束页数。
+将第4行代码中的数值改为2，则实现偶数页的打印。</code></pre>
+
+    </div>
+</article>
+                </main>
+                <aside class="aside">
+                    <section class="aside-section">
+                        
+    <h1>Categories</h1>
+
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/生の术/">生の术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生の迹/">生の迹</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生の道/">生の道</a></li></ul>
+
+                    </section>
+                    <section class="aside-section">
+                        
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archiveshl/2018/">2018</a></li></ul>
+
+
+                    </section>
+                    <section class="aside-section tag">
+                        
+    <h1>Tags</h1>
+
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VBA/">VBA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据科学/">数据科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自言语/">自言语</a></li></ul>
+
+                    </section>
+                </aside>
+        </div>
+    </body>
+
+</html>

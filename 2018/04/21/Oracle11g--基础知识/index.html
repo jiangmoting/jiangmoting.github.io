@@ -1,0 +1,2245 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="jiangmoting, autumn">
+    <title>
+        TT ❤ LL 印迹
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script>
+        infiniteScroll()
+
+        // for mobile menu
+        $(function () {
+            $('.social-button').click(function () {
+                if ($('.social-links').hasClass('hide-links')) {
+                    $('.social-links').removeClass('hide-links')
+                } else {
+                    $('.social-links').addClass('hide-links')
+                }
+            })
+        })
+    </script>
+</head>
+
+    <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <div class="container">
+            <header class="header">
+    <h1 class="title">
+        <a href="/" class="logo">
+            TT ❤ LL 印迹
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <nav class="links">
+        <button class="social-button">
+            menu
+        </button>
+        <ul class="social-links hide-links">
+            
+                <li>
+                    <a href="http://nipponcolors.com/">
+                        当下
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://nipponcolors.com/">
+                        未来
+                    </a>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+                <main class="main">
+                    <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/生の术/">
+            生の术
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        Oracle--基础知识
+    </h2>
+    <ul class="post-date">
+        <li>
+            2018-04-21
+        </li>
+        <li>
+            绛墨铤
+        </li>
+    </ul>
+    <div class="post-content">
+        <h1 id="第一天：数据库系统概述"><a href="#第一天：数据库系统概述" class="headerlink" title="第一天：数据库系统概述"></a>第一天：数据库系统概述</h1><p>学习目标：</p>
+<ul>
+<li>数据库的基本概念</li>
+<li>数据管理技术的发展</li>
+<li>数据模型</li>
+<li>数据库系统的体系结构</li>
+</ul>
+<h2 id="数据库的基本概念"><a href="#数据库的基本概念" class="headerlink" title="数据库的基本概念"></a>数据库的基本概念</h2><h3 id="数据和数据库"><a href="#数据和数据库" class="headerlink" title="数据和数据库"></a>数据和数据库</h3><p><strong>数据(Data)</strong>：描述事物的符号记录称为“数据”，数据是数据库中的基本对象。</p>
+<p><strong>数据库</strong>(DataBase,DB)：数据库是被长期存放在计算机内、有组织的、可以表现为多种形式的、可共享的数据的集合，这是数据库“硬”的含义。另一方面，数据库是数据管理系统的新方法和技术。数据库技术使数据能按一定格式组织、描述和存储，且具有较小的冗余度、较高的数据独立性和易扩展性，并可以为多个用户所共享，这是数据库“软”的含义。</p>
+<h3 id="数据库管理系统"><a href="#数据库管理系统" class="headerlink" title="数据库管理系统"></a>数据库管理系统</h3><p>数据库管理系统(DBMS)是位于用户和操作系统之上的一层数据管理软件，功能如下：</p>
+<ul>
+<li>数据定义功能：方便用户对相关内容进行定义</li>
+<li>数据操纵功能：用户可以实现对数据库的基本操作，例如增删查改。</li>
+<li>数据组织、存储与管理：何种文件结构存储，提高存储空间利用率，如何实现数据间的联系，选择合适的存取方法以提高存取效率。</li>
+<li>数据库的运行管理：DBMS的核心，包括并发控制、安全性检查、完整性约束条件的检查和处理、数据库的内部维护等。</li>
+<li>数据库的建立和维护功能：数据库的建立和维护功能包括数据库初始数据的输入、转换，数据库存储、恢复功能，数据库的重新组织功能和性能监视和分析功能。</li>
+<li>数据字典(DD:Data Dictionary)：是关于数据的信息集合，是一种用户可以访问的记录数据库和应用程序元数据的目录。</li>
+<li>数据通信功能：包括与操作系统的联机处理、分时处理和远程作业传输的相应借口等。</li>
+</ul>
+<h3 id="数据库系统"><a href="#数据库系统" class="headerlink" title="数据库系统"></a>数据库系统</h3><p>数据库系统(DBS)通常是指带有数据库的计算机应用系统，因此数据系统不仅包括相应数据本身，还包括相应的硬件支持环境和维护人员等。</p>
+<p>用户=&gt;数据库应用软件=&gt;应用开发工具=&gt;高级语言及编译系统=&gt;数据库管理系统=&gt;操作系统=&gt;数据库=&gt;数据库管理</p>
+<p>在数据库系统中，数据模型主要有层次模型、网状模型和关系模型三种（面向对象模型仍在探索），目前理论成熟使用普及的模型便是关系模型。</p>
+<h2 id="关系数据库设计理论"><a href="#关系数据库设计理论" class="headerlink" title="关系数据库设计理论"></a>关系数据库设计理论</h2><p>###实体和属性</p>
+<p>模型**是对过程和对象的抽象化，经过模型可以深入了解复杂系统的主要特征。</p>
+<p><strong>实体</strong>，是指客观存在的事物，可通过它的若干属性的值来描述。属性是事物某方面的特征，所谓关系，是指实体集之间的联系。关系有3种不同的类型：</p>
+<ul>
+<li>1:1型，即实体集合之间形成一对一的关系</li>
+<li>1:m型，即实体集合之间形成一对多的关系</li>
+<li>m:n型，即实体集合的多对多的关系</li>
+</ul>
+<p>参加一个联系的实体集可以只有一个，也可以是多个，实体间发生联系后，可能产生某些属性。在实体、属性和关系三要素的基础上作E-R图的步骤是：</p>
+<ul>
+<li>⑴用长方形框表示实体集，在框内写上实体名。</li>
+<li>⑵用菱形框表示实体集之间的联系，在菱形框内写上联系的名称，用弧或线段连接菱形框与有关长方形框（实体），并注明1:1、1:m或m:n的函数关系。</li>
+<li>⑶用椭圆框表示实体的属性，在椭圆框中标上属性名，用线段连接实体和它的属性。</li>
+</ul>
+<p>###关系模型</p>
+<p><strong>关系模型</strong>：用二维表格结构来表示实体及实体间联系的模型称为关系模型。以下为基本概念：</p>
+<ul>
+<li>关系模式（relational schema）：在二维表格中，行定义（记录的型）称为关系模式。</li>
+<li>元组（tuple）与关系：在二维表中行（记录的值）称为元组，元组的集合称为关系，关系模式通常也称关系。</li>
+<li>关键字或码（key）：在关系的属性中，能够用来唯一标识元组的属性（或属性组合）称为关键字或码。关系中的元组由关键字的值唯一确定，关键字不能为空。例如，学生表中学号就是关键字。</li>
+<li>候选关键字或候选码（candidate key）：如果一个关系中，存在着多个属性（或属性组合）都能用来唯一标识该关系的元组，这些属性或属性的组合称为该关系的候选关键字或候选码。</li>
+<li>主关键字或主码（primary key）：若一个关系中存在若干候选关键字，则从中指定关键字的属性（或属性组合）称为该关系的主关键字或主码。</li>
+<li>非主属性或非关键字属性（non primary attribute）：关系中不能组成关键字的属性均为非主属性或非关键字属性。</li>
+<li>外部关键字或外键（foreign key）：当关系中的某个属性或属性组合虽不是该关系的关键字或只是关键字的一部分，但却是另一个关系的关键字时，该属性或属性组合称为这个关系的外部关键字或外键。</li>
+<li>从表与主表：以某属性为主键的表称为主表，以此属性为外键的表称为从表。例如，学生（学号，姓名，性别，出生日期，入学时间，系部代码）与选课（学号，课程号，成绩）两个表，对于“选课”表，“学号”是外键，对于“学生”表为主表，“选课”表为从表。</li>
+</ul>
+<h3 id="关系型数据库的设计范式"><a href="#关系型数据库的设计范式" class="headerlink" title="关系型数据库的设计范式"></a>关系型数据库的设计范式</h3><p><strong>函数依赖</strong>：假设有关系模式R(U),x和y是属性集U的子集合，函数依赖是形为x-&gt;y的一个命题，对任意R中的两个元组t和s，都有t[x]=s[x]蕴含t[y]=s[y],那么x-&gt;y在关系模式R(U)中成立。x-&gt;y解释为x决定了y,或者y依赖于x.<br><strong>第一范式(1NF）</strong>：如果关系模式R的每一个关系r的属性都是不可分割的数据项，那么称R是第一范式的模式。<br>简单的讲：每个属性都是原子项，不可分割。</p>
+<p>说明：在任何一个关系数据库中，第一范式（1NF）是对关系模式的设计基本要求，一般设计中都必须满足第一范式（1NF）。不过有些关系模型中突破了1NF的限制，这种称为非1NF的关系模型。换句话说，是否必须满足1NF的最低要求，主要依赖于所使用的关系模型。</p>
+<p><strong>第二范式(2NF)</strong>：如果关系模式R是第一范式，且每个非主属性完全函数依赖于候选键（或主键），那么我们称R是第二范式的模式。第二范式（2NF）<strong>要求实体的属性完全依赖于主关键字。所谓完全依赖是指不能存在仅依赖主关键字一部分的属性</strong>，如果存在，那么这个属性和主关键字的这一部分应该分离出来形成一个新的实体，新实体与原实体之间是一对多的关系。为实现区分通常需要为表加上一个列，以存储各个实例的唯一标识。简而言之，第二范式就是在第一范式的基础上属性完全依赖于主键。</p>
+<p><strong>第三范式（3NF)</strong>：如果关系模式是第二范式，且关系模式中的所有非主属性都任何候选关键字都不存在传递依赖，则称关系R是属于第三范式。第三范式（3NF）是第二范式（2NF）的一个子集，即满足第三范式（3NF）必须满足第二范式（2NF）。简而言之，第三范式（3NF）要求一个关系中不包含已在其它关系已包含的非主关键字信息。例如，存在一个部门信息表，其中每个部门有部门编号（dept_id）、部门名称、部门简介等信息。那么在员工信息表中列出部门编号后就不能再将部门名称、部门简介等与部门有关的信息再加入员工信息表中。如果不存在部门信息表，则根据第三范式（3NF）也应该构建它，否则就会有大量的数据冗余。简而言之，第三范式就是属性不依赖于其它非主属性，也就是在满足2NF的基础上，任何非主属性不得传递依赖于主属性。</p>
+<h1 id="第二天：Oracle概述"><a href="#第二天：Oracle概述" class="headerlink" title="第二天：Oracle概述"></a>第二天：Oracle概述</h1><h2 id="Oracle数据库管理工具"><a href="#Oracle数据库管理工具" class="headerlink" title="Oracle数据库管理工具"></a>Oracle数据库管理工具</h2><p>常用Oracle服务：在Windows操作系统环境下，oracle数据库服务器是以系统服务的方式运行的。可以通过“控制面板”|“管理工具”|“服务”命令，打开系统服务窗口查看Oracle服务。在系统“服务”窗口中，所有的Oracle服务名称都是以“Oracle”开头的。主要的服务如下所示：</p>
+<ul>
+<li>OracleJobSchedulerORCL：Oracle作业调度服务，一般默认设置成禁用。</li>
+<li>Oracle<oracle_home_name>TNSListener：监听服务程序<oracle_home_name>，为Oracle的主目录。</oracle_home_name></oracle_home_name></li>
+<li>OracleService&lt;SID&gt;：Oracle数据库实例服务，它是Oracle数据库的主要服务，这个服务会自动地启动和停止数据库。SID为创建的数据库实例的标识，此服务被默认设置为自动启动。</li>
+</ul>
+<p><strong>SQL Plus工具</strong></p>
+<p><strong>SQLPlus</strong>是Oracle公司提供的一个工具程序，它是用户和服务器之间的一种接口，是操作Oracle数据库的工具。有如下功能：</p>
+<ul>
+<li>对数据库的数据进行增加、删除、修改、查询的操作；</li>
+<li>将查询结果输出到报表表格中，设置表格格式和计算公式，不可以把表格存储起来；</li>
+<li>启动、连接和关闭数据库；</li>
+<li>管理数据库对象，如用户、表空间、角色等对象；</li>
+</ul>
+<p><strong>SQLPlus</strong>命令的一般语法如下：</p>
+<pre><code class="sql">SQLPlus [ user_name[ / password][ @connect_identifier] ]
+    [As { SYSOPER | SYSDBA | SYSASM } ] | / NOLOG ] 
+/*
+user_name:制定数据库的用户名
+password:制定数据库用户的命令。
+@connect_identifier:指定要连接的数据库。
+As:用来指定管理权限，权限可选值为SYSDBA,SYSOPER和SYSASM。
+SYSDBA:具有SYSOPER权限的管理员可以启动和关闭数据库，执行联机和脱机备份，归档当前重做日志文件，连接数据库。
+SYSOPER:SYSDBA权限包含SYSOPER的所有权限，另外还能够创建数据库，并且授权SYSDBA或SYSOPER给其他数据库用户。
+SYSASM:SYSASM权限是Oracle DataBase 11g的新增特性，是ASM实例所特有的，用于数据库存储管理。
+NOLOG:表示不计入日志文件。
+*/</code></pre>
+<p>Oracle数据库12c的企业管理器<strong>Enterprise Manager</strong>（简称EM）是以图形化界面的方式来实现对数据库的管理的，它为数据库的使用提供了方便。由于EM采用基于Web的应用，它对数据库的访问也采用了HTTP/HTTPS协议，即使用三层结构访问Oracle数据库系统。EM通过一个抽象层为最终用户隐藏了底层架构的复杂性。这种抽象通过图形化（GUI）和程序化（API）的自服务接口提供。</p>
+<p><strong>SQL Developer</strong>:Developer允许用户创建并维护数据库对象，查看和维护数据，编写、维护并调试PL/SQL代码。这款工具以其简洁整齐的图形用户界面大大简化了开发工作。</p>
+<p><strong>PL/SQL Developer</strong>：Oracle SQL Developer是Oracle提供的免费图形化开发工具，TOAD和PL/SQL Developer是商业性的工具，需要付费，但是使用的人也较多。相对来说，对于初学者PL/SQL Developer工具更容易上手，专门用于开发、测试、调试和优化Oracle PL/SQL存储程序单元。</p>
+<h2 id="Oracle-DataBase存储结构"><a href="#Oracle-DataBase存储结构" class="headerlink" title="Oracle DataBase存储结构"></a>Oracle DataBase存储结构</h2><p> <img src="https://jiangmoting-post-1256428291.cos.ap-guangzhou.myqcloud.com/img/2018-04/oracle.png" alt></p>
+<p>###概述</p>
+<p>在Oracle数据库管理系统中有3个重要的概念需要理解:</p>
+<ul>
+<li><strong>实例</strong>是指一组Oracle后台进程以及在服务器中分配的共享内存区域；</li>
+<li><strong>数据库</strong>是由基于磁盘的数据文件、控制文件、日志文件、参数文件和归档日志文件等组成的物理文件集合；</li>
+<li><strong>数据库服务器</strong>是指管理数据库的各种软件工具（比如，sqlplus、OEM等）和实例及数据库三个部分。</li>
+</ul>
+<p>从实例与数据库之间的辩证关系来讲，实例用于管理和控制数据库；而数据库为实例提供数据。一个数据库可以被多个实例装载和打开；而一个实例在其生存期内只能装载和打开一个数据库。</p>
+<p>注：此图右下角为物理存储结构。</p>
+<p><img src="https://jiangmoting-post-1256428291.cos.ap-guangzhou.myqcloud.com/img/2018-04/oracle%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.png" alt></p>
+<h3 id="数据库实例"><a href="#数据库实例" class="headerlink" title="数据库实例"></a>数据库实例</h3><p>Oracle数据库系统指具有管理Oracle数据库功能的计算机系统。每一个运行的Oracle数据库都对应一个Oracle实例（Instance），一个Oracle实例为存取和控制数据库的软件机制。当数据库服务器上的一个数据库启动时，Oracle将分配一块内存区间，叫做系统全局区（SGA），并启动一个或多个Oracle进程。因此实例是一组内存结构和后台进程的集合。</p>
+<p>用户访问数据库的操作是通过实例来完成的。当数据库服务器启动时，首先启动实例，然后加载并打开数据库。当用户访问数据库时，数据库服务器便为用户进程启动一个服务器进程，负责处理用户进程的所有请求。为了区分不同的实例，每个实例都有一个系统标识符SID，通常SID与数据库同名。每个服务器进程的命名也与SID相匹配。</p>
+<h3 id="数据库的逻辑存储结构"><a href="#数据库的逻辑存储结构" class="headerlink" title="数据库的逻辑存储结构"></a>数据库的逻辑存储结构</h3><p><img src="https://jiangmoting-post-1256428291.cos.ap-guangzhou.myqcloud.com/img/2018-04/oracle%E9%80%BB%E8%BE%91%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.png" alt></p>
+<p><strong>数据块:</strong>Oracle逻辑存储结构中的最小的逻辑单位，也是执行数据库输入输出操作的最小存储单位。Oracle数据存放在“Oracle数据块”中，而不是“操作系统块”中。通常Oracle数据块是操作系统块的整数倍，如果操作系统快的大小为2048B，并且Oracle数据块的大小为8192B，则表示Oracle数据块由4个操作系统块构成。Oracle数据块有一定的标准大小，其大小被写入到初始化参数DB_BlOCK_SIZE中。另外，Oracle支持在同一个数据库中使用多种大小的快，与标准块大小不同的块就是非标准块。</p>
+<p><strong>“数据区“和“段“：</strong>也可称作数据扩展区，是由一组连续的Oracle数据块所构成的Oracle存储结构，一个或多个数据块组成一个数据区，一个或多个<strong>数据区</strong>再组成一个<strong>段（Segment）</strong>。当一个段中的所有空间被使用完后，Oracle系统将自动为该段分配一个新的数据区，数据区是Oracle存储分配的最小单位，Oracle就以数据区为单位进行存储控件的扩展。使用数据区的目的是用来保存特定数据类型的数据，也是表中数据增长的基本单位。在Oracle数据库中，分配存储空间就是以数据区为单位的。一个Oracle对象包含至少一个数据区。设置一个表或索引的存储参数包含设置它的数据区大小。</p>
+<p><strong>表空间</strong>：Oracle使用表空间将相关的逻辑结构（比如段、数据区等）组合在一起，表空间是数据库的最大逻辑划分区域，通常用来存放数据表、索引、回滚段等数据对象（即Segment），任何数据对象在创建时都必须被指定存储在某个表空间中。表空间（属逻辑存储结构）与数据文件（属物理存储结构）相对应，一个表空间由一个或多个数据文件组成，一个数据文件只属于一个表空间；<strong>Oracle数据的存储空间在逻辑上表现为表空间，而在物理上表现为数据文件</strong>。举个例子来说，表空间相当于操作系统中的文件夹，而数据文件就相当于文件夹中的文件。每个数据库至少有一个表空间（即SYSTEM表空间），表空间的大小等于所有从属于它的数据文件大小的总和。</p>
+<h3 id="数据库的物理存储结构"><a href="#数据库的物理存储结构" class="headerlink" title="数据库的物理存储结构"></a>数据库的物理存储结构</h3><p><img src="https://jiangmoting-post-1256428291.cos.ap-guangzhou.myqcloud.com/img/2018-04/oracle%E7%89%A9%E7%90%86%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.png" alt></p>
+<p><strong>数据文件：</strong>用于保存用户应用程序数据和Oracle系统内部数据的文件，这些文件在操作系统中就是普通的操作系统文件，Oracle在创建表空间的同时会创建数据文件。Oracle数据库在逻辑上由表空间组成，每个表空间可以包含一个或多个数据文件，一个数据文件只能隶属于一个表空间。</p>
+<p><strong>控制文件：</strong>控制文件是一个二进制文件，它记录了数据库的物理结构，其中主要包含数据库名、数据文件与日志文件的名字和位置、数据库建立日期等信息。控制文件一般在Oracle系统安装时或创建数据库时自动创建，控制文件所存放的路径由服务器参数文件spfileorcl.ora的control_files参数值来指定。由于控制文件存放有数据文件、日志文件等的相关信息，因此，Oracle实例在启动时必须访问控制文件。如果控制文件正常，实例才能加载并打开数据库；但若控制文件中记录了错误的信息，或者实例无法找到一个可用的控制文件，则实例无法正常启动。</p>
+<p><strong>日志文件</strong>：日志文件的主要功能是记录对数据所作的修改，对数据库所作的修改几乎都记录在日志文件中。在出现问题时，可以通过日志文件得到原始数据，从而保障不丢失已有操作成果。Oracle的日志文件包括重做日志文件（Redo Log File）和归档日志文件（Archive Log File），它们是Oracle系统的主要文件之一，尤其是重做日志文件，它是Oracle数据库系统正常运行所不可或缺的。下面将介绍这两种日志文件。</p>
+<p><strong>服务器参数文件：</strong>SPFILE（ServerparameterFile）是二进制文件，用来记录了Oracle数据库的基本参数信息（如，数据库名、控制文件所在路径、日志缓冲大小等）。数据库实例在启动之前，Oracle系统首先会读取SPFILE参数文件中设置的这些参数，并根据这些初始化参数来配置和启动实例。比如，设置标准数据块的大小（即参数db_block_size的值）、设置日志缓冲区的大小（即参数log_buffer的值）等等，所以SPFILE参数文件非常重要。服务器参数文件在安装Oracle数据库系统时由系统自动创建，文件的名称为SPFILEsid.ora，sid为所创建的数据库实例名。与早期版本的初始化参数文件INITsid.ora不同的是，SPFILE中的参数由Oracle系统自动维护，如果要对某些参数进行修改，则尽可能不要直接对SPFILE进行编辑，最好通过企业管理器（OEM）或ALTERSYSTEM命令来修改，所修改过的参数会自动写到SPFILE中。</p>
+<p><strong>密码文件、警告文件、跟踪文件</strong>：Oracle系统运行时，除了必须的数据文件、控制文件、日志文件及服务器参数文件外，还需要一些辅助文件，如，密码文件、警告文件和跟踪文件，下面将对这些辅助文件进行简单的介绍。</p>
+<h3 id="Oracle11g服务器结构"><a href="#Oracle11g服务器结构" class="headerlink" title="Oracle11g服务器结构"></a>Oracle11g服务器结构</h3><p><strong>系统全局区（System Global Area）：</strong>是所有用户进程共享的一块内存区域，也就是说，SGA中的数据资源可以被多个用户进程共同使用。SGA主要由高速数据缓冲区、共享池、重做日志缓存区、java池和大型池等内存结构组成。SGA随着数据库实例的启动而加载到内存中，当数据库实例关闭时，SGA区域也就消失了。</p>
+<p><strong>程序全局区（Program Global Area）：</strong>也可称作用户进程全局区，它的内存区在进程私有区而不是共享区中。虽然PGA是一个全局区，可以把代码、全局变量和数据结构都可以存放在其中，但区域内的资源并不像SGA一样被所有的用户进程所共享，而是每个Oracle服务器进程都只拥有属于自己的那部分PGA资源。在程序全局区（PGA）中，一个服务进程只能访问属于它自己的那部分PGA资源区，各个服务进程的PGA区的总和即为实例的PGA区的大小。通常PGA区由私有SQL区和会话区组成。</p>
+<p><strong>前台进程：</strong></p>
+<p> 用户进程是指那些能够产生或执行SQL语句的应用程序，无论是SQL*Plus，还是其它应用程序，只要是能生成或执行SQL语句，都被称作用户进程。</p>
+<p>服务进程就是用于处理用户会话过程中向数据库实例发出的SQL语句或SQL*Plus命令，它可以分为专用服务器模式和共享服务器模式。</p>
+<p><strong>后台进程：</strong>是一组运行于Oracle服务器端的后台程序，是Oracle实例的重要组成部分。进程包括DBWR、CKPT、LGWR、ARCH、SMON、PMON、LCKN、RECO、DNNN、SNPN。其中SMON、PMON、DBWR、LGWR和CKPT这5个后台进程必须正常启动，否则将导致数据库实例崩溃。此外，还有很多辅助进程，用于实现相关的辅助功能，如果这些辅助进程发生问题，只是某些功能受到影响，一般不会导致数据库实例崩溃。</p>
+<h2 id="Oracle数据字典简介"><a href="#Oracle数据字典简介" class="headerlink" title="Oracle数据字典简介"></a>Oracle数据字典简介</h2><p>Oracle数据字典的名称由前缀和后缀组成，使用下划线“_”连接，其代表的含义如下：</p>
+<ul>
+<li>DBA_：包含数据库实例的所有对象信息。</li>
+<li>V$_：当前实例的动态视图，包含系统管理和系统优化等所使用的视图。</li>
+<li>USER_：记录用户的对象信息。_</li>
+<li>_GV_：分布式环境下所有实例的动态视图，包含系统管理和系统优化使用的视图。</li>
+<li>ALL_：记录用户的对象信息机被授权访问的对象信息。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>数据字典名称</th>
+<th>说    明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dba_tablespaces</td>
+<td>关于表空间的信息</td>
+</tr>
+<tr>
+<td>dba_ts_quotas</td>
+<td>所有用户表空间限额</td>
+</tr>
+<tr>
+<td>dba_free_space</td>
+<td>所有表空间中的自由分区</td>
+</tr>
+<tr>
+<td>dba_segments</td>
+<td>描述数据库中所有段的存储空间</td>
+</tr>
+<tr>
+<td>dba_extents</td>
+<td>数据库中所有分区的信息</td>
+</tr>
+<tr>
+<td>dba_tables</td>
+<td>数据库中所有数据表的描述</td>
+</tr>
+<tr>
+<td>v$database</td>
+<td>描述关于数据库的相关信息</td>
+</tr>
+<tr>
+<td>v$datafile</td>
+<td>数据库使用的数据文件信息</td>
+</tr>
+<tr>
+<td>v$log</td>
+<td>从控制文件中提取有关重做日志组的信息</td>
+</tr>
+<tr>
+<td>v$logfile</td>
+<td>有关实例重置日志组文件名及其位置的信息</td>
+</tr>
+</tbody></table>
+<h1 id="第三天：SQL-Plus命令"><a href="#第三天：SQL-Plus命令" class="headerlink" title="第三天：SQL*Plus命令"></a>第三天：SQL*Plus命令</h1><h2 id="SQL-Plus与数据库的交互"><a href="#SQL-Plus与数据库的交互" class="headerlink" title="SQL*Plus与数据库的交互"></a>SQL*Plus与数据库的交互</h2><p>SQL<em>Plus工具主要用来进行数据查询和数据处理。利用SQL</em>Plus可将SQL和Oracle专有的PL/SQL结合起来进行数据查询和处理。SQL*Plus工具具备以下功能：</p>
+<ul>
+<li>定义变量，编写SQL语句。</li>
+<li>插入、修改、删除、查询，以及执行命令和PL/SQL语句。比如，执行showparameter命令。</li>
+<li>格式化查询结构、运算处理、保存、打印机输出等。</li>
+<li>显示任何一个表的字段定义，并实现与用户进行交互。</li>
+<li>完成数据库的几乎所有管理工作。比如，维护表空间和数据表。</li>
+<li>运行存储在数据库中的子程序或包。</li>
+<li>以sysdba身份登录数据库实例，可以实现启动/停止数据库实例。</li>
+</ul>
+<p><strong>启动数据库</strong>：Oracle数据库实例的启动过程分为3步骤，分别是启动实例、加载数据库、打开数据库。用户可以根据实际情况的需要，以不同的模式启动数据库，启动数据库所使用的命令格式如下:</p>
+<pre><code class="sql">STARTUP [nomount | mount | open | force][pfile=filename]
+/*
+nomount:表示启动实例不加载数据库。
+mount:表示启动实例、加载数据库并保持数据库的关闭状态。、
+open:表示启动实例、加载并打开数据库，这是个默认选项。
+force:表示终止实例并重新启动数据库
+restrict:用于指定已受限制的会话方式启动数据库。
+pfile:用于指定启动实例时所使用的文本参数文件，filename就是文件名。
+*/</code></pre>
+<p><strong>关闭数据库</strong>:关闭数据库实例也分为3个步骤，分别是关闭数据库、卸载数据库、关闭Oracle实例。在SQL*Plus中，可以使用shutdown语句关闭数据库，其具体语法格式如下：</p>
+<pre><code class="sql">SHUTDOWN [normal | transactional | immediate | abort]
+/*
+normal:表示以正常方式关闭数据库
+transactional:表示在当前所有的活动事物被提交完毕后，关闭数据库。
+immediate:表示在尽可能短的时间内立即关闭数据库。
+abort:表示以终止方式来关闭数据库。
+*/</code></pre>
+<h2 id="SQL-Plus的运行环境"><a href="#SQL-Plus的运行环境" class="headerlink" title="SQL*Plus的运行环境"></a>SQL*Plus的运行环境</h2><p> <strong>Set命令</strong>：在Oracle11g数据库中，用户可以使用SET命令来设置SQL*Plus的运行环境，SET命令的语法格式为：</p>
+<pre><code class="sql">SET system_variable  value
+/*system_variable:表示变量名,value:表示变量值*/</code></pre>
+<p>以下为常用 SET命令：</p>
+<pre><code class="sql">SET AUTO[COMMIT] {ON|OFF|IMM[EDIATE]| n}    /*设置当前session 是否对修改的数据进行自动提交 */
+SET ECHO {ON|OFF}              /* 在用start 命令执行一个sql 脚本时，是否显示脚本中正在执行的SQL 语句 */
+SET FEED[BACK] {6|n|ON|OFF}  /* 是否显示当前sql语句查询或修改的行数,默认只有结果大于6 行时才显示结果                               的行数。如果set feedback 1，则不管查询到多少行都返回。当为off 时，一                                律不显示查询的行数*/
+SET HEA[DING] {ON|OFF}          /* 当set heading off 时，在每页的上面不显示列标题，而是以空白行代替*/
+SET LIN[ESIZE] {80|n}           /* 如果一行的输出内容大于设置的一行可容纳的字符数，则折行显示。*/
+SET markup html                 /* 输出的数据为html 格式 */
+SET NEWP[AGE] {1|n|NONE}      /* 当set newpage 0  时，会在每页的开头有一个小的黑方框。当set newpage                               n时，会在页和页之间隔着n 个空行。当set newpage none  时，会在页和页                                之间没有任何间隔。*/
+SET NULL text                  /*显示时，用text 值代替NULL 值 */
+SET PAGES[IZE] {24|n}       /*设置一页有多少行数，如果设为0，则所有的输出内容为一页并且不显示列标题 */
+SET TERM[OUT] {ON|OFF}      /*在用spool 命令将一个大表中的内容输出到一个文件中时，将内容输出在屏幕上会                             耗费大量的时间，设置set termspool off 后，则输出的内容只会保存在输出文                             件中，不会显示在屏幕上，极大的提高了spool 的速度。*/
+SET TRIMS[OUT] {ON|OFF}     /* 将SPOOL 输出中每行后面多余的空格去掉 */
+SET TIMING {ON|OFF}         /* 显示每个sql 语句花费的执行时间 */
+SET SERVEROUT[PUT] {ON|OFF} /* 是否显示用DBMS_OUTPUT.PUT_LINE 包进行输出的信息。*/
+SET SQLBLANKLINES ON /*遇到空行时不认为语句已经结束，从后续行接着读入。Sql*plus 中,  不允许sql 语句中                        间有空行, 这在从其它地方拷贝脚本到sql*plus 中执行时很麻烦.  比如下面的脚本: 
+                       select deptno, empno, ename 
+                       from emp 
+                       where empno = &#39;7788&#39;; 
+                       如果拷贝到sql*plus 中执行,  就会出现错误。这个命令可以解决该问题 */
+SET SERVEROUTPUT ON BUFFER 20000 /*设置DBMS_OUTPUT 的输出 */
+SET WRA[P] {ON|OFF}   /* 在编写存储过程时，我们有时会用dbms_output.put_line 将必要的信息输出，以便对                        存储过程进行调试，只有将serveroutput 变量设为on 后，信息才能显示在屏幕上。*/</code></pre>
+<p>使用SET命令设置运行环境**</p>
+<pre><code class="sql">/* PAGESIZE变量：当返回SQL*Plus返回查询结果时，会显示列标题和相应列标题下的数据行，上下两个列标题所在行    之间的空间就是SQL*Plus的一页，一页中所显示数据行的数量即为pagesize的变量值value，value变量的默认值    为14，可根据实际情况修改*/
+SET PAGESIZE value 
+/* NEWPAGE变量：该变量用来设置一行中的空行数量*/
+SET NEWPAGE value 
+/* LINESIZE变量：改变量用来设置在SQL*Plus环境中一行所显示的最多字符数，默认值为80如果数据行的宽度大于      LINESIZE的值，则会发生折行现象，此时适当调整LINESIZE的值*/
+SET LINESIZE value
+/* PAUSE变量：改变量用来设置SQL*Plus输出结果是否滚动显示，value变量值有OFF、ON、TEXT三种情况，OFF为默    认值，返回一次性输出结果完毕，中间页不会暂停。ON输出结果每一页都暂停，用户按Enter键后会继续显示。在设    置PAUSE的值为ON之后，若再设置TEXT的值，则每次暂停都将显示该字符串。*/
+set pause on
+set pause &#39;按&lt;Enter&gt;键继续&#39;
+select user_id,username,account_status from dba_users;
+/*NUMFORMAT变量：改变量用来显示数值的默认格式，改格式是数值格式，format为数值的掩码*/
+SET NUMFORMAT format</code></pre>
+<h2 id="常用的SQL-Plus命令"><a href="#常用的SQL-Plus命令" class="headerlink" title="常用的SQL*Plus命令"></a>常用的SQL*Plus命令</h2><p> 在 sqlplus中，可以运行 sqlplus命令与 sqlplus 语句。我们通常所说的 DML、DDL、DCL 语句都是 sql*plus 语句，它们执行完后，都可以保存在一个被称为 sql buffer 的内存区域中，并且只能保存一条最近执行的 sql 语句，我们可以对保存在 sql buffer 中的 sql 语句进行修改，然后再次执行，sqlplus 一般都与数据库打交道。 </p>
+<p>除了sqlplus语句，在sqlplus中执行的其它语句我们称之为qlplus命令。它们执行完后，不保存在sql buffer 的内存区域中，它们一般用来对输出的结果进行格式化显示，以便于制作报表。以下为常用命令：</p>
+<pre><code class="sql">SQL&gt;start file_name  
+SQL&gt;@ file_name 
+/*执行一个SQL脚本文件*/</code></pre>
+<p>可以将多条 sql 语句保存在一个文本文件中，这样当要执行这个文件中的所有的 sql 语句时，用上面的任一命令即可，这类似于 dos 中的批处理。 </p>
+<p>   <strong>@</strong>与<strong>@@</strong>的区别是什么？ </p>
+<ul>
+<li>@等于 start 命令，用来运行一个sql 脚本文件。 </li>
+<li>@命令调用当前目录下的，或指定全路径，或可以通过 SQLPATH 环境变量搜寻到的脚本文件。该命令使用是一般要指定要执行的文件的全路径，否则从缺省路径(可用 SQLPATH 变量指定)下读取指定的文件。</li>
+<li>@@用在 sql 脚本文件中，用来说明用@@执行的 sql 脚本文件与@@所在的文件在同一目录下，而不用指定要执行 sql 脚本文件的全路径，也不是从 SQLPATH 环境变量指定的路径中寻找 sql 脚本文件，该命令一般用在脚本文件中。 </li>
+</ul>
+<pre><code class="sql">/*c:\temp 目录下有文件start.sql 和 nest_start.sql，则以下1、2两条效果一致*/
+SQL&gt;@@ nest_start.sql     
+SQL&gt;@ c:\temp\nest_start.sql  
+SQL&gt;@ c:\temp\start.sql  </code></pre>
+<pre><code class="sql">HELP command_name                       /*查看command_name命令的语法格式及功能描述*/
+DESC[RIBE] object_name         /*查看对象object的结构,object可以为表、视图、过程、函数、程序等。*/
+edit                                   /*对当前的输入进行编辑*/
+/                                      /*重新运行上一次运行的 sql 语句*/
+COL COMM NUL[L] text   /*COMM NUL[L] text,显示列值时，如果列值为 NULL 值，用text值代替 NULL值。*/
+BREAK ON break_column                  /*屏蔽掉一个列中显示的相同的值 */
+BREAK ON break_column SKIP n  /*在上面屏蔽掉一个列中显示的相同的值的显示中，每当列值变化时在值变化之前插入 n 个空行。*/
+BREAK                                  /*显示对 BREAK 的设置*/
+CLEAR BREAKS                           /*删除 6、7 的设置*/
+C[HANGE] /old_value/new_value          /*修改 sql buffer 中的当前行中，第一个出现的字符串*/
+EDI[T]                                 /*编辑 sql buffer 中的 sql 语句*/
+L[IST] [n]  /*显示 sql buffer 中的 sql 语句，list n 显示 sql buffer 中的第n行，并使第n行成为当前行*/
+I[NPUT]                               /*在sql buffer 的当前行下面加一行或多行 */
+A[PPEND]                               /*将指定的文本加到sql buffer 的当前行后面 */
+SAVE file_name                         /*将sql buffer 中的sql 语句保存到一个文件中 */
+GET file_name                          /*将一个文件中的sql 语句导入到sql buffer 中 */
+RUN                                    /*再次执行刚才已经执行的sql 语句 */
+EXECUTE procedure_name                 /*执行一个存储过程 */
+CONNECT user_name/passwd@db_alias      /*在sql*plus 中连接到指定的数据库 */
+TTITLE                                 /*设置每个报表的顶部标题 */
+BTITLE                                 /*设置每个报表的尾部标题 */
+REMARK [text]                          /*写一个注释  */
+PROMPT [text]                          /*将指定的信息或一个空行输出到屏幕上 */
+PAUSE [text]                           /*将执行的过程暂停，等待用户响应后继续执行 */
+HOST                                   /*不退出sql*plus ，在sql*plus 中执行一个操作系统命令*/
+！                /*在 sql*plus 中，切换到操作系统命令提示符下，运行操作系统命令后，可以再次切换回*/  </code></pre>
+<pre><code class="sql">/*SPOOL命令将显示的内容输出到指定文件,在屏幕上的所有内容都包含在该文件中，包括你输入的sql 语句*/
+SPO[OL] [file_name[.ext][CRE[ATE]]|[REP[LACE]]|[APP[END]]|OFF|OUT] 
+/*
+- CRE[ATE]：表示创建一个新的脱机文件，这也是SPOOL命令的默认状态。
+- REP[LACE]:表示替代已经存在的脱机文件。
+- APP[END]:表示把脱机内容附加到一个已经存在的脱机文件中。
+- OFF|OUT:表示关闭spool输出， 只有关闭 spool 输出，才会在输出文件中看到输出的内容。*/
+
+/*DEFINR命令用来定义一个用户变量并且可以分配给它一个CHAR的值，其语法格式如下，variable表示定义变量名，text表示变量的CHAR值*/
+DEF[INE][variable][variable = text]
+
+/*SHOW命令用来显示SQL*Plus系统变量的值或SQL*Plus环境变量的值，其语法格式如下,option表示要显示的系统选项，常用的选项有ALL、PARAMETERS[parameter_name]、SGA、SPOOL、USER等*/
+SHO[W] option
+
+/*GET命令把一个SQL脚本文件的内容放进SQL缓存区，其语法格式如下，file_name是要显示的文件名，如果省略了文件的扩展名，则默认的扩展名为SQL;LIST指定文件内容加载到缓存区时显示文件的内容；NOLIST指定文件爱你的内容加载到缓存区时不显示文件的内容。*/
+GET[FILE] file_name[.ext][LIST][NOLIST]
+
+/*将一个数据库中的一些数据拷贝到另外一个数据库（如将一个表的数据拷贝到另一个数据库）*/
+COPY {FROM database | TO database | FROM database TO database}{APPEND|CREATE|INSERT|REPLACE} destination_table [(column, column, column, ...)] USING query                 </code></pre>
+<h2 id="格式化查询结果"><a href="#格式化查询结果" class="headerlink" title="格式化查询结果"></a>格式化查询结果</h2><p>SQL*Plus提供了多个用于格式化查询结果的命令，使用这些命令可以实现设置列的标题、定义输出值的显示格式和显示宽度、为报表增加头标题和底标题、在报表中显示当前日期和页号等功能</p>
+<h3 id="COLUMN命令"><a href="#COLUMN命令" class="headerlink" title="COLUMN命令"></a>COLUMN命令</h3><p>该命令可以实现格式化查询结果、设置列宽度、重新设置列标题等功能，其语法格式如下：</p>
+<pre><code class="sql">COL[UMN][column_name|alias|option]
+/* - column_name:用于指定要设置的列的名称
+   - alias: 用于指定列的别名，通过它可以把英文列标题设置为汉字。
+   - option: 用于指定某个列的显示格式，option选项的值及其说明如下表所示*/</code></pre>
+<table>
+<thead>
+<tr>
+<th>option选项的值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CLE[AR]</td>
+<td>清除指定列所设置的显示属性，从而恢复列使用默认属性</td>
+</tr>
+<tr>
+<td>FOR[MAT] format</td>
+<td>格式化指定的列</td>
+</tr>
+<tr>
+<td>HEA[DING] text</td>
+<td>改变缺省的列标题</td>
+</tr>
+<tr>
+<td>JUS[TIFY{L[EFT]|C[ENTER]|C[ENTRE]|R[IGHT]}</td>
+<td>设置列标题的对齐方式</td>
+</tr>
+<tr>
+<td>NUL[L] text</td>
+<td>指定一个字符串，如果列的值为NULL,则由该字符串替代。</td>
+</tr>
+<tr>
+<td>NOPRI[NT]|PRI[NT]</td>
+<td>隐藏列标题或显示列标题，默认为PRINT</td>
+</tr>
+<tr>
+<td>ON|OFF</td>
+<td>控制定义显示属性的状态，OFF表示定义的所有显示属性都不起作用，默认为ON</td>
+</tr>
+<tr>
+<td>WRAPPED</td>
+<td>当字符串的长度超过显示宽度时，将字符串的超出部分折叠到下一行显示</td>
+</tr>
+<tr>
+<td>WOLD_WRAPPEND</td>
+<td>表示从一个完整的字符处折叠</td>
+</tr>
+<tr>
+<td>TRUNCATED</td>
+<td>表示截断字符串尾部</td>
+</tr>
+</tbody></table>
+<p>  示例：</p>
+<pre><code class="sql"> /*表示员工工资为$999,999.00格式*/
+ col sal format $999,999.00
+ select empno,ename,sal from scott.emp; 
+ /*把scott.emp表中的empno、ename、sal个列名分别转换为中文格式。*/
+ col empno heading 雇员编号
+ col ename heading 雇员姓名
+ col sal heading 雇员工资 
+ select empno,ename,sal from scott.emp;
+ /*使用NULL选项把scott.emp表中comm列值为null显示成“空值”字符串*/
+ col comm null &#39;空值&#39;
+ select empno,ename,comm from scott.emp where comm is null;
+ /*设置scott.emp表中的sal.emp列的格式为$999,999.00，但同时使用OFF表示定义的所有显示属性都不起作用，默认为ON。*/
+ col sal format $999,999.00
+ col sal off
+ select empno,ename,sal from scott.emp;</code></pre>
+<h3 id="TTITLE和BTITLE命令"><a href="#TTITLE和BTITLE命令" class="headerlink" title="TTITLE和BTITLE命令"></a>TTITLE和BTITLE命令</h3><p>SQL*Plus工具提供了TTITLE和BTITLE命令，这两个命令分别用来设置打印时每页的顶部和底部标题。语法格式如下，BTITLE的语法格式与TTITLE语法格式相同：</p>
+<pre><code class="sql">TTI[TLE][printspec[text|variable]...]|[OFF|ON]
+/*
+- printspec:作为头标题的修饰性选项。选项值如下表：
+- text:用于设置输出结果的头标题
+- variable:用于在头标题中输出相应的变量值。
+- OFF:表示禁止打印头标题。
+- ON:表示允许打印头标题。
+*/</code></pre>
+<table>
+<thead>
+<tr>
+<th>printspec选项的值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>COL</td>
+<td>指定在当前行的第几列打印头部标题</td>
+</tr>
+<tr>
+<td>SKIP</td>
+<td>跳到从下一行开始的第几行，默认为1</td>
+</tr>
+<tr>
+<td>LEFT</td>
+<td>在当前行中左对齐打印数据</td>
+</tr>
+<tr>
+<td>CENTER</td>
+<td>在当前行中间打印数据</td>
+</tr>
+<tr>
+<td>RIGHT</td>
+<td>在当前行中右对齐打印数据</td>
+</tr>
+<tr>
+<td>BOLD</td>
+<td>以黑体打印数据</td>
+</tr>
+</tbody></table>
+<p>示例：</p>
+<pre><code class="sql">/*打印输出scott.salgrade数据表中的所有记录，并要求为每页设置头标题（报表名称）和底标题（打印时间和打印人）*/
+set pagesize 8
+ttitle left &#39;           销售情况排行表&#39;
+btitle left &#39;打印日期：2011年9月20日   打印人：东方&#39;
+select * from scott.salgrade;
+/*打印输出scott.salgrade数据表中的所有记录，并要求头标题和底标题都使用define命令定义的变量输出*/
+set pagesize 8
+define varT=&#39;            雇员信息表&#39;
+define varB=&#39;操作员：东方&#39;
+ttitle left varT
+btitle left varB
+select empno,ename,job from scott.emp;
+/*使用set newpage命令修改空行的数量为4，并通过检索数据记录来观察空行的改变。*/
+show newpage
+newpage 1
+set newpage 4
+select user_id,username from dba_users;
+/*在显示列值时，如果列值为NULL值，则用TEXT替换NULL值*/
+col comm null &#39;TEXT&#39;
+select ename,comm from scott.emp where comm is null;</code></pre>
+<h1 id="第四天：SQL语言基础"><a href="#第四天：SQL语言基础" class="headerlink" title="第四天：SQL语言基础"></a>第四天：SQL语言基础</h1><p>##数据库操作</p>
+<h3 id="数据库创建和删除"><a href="#数据库创建和删除" class="headerlink" title="数据库创建和删除"></a>数据库创建和删除</h3><pre><code class="sql">CREATE DATABASE 数据库名
+[USER 用户名 IDENTIFIED BY 密码]
+[CONTROLFILE REUSE]
+[MAXINSTANCES 整数]
+[MAXLOGFILES 整数]
+[MAXLOGMENBERS 整数]
+[MAXLOGHISTOYR整数]
+[ MAXDATAFILES 整数]
+[LOGFILE [GROUP n] 日志文件，……]
+[DATAFILE 数据文件，……]
+[SYSAUX DATAFILE 数据文件，……]
+[DEFAULT TABLESPACE 表空间名]
+[DEFAULT TEMPORARY TABLESPACE 临时表空间名 TEMPFILE 临时文件]
+[UNDO TABLESPACE 撤销表空间名 DATAFILE 文件名]
+[ARCHIVELOG SET 字符集]    
+/*需要注意的是，在创建数据库之前，应首先创建实例，并确保实例已经启动，然后以SYS用户或者其他具有SYSDBA权限的用户连接实例，将实例启动到NOMOUNT状态，SGA在内存中已经存在，并且后台进程已经启动。只有在这种情况下才能执行CREATE DATABASE命令。为了确保用户能够连接到正确的实例，在此之前还需要设置系统变量ORACLE_SID的值。*/
+
+/*删除数据库*/
+CONNECT SYS/SYSPWD AS SYSDBA;
+SHUTDOWN IMMDIATE;
+STARTUP MOUNT;
+DROP DATABASE;
+/*使用命令行删除数据库的语句是DROP DATABASE。在删除之前，需要用户以SYSDBA或SYSOPER身份登录，并且将数据库以MOUNT模式启动。其中，SYSPWD为SYS用户的密码，用户根据实际情况而定。*/   </code></pre>
+<p><strong>创建数据库命令的参数说明</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描    述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>USER…IDENTIFILED BY…</td>
+<td>设置数据库管理员的密码，例如sys用户或system用户</td>
+</tr>
+<tr>
+<td>CONTROLFILE  REUSE</td>
+<td>使用已有的控制文件（如果存在的话）</td>
+</tr>
+<tr>
+<td>MAXINSTANCES</td>
+<td>定义数据库中最大的实例数量</td>
+</tr>
+<tr>
+<td>MAXLOGFILES</td>
+<td>定义最大的日志文件数量</td>
+</tr>
+<tr>
+<td>MAXLOGMENBERS</td>
+<td>定义每个日志组中可以包含的最大重做日志文件数目</td>
+</tr>
+<tr>
+<td>MAXLOGHISTORY</td>
+<td>定义在控制文件中可以记录的最大历史日志条数</td>
+</tr>
+<tr>
+<td>MAXDATAFILES</td>
+<td>定义在数据库中可以创建的最大数据文件数目</td>
+</tr>
+<tr>
+<td>DATAFILE</td>
+<td>定义数据文件的初始位置和初始大小</td>
+</tr>
+<tr>
+<td>LOGFILE[GROUP  n]日志文件……</td>
+<td>定义数据库的重做日志文件组和成员</td>
+</tr>
+<tr>
+<td>EXTENT  MANAGEMENT LOCAL</td>
+<td>定义SYSAUX表空间的区管理方式</td>
+</tr>
+<tr>
+<td>SYSAUX  DATAFLE</td>
+<td>定义SYSAUX表空间中数据文件的位置和初始大小</td>
+</tr>
+<tr>
+<td>ARCHIVELOG|NOARCHIVELOG</td>
+<td>设置数据库的运行模式为归档模式或非归档模式</td>
+</tr>
+<tr>
+<td>CHARACTER  SET</td>
+<td>定义存储数据的字符集</td>
+</tr>
+<tr>
+<td>DEFAULT  TABLESPACE</td>
+<td>定义默认的表空间</td>
+</tr>
+<tr>
+<td>DEFAULT  TEMPORARY TABLESPACE</td>
+<td>定义临时表空间的位置和初始大小</td>
+</tr>
+<tr>
+<td>UNDO  TABLESPACE</td>
+<td>定义UNDO表空间的位置和文件位置</td>
+</tr>
+</tbody></table>
+<p>使用CREATEDATABASE命令创建一个名为test的数据库。 创建数据库的代码如下所示：</p>
+<pre><code class="sql">SQL&gt;CREATE DATABASE test
+    USER SYS IDENTIFIED BY SYSPWD
+    USER SYSTEM IDENTIFIED BY SYSTEMPWD
+    CONTROLFILE REUSE           
+    MAXINSTANCES 1
+    MAXLOGFILES 5
+    MAXLOGMENBERS 5
+    MAXLOGHISTOYR 1
+    MAXDATAFILES 100
+    LOGFILE GROUP 1 (‘/app/oracle/testdb/redo01.log’) SIZE 10M,
+    GROUP 2(‘/app/oracle/testdb/redo01.log’) SIZE 10M,
+    DATAFILE ‘/ Aapp/oracle/testdb/system01.dbf’ SIZE 100M REUSE 
+    EXTENT MANAGEMENT LOCAL
+    DEFAULT TABLESPACE tbs1
+    DEFAULT TEMPORARY TABLESPACE tempts1
+    TEMPFILE ‘temp1.dbf’ SIZE 10M REUSE
+    CHARACTER SET US7ASCII;</code></pre>
+<h3 id="数据库开启和关闭"><a href="#数据库开启和关闭" class="headerlink" title="数据库开启和关闭"></a>数据库开启和关闭</h3><p><strong>概述</strong>：每一个启动的数据库至少对应有一个实例。实例是Oracle用来管理数据库的一个实体，它在服务器中，由一组逻辑内存结构和一系列后台服务进程组成。当启动数据库时，这些内存结构和服务进程得到分配、初始化、启动，以便用户能够与数据库进行通信。一个实例只能访问一个数据库，而一个数据库可以由多个实例同时访问。启动一个Oracle数据库，是按步骤进行的。每完成一个步骤就进入一个状态，以便保证数据库处于某种一致性的操作状态。可以通过在启动过程中设置选项，控制数据库进入一个状态。</p>
+<p>Oracle数据库的启动分为三个步骤：<strong>启动实例</strong>、<strong>装载数据库</strong>和<strong>打开数据库</strong>。</p>
+<ol>
+<li>启动实例：当启动实例时，实例读取参数文件的内容，根据参数的设置分配系统全局区(SGA)，建立后台进程，并打开其他一些文件。默认情况下，读取的是服务器端的参数文件。也可以通过PFILE关键字所指定参数文件的路径和名称来读取相应的参数文件。</li>
+<li>装载数据库：装载数据库时，实例将打开控制文件，取得数据库的数据文件和重做日志文件的名称和状态，并在实例和数据库之间建立关联关系。</li>
+<li>打开数据库：打开数据库的结果是实例打开所有的数据文件和重做日志文件，为用户访问数据做好准备。如果控制文件、数据文件和重做日志文件的状态不一致，还要进行实例恢复。</li>
+</ol>
+<p>完成了上述这三个过程，Oracle服务器启动完毕，数据库才能进入到就绪状态，准备提供数据访问。实现数据库的启动之前首先要了解Oracle实例的4种状态，分别是打开、关闭、已装载和已启动。</p>
+<ul>
+<li><strong>打开(OPEN)</strong>：启动实例，装载并打开数据库。该模式是默认的启动模式，它允许任何有效用户连接到数据库，并执行典型的数据访问操作。</li>
+<li><strong>关闭(CLOSE)</strong>：将Oracle实例从允许用户访问数据库的状态转变为拒绝状态。关闭操作首先终止用户访问数据库所需的进程，然后释放计算机中供Oracle运行使用的内存空间。</li>
+<li><strong>已装载(MOUNT)</strong>：启动实例并装载了数据库。但注意，该状态仅仅是装载了数据库却尚未打开数据库，故不允许用户访问。该模式用于更改数据库的归档模式或执行恢复操作，还用于数据文件恢复。</li>
+<li><strong>已启动(NOMOUNT)</strong>：启动了实例，但没有装载数据库，由于此状态没有打开数据库，故不允许用户访问，该状态也可称之为“不装载”。该模式用于重新创建控制文件，对控制文件进行恢复或重新创建数据库。</li>
+</ul>
+<p><strong>启动数据库</strong>：STARTUP可以使用的选项有：</p>
+<ul>
+<li><strong>STARTUP</strong>:这是默认的启动数据库操作，直接使用STARTUP命令即可实现此功能。该方式启动实例后，用户可以连接到数据库并执行数据库访问操作。</li>
+<li><strong>STARTUP NOMOUNT</strong>:读参数文件，启动实例，不装载数据库。</li>
+<li><strong>STARTUP MOUNT</strong>:打开控制文件，启动实例，并装载数据库，但不打开数据库。当设置重做日志归档选项和恢复数据库时，需要以此种方式打开数据库。</li>
+<li><strong>STARTUP OPEN</strong>:启动实例，装载数据库，并打开数据库中的数据文件和重做日志文件。</li>
+</ul>
+<ul>
+<li><strong>STARTUP FORCE</strong>:当遇到特殊情况时，强制实例启动或者重新启动数据库服务器。</li>
+</ul>
+<ul>
+<li><strong>STARTUP RESTRICT</strong>:启动数据库并把它置入OPEN模式，但只给拥有RESTRICTEDSESSION权限的用户赋予访问权。通常，可以在此种方式下执行导入和导出数据、执行数据载入、临时阻止指定的用户访问数据库和执行迁移或升级等操作。RESTRICT子句可以与MOUNT、NOMOUNT、OPEN子句结合使用。可以通过执行如下命令结束限制访问状态：ALTER SYSTEM DISABLE RESTRICTED SESSION;</li>
+</ul>
+<ul>
+<li><strong>STARTUP PFILE</strong>=文件名</li>
+</ul>
+<p><strong>关闭数据库</strong>：在SQL *Plus中执行SHUTDOWN命令，可以关闭数据库服务器。关闭数据库服务器的过程跟启动过程正好相反，首先关闭数据文件和重做日志文件，然后关闭控制文件，最后关闭实例。可以通过几个参数控制关闭的方式。SHUTDOWN命令的基本语法格式如下，SHUTDOWN选项：</p>
+<p>对于数据库的关闭，有4种不同的关闭选项，下面对其进行介绍。</p>
+<ol>
+<li><strong>SHUTDOWN NORMAL</strong>:这是数据库关闭SHUTDOWN命令的缺省选项，代表正常关闭。SHUTDOWN NORMAL和SHUTDOWN完全相同。等待当前所有已连接的用户断开与数据库的连接，然后关闭数据库。执行此语句后，数据库将不允许建立新的连接。</li>
+</ol>
+<ol>
+<li><strong>SHUTDOWN IMMEDIATE</strong>:常用的关闭数据库方式，立即关闭数据库。回滚活动事务处理并断开所有已连接的用户，然后关闭数据库。在执行立即关闭过程中，数据库将不允许建立新的连接，也不允许开始新的事务。所有未提交的事务都会被执行回滚操作。通常在以下情况下执行立即关闭。</li>
+</ol>
+<ol>
+<li><strong>SHUTDOWN TRANSACTIONAL</strong>:该命令表示事务处理关闭。完成事务处理后断开所有已连接的用户，然后关闭数据库。在执行事务处理关闭时，数据库将不允许建立新的连接，也不允许开始新的事务。当所有事务都处理完成后，数据库将和SHUTDOWNIMMEDIATE同样的方式关闭数据库。</li>
+</ol>
+<ol>
+<li><strong>SHUTDOWN ABORT</strong>: 以ABORT模式关闭数据库时，所有正在执行的客户端SQL语句将被立即中止，没有提交的事务也不被回滚，立即切断所有在线用户的连接。当数据库再次启动时需要实例的恢复过程。这种关闭方式也是最快速的关闭Oracle数据库的方式。通常在以下情况出现时可以考虑采用这种方式关闭数据库。</li>
+</ol>
+<h3 id="数据库状态的改变"><a href="#数据库状态的改变" class="headerlink" title="数据库状态的改变"></a>数据库状态的改变</h3><p>在Oracle12c中，还可以把实例从较高级别的状态转到较低级别的状态。在数据库的各种状态之间切换需要使用ALTER DATABASE 语句，执行该语句的用户必须具有ALTER DATABSE的系统权限。</p>
+<ol>
+<li><strong>ALTER DATABASE CLOSE</strong>:该命令用于关闭数据库，把实例从open状态转到mount状态。</li>
+<li><strong>ALTER DATABASE MOUNT</strong>:该命令可用于这种情况。即当执行某些管理操作时，数据库必须启动、装载实例，但此时的数据库却处于关闭状态。</li>
+<li><strong>ALTER DATABASE OPEN</strong>:该命令用于打开已关闭的数据库。</li>
+<li>ALTER DATABASE OPEN READ ONLY**:该命令用于以只读方式打开数据库。例如，有时需要以只读方式打开数据库，从而避免因为误操作而造成的数据丢失，就可以使用这条命令。</li>
+</ol>
+<h2 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h2><p>学习概览：</p>
+<ul>
+<li><input checked disabled type="checkbox"> Oracle数据库中有多种类型的表，如堆表、临时表、索引组织表和分区表等。</li>
+<li><input checked disabled type="checkbox"> Oracle 12c提供的23种数据类型，其中最常用的有字符型、数值型、日期型和其他数据类型。</li>
+<li><input checked disabled type="checkbox"> Oracle的表定义支持实体完整性、参照完整性和用户自定义完整性。</li>
+<li><input checked disabled type="checkbox"> 创建表的方法有两种——使用OEM工具和命令行。创建表的关键字是CREATE TABLE。</li>
+<li><input checked disabled type="checkbox"> 修改表的方法有两种——使用OEM工具和命令行。修改表的关键字是ALTER TABLE。</li>
+<li><input checked disabled type="checkbox"> 删除表的关键字是DROP TABLE。</li>
+<li><input checked disabled type="checkbox"> 为表设置完整性约束可以在创建表的时候进行，也可以在ALTER TABLE关键字后面添加ADD CONSTRAINT子句。</li>
+<li><input checked disabled type="checkbox"> 向表中添加数据的关键字是INSERT INTO，更新数据的关键字是UPDATE，删除数据的关键字是DELETE。</li>
+</ul>
+<p>###概述</p>
+<p>表是最常用的数据库对象之一，也是最基本和最重要的数据库对象之一。由于表是存储数据库数据的主要手段，因此对表的管理也是非常重要的。表的管理涉及表的结构、表的创建、修改、删除与设置完整性约束等操作，以及如何向表中添加数据、更新数据和删除数据。</p>
+<p>表是数据库中最基本的对象，用户的数据在数据库中是以表的形式存储的。数据库中每一个表都被一个用户模式所拥有，因此表是一种典型的模式对象。</p>
+<p><strong>构成</strong>：表中的数据是按照行和列的二维结构组成。每一行用来保存关系数据库关系的元组，也称数据行或记录。每一列用来保存关系的属性，也称字段。行的顺序一般是按照写入的先后顺序存放，各列的顺序是根据创建表时定义的先后顺序存放。每个列具有列名、列数据类型、列长度、约束条件、默认值等，这些内容在创建表时确定。</p>
+<p>在逻辑结构上，表位于某个表空间。当创建一个表时，将同时创建一个段，专门用来存放表中的数据。在物理结构上，表中的数据都存放在数据块中，因而在数据块中存放的是一行的数据。表的结构主要由列组成，包括列名称、数据类型、数据长度、比例（针对数值型的数据）、约束等信息。</p>
+<p>在Oracle数据库中根据不同用途有多种类型的表，如<strong>堆表</strong>、<strong>临时表</strong>、<strong>索引组织表</strong>和<strong>分区表</strong>等。</p>
+<ol>
+<li><p>堆表(HeapOrganized Table)</p>
+<p>  “堆”是一个经典的数据结构，它的存储分配原则是随机的。具体到数据表中，也就是说表中插入的每一行数据的空间分配是随机的。堆表中的数据数据按堆组织，以无序的方式存放在单独的表段中。这种表是最基础、最常用的数据库表类型，是默认情况下创建的表。</p>
+</li>
+<li><p>临时表(TemporaryTable)</p>
+<p> 临时表是一种特殊类型的表，表中的数据并不永久保存，而是一些临时数据。这些临时数据只在当前事务或当前会话中有效，当事务或会话结束时，这些临时数据将被全部删除。</p>
+</li>
+<li><p>索引组织表(IndexOrganized Table)</p>
+<p> 索引组织表是一种特殊类型的表，它把表中的数据和表的索引存放在同一个段中，并以B<em>树的方式组织在一起，从而加快表的查询速度。在索引组织表中必须有一个主键，表中的数据按照主键进行排序，在B</em>树的叶块中同时存储主键列和非主键列。</p>
+</li>
+<li><p>分区表</p>
+<p>为了提高大型表的访问效率，Oracle提供了一种分区技术，利用这种技术可以把表、索引等数据库对象中的数据分割成小的单位，分别存放在一个个单独的段中，用户对表的访问变转化为对较小段的访问。</p>
+</li>
+</ol>
+<p><strong>常用数据类型</strong>：</p>
+<p><img src="https://jiangmoting-post-1256428291.cos.ap-guangzhou.myqcloud.com/img/2018-04/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.png" alt></p>
+<p><strong>表的约束类型</strong>：Oracle的表定义支持以下完整性约束。</p>
+<ol>
+<li>实体完整性：实体完整性将定义为特定表的唯一实体，要求主属性非空。可以通过设置主键（Primary Key）、唯一值约束（Unique）和非空值约束（NOTNULL）等多种方法实现。</li>
+</ol>
+<ol start="2">
+<li>参照完整性：参照完整性是用来维护相关数据表之间数据一致性的手段，主要使用外键(Foreign Key)来实现。</li>
+</ol>
+<ol start="3">
+<li>用户自定义完整性：用户自定义完整性由用户根据实际应用中的需要自行定义。</li>
+</ol>
+<h3 id="数据表的创建、修改和删除"><a href="#数据表的创建、修改和删除" class="headerlink" title="数据表的创建、修改和删除"></a>数据表的创建、修改和删除</h3><p><strong>创建表</strong>：</p>
+<pre><code class="sql">CREATE TABLE table_name (column_name type [CONSTRAINT constraint_def DEFAULT default_exp]
+[, column_name type [CONSTRAINT constraint_def DEFAULT default_exp] ...])</code></pre>
+<p>示例：</p>
+<pre><code class="sql">SQL&gt;CREATE TABLE Sys_User
+(UserID Number Primary Key,
+UserName Varchar2(20) NOT NULL,
+UserType Number(1),
+UserPwd Varchar2(40),
+Remark Varchar2(200)
+);</code></pre>
+<p>当创建表时，Oracle会自动在用户默认表空间中为新建的表创建一个数据段，以便为表提供存储数据的空间。除此之外，用户也可以在创建表时指定所处的表空间，当然用户还可以在创建表的同时设置数据块管理参数。以下示例说明创建表的其他相关子句。</p>
+<pre><code class="sql">SQL&gt;CREATE TABLE Sys_User
+(UserID Number Primary Key,
+UserName Varchar2(20) NOT NULL,
+UserType Number(1),
+UserPwd Varchar2(40),
+Remark Varchar2(200)
+);
+TABLESPACE TBSONE
+PCTFREE 20
+PCTUSED 40
+INITRANS 10
+MAXTRANS 200;</code></pre>
+<p><strong>修改表</strong>：</p>
+<p>对于创建好的表如果需要修改，使用ALTER TABLE语句进行修改。对表的修改主要涉及表的结构的修改。</p>
+<pre><code class="sql">ALTER TABLE table_name 
+ADD column_name | MODIFY column_name | DROP COLUMN column_name</code></pre>
+<p>示例：</p>
+<pre><code class="sql">/*创建的表Sys_User中添加列，UserTel（用户联系方式）字段类型varchar2，代码如下*/
+SQL&gt;ALTER TABLE Sys_User
+ADD UserTel VARCHAR2 (15);
+/*修改表Sys_User中新添加列UserTel（用户联系方式），将数据类型长度改为20，并且设置为不可为空，代码如下*/
+SQL&gt;ALTER TABLE Sys_User
+MODIFY UserTel VARCHAR2 (20) NOT NULL;
+/*删除表Sys_User中新修改的列UserTel（用户联系方式），代码如下。*/
+SQL&gt;ALTER TABLE Sys_User
+DROP COLUMN UserTel;</code></pre>
+<ul>
+<li><input checked disabled type="checkbox"> 如果要在条语句中删除多个列，则<em>需要将删除的字段名放在括号中，相互之间用逗号隔开，并且不能使用COLUMN关键字</em>。</li>
+</ul>
+<p>当在数据库使用高峰期执行删除字段的操作时，系统会因为删除列操作占用资源而降低响应率。为此，可以通过在ALTER TABLE语句中使用SET UNUSED子句可以将列设置为不可用。从用户角度看，被标记为不可用状态的列与被删除的列没有区别，都无法通过查询获取其数据，并且还可以添加与UNUSED状态的列同名的字段。但是，UNUSED的列在物理上仍然保存在数据库中，它所占用的存储空间并没有被释放。</p>
+<pre><code class="sql">/*设置表Sys_User中Remark列为不可用，然后再删除该表中所有不可用的列，代码如下。*/
+SQL&gt;ALTER TABLE Sys_User
+SET UNUSED (RemarK);
+SQL&gt;ALTER TABLE Sys_User
+DROP UNUSED COLUMNS;</code></pre>
+<p><strong>重命名表</strong></p>
+<pre><code class="sql">/*在创建表后，如果想要修改表的名称，可以对表进行重命名。将表Sys_User重命名为用户信息。*/
+SQL&gt;ALTER TABLE Sys_User
+RENAME TO 用户信息;</code></pre>
+<ul>
+<li><input checked disabled type="checkbox"> 注意：对表进行重命名要谨慎。虽然Oracle可以自动更新数据字典中的外键、约束定义、以及表关系，但是它还不能够更新数据库中的存储代码、客户应用，以及依赖于该对象的其他对象。</li>
+</ul>
+<p><strong>删除表</strong></p>
+<pre><code class="sql">/*用户经常需要删除一些不需要的表，可使用删除表语句DROP TABLE来完成，语法如下：*/
+DROP TABLE table_name 
+/*将用户信息表删除。*/
+SQL&gt;DROP TABLE 用户信息 ;</code></pre>
+<h3 id="完整性约束"><a href="#完整性约束" class="headerlink" title="完整性约束"></a>完整性约束</h3><p>数据库不仅仅存储数据，它也必须保证所保存的数据的正确性和相容性，也就是<strong>数据完整性</strong>。数据完整性是防止数据库中存在不符合语义规定的数据和防止因错误信息的输入/输出造成无效操作或错误信息而提出的。约束是在数据库中保证数据库里表中数据完整性的手段。数据库的完整性一般分为四类：<strong>实体完整性</strong>、<strong>域完整性</strong>、<strong>参照完整性</strong>和<strong>用户定义的完整性</strong>。</p>
+<ul>
+<li><input checked disabled type="checkbox"> <p>实体完整性：要求表中的每一行在表中是唯一的实体，既不能为空也不能取重复的值。</p>
+</li>
+<li><input checked disabled type="checkbox"> <p>域完整性：指数据库表中的字段必须满足某种特定的数据类型或约束。</p>
+</li>
+<li><input checked disabled type="checkbox"> <p>参照完整性：保证数据库中相关联的表里面数据的正确性。</p>
+<p>根据约束的作用域，约束可以分为表级约束和列级约束两种。列级约束是列定义的一部分，只能够应用在一个列上；而表级的约束定义在独立的列上，它可以应用于一个表中的多个列。在Oracle系统中定义约束时，可以通过CONSTRAINT关键字为约束命名。如果用户没有为约束指定名称，Oracle将自动为约束建立默认的名称。</p>
+</li>
+</ul>
+<p>在Oracle中，根据不同的用途提供了多种约束，分别为：</p>
+<ul>
+<li><input checked disabled type="checkbox"> <p>主键约束（PRIMARY KEY）：主键约束在每个数据表中有且仅有一个。</p>
+</li>
+<li><input checked disabled type="checkbox"> <p>外键约束（FOREIGNKEY）：外键约束保证了数据库的参照完整性。它主要用作把一个表中的数据和另一个表中的数据进行关联。</p>
+</li>
+<li><input checked disabled type="checkbox"> <p>唯一约束（UNIQUE）：唯一约束和主键约束都是设置表中的列不能取重复值，与主键约束不同的是，一个表可以有多个唯一约束。</p>
+</li>
+<li><input checked disabled type="checkbox"> <p>非空约束（NOT NULL）：非空约束是用来约束表中的列不允许取空值的。NOTNULL约束只能在列级别上定义。在一个表中可以定义多个NOT NULL约束。</p>
+</li>
+<li><input checked disabled type="checkbox"> <p>检查约束（CHECK）：CHECK约束通过检查输入到表中的数据值来维护域的完整性，只有符合输入条件的数据才允许输入到表中。</p>
+</li>
+<li><input checked disabled type="checkbox"> <p>默认值约束（DEFAULT）：用于对指定的列设置默认值。</p>
+<p>其中，唯一约束、非空约束、检查约束和默认值约束可以实现数据库的域完整性。对约束的定义既可以创建表的同时可以指定相应的约束，也可以通过修改表的结构添加约束。</p>
+</li>
+</ul>
+<p>示例：</p>
+<pre><code class="sql">/*重新创建用户表Sys_User，要求UserID 是主键，UserName列只能取唯一值，不得重复，UserType字段取值大于0小于3，UserPwd的默认值为111111，代码如下*/
+SQL&gt;CREATE TABLE Sys_User
+(UserID Number Primary Key,
+UserName Varchar2(20) NOT NULL UNIQUE,
+UserType Number(1) CHECK(UserType&gt;0 AND UserType&lt;3 ),
+UserPwd Varchar2(40) DEFAULT(&#39;111111&#39;),
+Remark Varchar2(200)
+);
+
+/*以高校选课管理系统为例，经分析得知，学生和课程的关系是多对多关系，需要创建学生表、课程表和选课表。学生表的结构如下表所示。*/
+CREATE TABLE Students
+(Student_ID char (11),
+Sname Varchar2(8),
+Ssex Varchar2(2),
+Sbirth date,
+Nationality Varchar2(40),
+Dept_ID char(3),
+Class_ID char(5)
+);
+/*创建课程表的代码如下：*/
+SQL&gt; CREATE TABLE Courses
+(Course_ID Varchar2(4),
+Cname Varchar2(20),
+Credits NUMBER );
+/*创建选课表的代码如下：*/
+SQL&gt; CREATE TABLE SC
+(Student_ID Varchar2(11) ,
+Course_ID Varchar2(4),
+Grade NUMBER,
+CONSTRAINT fk_sid FOREIGN KEY (Student_ID) REFERENCES Students(Student_ID)
+ON DELETE CASCADE);</code></pre>
+<pre><code class="sql">/*对上述三个表施加约束*/
+/*主键约束,使用ALTER TABLE语句设置主键约束的语法格式如下：*/
+ALTER TABLE table_name 
+ADD CONSTRAINT constraint_name PRIMARY KEY(column_name)
+/*为学生表添加主键约束。*/
+SQL&gt; ALTER TABLE Students
+ADD CONSTRAINT pk_sid PRIMARY KEY(Student_ID);
+
+/*唯一约束,使用ALTER TABLE语句设置唯一约束的语法格式如下*/
+ALTER TABLE table_name 
+ADD CONSTRAINTS constraint_name UNIQUE(column_name)
+/*为课程表的课程名称设置唯一值约束*/
+SQL&gt; ALTER TABLE Courses
+ADD CONSTRAINT uq_cn UNIQUE (Course_ID);
+
+/*非空约束,使用ALTER TABLE语句设置非空约束的语法格式如下*/
+ALTER TABLE table_name 
+MODIFY column_name NOT NULL
+/*为学生表的学生姓名设置非空约束*/
+SQL&gt; ALTER TABLE Students
+MODIFY Sname NOT NULL;
+/*如果要取消某个列非空的约束，直接使用MODIFY语句把该列的非空约束写成NULL即可。*/
+
+/*检查约束,使用ALTER TABLE语句设置检查约束的语法格式如下*/
+ALTER TABLE table_name 
+ADD CONSTRAINTS constraint_name CHECK(condition)
+/*选修表的成绩列取值要求在0~100之间*/
+SQL&gt; ALTER TABLE SC
+ADD CONSTRAINT chk_grade CHECK (Grade&gt;0 and Grade&lt;100);
+
+/*外键约束,外键约束可以保证使用外键约束的数据库列于所引用的主键约束的数据列一致，外键约束在一个数据表中可以有多个。外键约束是建立在两张表中的约束，添加外键约束的语法格式如下：*/
+ALTER TABLE table_name 
+ADD CONSTRAINTS constraint_name FOREIGN KEY(column_name)
+REFERENCE table_name (column_name) ON DELETE CASCADE
+/*选修表中的学生要参考学生表的信息，课程号需要参考课程表的信息。由于在创建选修表时已经设置了学号为外键，此处为选修表的课程号设置外键。*/
+SQL&gt; ALTER TABLE SC
+ADD CONSTRAINT fk_cid FOREIGN KEY (Course_ID) REFERENCES Courses(Course_ID)
+ON DELETE CASCADE); 
+
+/*删除约束,删除约束的语法格式*/
+ALTER TABLE table_name 
+DROP CONSTRAINTS constraint_name 
+/*删除创建的约束*/
+SQL&gt; ALTER TABLE Courses
+DROP CONSTRAINT uq_cn;</code></pre>
+<h3 id="表数据操纵"><a href="#表数据操纵" class="headerlink" title="表数据操纵"></a>表数据操纵</h3><p>一个表创建以后，其中并不包含任何记录，需要向表中输入数据。以下介绍如何向表中添加数据、更新数据以及删除数据。</p>
+<p><strong>插入数据</strong>：</p>
+<pre><code class="sql">/*INSERT语法的基本结构如下*/
+INSERT INTO &lt;table_name &gt; （column_name 1, column_name 2…, column_name n） 
+VALUES（values 1, values 2,…, values n） 
+/*其中，column_name 1, column_name 2…, column_name n必须是指定表名中定义的列，而且必须和VALUES子句中的值values 1, values 2,…, values n一一对应，且数据类型相同。*/
+
+/*向表Sys_User中插入数据。*/
+SQL&gt; INSERT INTO Sys_User (UserID, UserName, UserType, UserPwd, Remark )
+VALUES(&#39;1&#39;, &#39;Admin&#39;, &#39;1&#39;, &#39;Admin&#39;, null);
+/*向表的所有列添加数据时，也可省略INSERT INTO子句后的列表清单，但需要注意的是，必须根据表中定义的列的顺序，为所有列提供数据。*/
+/*向表Sys_User中插入数据*/
+SQL&gt; INSERT INTO Sys_User 
+VALUES(&#39;2&#39;, &#39;Zhang&#39;, &#39;2&#39;, &#39;Zhang&#39;, null);</code></pre>
+<pre><code class="sql">/*有一种简单的插入多行数据的方法。这种方法是使用SELECT语句查询出的结果代替VALUES子句。这种方法的语法结构如下*/
+INSERT INTO &lt;table_name &gt; （column_name 1, column_name 2…, column_name n） 
+SELECT column_name[,…n]
+FROM table_name
+WHERE search_conditions 
+
+/*向Courses表输入数据，创建“Courses”表的一个副本Courses1，将Courses表的全部数据添加到Courses1表中*/
+SQL&gt; INSERT INTO Courses VALUES(&#39;0001&#39;,&#39;大学语文&#39;,4);
+SQL&gt; INSERT INTO Courses VALUES(&#39;0002&#39;,&#39;高等数学&#39;,4);
+SQL&gt; INSERT INTO Courses VALUES(&#39;0003&#39;,&#39;计算机基础&#39;,4);
+SQL&gt; INSERT INTO Courses VALUES(&#39;0004&#39;,&#39;数据库概论&#39;,4);
+SQL&gt; INSERT INTO Courses1 
+SELECT Course_ID, Cname, Credits FROM Courses;
+</code></pre>
+<p><strong>更新数据</strong>：</p>
+<pre><code class="sql">/*使用UPDATE命令修改表中的数据。*/
+UPDATE &lt;table_name &gt; SET column_name 1=values 1,column_name 2=values 2, …,column_name n=values n
+   WHERE search_conditions
+/*如果不带WHERE子句，则表中的所有行都将被更新*/
+
+/*将Course表中大学语文的学分改为3,更新过可使用SELECT语句查看Course表*/
+SQL&gt; UPDATE Courses SET Credits=3 WHERE Cname=&#39;大学语文&#39;</code></pre>
+<p><strong>删除数据</strong></p>
+<pre><code class="sql">/*使用DELETE命令删除表中的数据。*/
+DELETE FROM table_name [WHERE search_conditions]
+/*如果省略了WHERE search_conditions子句，就表示删除数据表中全部的数据；如果加上了 [WHERE  search_conditions]子句就可以根据条件删除表中的数据。*/
+
+/*删除Courses1表中所有的数据*/
+SQL&gt;DELETE FROM Courses1
+/*删除Courses表中学分为3的记录*/
+SQL&gt;DELETE FROM Courses WHERE Credits=3;
+/*对于删除过表中数据，可根据SELETE语句进行查看*/</code></pre>
+<h2 id="SQL语言查询"><a href="#SQL语言查询" class="headerlink" title="SQL语言查询"></a>SQL语言查询</h2><p>对数据库的查询是在数据库创建后的常用操作，通过它可以在数据库中得到用户需要的各种信息。以下介绍数据查询操作。学习目标：</p>
+<ul>
+<li>掌握查询的基本语法</li>
+<li>掌握简单查询的方法</li>
+<li>掌握内连接、外连接、交叉连接等连接查询的基本方法</li>
+<li>掌握子查询的实现方法和应用</li>
+<li>掌握联合查询及其应用</li>
+</ul>
+<h3 id="SQL语言简介"><a href="#SQL语言简介" class="headerlink" title="SQL语言简介"></a>SQL语言简介</h3><p><strong>结构化查询语言SQL</strong>（Structured Query Language）是关系数据库的标准语言，对关系模型的发展和商用DBMS的研制起着重要的作用。SQL语言是介乎于关系代数和元组演算之间的一种语言。SQL语言从功能上可以分为四部分：<strong>数据查询</strong>（Data Query）、<strong>数据操纵</strong>（Data Manipulation）、<strong>数据定义</strong>（Data Definition）和<strong>数据控制</strong>（Data Control）。</p>
+<ul>
+<li><strong>数据定义语言</strong>，即SQL DDL,用于检索数据库中的数据，主要是SELECT语句。</li>
+</ul>
+<ul>
+<li><strong>数据定义语言</strong>，即SQL DDL，用于定义SQL模式、基本表、视图、索引等结构。</li>
+<li><strong>数据操纵语言</strong>，即SQL DML。数据操纵分成数据查询和数据更新两类。其中数据更新又分成插入、删除和修改三种操作。</li>
+<li><strong>数据控制语言</strong>，即SQL DCL，这一部分包括对基本表和视图的授权、完整性规则的描述、事务控制等内容。SQL的核心部分相当于关系代数，同时又具有关系代数所没有的许多特点，如聚集、数据库更新等。</li>
+</ul>
+<p>SQL的核心部分相当于<strong>关系代数</strong>，同时又具有关系代数所没有的许多特点，如聚集、数据库更新等。SQL关键字不区分大小写，既可以使用大写格式，也可以使用小写格式，或者大小写格式混用。</p>
+<p><strong>SQL命令动词及其功能</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>SQL的功能</th>
+<th>命令动词</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据库查询</td>
+<td>SELECT</td>
+</tr>
+<tr>
+<td>数据定义</td>
+<td>CREATE,DROP,ALTER</td>
+</tr>
+<tr>
+<td>数据操纵</td>
+<td>INSERT,UPDATE,DELETE</td>
+</tr>
+<tr>
+<td>数据控制</td>
+<td>GRANT,REVOKE</td>
+</tr>
+</tbody></table>
+<p>SQL的数据定义功能包括<strong>数据库定义</strong>、<strong>表定义</strong>、<strong>视图</strong>和<strong>索引</strong>的定义。</p>
+<table>
+<thead>
+<tr>
+<th>对象\操作</th>
+<th>创建</th>
+<th>删除</th>
+<th>修改</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据库</td>
+<td>CREATE DATABASE</td>
+<td>DROP DATABASE</td>
+<td></td>
+</tr>
+<tr>
+<td>表</td>
+<td>CREATE TABLE</td>
+<td>DROP TABLE</td>
+<td>ALTER TABLE</td>
+</tr>
+<tr>
+<td>索引</td>
+<td>CREATE INDEX</td>
+<td>DROP INDEX</td>
+<td></td>
+</tr>
+<tr>
+<td>视图</td>
+<td>CREATE VIEW</td>
+<td>DROP VIEW</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="简单查询"><a href="#简单查询" class="headerlink" title="简单查询"></a>简单查询</h3><pre><code class="sql">/*“查询”的含义就是用来描述从数据库中获取数据和操纵数据的过程。*/
+    SELECT&lt;列名表&gt;
+    FROM &lt;表或视图名&gt;
+    WHERE &lt;查询限定条件&gt;
+/*也就是说，SELECT指定了要查看的列（字段），FROM指定这些数据的来源（表或视图），WHERE则指定了要查询哪些记录。*/
+
+/*完整的SELECT语句语法较复杂，但是其基本的语法格式可归纳如下：*/
+    SELECT select_list 
+    FROM table_list
+    [WHERE search_conditions]
+    [GROUP BY group_by_expression]
+    [HAVING search_conditions]
+    [ORDER BY order_expression [ASC|DESC]]
+/*其中，带有方括号的子句是可选择的，大写的单词表示SQL的关键字，而小写的单词或者单词组合表示表或视图名称或者给定条件，语法中的各选项说明：*/</code></pre>
+<p><strong>选择表中若干列</strong></p>
+<p>选择表中的全部列或不分列这就是关系代数中表的投影运算。这种运算可以通过SELECT子句给出的的字段列表来实现。字段列表中的列可以是表中的列，也可以是表达式列。所谓表达式列就是多个列运算后产生的列或者是利用函数计算后所得的列。</p>
+<pre><code class="sql">/*输出表中的所有列*/
+/*将表中的所有字段都输出，可以有两种方法：一种是将所有的字段名在SELECT关键字后列出来；另一种是在SELECT语句后使用一个“*”。*/
+/*查询“Teacher”表中全体学生的记录。代码如下，执行效果如图6-1所示：
+SQL&gt;SELECT * FROM Teacher;
+
+/*输出表中部分列*/
+/*查询全体教师的教师编号、姓名和职称信息。代码如下，执行效果如图6-2所示*/
+SQL&gt;SELECT Teacher_ID, Tname, Profess FROM Teacher;
+
+/*计算列并为输出结果中的列指定别名*/
+SELECT 表达式 AS 列别名 FROM 数据源
+/*查询“Teacher”表中全体教师的姓名及年龄。代码如下*/
+SQL&gt;SELECT Tname, TO_CHAR(SYSDATE,&#39;YYYY&#39;)-TO_CHAR(Tbirth,&#39;YYYY&#39;) AS age FROM Teacher;</code></pre>
+<p><strong>选择表中的若干行</strong></p>
+<p>选择表中的若干记录这就是关系代数中表的选择运算。这种运算可以通过增加一些谓词（例如WHERE字句）等来实现。</p>
+<pre><code class="sql">/*消除取值重复的行*/
+/*两个本来并不相同的记录，当投影到指定的某些列上后，可能变成相同的行。如果要去掉结果集中的重复的行，可以在字段列表前面加上DISTINCT关键字。*/
+/*查询教师所在部门的部门代码。代码如下*/
+SQL&gt; SELECT DISTINCT Dept_ID FROM Teacher;</code></pre>
+<p>如果只希望得到表中满足特定条件的一些记录，用户可以在查询语言中使用WHERE字句。使用WHERE字句的条件如下：</p>
+<p>(1)比较大小：比较运算符是比较两个表达式大小的运算符，各运算符的含义是=（等于）、&gt;（大于）、&lt;（小于）、&gt;=（大于或等于）、&lt;=（小于或等于）、!= （不等于）、&lt;&gt;（不等于）、!&gt; （不大于）。逻辑运算符NOT可以与比较运算符同用，对条件求非。</p>
+<pre><code class="sql">/*查询“SC”表中成绩小于60分的记录。代码如下*/
+SQL&gt; SELECT * FROM SC WHERE Grade&lt;60;</code></pre>
+<p>(2)确定范围：范围运算符BETWEEN…AND…和NOT列表达式[NOT]BETWEEN 起始值AND终止值</p>
+<pre><code class="sql">/*查询“Teacher”表出生日期在1960至1980年的教师姓名、编号和出生日期。代码如下*/
+SQL&gt; SELECT Tname, Teacher_ID, TO_DATE(Tbirth) FROM Teacher 
+WHERE TO_CHAR(Tbirth,&#39;yyyymmdd&#39;) BETWEEN &#39;19600101&#39; AND &#39;19801231&#39;;</code></pre>
+<p>(3)确定集合：确定集合运算符IN和NOT IN可以用来查找属性值属于（或不属于）指定集合的记录，运算符的语法格式如下：列表达式 [NOT]IN （列值1、列值2、列值3、……）</p>
+<pre><code class="sql">/*查询系部代码为&#39;081&#39;和&#39;082&#39;的系部名称和系主任。代码如下*/
+SQL&gt;SELECT Dept_name, Director  FROM Dept 
+WHERE Dept_ID IN(&#39;081&#39;,&#39;082&#39;);</code></pre>
+<p>(4)字符匹配：在实际的应用中，用户有时候不能给出精确的查询条件。因此，经常需要根据一些不确定的信息来查询。SQL语言提供了字符匹配运算符LIKE进行字符串的匹配运算，实现这类模糊查询。其一般语法格式如下：</p>
+<p>​        [NOT] LIKE ‘&lt;匹配串&gt;’ [ESCAPE‘&lt;换码字符&gt;’]</p>
+<p>其含义是查找指定的属性列值与“&lt;匹配串&gt;”相匹配的记录。“&lt;匹配串&gt;”可以是一个完整的字符串，也可以含有通配符“%”和“_”，其中通配符包括如下四种：</p>
+<ul>
+<li>%：百分号，代表任意长度的字符串（长度可以是0）的字符串。例如，a%b表示以a开头，以b结尾的任意长度的字符串。例如，acb、adxyzb、ab等都满足该匹配串。</li>
+<li>_：下划线，代表任意单个字符。例如，a_b表示以a开头，以b结尾的长度为3的任意字符串，如afb等。</li>
+<li>[]：表示方括号里列出的任意一个字符。例如A[BCDE]，表示第一个字符是A，第二个字符为B、C、D、E中的任意一个。也可以是字符范围，例如A[B-E]与 A[BCDE]的含义相同。</li>
+<li>[^]：表示不在方括号里列出的任意一个字符。</li>
+</ul>
+<pre><code class="sql">/*查询“Students”表中姓“李”的学生的信息。代码如下*/
+    SQL&gt;SELECT * FROM Students WHERE Sname LIKE &#39;李%&#39;;
+/*通配符字符串“李%”的含义是第一个汉字是“李”的字符串*/
+
+/*查询“Course”表中课程名为“Oracle_11g数据库教程”的课程信息*/
+SQL&gt; INSERT INTO Courses VALUES(&#39;0020&#39;,&#39; Oracle_11g数据库教程&#39;,5);
+SQL&gt; SELECT * FROM Courses WHERE Cname LIKE &#39;Oracle/_11g数据库教程&#39; ESCAPE &#39;/&#39;;
+/*ESCAPE“\”短语表示“\”为换码字符，这样匹配串中紧跟在“\”后面的字符“_”不再具有通配符的含义，而是取其本身含义，及普通的“_”字符。*/</code></pre>
+<p>(5)空值判断查询：对于那些允许空值的列，可以使用IS NULL或IS NOT NULL来判断其值是否为空。对于使用IS NULL的查询表达式，如果返回值为逻辑真，则说明当前数据记录对应的列值为空，否则为非空。IS NOT NULL的含义与IS NULL恰好相反。</p>
+<pre><code class="sql">/*查询教师表中“学历”不为空的教师信息。代码如下*/
+SQL&gt; SELECT * FROM Teacher WHERE Educ IS NOT NULL;</code></pre>
+<p>(6)多重条件查询。用户可以使用逻辑运算符AND、OR、NOT连接多个查询条件，实现多重条件查询。逻辑运算符使用格式如下：</p>
+<pre><code class="sql">[NOT] 逻辑表达式 AND|OR  [NOT] 逻辑表达式
+
+/*查询“SC”表中课程号为“0002”成绩在80–90分之间的（不含90分）的学生的学号、成绩。代码如下*/
+SQL&gt;SELECT Student_ID, Grade FROM SC 
+    WHERE Course_ID=’0002’ AND Grade &gt;=80 AND Grade &lt;90;</code></pre>
+<p><strong>对查询结果排序</strong></p>
+<p>用户可以使用ORDER BY子句对查询结果按照一个或多个属性列的升序（ASC）或降序（DESC）排列，默认为升序。如果不使用ORDERBY子句，所有select查询返回的记录都是随机排列的，也就是按照记录在表中的顺序排列。ORDERBY子句的语法格式如下：</p>
+<pre><code class="sql">ORDERBY {列名 [ ASC| DESC ]} [,…n]
+/*当按多列排序时，先按前面的列顺序，如果值相同再按后面的列排序*/
+
+/*查询“SC”表中选修课程号为“0001”并且成绩大于70分的的学号，要求输出结果成绩降序排列，当成绩相同时按学号升序排列*/
+SQL&gt; SELECT Student_ID,Grade
+    FROM SC
+    WHERE Course_ID=&#39;0001&#39; AND Grade&gt;70
+    ORDER BY Grade DESC，Student_ID ASC;
+/*需要注意的是，排序时允许使用查询列表中字段的位置来作为排序字段，这样既可方便操作也可在进行联合查询时防止使用UNION出现错误,可改写如下代码，执行效果是一样的*/
+SQL&gt; SELECT Student_ID,Grade
+    FROM SC
+    WHERE Course_ID=&#39;0001&#39; AND Grade&gt;70
+    ORDER BY 3 DESC，1 ASC;</code></pre>
+<p><strong>对数进行统计据</strong></p>
+<p>在SELECT语句中可以使用统计函数进行统计，并返回统计结果。常用的统计函数包括COUNT()、AVG()、SUM()、MAX()、和MIN()等。详细的用法参考Oracle的系统函数一节。</p>
+<p>统计函数功能描述：</p>
+<table>
+<thead>
+<tr>
+<th>统计函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>COUNT([DISTINCT|ALL]  列名称|*)</td>
+<td>统计符合条件的记录的个数</td>
+</tr>
+<tr>
+<td>SUM([DISTINCT|ALL]  列名称)</td>
+<td>计算一列中所有值的总和，只能用于数值类型</td>
+</tr>
+<tr>
+<td>AVG([DISTINCT|ALL]  列名称)</td>
+<td>计算一列中所有值的平均值，只能用于数值类型</td>
+</tr>
+<tr>
+<td>MAX([DISTINCT|ALL]  列名称)</td>
+<td>求一列值中的最大值</td>
+</tr>
+<tr>
+<td>MIN([DISTINCT|ALL]  列名称)</td>
+<td>求一列值中的最小值</td>
+</tr>
+</tbody></table>
+<pre><code class="sql">/*统计查询学生总人数，以及参加选课的学生的人数*/
+/*学生总人数*/
+SQL&gt;SELECT COUNT(*) FROM STUDENTS;
+/*参加选课的学生人数*/
+SQL&gt;SELECT COUNT(DISTINCT Student_ID) FROM SC;
+/*查询选修“0001”课程学生的最高分，最低分和平均分*/
+SELECT MAX(GRADE) ,MIN(GRADE), AVG(GRADE) 
+    FROM SC WHERE Course_ID=&#39;0001&#39;</code></pre>
+<p><strong>对查询结果进行分组</strong></p>
+<p>有时候需要对查询数据记录按列或表达式进行分组，以利于分析数据，此时可以通过使用<strong>GROUP BY</strong>子句来实现。</p>
+<pre><code class="sql">/*使用GROUP BY子句*/
+/*通过使用GROUP BY子句，可以将查询数据记录集对一列或多列进行分组，依据是这些列的值如果相等就放置在同一组内*/
+/*使用GROUP BY子句的语法格式为*/
+    GROUP BY [ROLLUP]| [CUBE]|[GROUPING SETS]
+         [( ) &lt;列表达式1&gt; [ ] ] [, &lt;列表达式2&gt;…];
+/*参数说明如下：*/
+/* 
+- ROLLUP用于生成数据统计，以及横向小计统计结果。
+- CUBE用于生成数据统计、横向小计、纵向小计结果。
+- GROUPING SETS用于显示多个分组的统计结果。 */
+
+/*查询每一位学生的选课总数，代码如下*/
+SQL&gt; SELECT  Student_ID, COUNT(Course_ID) AS 选课数
+    FROM SC
+    GROUP BY Student_ID;
+/*执行该查询语句，将先按学生的学号进行分组，相同学号的数据记录位于同一个组内，然后通过使用聚合函数进行统计，计算出每一组内具有的课程号数目*/
+
+/*查询每一位学生选课成绩超过90分的的选课门数以及平均分*/
+SQL&gt; SELECT Student_ID, COUNT(Course_ID) AS 选课数, AVG(Grade) AS 平均分
+    FROM SC
+    WHERE Grade&gt;90
+    GROUP BY Student_ID;
+/*对于本例，可以考虑分两步执行：首先，根据WHERE子句过滤掉成绩小于等于90分的所有选课记录，被过滤掉的数据记录不再参与后面的操作；其次，按学号对过滤后的数据记录集进行分组，得到的分组数据记录集即为最终所需要的结果。如果需要使查询数据记录集生成数据统计，以及横向小计统计，则可以通过添加ROLLUP关键字实现。*/
+
+/*对于上例，添加ROLLUP关键字，在结果中显示数据统计信息，代码如下*/
+SQL&gt; SELECT Student_ID, COUNT(Course_ID) AS 选课数, AVG(Grade) AS 平均分
+    FROM SC
+    WHERE Grade&gt;90
+    GROUP BY ROLLUP（Student_ID）;</code></pre>
+<p>使用<strong>HAVING</strong>子句进行分组统计:在对查询数据记录集进行分组的基础上，再对每组数据记录集进行筛选时，此时不能用WHERE子句，需要用HAVING子句在分组之后进行过滤。</p>
+<pre><code class="sql">/*查询每门课程的平均成绩，要求只输出平均成绩在70到80分之间的的课程号、选修人数、平均成绩以及选修该课程的成绩总分，代码如下*/
+SQL&gt; SELECT Course_ID, COUNT(Student_ID), AVG(Grade), SUM(Grade)
+    FROM SC
+    HAVING AVG(GRADE)&gt;70 and AVG(GRADE)&lt;80
+    GROUP BY ROLLUP（Student_ID）;
+</code></pre>
+<h3 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h3><p>以上是只针对一个表实施查询操作，实际上，数据库实例中的各个表之间可能存在某些内在联系，通过这些联系，可以为应用程序提供一些涉及多个表的复杂信息，如主表和外表之间就存在主键和外键的关联。SQL语言为这种多个表之间存在的关联的查询提供了检索数据的方法，称为连接查询。连接查询主要包括交叉连接查询、内连接查询和外连接查询。以下主要介绍连接查询的类型和具体实施方法。</p>
+<p><strong>交叉连接</strong>：交叉连接也称非限制连接，也叫<strong>广义笛卡尔积</strong>。两个表的广义笛卡尔积是两表中记录的交叉乘积，结果集的列为两个表属性列的和，其连接的结果会产生一些没有意义的记录，并且进行该操作非常耗时。因此该运算的实际意义不大。</p>
+<pre><code class="sql">/*交叉连接的语法格式*/
+SELECT 列表列名 FROM 表名1 CROSS JOIN 表名2 
+
+/*专业表和班级表交叉连接，代码如下*/
+SQL&gt; SET PAGESIZE 100
+   COLUMN Dept_ID FORMAT A8
+   COLUMN Class_Name FORMAT A13
+   SELECT Dept.*,Class.*
+   FROM Dept, Class;</code></pre>
+<p><strong>内连接</strong></p>
+<p>内连接也称为简单连接，它会把两个或多个表进行连接，只能查出匹配的记录，不匹配的记录将无法查询出来。这种连接查询是平常用的最多的查询。内连接中最常用的就是等值连接和非等值连接。</p>
+<pre><code class="sql">/*1. 等值连接*/
+/*当连接条件中的关系运算符使用“=”时，称为等值连接。[&lt;表1或视图1&gt;.]&lt;列1&gt; = [&lt;表2或视图2&gt;.]&lt;列2&gt;
+等值连接的过程类似于交叉连接，连接的时候要有一定的条件限制，符合条件的记录输出到结果集中，其语法格式如下：*/
+SELECT 列表列名 
+FROM 表名1 [INNER] JOIN 表名2
+ON 表名1.列名=表名2.列名
+/*其中，INNER是连接类型可选关键字，表示内连接，可以省略。“ON 表名1.列名=表名2.列名”是连接的等值连接条件。*/
+
+/*等值连接专业表和班级表，观察连接后的结果和交叉连接的结果有何不同。*/
+SQL&gt; SET PAGESIZE 100
+    COLUMN Dept_ID FORMAT A8
+    COLUMN Class_Name FORMAT A13
+    SELECT Dept.*,Class.*
+    FROM Dept INNER JOIN Class ON Dept.Dept_ID=Class.Dept_ID;
+/*从结果中可以发现只有满足连接条件的记录才被拼接到结果集中，结果集是两个表的交集。通过上例的结果中发现有两列Dept_ID是重复的，如果在等值连接中，把目标列中重复的属性列删除，也就是在SELECT后面不要输出重复的列，此时的等值连接就可称为自然连接。*/</code></pre>
+<pre><code class="sql">/*2.非等值连接*/
+/*当连接条件中的关系运算符使用除“=”以外的其他关系运算符时，这样的内连接称为非等值连接。非等值连接中设置连接条件的一般语法格式为：[&lt;表1或视图1&gt;.]&lt;列1&gt; 关系运算符 [&lt;表2或视图2&gt;.]&lt;列2&gt;
+在实际的应用开发用，很少用到非等值链接，尤其是单独使用非等值连接连接查询，它一般和自连接查询同时使用。非等值连接查询的子请自行练习。*/</code></pre>
+<pre><code class="sql">/*3.自连接*/
+/*连接操作一般在两个表之间进行，也可以在一个表与其自身之间进行连接，这样的连接操作称为自连接。由于连接的两个表其实是同一个表，为了加以区分，此时需要为表起别名。*/
+
+/*使用教师Teacher表查询与“王鹏飞”在同一个系任课的教师编号、教师姓名和教师的职称，要求不包括“王鹏飞”本人。*/
+SQL&gt; SELECT T1.Teacher_ID, T1.Tname, T1.Profess
+    FROM Teacher T1 JOIN Teacher T2
+    ON T1.Dept_ID=T2.Dept_ID and T2.Tname=&#39;王鹏飞&#39; and T1.Tname!=&#39;王鹏飞&#39; ;</code></pre>
+<p><strong>外连接</strong></p>
+<p>内连接只返回在两个表中特定列有匹配值的记录，与之不同的是，外连接则<strong>可以从一个表中返回在对应的表没有匹配值的记录</strong>。有时候，需要输出所有参加选课的学生的选课记录，包括那些没有参加选课的学生。此时就需要用到外连接来实现。外连接的语法结构如下：</p>
+<pre><code class="sql">SELECT 列表列名 
+FROM 表名1 {LEFT | RIGHT | FULL} [OUTER]  JOIN   表名2
+ON 表名1.列名 = 表名2.列名</code></pre>
+<p>根据匹配表位置的不同，外连接查询分为左外连接、右外连接和完全外部连接。</p>
+<ul>
+<li><strong>左外连接</strong>：返回所有的匹配的行并从关键字JOIN左边的表中返回所有不匹配的行。</li>
+<li><strong>右外连接</strong>：返回所有的匹配的行并从关键字JOIN右边的表中返回所有不匹配的行。</li>
+<li><strong>完全外连接</strong>：返回两个表中所有匹配的行和不匹配的行。</li>
+</ul>
+<pre><code class="sql">/*1.左外连接*/
+/*查询所有选修了课程的学生的学号、姓名、选修的课程号和成绩，要求包括没有选课的学生信息也输出。代码和查询结果如下所示*/
+SQL&gt;SET PAGESIZE 100
+   COLUMN Course_ID FORMAT A10
+   SELECT Students.Student_ID, Sname,Course_ID,Grade
+   FROM Students LEFT OUTER JOIN SC
+   ON Students.Student_ID=SC.Student_ID;
+/*利用外连接可以显示在表SC无匹配的表Students的行，无匹配的部分在旁边用空白表示。另外，Oracle也可用符号“(+)”表示外连接。“(+)”可以出现在where子句中的任一个表后，要求查询返回另一个表中无匹配的行。那么上例的代码可改写如下：*/
+SQL&gt;SET PAGESIZE 100
+    COLUMN Course_ID FORMAT A10
+    SELECT Students.Student_ID, Sname,Course_ID,Grade
+    FROM Students, SC
+    WHERE Students.Student_ID=SC.Student_ID(+);</code></pre>
+<pre><code class="sql">/*2.右外连接*/
+/*查询选修了课程号为“0001”和“0006”的学生的学号、所选的课程号、课程名和学分，如果该课没有学生选也要把相应的课程信息一并输出*/
+SQL&gt;SET PAGESIZE 100
+   COLUMN Course_ID FORMAT A10
+   SELECT Student_ID, SC.Course_ID,Cname,Credits
+   FROM SC, Courses
+   WHERE SC.Course_ID(+)=Courses.Course_ID and Courses.Course_ID IN (&#39;0001&#39;,&#39;0006&#39;);</code></pre>
+<pre><code class="sql">/*3.完全外连接*/
+/*查询数据记录集的两个连接表中所有行的连接操作称为完全外部连接。对于完全外部连接，两个连接表无论是否匹配，它们的数据记录都将被显示。*/
+/*查询所有系部的信息和班级信息*/
+SQL&gt; SPOOL E:\8-23.txt
+    SELECT Dept.*,Class_ID,Class_name
+    FROM Dept  FULL JOIN Class
+    ON Dept.Dept_ID=Class.Dept_ID;
+    SPOOL OFF
+/*完全外连接查询时只能用关键字FULL JOIN，此时不能用（+）替代了。由于班级Class是因系部Dept而设，所以此时完全外连接的结果与二者的左外连接的结果是一样的。*/</code></pre>
+<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><p>将一个查询语句嵌套在另一个查询语句中的查询称为嵌套查询或子查询。被嵌入在其他查询语句中的查询语句称为子查询语句，子查询语句的载体查询语句称为父查询语句。子查询语句一般嵌入在另一个查询语句的WHERE子句或HAVING子句中，另外，子查询语句也可以嵌入在一个数据记录更新语句的WHERE子句中。以下重点介绍使用SELECT语句实现子查询的基本方法。</p>
+<p><strong>使用In谓词的子查询</strong></p>
+<p>对列表操作的子查询通过IN关键字实现父查询和子查询之间的连接，判断指定列的值是否出现在子查询的查询数据记录集中。使用IN的子查询语句返回的查询数据记录集一般由单列多行值组成，这也是子查询中最常用的一种形式。对于使用IN的子查询的连接条件，其语法格式为：</p>
+<pre><code class="sql">WHERE 表达式 [ NOT ] IN （子查询）
+/*如果使用了NOT IN关键字，则子查询的意义与使用IN关键字的子查询的意义相反*/
+
+/*查询在“计算机科学与技术系”和“信息管理系”教课的教师编号、教师姓名、教师职称。*/
+SQL&gt; SPOOL E:\8-24.txt
+SQL&gt; COLUMN Teacher_ID FORMAT A10
+SQL&gt; SELECT Teacher_ID,Tname,Profess
+     FROM Teacher
+     WHERE Dept_ID IN (SELECT Dept_ID
+                       FROM Dept
+                       WHERE Dept_name IN (&#39;计算机科学与技术系&#39;,&#39;信息管理系&#39;));
+SQL&gt;SPOOL OFF
+/*子查询的执行顺序是由内而外，并且子查询不需要父查询的条件就可以独立完成，这样的子查询称作不相关子查询*/</code></pre>
+<p><strong>使用比较运算符的子查询</strong></p>
+<p>子查询也可以使用比较运算符。此时，子查询结果为一个单行单列的值，并可以在父查询中通过比较运算符（“&gt;”、“&gt;=”、“&lt;”、“&lt;=”、“=”、“!=”或“&lt;&gt;”）连接子查询。如果子查询返回不止一个值，整个查询语句将会产生错误。带有IN运算符的子查询返回的结果是集合，而带有比较运算符的子查询返回的结果是单值，而且用户在查询开始时就知晓“内层查询返回的是单值”这一事实。</p>
+<pre><code class="sql">/*使用比较运算符查询与“王鹏飞”在同一个系任课的教师编号、教师姓名和教师的职称，要求不包括“王鹏飞”本人。*/
+SQL&gt; SELECT Teacher_ID, Tname, Profess
+     FROM Teacher
+     WHERE Dept_ID = (SELECT Dept_ID
+                      FROM Teacher
+                      WHERE Tname=&#39;王鹏飞&#39;)
+             and Tname!=&#39;王鹏飞&#39;;
+SQL&gt;SPOOL OFF
+/*由于一个老师只能在一个系部工作，所以子查询返回的结果是单值，此时可以用比较运算符“=”来实现。*/</code></pre>
+<p><strong>使用ANY或ALL的子查询</strong></p>
+<p>子查询返回单值时可以用比较运算符，但返回多值时要用ANY（或SOME）或ALL谓词修饰符。而使用ANY、SOME或ALL谓词时则必须同时使用比较运算符。</p>
+<ul>
+<li><p>ANY：表示满足子查询结果的任何一个。可以和&lt;、&lt;=搭配，表示小于或小于等于列表中的最大值，而和&gt;、&gt;=搭配时表示大于或大于等于表中的最小值。</p>
+</li>
+<li><p>SOME：与ANY表示的含义相同。</p>
+</li>
+<li><p>ALL：表示满足子查询结果的所有结果。可以和&lt;、&lt;=搭配，表示小于或小于等于列表中的最小值，而和&gt;、&gt;=搭配时表示大于或大于等于表中的最大值。</p>
+<pre><code class="sql">/*查询其他系比信息管理系某一学生年龄大的学生姓名和年龄。查询代码如下：*/
+SQL&gt; SELECT Sname, TO_CHAR(SYSDATE,&#39;YYYY&#39;)-TO_CHAR(Sbirth,&#39;YYYY&#39;) AS age
+  FROM Students
+  WHERE TO_CHAR(SYSDATE,&#39;YYYY&#39;)-TO_CHAR(Sbirth,&#39;YYYY&#39;)
+           &gt;ANY(SELECT TO_CHAR(SYSDATE,&#39;YYYY&#39;)-TO_CHAR(Sbirth,&#39;YYYY&#39;)
+                  FROM Students
+                  WHERE Dept_ID=(SELECT Dept_ID
+                                   FROM Dept
+                                   WHERE Dept_name=&#39;信息管理系&#39;))
+            AND Dept_ID&lt;&gt;(SELECT Dept_ID
+                          FROM Dept
+                       WHERE Dept_name=&#39;信息管理系&#39;);
+/*本例中&gt;ANY可以改成大于子查询结果的最小值。
+若将本例改为查询其他系比信息管理系所有学生年龄都大的学生姓名和年龄，则只需要把“&gt;ANY”修改为“&gt;ALL”即可，请读者自行实现具体的查询代码。</code></pre>
+</li>
+</ul>
+<p><strong>使用EXISTS的子查询</strong></p>
+<p>对于是否存在相应数据记录的子查询通过EXISTS关键字来实现父查询和子查询之间的连接，使用EXISTS的子查询语句返回的结果为逻辑值，若子查询结果为空，则父查询的WHERE子句返回逻辑值TRUE，否则返回逻辑FALSE。由于带EXISTS的子查询只返回真值或假值，故在子查询中给出列名无实际意义。</p>
+<pre><code class="sql">/*使用EXISTS谓词的查询改写例，查询与“王鹏飞”在同一个系任课的教师编号、教师姓名和教师的职称，要求不包括“王鹏飞”本人。*/
+SQL&gt; SELECT Teacher_ID, Tname, Profess
+    FROM Teacher T1
+    WHERE EXISTS (SELECT *
+              FROM Teacher T2
+              WHERE T1.Dept_ID=T2.Dept_ID and Tname=&#39;王鹏飞&#39;)
+           and Tname!=&#39;王鹏飞&#39;;
+
+/*查询选修了全部课程的学生学号和姓名*/
+SQL&gt; SELECT Student_ID, Sname
+   FROM Students
+   WHERE NOT EXISTS 
+            (SELECT *
+            FROM Courses
+            WHERE NOT EXISTS (SELECT * 
+                                FROM SC
+                                WHERE Student_ID=Students.Student_ID
+                                   AND Course_ID=Courses.Course_ID));
+/*题义是求这样的学生：所有课程，他都选了。关系代数中用除运算来表达此查询。这是含有全称量词&quot;意义的查询，SQL中没有提供&quot;量词，需要用Ø $来表达。“所有课程，所求学生选之”等价于求“不存在任何一门课程，所求学生没有选之”。*/</code></pre>
+<p><strong>集合操作</strong></p>
+<p>关系数据库的优点之一是SQL查询语句处理的是数据集合而非单个数据行。集合操作符可以将两个或多个查询返回的行组合起来。下图给出了4种集合操作符。</p>
+<table>
+<thead>
+<tr>
+<th>集合操作符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UNION[ALL]</td>
+<td>返回各个查询检索出的所有行，ALL代表包括重复的行，不带ALL的话结果不包括重复行</td>
+</tr>
+<tr>
+<td>INTERSECT</td>
+<td>返回两个查询检索出的共有行</td>
+</tr>
+<tr>
+<td>MINUS</td>
+<td>返回第二个查询检索出的行从第一个查询检索出的行中减去之后剩余的行。</td>
+</tr>
+</tbody></table>
+<p>当使用集合操作符的时候，必须牢记这样一个限制条件：所有查询返回的列数以及列的类型必须匹配，但<strong>列名可以不同</strong>。</p>
+<p><strong>使用UNION操作符</strong></p>
+<p>使用UNION运算符可以将两个或多个查询结果集组合成一个结果集。在使用UNION运算符时应注意以下几点：</p>
+<ul>
+<li>UNION结果集的列名与第一个SELECT语句结果集中的列名相同。</li>
+<li>默认情况下，UNION运算符将从结果集中删除重复的行。</li>
+<li>如果使用了UNION运算符，那么各个SELECT语句不能包含ORDERBY或COMPUTE子句，而只能在最后一个SELECT语句的后面使用一个ORDERBY或COMPUTE子句；该子句适用于最终的组合结果集。</li>
+</ul>
+<pre><code class="sql">/*第一个查询将选择所有姓“张”或者姓“李”的学生信息，第二个查询将选择所有姓“李”或者姓“王”的学生信息。*/
+SQL&gt; SELECT Student_ID, Sname
+     FROM Students
+     WHERE Sname LIKE &#39;张%&#39; OR Sname LIKE &#39;李%&#39;
+     UNION 
+     SELECT Student_ID, Sname
+     FROM Students
+     WHERE Sname LIKE &#39;李%&#39; OR Sname LIKE &#39;王%&#39;;</code></pre>
+<p><strong>使用INTERSECT操作符</strong></p>
+<pre><code class="sql">/*INTERSECT操作符返回两个查询检索出的共有行*/
+/*查询选修了课程名中含有“数据库”三个字的课程并且也选修了课程名含有“计算”的课程的学生姓名*/
+SQL&gt; SELECT Sname
+     FROM Students S, SC, Courses C
+     WHERE S.Student_ID=SC.Student_ID AND SC.Course_ID=C.Course_ID
+               AND Cname LIKE &#39;%数据库%&#39;
+     INTERSECT 
+     SELECT Sname
+     FROM Students S, SC, Courses C
+     WHERE S.Student_ID=SC.Student_ID AND SC.Course_ID=C.Course_ID
+               AND Cname LIKE &#39;%计算%&#39;;</code></pre>
+<p><strong>使用MINUS操作符</strong></p>
+<p>MINUS操作符返回将第二个查询检索出的行从第一个查询检索出的行中减去之后剩余的行。下面这个例子使用了MINUS。</p>
+<pre><code class="sql">/*查询选修了“艺术欣赏”课，却没有选修“人工智能”课的学生姓名。*/
+SQL&gt; SELECT Sname
+     FROM Students S, SC, Courses C
+     WHERE S.Student_ID=SC.Student_ID AND SC.Course_ID=C.Course_ID
+               AND Cname =&#39;艺术欣赏&#39;
+     MINUS 
+     SELECT Sname
+     FROM Students S, SC, Courses C
+     WHERE S.Student_ID=SC.Student_ID AND SC.Course_ID=C.Course_ID
+               AND Cname = &#39;人工智能&#39;;</code></pre>
+<h2 id="Oracle内置函数"><a href="#Oracle内置函数" class="headerlink" title="Oracle内置函数"></a>Oracle内置函数</h2><p>###字符函数——返回字符值</p>
+<p>这些函数全都接收的是字符族类型的参数(CHR除外)并且返回字符值.除了特别说明的之外,这些函数大部分返回VARCHAR2类型的数值.字符函数的返回类型所受的限制和基本数据库类型所受的限制是相同的,比如: VARCHAR2数值被限制为2000字符(ORACLE 8中为4000字符),而CHAR数值被限制为255字符(在ORACLE8中是2000).当在过程性语句中使用时,它们可以被赋值给VARCHAR2或者CHAR类型的PL/SQL变量.</p>
+<pre><code class="sql">    CHR
+语法: chr(x)
+功能：返回在数据库字符集中与X拥有等价数值的字符。CHR和ASCII是一对反函数。经过CHR转换后的字符再经过ASCII转换又得到了原来的字符。
+
+    CONCAT
+语法： CONCAT（string1,string2）
+功能：返回string1，并且在后面连接string2。
+
+    INITCAP
+语法：INITCAP（string）
+功能：返回字符串的每个单词的第一个字母大写而单词中的其他字母小写的string。单词是用.空格或给字母数字字符进行分隔。不是字母的字符不变动。
+
+    LTRIM
+语法：LTRIM（string1,string2）
+功能：返回删除从左边算起出现在string2中的字符的string1。String2被缺省设置为单个的空格。数据库将扫描string1，从最左边开始。当遇到不在string2中的第一个字符，结果就被返回了。LTRIM的行为方式与RTRIM很相似。
+
+    NLS_INITCAP
+语法：NLS_INITCAP（string[,nlsparams]）
+功能：返回字符串每个单词第一个字母大写而单词中的其他字母小写的string，nlsparams
+指定了不同于该会话缺省值的不同排序序列。如果不指定参数，则功能和INITCAP相同。Nlsparams可以使用的形式是：
+‘NLS_SORT=sort’这里sort制订了一个语言排序序列。
+
+    NLS_LOWER
+语法：NLS_LOWER（string[,nlsparams]）
+功能：返回字符串中的所有字母都是小写形式的string。不是字母的字符不变。
+      Nlsparams参数的形式与用途和NLS_INITCAP中的nlsparams参数是相同的。如果nlsparams没有被包含，那么NLS_LOWER所作的处理和LOWER相同。
+
+    NLS_UPPER
+语法：nls_upper（string[,nlsparams]）
+功能：返回字符串中的所有字母都是大写的形式的string。不是字母的字符不变。nlsparams参数的形式与用途和NLS_INITCAP中的相同。如果没有设定参数，则NLS_UPPER功能和UPPER相同。
+
+    REPLACE
+语法：REPLACE（string，search_str[,replace_str]）
+功能：把string中的所有的子字符串search_str用可选的replace_str替换，如果没有指定replace_str，所有的string中的子字符串search_str都将被删除。REPLACE是TRANSLATE所提供的功能的一个子集。
+
+    RPAD
+语法：RPAD（string1,x[,string2]）
+功能：返回在X字符长度的位置上插入一个string2中的字符的string1。如果string2的长度要比X字符少，就按照需要进行复制。如果string2多于X字符，则仅string1前面的X各字符被使用。如果没有指定string2，那么使用空格进行填充。X是使用显示长度可以比字符串的实际长度要长。RPAD的行为方式与LPAD很相似，除了它是在右边而不是在左边进行填充。
+
+    RTRIM
+语法:  RTRIM（string1,[,string2]）
+功能:  返回删除从右边算起出现在string1中出现的字符string2. string2被缺省设置为单个的空格.数据库将扫描string1,从右边开始.当遇到不在string2中的第一个字符,结果就被返回了RTRIM的行为方式与LTRIM很相似.
+
+    SOUNDEX
+语法:  SOUNDEX（string）
+功能:  返回string的声音表示形式.这对于比较两个拼写不同但是发音类似的单词而言很有帮助.
+
+    SUBSTR
+语法:  SUBSTR（string,a[,b]）
+功能:  返回从字母为值a开始b个字符长的string的一个子字符串.如果a是0,那么它就被认为从第一个字符开始.如果是正数,返回字符是从左边向右边进行计算的.如果b是负数,那么返回的字符是从string的末尾开始从右向左进行计算的.如果b不存在,那么它将缺省的设置为整个字符串.如果b小于1,那么将返回NULL.如果a或b使用了浮点数,那么该数值将在处理进行以前首先被却为一个整数.
+
+    TRANSLATE
+   语法:  TRANSLATE(string,from_str,to_str)
+   功能:  返回将所出现的from_str中的每个字符替换为to_str中的相应字符以后的string. TRANSLATE是REPLACE所提供的功能的一个超集.如果from_str比to_str长,那么在from_str中而不在to_str中而外的字符将从string中被删除,因为它们没有相应的替换字符. to_str不能为空.Oracle把空字符串认为是NULL,并且如果TRANSLATE中的任何参数为NULL,那么结果也是NULL.
+
+    UPPER
+语法: UPPER（string）
+功能: 返回大写的string.不是字母的字符不变.如果string是CHAR数据类型的,那么结果也是CHAR类型的.如果string是VARCHAR2类型的,那么结果也是VARCHAR2类型的.</code></pre>
+<p>###字符函数——返回数字</p>
+<p>这些函数接受字符参数回数字结果.参数可以是CHAR或者是VARCHAR2类型的.尽管实际下许多结果都是整数值,但是返回结果都是简单的NUMBER类型的,没有定义任何的精度或刻度范围.</p>
+<pre><code class="sql">    ASCII
+语法:  ASCII（string）
+功能: 数据库字符集返回string的第一个字节的十进制表示.请注意该函数仍然称作为ASCII.尽管许多字符集不是7位ASCII.CHR和ASCII是互为相反的函数.CHR得到给定字符编码的响应字符. ASCII得到给定字符的字符编码.
+使用位置: 过程性语句和SQL语句。
+
+    INSTR
+语法:  INSTR（string1, string2[a,b]）
+功能:  得到在string1中包含string2的位置. string1时从左边开始检查的,开始的位置为a,如果a是一个负数,那么string1是从右边开始进行扫描的.第b次出现的位置将被返回. a和b都缺省设置为1,这将会返回在string1中第一次出现string2的位置.如果string2在a和b的规定下没有找到,那么返回0.位置的计算是相对于string1的开始位置的,不管a和b的取值是多少.
+使用位置: 过程性语句和SQL语句。
+
+    INSTRB
+语法:  INSTRB（string1, string2[a,[b]]）
+功能:  和INSTR相同,只是操作的对参数字符使用的位置的是字节.
+使用位置: 过程性语句和SQL语句。
+
+    LENGTH
+语法:  LENGTH（string）
+功能:  返回string的字节单位的长度.CHAR数值是填充空格类型的,如果string由数据类型CHAR,它的结尾的空格都被计算到字符串长度中间.如果string是NULL,返回结果是NULL,而不是0.
+使用位置: 过程性语句和SQL语句。
+
+    LENGTHB
+语法:  LENGTHB（string）
+功能:  返回以字节为单位的string的长度.对于单字节字符集LENGTHB和LENGTH是一样的.
+使用位置: 过程性语句和SQL语句。
+
+    NLSSORT
+语法: NLSSORT（string[,nlsparams]）
+功能: 得到用于排序string的字符串字节.所有的数值都被转换为字节字符串,这样在不同数据库之间就保持了一致性. Nlsparams的作用和NLS_INITCAP中的相同.如果忽略参数,会话使用缺省排序.
+使用位置: 过程性语句和SQL语句。</code></pre>
+<h3 id="数字函数"><a href="#数字函数" class="headerlink" title="数字函数"></a>数字函数</h3><p>函数接受NUMBER类型的参数并返回NUMBER类型的数值.超越函数和三角函数的返回值精确到36位.ACOS、ASIN、ATAN、ATAN2的结果精确到36位.</p>
+<pre><code class="sql">    ABS
+语法:   ABS(x)
+功能:   得到x的绝对值.
+使用位置: 过程性语言和SQL语句。
+
+    ACOS
+语法:  ACOS(x)
+功能:  返回x的反余弦值. x应该从0到1之间的数,结果在0到pi之间,以弧度为单位.
+使用位置: 过程性语言和SQL语句。
+
+    ASIN
+语法:  ASIN(x)
+功能:  计算x的反正弦值. X的范围应该是－1到1之间,返回的结果在－pi/2到pi/2之间,以弧度为单位.
+使用位置: 过程性语言和SQL语句。
+
+    ATAN
+语法:  ATAN(x)
+功能:  计算x的反正切值.返回值在－pi/2到pi/2之间,单位是弧度.
+使用位置: 过程性语言和SQL语句。
+
+    ATAN2
+语法:  ATAN2(x,y)
+功能:  计算x和y的反正切值.结果在负的pi/2到正的pi/2之间,单位是弧度.
+使用位置: 过程性语言和SQL语句。
+
+    CEIL
+语法:  CEIL(x)
+功能:  计算大于或等于x的最小整数值.
+使用位置: 过程性语言和SQL语句。
+
+    COS
+语法:  COS(x)
+功能:  返回x的余弦值. X的单位是弧度.
+使用位置: 过程性语言和SQL语句。
+
+    COSH
+语法:  COSH(x)
+功能:  计算x的双曲余弦值.
+
+    EXP
+语法:  EXP(x)
+功能:  计算e的x次幂. e为自然对数,约等于2.71828.
+使用位置: 过程性语言和SQL语句。
+
+    FLOOR
+语法:  FLOOR(x)
+功能:  返回小于等于x的最大整数值.
+使用位置: 过程性语言和SQL语句。
+
+    LN
+语法:  LN(x)
+功能:  返回x的自然对数. x必须是正数,并且大于0
+使用位置: 过程性语言和SQL语句。
+
+    LOG
+语法:  LOG(x)
+
+功能:  计算以x为底的y的对数.底必须大于0而且不等于1, y为任意正数.
+使用位置: 过程性语言和SQL语句。
+
+    MOD
+语法:  MOD(x,y)
+功能:  返回x除以y的余数.如果y是0,则返回x
+使用位置: 过程性语言和SQL语句。
+
+    POWER
+语法:  POWER(x,y)
+功能:  计算x的y次幂.
+使用位置: 过程性语言和SQL语句。
+
+    ROUND
+语法:  ROUND(x[,y])
+功能:  计算保留到小数点右边y位的x值. y缺省设置为0,这会将x保留为最接近的整数.如果y小于0,保留到小数点左边相应的位. Y必须是整数.
+使用位置: 过程性语言和SQL语句。
+
+    SIGN
+语法:  SIGN(x)
+功能:  获得x的符号位标志.如果x&lt;0返回－1.如果x=0返回0.如果x&gt;0返回1.
+使用位置: 过程性语言和SQL语句。
+
+    SIN
+语法:SIN(x)
+功能:计算x的正弦值. X是一个以弧度表示的角度.
+使用位置: 过程性语言和SQL语句。
+
+    SINH
+语法:SINH(x)
+功能:返回x的双曲正弦值.
+使用位置: 过程性语言和SQL语句。
+
+    SQRT
+语法:  SQRT(x)
+功能:  返回x的平方根. x必须是正数.
+使用位置: 过程性语言和SQL语句。
+
+    TAN
+语法:  TAN(x)
+功能:  计算x的正切值, x是一个以弧度位单位的角度.
+使用位置: 过程性语言和SQL语句。
+
+TANH
+语法:  TANH(x)
+功能:  计算x的双曲正切值.
+使用位置: 过程性语言和SQL语句。
+
+    TRUNC
+语法:  TRUNC(x[,y])
+功能:  计算截尾到y位小数的x值. y缺省为0,结果变为一个整数值.如果y是一个负数,那么就截尾到小数点左边对应的位上.
+使用位置: 过程性语言和SQL语句。</code></pre>
+<h3 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h3><p>日期函数接受DATE类型的参数.除了MONTHS_BETWEEN函数返回的是NUMBER类型的结果,所有其他的日期函数返回的都是DATE类型的数值.</p>
+<pre><code class="sql">    ADD_MONTHS
+语法:  ADD_MONTHS(d,x)
+功能:  返回日期d加上x个月后的月份。x可以是任意整数。如果结果日期中的月份所包含的天数比d日期中的“日”分量要少。（即相加后的结果日期中的日分量信息已经超过该月的最后一天，例如，8月31日加上一个月之后得到9月31日，而9月只能有30天）返回结果月份的最后一天。
+使用位置: 过程性语言和SQL语句。
+
+    LAST_DAY
+语法:LAST_DAY(d)
+功能:计算包含日期的d的月份最后一天的日期.这个函数可以用来计算当月中剩余天数.
+使用位置: 过程性语言和SQL语句。
+
+    MONTHS_BETWEEN
+语法:  MONTHS_BETWEEN(date 1,date2)
+功能:  计算date 1和date2之间月数.如果date 1,date2这两个日期中日分量信息是相同的,或者这两个日期都分别是所在月的最后一天,那么返回的结果是一个整数,否则包括一个小数,小数为富余天数除以31.
+使用位置: 过程性语言和SQL语句。
+
+    NEW_TIME
+语法:  NEW_TIME(d,zone1,zone2)
+功能: 计算当时区zone1中的日期和时间是s时候,返回时区zone2中的日期和时间. zone1和zone2是字符串.
+使用位置: 过程性语言和SQL语句。
+
+    NEXT_DAY
+语法:  NEXT_DAY(d,string)
+功能:  计算在日期d后满足由string给出的条件的第一天. String使用位置;当前会话的语言指定了一周中的某一天.返回值的时间分量与d的时间分量是相同的. String的内容可以忽略大小写.
+使用位置: 过程性语言和SQL语句。
+
+    ROUND
+语法:  ROUND(d[,format])
+功能:  将日期d按照由format指定的格式进行处理.如果没有给format则使用缺省设置`DD`.
+使用位置: 过程性语言和SQL语句。
+
+    SYSDATE
+语法: SYSDATE
+功能: 取得当前的日期和时间,类型是DATE.它没有参数.但在分布式SQL语句中使用时,SYSDATE返回本地数据库的日期和时间.
+使用位置: 过程性语言和SQL语句。
+
+    TRUNC
+语法:  TRUNC(d,format)
+功能:  计算截尾到由format指定单位的日期d.可以使用位置:格式和效果.缺省参数同ROUNG.
+使用位置: 过程性语言和SQL语句。</code></pre>
+<h3 id="转换函数"><a href="#转换函数" class="headerlink" title="转换函数"></a>转换函数</h3><p>转换函数用于在PL/SQL数据类型之间进行转换.PL/SQL尽可能地自动进行转换,也就是采用隐含方式转换.隐含转换无法转换格式信息,并且有些类型的数据之间不支持隐含转换,所以对这些可以采用显示转换.使用显示转换也是一种好的编程习惯</p>
+<pre><code class="sql">    CHARTOROWID
+语法:  CHARTOROWID(string)
+功能:  把包含外部格式的ROWID的CHAR或VARCHAR2数值转换为内部的二进制格式.参数string必须是包含外部格式的ROWID的18字符的字符串.oracle7和 oracle8中的外部格式是不同的.CHARTOROWID是ROWIDTOCHAR的反函数.
+使用位置: 过程性语言和SQL语句。
+
+    CONVERT
+语法:  CONVERT(string,dest_set[,source_set])
+功能:  将字符串string从source_set所表示的字符集转换为由dest_set所表示的字符集.如果source_set没有被指定,它缺省的被设置为数据库的字符集.
+使用位置: 过程性语言和SQL语句。
+
+    HEXTORAW
+语法:  HEXTORAW(string)
+功能:  将由string表示的二进制数值转换为一个RAW数值. String应该包含一个十六进制的数值. String中的每两个字符表示了结果RAW中的一个字节..HEXTORAW和RAWTOHEX为相反的两个函数.
+使用位置: 过程性语言和SQL语句。
+
+    RAWTOHEX
+语法:  RAWTOHEX(rawvalue)
+功能:  将RAW类数值rawvalue转换为一个相应的十六进制表示的字符串. rawvalue中的每个字节都被转换为一个双字节的字符串. RAWTOHEX和HEXTORAW是两个相反的函数.
+使用位置: 过程性语言和SQL语句。
+
+    ROWIDTOCHAR
+语法:  ROWIDTOCHAR(rowid)
+功能:  将ROWID类型的数值rowid转换为其外部的18字符的字符串表示,在oracle7和oracle8之间有些不一样的地方. ROWIDTOCHAR和CHARTOROWID是两个相反的函数.
+使用位置: 过程性语言和SQL语句。
+
+    TO_CHAR(dates)
+语法:  TO_CHAR(d [,format[,nlsparams]])
+功能:  将日期d转换为一个VARCHAR2类型的字符串.如果指定了format,那么就使用位置:它控制结果的方式.格式字符串是由格式元素构成的.第一个元素返回日期数值一个部份,例如日子.如果没有给定format,使用的就是该会话的缺省日期格式.如果指定了nlsparams,它就控制着返回字符串的月份和日分量信息所使用的语言. nlsparams的格式是:
+“NLS_DATE_LANGUAGE”
+使用位置: 过程性语言和SQL语句。
+
+    TO_CHAR(labels)
+语法:  TO_CHAR(labels[,format])
+功能:  将MISLABEL的LABEL转换为一个VARCHAR2类型的变量.
+使用位置: 在trusted数据库的过程性语句和SQL语句。
+
+    TO_CHAR(numbers)
+语法: TO_CHAR(num[,format[,nlsparams]])
+功能: 将NUMBER类型的参数num转换为一个VARCHAR2类型的变量.如果指定了format,那么它会控制这个转换处理.表5-5列除了可以使用的数字格式.如果没有指定format,它会控制这个转换过程.下面列出了可以使用的数字格式.如果没有指定format,那么结果字符串将包含和num中有效位的个数相同的字符. nlsparams用来指定小数点和千分位分隔符和货币符号.可以使用的格式:
+`NLS_NUMERIC_CHARS=”dg”NLS_CURRENCY=”string”
+d和g分别表示列小数点和千分位分隔符. String表示了货币的符号.例如,在美国小数点分隔符通常是一个句点(.),分组分隔符通常是一个逗号(,),而千分位符号通常是一个$.
+使用位置: 过程性语言和SQL语句。
+
+    TO_DATE
+语法:  TO_DATE(String[,format[,nlsparams]])
+功能:  把CHAR或者VARCHAR2类型的String转换为一个DATE类型的变量. format是一个日期格式字符串.当不指定format的时候,使用该会话的缺省日期格式.
+使用位置: 过程性语言和SQL语句。
+
+    TO¬_LABEL
+语法:  TO_LABEL(String[,format])
+功能:  将String转换为一个MLSLABEL类型的变量. String可以是VARCHAR2或者CHAR类型的参数.如果指定了format,那么它就会被用在转换中.如果没有指定format,那么使用缺省的转换格式.
+使用位置: 过程性语言和SQL语句。
+
+    TO_MULTI_BYTE
+语法:  TO_MULTI_BYTE(String)
+功能: 计算所有单字节字符都替位换位等价的多字节字符的String.该函数只有当数据库字符集同时包含多字节和单字节的字符的时候有效.否则, String不会进行任何处理. TO_MULTI_BYTE和TO_SINGLE_BYTE是相反的两个函数.
+使用位置: 过程性语言和SQL语句。
+
+    TO_NUMBER
+语法: TO_NUMBER(String[,format[,nlsparams]])
+功能: 将CHAR或者VARCHAR2类型的String转换为一个NUMBER类型的数值.如果指定了format,那么String应该遵循相应的数字格式. Nlsparams的行为方式和TO_CHAR中的完全相同.TO_NUMBER和TO_CHAR是两个相反的函数.
+使用位置: 过程性语言和SQL语句。
+
+    TO_SINGLE_BYTE
+语法: TO_SINGLE_BYTE(String )
+功能: 计算String中所有多字节字符都替换为等价的单字节字符.该函数只有当数据库字符集同时包含多字节和单字节的字符的时候有效.否则, String不会进行任何处理.
+TO_MULTI_BYTE和TO_SINGLE_BYTE是相反的两个函数.
+使用位置: 过程性语言和SQL语句。</code></pre>
+<h3 id="分组函数"><a href="#分组函数" class="headerlink" title="分组函数"></a>分组函数</h3><p>分组函数返回基于多个行的单一结果,这和单行函数正好形成对比,后者是对单行返回一个结果.这些函数仅仅对于查询的选择列表和GROUP BY子句有效.<br>    这些函数大都可以接受对参数的修饰符.可以使用位置:的修饰符有DISTINCT和ALL.如果使用位置:了DISTINCT修饰符,那么在处理中仅仅会考虑由查询返回的不同的取值.ALL修饰符会使得该函数考虑由查询返回的所有数值.如果没有指定任何修饰符,那么缺省使用位置:的是ALL修饰符.</p>
+<pre><code class="sql">    AVG
+语法:  AVG([DISTINCT ALL]col)
+功能:  返回一列数据的平均值.
+使用位置: 查询列表和GROUP BY子句.
+
+    COUNT
+语法:  COUNT(* [DISTINCT ALL] col)
+功能:  得到查询中行的数目.如果使用了*获得行的总数.如果在参数中传递的是选择列表,那么计算的是非空数值.
+
+    获得由label界定的最大下界.函数仅用于trusted oracle.GLB
+语法:  GLB ([DISTINCT ALL]label)
+功能:  获得由label界定的最大下界.函数仅用于trusted oracle.
+使用位置:trusted数据库的选择列表和GROUP BY子句.
+
+
+    LUB
+语法:  LUB ([DISTINCT ALL]label)
+功能: 获得由label界定的最小上界.用于trusted oracle.数据库.
+使用位置:  trusted数据库的选择列表和GROUP BY子句.
+过程性语言和SQL语句。
+
+
+    MAX
+语法:  MAX([DISTINCT ALL]col)
+功能:  获得选择列表项目的最大值.
+使用位置: 仅用于查询选择和GROUP BY子句.
+
+    MIN
+语法:  MIN([DISTINCT ALL]col)
+功能: 获得选择列表的最小值.
+使用位置: 仅用于查询选择和GROUP BY子句.
+
+
+    STDDEV
+语法:  STDDEV([DISTINCT ALL]col)
+功能:  获得选择列表的标准差.标准差为方差的平方根.
+使用位置: 仅用于查询选择和GROUP BY子句.
+
+    SUM
+语法:SUM([DISTINCT ALL]col)
+功能:返回选择的数值和总和
+使用位置: 仅用于查询选择和GROUP BY子句.
+
+
+    VARIANCE
+语法: VARIANCE([DISTINCT ALL]col)
+功能:返回选择列表项目的统计方差.
+使用位置: 仅用于查询选择和GROUP BY子句.</code></pre>
+<h3 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h3><pre><code class="sql">    BFILENAME
+语法: BFILENAME(directory,file_name)
+功能: 获得操作系统中与物理文件file_name相关的BFILE位置指示符. directory必须是数据字典中的DIRECTORY类型的对象.
+使用位置: 过程性语言和SQL语句。
+
+    DECODE
+语法:
+DECODE(base_expr,comparel,valuel,
+Compare2,value2,
+…
+default)
+功能: 把base_expr与后面的每个compare  (n) 进行比较,如果匹配返回相应的value (n)  .如果没有发生匹配,则返回default
+使用位置: 过程性语言和SQL语句。
+
+
+    DUMP
+语法:DUMP(expr[,number_format[,start_position][,length]])
+功能:获得有关expr的内部表示信息的VARCHAR2类型的数值. number_format指定了按照下面返回数值的基数(base):
+    number_format   结果
+8    八进制表示
+10        十进制表示
+16    十六进制表示
+17    单字符
+默认的值是十进制.
+如果指定了start_position和length,那么返回从start_position开始的长为length的字节.缺省返回全部.
+数据类型按照下面规定的内部数据类型的编码作为一个数字进行返回.
+         代码             数据类型
+1    VARCHAR2
+2    NUMBER
+8    LONG
+12              DATE
+23    RAW
+69    ROWID
+96    CHAR
+106    MLSLABEL
+使用位置:  SQL语句.
+
+
+    EMPTY_CLOB/EMPTY_BLOB
+语法:  EMPTY_CLOB
+       EMPTY_BLOB
+功能: 获得一个空的LOB提示符 (locator) .EMOTY_CLOB返回一个字符指示符,而  EMPTY_BLOB返回一个二进制指示符.
+使用位置: 过程性语言和SQL语句.
+
+    GREATEST
+语法:  GREATEST(expr1[,expr2]…)
+功能:  计算参数中最大的表达式.所有表达式的比较类型以expr1为准.
+使用位置: 过程性语言和SQL语句.
+
+    GREATEST_LB
+语法:  GREATEST_LB(label1[,label2]…)
+功能: 返回标签(label)列表中最大的下界.每个标签必须拥有数据类型MLSLABEL、RAWMLSLABEL或者是一个表因字符串文字.函数只能用于truested oracle库.
+使用位置: 过程性语言和SQL语句.
+
+    LEAST
+语法:  LEAST(expr1[,:expr2]…)
+功能:  获得参数中最小的表达式.
+使用位置: 过程性语言和SQL语句.
+
+    LEAST_UB
+语法:  LEAST_UB(label1[,label2]…)
+功能:  与GREATEST_UB函数相似,本函数返回标签列表的最小上界.
+使用位置: 过程性语言和SQL语句.
+
+    NVL
+语法:  NVL (expr1, expr2)
+功能:  如果expr1是NULL,那么返回expr2,否则返回expr1.
+如果expr1不是字符串,那么返回值的数据类型和expr1是相同的,否则,返回值的数据类型是VARCHAR2.此函数对于检查并确定查询的活动集不包含NULL值十分有用.
+使用位置: 过程性语言和SQL语句.
+
+    UID
+语法:
+功能:  获得当前数据库用的惟一标识,标识是一个整数.
+使用位置: 过程性语言和SQL语句.
+
+    USER
+语法:
+功能:  取得当前oracle用户的名字,返回的结果是一个VARCHAR2型字符串.
+使用位置: 过程性语言和SQL语句.
+
+    USERENV
+语法:  USERENV(option)
+功能:  根据参数option,取得一个有关当前会话信息的VARCHAR2数值.
+使用位置: 过程性语言和SQL语句.
+
+    VSIZE
+语法:  VSIZE(value)
+功能: 获得value的内部表示的字节数.如果value是NULL,结果是NULL.
+使用位置: 过程性语言和SQL语句.</code></pre>
+<h1 id="第五天：PL-SQL编程"><a href="#第五天：PL-SQL编程" class="headerlink" title="第五天：PL/SQL编程"></a>第五天：PL/SQL编程</h1><h2 id="PL-SQL简介"><a href="#PL-SQL简介" class="headerlink" title="PL/SQL简介"></a>PL/SQL简介</h2><p>PL/SQL（Procedural Language/SQL）是一种应用在数据库中的程序设计语言。它和其他的程序语言一样可以定义常量和变量，有赋值语句和表达式，有分支、循环等程序结构，可以在程序中嵌入SQL语句是它区别于其他程序设计语言的特点。我们可以把一些运行在数据库中的业务逻辑，通过数据操作和查询语句定义在PL/SQL程序块中，通过逻辑判断，循环等操作实现复杂的功能。</p>
+<p><strong>语言结构</strong></p>
+<p>PL/SQL语言是结构化程序设计语言，块（block）是PL/SQL程序中最基本的结构。PL/SQL块由三个部分组成：声明部分、执行体部分、异常处理部分。</p>
+<pre><code class="plsql">[DECLARE]
+--声明部分：在此声明PL/SQL用到的变量、常量、类型、游标、用户定义异常的声明等
+BEGIN
+--执行部分：SQL语句和PL/SQL语句构成的程序的主要部分
+[EXCEPTION]
+--异常处理部分：当程序出现异常时，捕捉异常并处理
+END;
+--标记程序体部分结束</code></pre>
+<p><strong>示例程序</strong></p>
+<pre><code class="plsql">/*1. 只包含执行体的程序块*/
+SQL&gt; SET SERVEROUTPUT ON
+BEGIN
+     DBMS_OUTPUT.PUT_LINE(‘HELLO WORLD!’);
+     END;   
+/*2. 包含执行体和声明部分的程序块*/
+SQL&gt;DECLARE
+       Cname varchar2(20);
+     BEGIN
+        SELECT CNAME INTO Cname
+        FROM User_Yao.Courses
+        WHERE Course_ID = &#39;0019&#39;;
+        DBMS_OUTPUT.PUT_LINE(&#39;代码是0019的课程名称是：&#39;|| Cname);
+      END;
+/*3. 包含声明部分、执行部分和异常部分的程序块*/
+SQL&gt;DECLARE
+      C_name varchar2(20);
+      BEGIN
+        SELECT Cname INTO C_name
+        FROM User_Yao.Courses
+        WHERE Course_ID = &#39;0020&#39;;
+        DBMS_OUTPUT.PUT_LINE(&#39;0020的课程名称为&#39; || C_name);
+      EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE(&#39;没有这门课程！&#39;);
+        WHEN TOO_MANY_ROWS THEN
+        DBMS_OUTPUT.PUT_LINE(&#39;有多门课程的代码重复，均为0020！&#39;);
+      END;</code></pre>
+<h2 id="PL-SQL基本语法"><a href="#PL-SQL基本语法" class="headerlink" title="PL/SQL基本语法"></a>PL/SQL基本语法</h2><h3 id="变量和常量"><a href="#变量和常量" class="headerlink" title="变量和常量"></a>变量和常量</h3><p><strong>常量的定义</strong></p>
+<p>定义常量的语法格式如下：</p>
+<pre><code class="sql">&lt;常量名&gt; constant &lt;数据类型&gt; ：= &lt;值&gt;；</code></pre>
+<p>其中，关键字constant 表示是在定义常量。常量一旦定义，在以后的使用中其值将不再改变。一旦固定大小的数据为了防止有人改变，最好定义成常量。例如：定义一个及格线的常量Pass_Score，它的类型为整型，值为90：Pass_Score constant INTEGER：=90；</p>
+<p><strong>变量的定义</strong></p>
+<p>定义变量的语法格式如下：</p>
+<pre><code class="sql">&lt;变量名&gt; &lt;数据类型&gt; [(宽度) ：= &lt;初始值&gt;]；</code></pre>
+<p>可见，变量定义时没有关键字，但要指定数据类型。宽度和初始值可以定义也可以不定义，根据需要灵活使用。例如，定义了一个有关住址的变量，它是变长字符型，最大长度为50个字符：Address VARCHAR2 (50)；</p>
+<p><strong>变量的初始化</strong></p>
+<p>许多语言没有规定未经过初始化的变量中应该存放什么内容。因此在运行时，未初始化的变量就可能包含随即的或者未知的数值。在一种语言中，允许使用未初始化变量并不是一种很好的编程风格。一般而言，如果变量的取值可以被确定，那么最好为其初始化一个数值。</p>
+<p><strong>变量的作用域</strong></p>
+<p>变量的作用域是指可以访问该变量的程序部分。对于PL/SQL变量来说，其作用域就是从变量的声明到语言快的结束。当变量超出了作用域，PL/SQL解释程序就会自动释放该变量的存储空间。</p>
+<h3 id="赋值语句"><a href="#赋值语句" class="headerlink" title="赋值语句"></a>赋值语句</h3><p>使用赋值语句可以为变量赋予数值，或者将计算的结果赋予变量。在PL/SQL中需要注意的是，赋值符号为“：=”，而不是“=”。</p>
+<pre><code class="sql">/*下面是几种不同类型的变量的赋值语法：*/
+identIFier : = expr;
+plsql_table_name (primary_key_value) : = expr;
+plsql_record_name.field_name : = expr;
+--简单变量的赋值
+v_sal : = 5000;
+v_married := true;
+--在PL/SQL表类型的变量v_name的第一个值中保存名字“Smith”
+v_name(1) : = ‘Smith’;
+--把一个教师的基本信息保存到PL/SQL的记录类型数据中
+Teacher_record.Tname := ‘Smith’;
+Teacher_record.sal := 5000;</code></pre>
+<h3 id="表达式和运算符"><a href="#表达式和运算符" class="headerlink" title="表达式和运算符"></a>表达式和运算符</h3><p>表达式在PL/SQL中经常出现，可以出现在PL/SQL的很多位置，例如赋值语句中、SQL语句中、条件判断语句中等，表达式可以使用各种运算符和Oracle内置函数。表达式中运算符的优先级决定了表达式求值的顺序。</p>
+<p><strong>表达式</strong></p>
+<p>表达式是由运算符串起来的一组数。表达式的数值通过组成它的变量、文字的取值及运算符的定义来决定。表达式中运算符的优先级决定了表达式求值的顺序。如：6+3*2，由于运算符优先级的存在，是表达式的值为12，而不是通过顺序运算得来的18.</p>
+<p><strong>运算符</strong></p>
+<p>PL/SQL的运算符可以是一元的（带有一个参数），也可以是二元的（带有两个参数）。运算符通常可以分为以下几类：* 算术运算符 * 关系运算符  * 其他符号</p>
+<h3 id="条件判断语句"><a href="#条件判断语句" class="headerlink" title="条件判断语句"></a>条件判断语句</h3><p>PL/SQL程序块中的流程控制语句最常见的以中是条件判断语句，也就是IF语句。使用IF语句可以根据设置的条件进行判断，选择条件分支中的某个分支进行操作。条件分支语句的语法结构如下：</p>
+<pre><code class="sql">IF condition THEN
+  statements;
+[ELSEIF condition THEN
+statements;]
+[ELSE
+statements;]
+END IF;</code></pre>
+<p>其中ELSEIF子句和ELSE子句是可选项。判断条件condition可以是一个条件或者是多个条件的组合，多个条件可以通过连接操作符（AND/OR/NOT）连接在一起。</p>
+<pre><code class="sql">/*1. 简单分支
+简单分支程序，执行结果图如图7-4所示。*/
+DECLARE 
+        m number;
+        n number;
+        BEGIN
+           m:=10;
+           n:=20;
+           IF m-n&gt;=0 THEN
+              DBMS_OUTPUT.PUT_LINE(m || &#39;&gt;&#39;||n);
+           END IF;
+           DBMS_OUTPUT.PUT_LINE(m || &#39;&lt;&#39;||n);
+  END;
+/*2. 二重分支
+         IF…THEN… ELSE是一种简单IF语句的扩展，增加了一个分支。如果第一个条件不满足则执行第二个分支的语句。
+二重分支程序，使用学籍管理数据库，方案User_Yao下的选修SC表，查询学号‘20100810101’的学生选修‘0001’号课程的成绩情况，执行结果图如图7-5所示。*/
+DECLARE
+  学生成绩 number;
+  BEGIN
+       SELECT grade INTO 学生成绩
+       FROMUser_Yao.Sc
+       WHERE Course_ID=&#39;0001&#39; AND Student_ID=&#39;20100810101&#39;;
+DBMS_OUTPUT.PUT_LINE(&#39;课程0001号成绩是：&#39;|| 学生成绩);
+       IF 学生成绩&gt;=60 THEN 
+          DBMS_OUTPUT.PUT_LINE(&#39;成绩合格，通过考试&#39;);
+       ELSE
+          DBMS_OUTPUT.PUT_LINE(&#39;成绩不合格，没有通过考试&#39;);
+       END IF;
+/*3. 多重分支
+       IF…THEN …ELSEIF语句可以设置更多的选择分支，当第一个条件不满足时，判断第二个条件是否满足，如果也不满足，再判断第三个条件，一直到找到一个满足条件的分支或者执行ELSE对应的分支语句。
+       使用学籍管理数据库，方案User_Yao下的选修SC表，查询学号‘20100810101’的学生选修‘0001’号课程的成绩等级情况。代码如下*/
+DECLARE
+  学生成绩 number;
+  BEGIN
+       SELECT grade into 学生成绩
+       FROM User_Yao.Sc
+       WHERE Course_ID=&#39;0001&#39; AND Student_ID=&#39;20100810101&#39;;
+       DBMS_OUTPUT.PUT_LINE(&#39;课程0001号成绩是：&#39;|| 学生成绩);
+       IF 学生成绩&gt;=90 THEN 
+          DBMS_OUTPUT.PUT_LINE(&#39;成绩优秀，通过考试&#39;);
+       ELSIF 学生成绩&gt;=80 THEN
+          DBMS_OUTPUT.PUT_LINE(&#39;成绩良好，通过考试&#39;);
+       ELSIF 学生成绩&gt;=70 THEN
+dbms_output.put_line (&#39;成绩一般，通过考试&#39;);
+       ELSIF 学生成绩&gt;=60 THEN
+          DBMS_OUTPUT.PUT_LINE(&#39;成绩合格，通过考试&#39;);
+       ELSE
+          DBMS_OUTPUT.PUT_LINE(&#39;成绩不及格，没有通过考试&#39;);
+       END IF;
+  END;
+/*4. CASE语句
+处理多重分支语句时，除了可以使用IF语句之外，还可以使用CASE语句。CASE语法结构有两种类型：
+● 简单CASE语句：给出一个表达式，并把表达式结果同提供的几个可预见的结果做比较，如果比较成功，则执行相应的语句序列。
+● 搜索CASE语句：提供多个布尔表达式，根据条件满足的情况选择第一个为TRUE的表达式，执行对应的语句。
+/*(1) 简单CASE语句
+简单CASE表达式语法结构为：*/
+CASE case_operand
+    WHEN  when_operand THEN 
+        statement;
+[WHEN  when_operand THEN 
+        statement;
+]…
+[ELSE statement [statement]]…;
+       END CASE;
+/*例：使用简单CASE语法结构实现查询课程表中“大学语文”这门课程的课程性质*/
+DECLARE 
+  学分 number;
+  BEGIN
+       SELECTcredits INTO 学分
+       FROM User_Yao.Courses
+       WHERE cname=&#39;大学语文&#39;;
+
+       CASE 学分
+       WHEN &#39;2&#39; THEN
+            DBMS_OUTPUT.PUT_LINE(&#39;选修课&#39;);
+       WHEN &#39;4&#39; THEN
+            DBMS_OUTPUT.PUT_LINE(&#39;必修课&#39;);
+       WHEN &#39;5&#39; THEN
+            DBMS_OUTPUT.PUT_LINE(&#39;专业课&#39;);
+       WHEN &#39;6&#39; THEN
+       DBMS_OUTPUT.PUT_LINE(&#39;毕业设计&#39;);   
+       ELSE 
+            DBMS_OUTPUT.PUT_LINE(&#39;其他！&#39;);  
+       END CASE;     
+
+       DBMS_OUTPUT.PUT_LINE(&#39;CASE结构验证完成！&#39;);
+  END;
+/*(2) 搜索CASE语句搜索CASE表达式语法结构为：*/
+CASE 
+    WHEN boolean_expression THEN 
+        statement;
+[WHEN boolean_expression THEN 
+        statement;
+]…
+[ELSE statement [statement]]…;
+       END CASE;
+/*例：使用CASE语句实现例7-6的功能。代码如下*/
+DECLARE 
+学生成绩 number;
+  BEGIN
+       SELECT grade INTO 学生成绩
+       FROM User_Yao.Sc
+       WHERE Course_ID=&#39;0001&#39; AND Student_ID=&#39;20100810101&#39;;
+       DBMS_OUTPUT.PUT_LINE(&#39;课程0001号成绩是：&#39;|| 学生成绩);
+       CASE 
+       WHEN 学生成绩&gt;=90 THEN 
+          DBMS_OUTPUT.PUT_LINE(&#39;成绩优秀，通过考试&#39;);
+       WHEN 学生成绩&gt;=80 THEN
+          DBMS_OUTPUT.PUT_LINE(&#39;成绩良好，通过考试&#39;);
+       WHEN 学生成绩&gt;=70 THEN
+       DBMS_OUTPUT.PUT_LINE(&#39;成绩一般，通过考试&#39;);
+       WHEN 学生成绩&gt;=60 THEN
+          DBMS_OUTPUT.PUT_LINE(&#39;成绩合格，通过考试&#39;);
+       ELSE
+          DBMS_OUTPUT.PUT_LINE(&#39;成绩不及格，没有通过考试&#39;);
+       END CASE;    
+       DBMS_OUTPUT.PUT_LINE(&#39;搜索CASE结构验证完成！&#39;);
+  END;</code></pre>
+<h3 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h3><p>除了IF语句之外，PL/SQL程序中的另一种流程控制语句就是循环。循环用于根据条件一次或者多次执行某些语句。在PL/SQL程序中主要有三种循环类型：简单循环、FOR循环和WHILE循环。</p>
+<ol>
+<li>简单循环简单循环使程序不经过判断就进入循环，在循环体中判断条件是否满足，一旦满足条件，立刻退出循环。简单循环的基本语法格式如下：</li>
+</ol>
+<pre><code class="sql">LOOP
+   statement1;
+   EXIT [WHEN condition];    END LOOP;</code></pre>
+<p>其中statement1是循环体，WHEN后面的条件语句就是确定是否退出循环的条件，当条件满足时，退出循环，如果条件不满足，则继续循环。需要注意的是，在简单循环中如果不人为控制，循环体将会无限执行，一般可以通过加入EXIT语句来终止循环。</p>
+<p>例：创建一个临时表temp，该表只有一列id，并且这一列的取值通过循环语句获得。代码如下，执行后查询该表：</p>
+<pre><code class="sql">CREATE TABLE User_Yao.temp (id NUMBER);
+DECLARE
+          i INTEGER := 1;
+      BEGIN
+          LOOP
+             INSERT INTO User_Yao.temp VALUES (i);
+             EXIT WHEN i = 10;
+             i := i + 1;
+          END LOOP;
+          COMMIT;
+      END;</code></pre>
+<ol start="2">
+<li>FOR循环:FOR循环也是经常使用的循环语句，使用FOR循环，循环将会执行指定的次数。FOR循环的语法结构如下：</li>
+</ol>
+<pre><code class="sql">FOR index_name IN [REVERSE]
+   lower_bound…upper_bound LOOP
+   statement1;
+   statement2;
+   …
+END LOOP;</code></pre>
+<p>其中，index_name为循环计数器，该变量可以得到当前的循环次数，但是不能为其赋值。low_bound和upper_bound为循环的最小值和最大值，循环将会执行计数器递增的次数。low_bound和upper_bound两者需要用“..”连接。REVERSE是反转的意思，正常的循环计数器从小到大递增，使用REVERSE将使计数器从大到小递减。</p>
+<p>需要注意的是，在循环中使用的计数器变量不需要声明，Oracle自动为FOR循环声明计数器变量；计数器变量只能在循环体内引用，控制循环体外看不到这个变量；如果需要在循环体外引用计数器的值，可以使用一个变量记录计数器的值。</p>
+<pre><code class="sql">/*例：使用ROR循环实现向表User_Yao.temp中插入1~10倒序的数据。代码如下*/
+BEGIN
+  FOR v_counter IN REVERSE 1 .. 10 LOOP
+     INSERT INTO User_Yao.temp VALUES (v_counter);
+  END LOOP;
+  COMMIT;
+END;</code></pre>
+<ol start="3">
+<li>WHILE循环:使用WHILE循环同样可以执行循环，WHILE循环在条件满足的时候执行循环体，当条件不再满足，退出循环。WHILE循环语句的语法格式如下：</li>
+</ol>
+<pre><code class="sql">WHILE condition LOOP
+   statement1;
+   statement2;
+   …
+END LOOP;</code></pre>
+<p>使用WHILE循环实现例的功能，代码如下:</p>
+<pre><code class="sql">DECLARE
+       i INT := 1;
+       BEGIN
+         WHILE i&lt;=10 LOOP
+            INSERT INTO User_Yao.temp VALUES (i);
+            i := i + 1;
+          END LOOP;
+       COMMIT;
+       END;</code></pre>
+<ol start="4">
+<li>嵌套循环:循环块可以多级嵌套，嵌套的规则与PL/SQL块的嵌套规则类似。在循环块中可以使用标签标示循环的位置，可以通过引用标签的EXIT语句，退出到指定的循环外，实现循环的跳转。</li>
+</ol>
+<pre><code class="sql">/*嵌套循环程序示例，代码如下*/
+DECLARE 
+  i integer;
+  j integer;
+BEGIN
+    &lt;&lt;outer&gt;&gt;
+    FOR i IN 1..5 LOOP
+        DBMS_OUTPUT.PUT_LINE (&#39;外层循环：i的值是:&#39; || i);
+        &lt;&lt;inner&gt;&gt;
+        FOR j IN 1..5 LOOP
+        DBMS_OUTPUT.PUT_LINE (&#39;  内层循环：j的值是:&#39; || j);
+            IF j=3 THEN
+               EXIT outer;
+            END IF;
+        END LOOP inner;
+    END LOOP outer;
+
+DBMS_OUTPUT.PUT_LINE (&#39;嵌套循环语句块结束!&#39;);
+END;</code></pre>
+<p>在这个例子中，使用了两个标签Outer和Inner，一个表示外部循环的标签，另一个是内部循环的标签。在循环体中，根据内部循环计算的值，判断退出到哪一层循环。</p>
+<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><p>PL/SQL中的函数是PL/SQL块的一种特殊类型，这种类型的子程序可以以编译的形式存放在数据库中，并为后续的程序块调用。PL/SQL语言为程序员提供了非常丰富的函数，足以满足开发应用程序的需要。本节介绍一些常用函数。</p>
+<p><strong>数值型函数</strong></p>
+<p>数值类型函数可以输入数字，并返回一个数值。大多数可以达到小数点后38位。一部分则支持30位或36位。</p>
+<p><strong>字符型函数</strong></p>
+<p>字符串函数对字符串输入值执行操作，返回字符串或数字类型数据。</p>
+<p><strong>LENGTH函数</strong></p>
+<p>LENGTH函数返回给定字符串表达式的字符（而不是字节）个数，其中不包括尾随空格。</p>
+<p><strong>UPPER函数与LOWER函数</strong></p>
+<p>UPPER函数返回将小写字符数据转换为大写的字符表达式。LOWER函数返回将大写字符数据转换为小写的字符表达式。</p>
+<p><strong>REPLACE函数、RPAD函数与LPAD函数</strong></p>
+<p>​        REPLACE函数具体的语法结构是REPLACE(s1,s2,s3)，表示在字符串s1中搜索字符串s2，并用字符串s3替换s2。RPAD函数的语法结构是RPAD(s1,n[,s2])，功能是在字符串s1的右边用字符串s2填充，直到整个字符串长度为n时为止。如果s2不存在，则以空格填充。LPAD函数的语法结构是LPAD(s1,n[,s2])，功能是在字符串s1的左边用字符串s2填充，直到整个字符串长度为n时为止。如果s2不存在，则以空格填充。需要注意的是，这里的字符串长度指的不是字符的个数，而是字符的长度，一个汉字字符占据两个字节。</p>
+<p><strong>TRIM函数</strong></p>
+<p>TRIM函数具体的语法结构是TRIM(p,s)，功能是将删除指定的前导或尾随的字符，默认删除空格。LTRIM函数具体的语法结构是LTRIM(s[,p])，功能是从字符串s左侧开始删除p中出现的任何字符，直至出现p中没有字符为止。RTRIM函数具体的语法结构是RTRIM(s[,p])，功能是从字符串s右侧开始删除p中出现的任何字符，直至出现p中没有字符为止。</p>
+<h3 id="日期型函数"><a href="#日期型函数" class="headerlink" title="日期型函数"></a>日期型函数</h3><p>日期函数用于处理DATE和TIMESTAMP数据类型的数据，这些函数同样可以直接在PL/SQL中直接使用。下面介绍几种常用的日期函数：</p>
+<p>SYSDATE函数与SYSTIMESTAMP函数SYSDATE函数返回当前日期和时间。SYSTIMESTAMP函数没有参数，用来返回系统时间，该时间包含时区信息，精确到微秒。</p>
+<p><strong>LAST_DAY函数与NEXT_DAY函数</strong></p>
+<p>LAST_DAY函数语法结构是：LAST_DAY (date)，返回指定日期对应月份的最后一天的日期。NEXT_DAT函数语法结构是：NEXT_DAY(date,char)，返回当前日期向后的一周char的对应日期，char表示的是星期几，全称和缩写都允许。</p>
+<p><strong>MONTHS_BETWEEN函数</strong></p>
+<p>MONTHS_BETWEEN函数语法结构是：MONTHS_BETWEEN(date1,date2)，用来返回两个日期之间月的数目。</p>
+<p><strong>XTRACT函数</strong></p>
+<p>EXTRACT函数语法结构是：EXTRACT (datetime)，该函数可以从指定的时间当中提取到指定的日期部分。</p>
+<p><strong>统计函数</strong></p>
+<p>统计函数对一组值执行计算并返回单一的值。统计函数经常与SELECT语句的GROUP BY子句一起使用。</p>
+<p><strong>COUNT函数</strong></p>
+<p>COUNT函数语法结构是：COUNT(*|[distinct][all]exp)，该函数用来计算记录的数量或某列的个数。函数中必须指定列名，或使用星号代表统计所有记录的个数。</p>
+<p><strong>MAX函数</strong>:MAX函数语法结构是：MAX([distinct][all]exp)，该函数用来返回表达式的最大值。</p>
+<p><strong>MIN函数</strong>:MIN函数语法结构是：MIN([distinct][all]exp)，该函数用来返回表达式的最小值。</p>
+<p><strong>SUM函数</strong>:SUM函数语法结构是：SUM([distinct][all]exp)，该函数用来分组计算指定列的和，如果不使用分组，默认整个表作为一组。</p>
+<p><strong>AVG函数</strong>:AVG函数语法结构是：AVG([distinct][all]exp)，该函数可求指定列的平均值，表示某组的平均值，返回数值类型。经常配合GROUP BY子句一起使用。</p>
+<h3 id="转换函数-1"><a href="#转换函数-1" class="headerlink" title="转换函数"></a>转换函数</h3><p>换函数可以完成不同数据类型之间的转换，是平常使用比较多的函数类型之一.</p>
+<p><strong>TO_CHAR函数</strong>:TO_CHAR函数转换数值和日期为字符串。</p>
+<p><strong>TO_DATE函数</strong>:TO_DATE函数语法结构是：TO_DATE(char[,fmt[,nlsparam]])，该函数可将字符型数据转换成日期型数据。其中，fmt表示转换的格式；nlsparam控制格式化时使用的语言类型。</p>
+<p><strong>CAST函数</strong>:CAST函数语法结构是：CAST(expr as type_name)，该函数实现了数据类型之间的转换。基本上用于数字与字符之间以及字符与日期类型之间的转换。</p>
+<h3 id="游标"><a href="#游标" class="headerlink" title="游标"></a>游标</h3><p>当在PL/SQL中使用SQL语句时，Oracle会为其分配上下文区域，这是一段私有的内存区域，用于暂时保存SQL语句影响到的数据。游标是指向这段内存区域的指针。游标并不是一个数据库对象，只是存留在内存中。游标分为显式游标和隐式游标两种。显式游标由用户声明和控制，用于从表中取出多行数据，并将多行数据一行一行单独进行处理。而隐式游标是是Oracle为所有数据操纵语句声明和操作的一种游标，主要针对DML操作和单行SELECT语句使用。在每个用户会话中，可以同时打开多个游标，其数量由数据库初始化参数文件中的OPEN CURSORS参数定义。两种游标都具有相同的属性，可以使用游标属性取得SQL语句的相关信息。在PL/SQL中游标的使用方法类似于数据库的函数。</p>
+<h4 id="显式游标"><a href="#显式游标" class="headerlink" title="显式游标"></a>显式游标</h4><p>显式游标的主要作用就是暂存查询取出的多行数据，然后一行一行地进行处理。在PL/SQL中的SELECT语句只能且必须取出一行数据，取出多行或者零行都被认为是异常，所以在对多行数据进行查询操作时，必须使用显示游标来实现。显示游标的处理包括声明游标、打开游标、提取游标、关闭游标四个步骤。</p>
+<p><strong>声明游标</strong></p>
+<p>控制游标的第一步是声明游标，游标的声明定义了游标的名字，并将该游标与一个SELECT语句相关联，该语句将对应记录结果集返回游标。显式游标声明部分在DECLARE中，语法格式为：</p>
+<pre><code class="sql">CURSOR cursor_name IS select_statement;</code></pre>
+<p>其中cursor_name是游标名称，IS后面可以是SELECT语句的所有语法。</p>
+<p><strong>打开游标</strong></p>
+<p>打开游标相当于执行了游标定义的查询语句，激活了游标，取出的数据被暂存到了游标区域中，并且游标的指针指向了游标中的第一条记录，准备在程序的执行体中打开游标。打开游标的语法格式如下：</p>
+<pre><code class="sql">OPEN cursor_name;</code></pre>
+<p>与PL/SQL程序中的SELECT不同，游标的查询无论有没有返回记录，都不会引起异常。当打开一个游标时，会完成以下几件事情：（1） 检查联编变量的取值；（2） 根据联编变量的取值，确定活动集；（3） 活动集的指针指向第一行。</p>
+<p><strong>提取游标</strong></p>
+<p>打开游标后，可以通过程序来获得游标当前记录的信息，对应的取值语句是FETCH，提取操作相当于从游标区域中依次取出每一条记录，需要借助循环语句，每次取操作只能取出一条数据，并将指针指向下一条记录，通过使用游标属性测试游标状态，循环多次，直到游标区域被取空，指针指向空值为止。提取游标的语法格式如下：</p>
+<pre><code class="sql">FETCH cursor_name INTO variable1, variable2, ... ;</code></pre>
+<p>需要注意的是，INTO后面的变量应该与游标中的字段个数相同，并且变量与字段顺序也应该一一对应。在每次取操作后使用游标属性测试游标中是否还包含数据行，如果游标还未取空，循环执行取操作。</p>
+<p><strong>关闭游标</strong>:在对查询到的所有记录的处理完成后，应该关闭游标。关闭游标意味着释放游标区域，将占用的游标内存空间回收。关闭游标的语法如下：</p>
+<pre><code class="sql">CLOSE cursor_name;</code></pre>
+<h4 id="隐式游标"><a href="#隐式游标" class="headerlink" title="隐式游标"></a>隐式游标</h4><p>隐式游标就是指非PL/SQL程序中定义的，而且是在PL/SQL中使用UPDATE、DELETE语句时，Oracle系统自动分配的游标。一般来说，所有的SQL语句在工作区内部都是可执行的，因此都有一个游标。与显示游标不同，隐式游标在PL/SQL中不需要打开，也不需要关闭，即在执行UPDATE、DELETE语句时自动打开和关闭。</p>
+<p><strong>游标的属性</strong></p>
+<p>无论是显式游标还是隐式游标，都有%ISOPEN、%FOUND、%NOTFOUND和%ROWCOUNT这四种属性来描述与游标操作相关的DML语句的执行情况。游标属性只能用在PL/SQL的流程控制语句内，而不能用在SQL语句内。</p>
+<ol>
+<li>%ISOPEN:该属性表示游标是否处于打开状态。在实际应用中，使用一个游标前，第一步往往是先检查它的%ISOPEN属性，看其是否已打开，若没有，要打开游标再向下操作。这也是防止运行过程中出错的必备一步。</li>
+<li>Boolean类型，该属性表示当前游标是否指向有效一行，若是则为TRUE，否则为FALSE。检查此属性可以判断是否结束游标使用。</li>
+<li>%NOTFOUND:该属性与%FOUND属性类似，但其值正好相反。在隐式游标中此属性的引用方法是SQL%NOTFOUND。</li>
+<li>%ROWCOUNT:该属性记录了游标提取过的记录行数，也可以理解为当前游标所在的行号。这个属性在循环判断中也很有效，使得不必提取所有记录行就可以中断游标操作。</li>
+</ol>
+<p><strong>游标变量</strong></p>
+<p>如同常量和变量的区别一样，前面所讲的游标都是与一个SQL语句相关联，并且在编译该块的时候此语句已经是可知的、是静态的，而游标变量可以在运行时与不同的语句关联，是动态的。游标变量被用于处理多行的查询结果集。在同一个PL/SQL块中，游标变量不同于特定的查询绑定，而是在打开游标时才确定所对应的查询。因此，游标变量可以依次对应多个查询。使用游标变量之前，必须先声明，然后在运行时必须为其分配存储空间，因为游标变量是REF类型的变量，类似于高级语言中的指针。  </p>
+<p><strong>游标变量的声明</strong>:游标变量是一种引用类型。当程序运行时，它们可以指向不同的存储单元。如果要使用引用类型，首先要声明该变量，然后相应的存储单元必须要被分配。PL/SQL中的引用类型通过下述的语法进行声明：REF type其中，type是已经被定义的类型。REF关键字指明新的类型必须是一个指向经过定义的类型的指针。因此，游标可以使用的类型就是REF CURSOR。定义一个游标变量类型的完整语法如下：</p>
+<pre><code class="sql">TYPE &lt;类型名&gt; IS REF CURSOR
+RETURN &lt;返回类型&gt;；</code></pre>
+<p>其中，&lt;类型名&gt;是新的引用类型的名字，而&lt;返回类型&gt;是一个记录类型，它指明了最终由游标变量返回的选择列表的类型。        游标变量的返回类型必须是一个记录类型。它可以被显式声明为一个用户定义的记录，或者隐式使用%ROWTYPE进行声明。在定义了引用类型后，就可以声明该变量了。</p>
+<p><strong>游标变量的打开</strong>:如果要将一个游标变量与一个特定的SELECT语句相关联，需要使用OPEN FOR语句，其语法是：</p>
+<pre><code class="sql">OPEN &lt;游标变量&gt; FOR &lt;SELECT语句&gt;;</code></pre>
+<p>如果游标变量是受限的，则SELECT语句的返回类型必须与游标所限的记录类型匹配，如果不匹配，Oracle会返回错误ORA_6504。</p>
+<p><strong>游标变量的关闭</strong>:游标变量的关闭和静态游标的关闭类似，都是使用CLOSE子句，这会释放查询所使用的空间。关闭已经关闭的游标变量是非法的。 </p>
+<h3 id="游标FOR循环"><a href="#游标FOR循环" class="headerlink" title="游标FOR循环"></a>游标FOR循环</h3><p>游标FOR循环是显示游标的一种快捷使用方式，它使用FOR循环依次读取结果集中的行数据。当FOR循环开始时，不需要使用OPEN语句，游标被自动打开；每循环一次，系统自动读取游标当前行的数据，不需要FETCH语句；当退出FOR循环时，不需要使用CLOSE语句，游标自动关闭。也就是说，一个游标FOR循环可以隐含地实现OPEN、FECTCH、CLOSE游标以及循环处理结果集的功能。其语法格式是：</p>
+<pre><code class="sql">FOR variable_name IN cursor_name [(value 1 [,value 2]…)] LOOP
+Statement1; Statement 2, … ;
+END LOOP;</code></pre>
+<p>其中，variable_name为游标FOR循环隐含声明的索引变量，该变量名不需要显示定义，可以直接使用，并且该索引变量为记录类型，其结构与游标查询语句返回结果集的结构相同。在程序中可以通过引用该索引变量中的元素来读取所提取的游标数据。索引变量中的元素名称与游标查询语句选择列表中所指定的列名相同。如果在游标查询语句的选择列中有计算列，则必须为这些计算列起别名，然后才能通过游标FOR循环的索引变量来访问这些列的数据。cursor_name为声明的游标。value 1、value 2是应用程序传递给游标的参数。</p>
+<p><strong>游标的更新</strong></p>
+<p>游标的主要作用是查询数据，并对数据逐行进行处理。对于游标中的数据还可以根据需要进行修改或删除。在这种情况下，要求游标查询语句中必须使用FOR UPDATE选项。以便在打开游标时锁定游标结果集在数据库表中对应的数据行。此时，定义游标的格式如下：</p>
+<pre><code class="sql">DECLARE
+    CURSOR cursor_name(value 1, value 2,…)
+    IS
+SELECT column_list FROM table_list FOR UPDATE;</code></pre>
+<p>游标可以带参数，或者不带参数。由于在并发环境中许多用户可能同时访问数据库，为了避免把游标打开后其他用户同时修改这些数据，需要对游标加锁，否则会导致数据的不一致。那么SELECT语句中的FOR UPDATE子句就是为了在游标打开后为其加锁，游标关闭后再释放锁，从而保证了用户对数据访问的正确性和一致性。</p>
+<p>由于对游标中的数据是逐行处理的，每次处理指针所指向的当前行，并对当前行的数据进行修改，然后把修改过的数据写入数据库。PL/SQL在UPDATE和DELETE中使用WHERE CURRENT OF子句修改游标的当前行，其语法格式为：</p>
+<pre><code class="sql">WHERE CURRENT OF cursor_name</code></pre>
+<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><p>用户编写的PL/SQL块在执行过程中难免地会发生一些错误或者异常情况。例如，除数为0或者无法建立到Oracle的连接等。这里涉及的错误并不是由于程序的语法错误引起的，而是因为处理的数据超出了处理的范围而引发的错误，这就是异常。好的程序应该对可能发生的异常情况进行处理，异常处理代码在EXCEPTION块中实现。如果要在PL/SQL块中对异常进行处理，就需要在异常处理部分编写处理程序。可以使用WHEN语句来定义异常处理，基本语法结构如下：</p>
+<pre><code class="sql">EXCEPTION
+    WHEN exception 1 [OR exception 2 …] THEN  --异常列表
+        statement [statement]…                 --语句序列
+    [WHEN exception 3 [OR exception 4 …]  THEN
+        statement [statement]…]
+    …
+    [WHEN OTHERS THEN
+        statement [statement]…]
+END</code></pre>
+<p>异常处理程序以关键字EXCEPTION开始，以END关键字结束。在这部分可以对多个异常分别进行不同的处理，也可以进行相同的处理。在PL/SQL块中有三种类型的异常，即预定义的异常、非预定义的异常和用户自定义的异常。</p>
+<p>● 预定义的异常：Oracle为用户提供了大量的在PL/SQL中使用的预定义异常，以检查用户代码失败的一般原因。它们都定义在Oracle的核心PL/SQL库中，用户可以在自己的PL/SQL异常处理部分使用名称对其进行标识。对这种异常情况的处理，无需在程序中定义，由Oracle自动将其引发。  </p>
+<p>● 非预定义异常：即其他标准的Oracle错误。对这种异常情况的处理，需要用户在程序中定义，然后由Oracle自动将其引发。  </p>
+<p>● 自定义异常：程序员可以把一些特定的状态定义为异常，在一定的条件下抛出，然后利用PL/SQL机制进行处理。</p>
+
+    </div>
+</article>
+                </main>
+                <aside class="aside">
+                    <section class="aside-section">
+                        
+    <h1>Categories</h1>
+
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/生の术/">生の术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生の迹/">生の迹</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生の道/">生の道</a></li></ul>
+
+                    </section>
+                    <section class="aside-section">
+                        
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archiveshl/2018/">2018</a></li></ul>
+
+
+                    </section>
+                    <section class="aside-section tag">
+                        
+    <h1>Tags</h1>
+
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VBA/">VBA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据科学/">数据科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自言语/">自言语</a></li></ul>
+
+                    </section>
+                </aside>
+        </div>
+    </body>
+
+</html>
