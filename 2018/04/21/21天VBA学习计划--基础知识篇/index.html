@@ -1,0 +1,3645 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="jiangmoting, autumn">
+    <title>
+        TT ❤ LL 印迹
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script>
+        infiniteScroll()
+
+        // for mobile menu
+        $(function () {
+            $('.social-button').click(function () {
+                if ($('.social-links').hasClass('hide-links')) {
+                    $('.social-links').removeClass('hide-links')
+                } else {
+                    $('.social-links').addClass('hide-links')
+                }
+            })
+        })
+    </script>
+</head>
+
+    <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <div class="container">
+            <header class="header">
+    <h1 class="title">
+        <a href="/" class="logo">
+            TT ❤ LL 印迹
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <nav class="links">
+        <button class="social-button">
+            menu
+        </button>
+        <ul class="social-links hide-links">
+            
+                <li>
+                    <a href="http://nipponcolors.com/">
+                        当下
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://nipponcolors.com/">
+                        未来
+                    </a>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+                <main class="main">
+                    <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/生の术/">
+            生の术
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        Excel VBA 21天学习计划
+    </h2>
+    <ul class="post-date">
+        <li>
+            2018-04-21
+        </li>
+        <li>
+            绛墨铤
+        </li>
+    </ul>
+    <div class="post-content">
+        <p>参考《中文版Excel 2016高级VBA编程宝典》，开始21天的VBA学习计划，此为基础知识篇。</p>
+<h1 id="第一天：Excel-VBA编程基础"><a href="#第一天：Excel-VBA编程基础" class="headerlink" title="第一天：Excel VBA编程基础"></a>第一天：Excel VBA编程基础</h1><h2 id="VBA基础知识"><a href="#VBA基础知识" class="headerlink" title="VBA基础知识"></a>VBA基础知识</h2><p>VBE会对文本进行自动调整，输入Sub语句后会自动插入End Sub语句，自动在等号两侧添加空格，对文本进行变色和大写处理。</p>
+<pre><code class="vb">Sub GuessName() &#39;定义子过程&#39;
+    Dim Msg As String &#39;声明变量（Dim语句）&#39;
+    Dim Ans As Long &#39;为变量赋值（Msg和Ans）&#39;
+    Mag = &quot;Is your name&quot; &amp; Application.UserName &amp; &quot;?&quot; &#39;连接两个字符串（用&amp;操作符）&#39;
+    Ans = MsgBox(Msg, vbYesNo) &#39;使用内置的VBA函数（MsgBox）&#39;
+    If Ans = vbNo Then MsgBox &quot;Oh,never mind.&quot; &#39;使用内置的VBA常量（vbYesNo、vbNo和vbYes）&#39;
+    If Ans = vbYes Then MsgBox &quot;I must clairvoyant&quot; &#39;使用If-Then 结构两次&#39;
+End Sub &#39;结束子过程&#39;</code></pre>
+<p><strong>对象</strong>：看到的任何事物，属性为这些事物的特点特征。例如，在VBA中获取Sheet1中的单元格A1,输入:</p>
+<pre><code class="vb">Application.ThisWorkbook.Sheets(&quot;Sheet1&quot;).Range(&quot;A1&quot;).Select</code></pre>
+<p><strong>集合</strong>：每个Workbook对象中，都有Worksheet集合。Worksheet集合是一个可通过VBA调用的对象。Workbook对象中每个Worksheet对象都位于Workbook集合中。</p>
+<pre><code class="vb">Worksheets(1).Select &#39;通过集合位置引用，为从1开始的索引号&#39;
+Worksheets(&quot;MySheet&quot;).Select &#39;将Worksheet名称作为索引号&#39;
+Worksheets(2).Select &#39;通过集合位置引用，为从2开始的索引号&#39;
+Worksheets(&quot;YourSheet&quot;).Select &#39;将Worksheet名称作为索引号&#39;
+Workbooks(&quot;MyData.xlsx&quot;).Worksheets(&quot;Mysheet&quot;).Select &#39;引用某个不活动的工作簿中名为MySheet的工作表&#39;</code></pre>
+<p><strong>属性</strong>：本质上是对象的特征。有些属性可修改，有些不不可修改。</p>
+<pre><code class="vb">Sheets(“Sheet1”).Name = &quot;MySheet&quot; &#39;将Sheet1重命名为MySheet&#39;
+MsgBoxRange(&quot;A1&quot;).Adress(RowAbsolute:=True,ColumnAbsolute:=True) &#39;使用RowAbsolute和ColumnAbsolute属性将danyuange单元格A1的Adress属性返回绝对引用($A$1)&#39;</code></pre>
+<p><strong>为活动对象指定属性</strong>：Application有ActiveCelll,ActiveChart,ActiveSheet,ActiveWindow,ActiveWorkbook,Selection，ThisWorkbook等属性</p>
+<pre><code class="vb">ActiveShell.ClearContents &#39;清除活动单元格的内容&#39;
+MsgBox ActiveSheet.Name &#39;可显示活动工作表的名称&#39;
+MsgBox ActiveWorkbook.FullName &#39;查看活动工作簿的名称和目录路径&#39;
+Selection.Value = 12 &#39;Applicaion对象的Selection属性返回与所选单元格相对应的Range对象，修改Range对象的Value属性&#39;
+ActiveWindow.RangeSelection.Value = 12 &#39;将值12填充到在选中非Range对象之前就已经选中的Range对象中&#39;
+MsgBox ActiveWindow.RangeSelection.Count &#39;查看活动窗口选中了多少个单元格&#39;</code></pre>
+<p><strong>方法</strong>：为可在对象上执行的动作</p>
+<pre><code class="vb">Range(&quot;A1&quot;).Select &#39;Range对象的Select方法&#39;
+Range(&quot;A1&quot;).Copy &#39;Range对象的Copy方法&#39;
+ActiveSheet.Paste Destination:=Range(&quot;B1&quot;) &#39;显示定义Destination参数，就可以有效的使用Paste方法&#39;</code></pre>
+<p><strong>参数</strong>：</p>
+<pre><code class="vb">Workbooks(&quot;MyBook.xlsx&quot;).Protect &quot;xyzzy&quot;, True, False &#39;Workbook对象Protect方法，有三个参数:password,structure,windows对应保护结构和窗口&#39;
+Workbooks(&quot;MyBook.xlsx&quot;).Protect , True, False &#39;不给密码赋值，用逗号隔出了占位符&#39;
+Workbooks(&quot;MyBook.xlsx&quot;).Protect Structure:=True, Windows:=False &#39;使用命名参数，可读性更强&#39;
+MsgBoxRange(&quot;A1&quot;).Address False &#39;此为无效语法，对于返回值的属性（和方法），必须给参数加上圆括号，Address属性会返回值，此处为无效语法&#39;
+MsgBoxRange(&quot;A1&quot;).Address (False) &#39;正确语法&#39;
+MsgBoxRange(&quot;A1&quot;).Address(rowAbsolute:=False) &#39;命名参数编写，可读性更强&#39;</code></pre>
+<h2 id="使用Range对象"><a href="#使用Range对象" class="headerlink" title="使用Range对象"></a>使用Range对象</h2><p><strong>Range对象属性</strong>：Worksheet或Range类对象的Range属性，Worksheet对象的Cells属性，Range对象的Offset属性</p>
+<p><strong>Range属性</strong>：返回一个Range对象</p>
+<pre><code class="vb">Object.Range (cell1) &#39;Range属性返回一个Range对象&#39;
+object.Range(cell1,cell2)  &#39;cell1与cell2是两个占位符，Excel认为他们是确定单元格区域(第一个实例)和描绘单元格区域（第二个实例）的项&#39;
+Worksheets(&quot;Sheet1&quot;).Range(&quot;A1&quot;).Value = 12.3 &#39;将值12.3放到活动工作簿中的工作表Sheet1的单元格的A1中&#39;
+Worksheets(&quot;Sheet1&quot;).Range(&quot;Input&quot;).Value = 100 &#39;将值100放入名为&quot;Input&quot;单元格中&#39;
+ActiveSheet.Range(&quot;A1:B10&quot;).Value = 2  &#39;把值2输入到活动工作表上包含20个单元格的单元区域内，如果活动工作表不是工作表，将出现一条错误信息&#39;
+Range(&quot;A1&quot;, &quot;B10&quot;) = 2 &#39;与上例结果相同，省略了工作表的引用，因此假定是活动工作表;第一个参数是单元格左上角的单元格，而第二个参数是单元格右下角的单元格&#39;
+Range(&quot;C1:C10 A6:E6&quot;) = 3 &#39;单元格区域交集赋值，此为C6单元格中放入3&#39;
+Range(&quot;A1,A3,A5,A7,A9&quot;) = 4 &#39;指定5个单元格赋值4&#39;
+ActiveCell.Range(&quot;B2&quot;) = 5 &#39;此示例将Range对象看成工作表中左上角的单元格，在单元格B2中输入5&#39;</code></pre>
+<p><strong>Cells属性</strong>：可在Worksheet对象和Range对象上使用Cells属性，可在WorkSheet和Range对象上使用Cells属性。有三种语法格式：</p>
+<pre><code class="vb">object.Cells(rowIndex,columnIndex)
+Object.Cells (RowIndex)
+Object.Cells</code></pre>
+<p>举例说明：</p>
+<pre><code class="vb">
+Worksheets(&quot;Sheet1&quot;).Cells(1, 1) = 9 &#39;使用第一种语法，将9输入Sheet1中的单元格A1中&#39;
+ActiveSheet.Cells(3, 4) = 7 &#39;数值7输入到活动工作表的单元格D3中&#39;
+ActiveCell.Cells(1, 1) = 5 &#39;此示例将活动单元格看成是工作表中的单元格A1，输入5到活动单元格中&#39;
+ActiveCell.Cells(2, 1) = 5 &#39;将5输入到活动单元格正下方的单元格中，将活动单元格看成参照&#39;
+
+ActiveSheet.Cells(520) = 2 &#39;第二种语法，使用单个参数，数值范围是1-17179869184,与Excel单元格数目相等&#39;
+MsgBox ActiveSheet.Cells(17179869184#) &#39;显示工作表最后一个单元隔的值&#39;
+Range(&quot;A1:D10&quot;).Cells(5) = 2000 &#39;Cells属性有一个1-40的参数，第五个为A2&#39;
+Range(&quot;A1:D10&quot;).Cells(41) = 2000 &#39;修改区域外单元格的值,A11&#39;
+
+ActiveCells.Cells.ClearContents &#39;第三种语法返回所引用工作表中所有单元格，此例使用了Cells属性，在返回区域上使用了ClearContents清空所有单元格内容&#39;</code></pre>
+<p><strong>Offset属性</strong>：与Range和Cells属性一样，Offset也返回Range对象，区别的是Offset对象只应用于Range，而不应用于其他的类。语法如下：</p>
+<pre><code class="vb">object.Offset(rowOffset,columnOffset) &#39;接收两个参数，位置相对于指定的Range对象的左上角单元格，参数值可以为正、负或0&#39;</code></pre>
+<p>例：</p>
+<pre><code class="vb">ActiveCell.Offset(1, 0).Value = 12 &#39;把12输入到活动单元格正下方的单元格中&#39;
+ActiveCell.Offset(-1, 0).Value = 15 &#39;把15输入到活动单元格的正上方的单元格中，此时若活动单元格为第一行，则返回错误&#39;</code></pre>
+<p>使用相对引用模式下录制宏，Excel使用Offset属性时引用相对于起始位置的单元格，也就是宏录制开始的单元格，以下示例从B1开始:</p>
+<pre><code class="vb">Sub Marco()
+    ActiveCell.FormulaR1C1 = &quot;1&quot; &#39;将B1赋值1&#39;
+    ActiveCell.Offset(1, 0).Range(&quot;A1&quot;).Select &#39;选中B2&#39;
+    ActiveCell.FormulaR1C1 = &quot;2&quot; &#39;将B2赋值2&#39;
+    ActiveCell.Offset(1, 0).Range(&quot;A1&quot;).Select &#39;选中B3&#39;
+    ActiveCell.FormulaR1C1 = &quot;3&quot; &#39;赋值3&#39;
+    ActiveCell.Offset(-2, 0).Range(&quot;A1&quot;).Select &#39;选中B1&#39;
+End Sub</code></pre>
+<p>生成的代码比较复杂，也可以删除Range(“A1”),也可以工作:</p>
+<pre><code class="vb">Sub Marco()
+    ActiveCell.FormulaR1C1 = &quot;1&quot; &#39;将B1赋值1&#39;
+    ActiveCell.Offset(1, 0).Select &#39;选中B2&#39;
+    ActiveCell.FormulaR1C1 = &quot;2&quot; &#39;将B2赋值2&#39;
+    ActiveCell.Offset(1, 0).Select &#39;选中B3&#39;
+    ActiveCell.FormulaR1C1 = &quot;3&quot; &#39;赋值3&#39;
+    ActiveCell.Offset(-2, 0).Select &#39;选中B1&#39;
+End Sub</code></pre>
+<p>实际上，还有效率更高的宏版本：</p>
+<pre><code class="vb">Sub Marco()
+    ActiveCelll = 1
+    ActiveCell.Offset(1, 0) = 2
+    ActiveCell.Offset(2, 0) = 3
+End Sub</code></pre>
+<h2 id="需要记住的概念"><a href="#需要记住的概念" class="headerlink" title="需要记住的概念"></a>需要记住的概念</h2><ul>
+<li>对象有独特的属性和方法</li>
+<li>不进行选择情况下即可处理对象，这种情况下执行效率更高。录制宏先选择对象是没有必要的。</li>
+<li>理解集合的概念很重要。多数时候，通过引用对象所在的集合可以间接引用某个对象，例如:此为访问名为MyFile的Workbook对象，按如下方式引用Workbooks集合，Workbook(“MyFile.xlsx”)</li>
+<li>属性可以返回另一个对象的引用。下面例子中，Font属性返回Range对象中包含的一个Font对象，Bold是Font对象中而不是Range对象中的属性。</li>
+</ul>
+<pre><code class="vb">Range(&quot;A1&quot;).Font.Bold = True</code></pre>
+<ul>
+<li>有很多不同的方法可以引用相同的工作簿。假如有一个名为Sales的工作簿，它是唯一打开的工作簿，该工作簿只有一个名为Summary的工作表。可采取以下任意一种方式：</li>
+</ul>
+<pre><code class="vb">Workbook(&quot;Sales.xlsx&quot;).Worksheets(&quot;Summary&quot;)
+Workbooks(1).Worksheets(1)
+Workbooks.Sheets(1)
+Application.ActiveWorkbook.ActiveSheet
+ActiveWorkbook.ActiveSheet
+ActiveSheet</code></pre>
+<p>如果有多个工作簿打开，第二、三种方法就不可靠，如果使用活动工作表则后三种方法中可以任选一种。如果希望完全引用某个特定工作簿上的特定工作表，第一种方法是最佳选择。</p>
+<p>##学习更多</p>
+<p>使用Excel帮助，运用宏，使用对象浏览器，从w网上获取代码并修改，访问专家博客，youtube视频，Microsoft OfficeDev Center获取信息，查看底层代码。</p>
+<h1 id="第二天：VBA编程基础"><a href="#第二天：VBA编程基础" class="headerlink" title="第二天：VBA编程基础"></a>第二天：VBA编程基础</h1><p>学习目标：</p>
+<ul>
+<li>理解VBA语言元素，包括变量、数据类型、常量和数组</li>
+<li>使用VBA内置函数</li>
+<li>处理对象和集合</li>
+<li>控制过程的执行</li>
+</ul>
+<h2 id="VBA语言元素"><a href="#VBA语言元素" class="headerlink" title="VBA语言元素"></a>VBA语言元素</h2><p><strong>概览</strong>：以下为计算前100正数总和代码。下面过程并没有在任何对象上处理，只是对几个数据进行处理。</p>
+<pre><code class="vb">Sub VBA_Demo() &#39;一个变量声明语句，Dim开头&#39;
+    &#39;这是一个简单的VBA例子    一行注释，注释前用单引号&#39;
+    Dim Total As Long, i As Long
+    Total = 0
+    For i = 1 To 100 &#39;两个变量，Total和i&#39;
+        Total = Total + i &#39;两个赋值语句，Total=0和Total=Total+1&#39;
+    Next i &#39;一个循环结构，For-Next结构&#39;
+    MsgBox Total &#39;一个VBA函数，MsgBox函数&#39;
+End Sub</code></pre>
+<p>输入代码事项：</p>
+<pre><code class="vb">&#39;一行中可以组合多条指令，用冒号隔开&#39;
+Sub Oneline()
+    x = 1: y = 2: Z = 3: MsgBox x + y + Z
+End Sub
+&#39;等同于:&#39;
+Sub Oneline()
+    x = 1
+    y = 2
+    Z = 3
+    MsgBox x + y + Z
+End Sub
+&#39;每行代码长度不受限制，换行时用空格和下划线表示&#39;
+Sub LongLine()
+    SummeValue = _
+        Worksheets(&quot;Sheet1&quot;).Range(&quot;A1&quot;).Value + _
+        Worksheets(&quot;Sheet2&quot;).Range(&quot;A1&quot;).Value
+End Sub
+&#39;在运算符间插入空格，调整关键字、属性和方法的字母大小写。&#39;</code></pre>
+<p><strong>注释</strong>：嵌入代码中的描述性文本，VBA会忽略注释，即忽略不在双引号中的单引号的剩余内容，也可以用Rem进行注释，但Rem关键字只能在一行的开始处而不能与其他关键字共用一行。下面不包含注释：</p>
+<blockquote>
+<p>Msg  = “Can’t continue” </p>
+</blockquote>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量是一些已命名的位于计算机内存的存储位置。有如下一些规则：</p>
+<ul>
+<li>可以使用字母、数字和一些标点符号，但是必须是字母开头。</li>
+<li>VBA不区分大小写</li>
+<li>不能使用空格或句点</li>
+<li>不能在变量中嵌入特殊类型的声明字符</li>
+<li>变量最多可以包含254个字符</li>
+</ul>
+<p>以下为一些示例,其中使用了各种类型的变量：</p>
+<pre><code class="vb">x = 1
+InterestRante = 0.075
+LoanpayoffAmount = 243089.87
+DataEntered = False
+x = x + 1
+MyNum = YourNum * 1.25
+UserName = &quot;Bob Johnson&quot;
+DataStarted = #12/14/2012#
+Next = 132 &#39;保留字最好不要作为变量名&#39;</code></pre>
+<p><strong>VBA内置数据类型分类</strong></p>
+<table>
+<thead>
+<tr>
+<th><em>数据类型（名称）</em></th>
+<th><em>大小（字节）</em></th>
+<th><em>描述</em></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Boolean</td>
+<td>2</td>
+<td>逻辑值True或False</td>
+</tr>
+<tr>
+<td>Byte</td>
+<td>1</td>
+<td>0到255的整数</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>2</td>
+<td>–32,768到32,767的整数</td>
+</tr>
+<tr>
+<td>Long</td>
+<td>4</td>
+<td>–2,147,483,648到2,147,483,647的整数</td>
+</tr>
+<tr>
+<td>Single</td>
+<td>4</td>
+<td>单精度浮点数值负数：–3.402823E38到–1.401298E–45正数：1.401298E–45到3.402823E38</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>8</td>
+<td>双精度浮点数值负数：–1.79769313486231E308到–4.94065645841247E–324正数：4.94065645841247E–324到1.79769313486231E308</td>
+</tr>
+<tr>
+<td>Currency</td>
+<td>8</td>
+<td>（放大的整数（译者：整数除以10000得到的数值，参见VBA帮助））使用在定点计算中：–922,337,203,685,477.5808到922,337,203,685,477.5807</td>
+</tr>
+<tr>
+<td>Decimal</td>
+<td>14</td>
+<td>+/–79,228,162,514,264,337,593,543,950,335没有小数点；+/–7.9228162514264337593543950335小数点后有28位数字；最小的非0数字是+/–0.0000000000000000000000000001</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>8</td>
+<td>从100年1月1日到9999年12月31日的日期</td>
+</tr>
+<tr>
+<td>String（变长字符串）</td>
+<td>10字节+字符串长度</td>
+<td>变长字符串最多可包含大约 20 亿 ( 2^31)个字符。</td>
+</tr>
+<tr>
+<td>String（定长字符串）</td>
+<td>字符串长度</td>
+<td>定长字符串最多可包含大约65,400 个字符。</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>4</td>
+<td>对象变量用来引用Excel中的任何对象</td>
+</tr>
+<tr>
+<td>Variant（带数字）</td>
+<td>16</td>
+<td>最高范围到Double类型的任何数值</td>
+</tr>
+<tr>
+<td>Variant（带字母）</td>
+<td>22字节+字符串长度</td>
+<td>和变长字符串的范围一样</td>
+</tr>
+<tr>
+<td>用户定义类型（使用Type）</td>
+<td>成员所需的数值</td>
+<td>每个成员的范围和它的数据类型的范围一致</td>
+</tr>
+</tbody></table>
+<p>一般来说，最好使用占用字节最少却能处理所有赋给他值的数据类型，换言之，数据使用字节越少，VBA访问和处理的速度就越快。</p>
+<p><strong>声明变量</strong></p>
+<p>如果不为VBA示例所使用的某个变量声明数据类型，VBA默认的数据类型是Variant。存储Variant数据类型的数据行为根据所处理的内容不同将改变数据类型：</p>
+<pre><code class="vb">Sub VariantDemo()
+    MyVar = True &#39;最开始为Boolean&#39;
+    MyVar = MyVar * 100 &#39;乘法运算将其转换为Integer&#39;
+    MyVar = MyVar / 4 &#39;除法运算将其转换为Double&#39;
+    MyVar = &quot;Answer: &quot; &amp; MyVar &#39;把MyVar附加到一个字符串后，把MyVar转换为字符串&#39;
+    MsgBox MyVar &#39;显示出最后的字符串&#39;
+End Sub</code></pre>
+<p>VBA对未声明变量的数据转换行为是自动的，但是这是以牺牲内存和速度为代价的，而且可能会出现错误。</p>
+<pre><code class="vb">Sub VariantDemo()
+    MyVar = True &#39;最开始为Boolean&#39;
+    MsgBox TypeName(MyVar) &#39;每一步都显示出MyVar数据类型，利用VBA中的TypeName函数&#39;
+    MyVar = MyVar * 100 &#39;乘法运算将其转换为Integer&#39;
+    MsgBox TypeName(MyVar)
+    MyVar = MyVar / 4 &#39;除法运算将其转换为Double&#39;
+    MsgBox TypeName(MyVar)
+    MyVar = &quot;Answer: &quot; &amp; MyVar &#39;把MyVar附加到一个字符串后，把MyVar转换为字符串&#39;
+    MsgBox TypeName(MyVar)
+    MsgBox MyVar &#39;显示出最后的字符串&#39;
+End Sub</code></pre>
+<p>过程中使用每个变量前，最好对变量进行声明，告诉VBA变量的名称和数据类型，有两个好处：</p>
+<ul>
+<li>程序运行更快并能更有效地使用内存</li>
+<li>避免出现与错误拼写变量名称相关的问题</li>
+</ul>
+<p>可以强制声明所有变量，在VBA中使用以下语句：Option Explicit，此语句存在时，要是含有一个未声明变量，VBA会提示错误信息，建议启用“工具”|“选项”|“编辑器”|“要求声明变量”。</p>
+<p><strong>变量作用域</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">作用域</th>
+<th align="left">如何声明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">单个过程</td>
+<td align="left">在过程中包括一个Dim或Static语句</td>
+</tr>
+<tr>
+<td align="center">单个模块</td>
+<td align="left">在模块内的第一个过程之前包括一个Dim和Private语句</td>
+</tr>
+<tr>
+<td align="center">所有模块</td>
+<td align="left">在模块内的第一个过程之前包括第一个Public语句</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>局部变量：在过程中声明的变量，在过程结束时，Excel会释放出它占有的内存。因此，局部变量一般来说是最高效的。如果需要在过程结束时，变量保留自己的数值，那么可以把变量声明为静态变量。</p>
+</blockquote>
+<p>最常用声明方式为把Dim(Dimension的简写)放在Sub之后、过程代码之前。</p>
+<pre><code class="vb">&#39;使用6个局部变量均用Dim语句进行声明&#39;
+Sub MySub()
+    Dim x As Integer
+    Dim First As Long
+    Dim IntersetRate As Single
+    Dim TodaysDate As Date
+    Dim UserName As String
+    Dim MyValue &#39;此处为Variant&#39;
+End Sub</code></pre>
+<p>也可以用一条Dim语句声明多个变量</p>
+<pre><code class="vb">Dim x As Integer, y As Integer, z As Integer &#39;VBA不允许将一组变量以逗号分隔形式声明某个数据类型，如：Dim x,y,z As Integer为错误&#39;
+Dim First As Long, Last As Double</code></pre>
+<blockquote>
+<p>模块作用域下的变量:希望在所有过程中都可以使用某个变量，这样只需要在第一个过程之前声明这个变量即可。</p>
+</blockquote>
+<pre><code class="vb">Dim CurentValue As Long
+
+Sub Procedure1()
+...
+End Sub
+
+Sub Procedure2()
+...
+End Sub</code></pre>
+<p>通常当某个过程正常结束时，模块作用域下的值不会改变。但是有一种情况例外，就是使用End语句终止过程时，当VBA遇到End语句时，所有模块作用域下的值豆浆丢失。</p>
+<blockquote>
+<p>公共变量：为能在项目所有VBA模块的所有过程都可以使用的某个变量，需要在第一个过程之前进行变量的声明，此时用Public而不是Dim。</p>
+</blockquote>
+<pre><code class="vb">Public CurrentRate as Long</code></pre>
+<p>Public关键字使得变量CurrentRate在VBA项目内的任意过程中都可以使用，甚至在其他模块中也可以使用。</p>
+<blockquote>
+<p>静态变量：在过程层次上进行变量的声明，当过程结束时静态变量保持他们的值不变，然而，如果有一条End终止了该过程，则静态变量会丢失值。</p>
+</blockquote>
+<pre><code class="vb">&#39;使用关键字Static可以声明静态变量&#39;
+Sub MSub()
+    Static Counter As Long
+    ...
+End Sub()</code></pre>
+<p><strong>使用常量</strong></p>
+<blockquote>
+<p>使用Const声明常量,常量值一般不会发生变化。</p>
+</blockquote>
+<pre><code class="vb">Public Const AppName As String = &quot;Budget Application&quot; &#39;工作簿中所有模块中使用某个常量，可以使用Public关键字并在第一个模块中的第一个过程前声明它。&#39;
+Const NumQuaters As Integer = 4 &#39;未声明数据类型，VBA会指定&#39;
+Const Rate = 0.75, Period = 12
+Const ModName As String = &quot;Budget Macros&quot;</code></pre>
+<blockquote>
+<p>使用预定义的常量：Excel和VBA中提供了很多预定义的常量，这些常量不声明即可使用。</p>
+</blockquote>
+<pre><code class="vb">Sub SetToLandScape() &#39;录制宏的时候会发现xlLandscape是一个常量，将活动工作表的页面设置为横向&#39;
+    ActiveSheet.PageSetup.Orientation = xlLandscape
+End Sub</code></pre>
+<blockquote>
+<p>使用日期：使用Date数据类型处理日期。</p>
+</blockquote>
+<p>Excel错误的假定1900年是个闰年，即是没有1900年2月29日，Excel还是接受下面的公式并显示结果为1900年2月29日,但是VBA没有这种故障，VBA中DateSerial函数相当于Excel的DATE函数。</p>
+<pre><code class="vb">= Date(1900,2,29) &#39;Excel下
+DateSerial(1900,2,29) &#39;VBA下返回1900年3月1日&#39;</code></pre>
+<p>举例说明：将变量和常量声明为Date数据类型：</p>
+<pre><code class="vb">Dim Today As Date
+Dim StartTime As Date
+Const FirstDay As Date = #1/1/2013#
+Const Noon = #12:00:00 PM#</code></pre>
+<blockquote>
+<p>使用字符串</p>
+</blockquote>
+<pre><code class="vb">Dim MyString As String * 50 &#39;定长字符串，把MyString声明为最大长度为50的字符串&#39;
+Dim YourString As String &#39;变长字符串&#39;</code></pre>
+<p><strong>赋值语句</strong>：VBA用等号进行语句赋值</p>
+<pre><code class="vb">X = 1
+X = X + 1
+X = (y * 2) / Z * 2
+FileOpen = True
+FileOpen = Not FileOpen
+Range(&quot;TheYear&quot;).Value = 2010</code></pre>
+<p>VBA运算符优先级顺序：</p>
+<table>
+<thead>
+<tr>
+<th><strong>算术运算</strong></th>
+<th><strong>比较</strong></th>
+<th><strong>逻辑</strong></th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>求幂 ( <strong>^</strong> )</td>
+<td>相等 ( <strong>=</strong> )</td>
+<td><strong>Not</strong></td>
+<td>非</td>
+</tr>
+<tr>
+<td>求反 ( <strong>-</strong> )</td>
+<td>不相等 ( ** &lt; ** )</td>
+<td><strong>And</strong></td>
+<td>与</td>
+</tr>
+<tr>
+<td>乘法和除法 (<strong>， */</strong> )</td>
+<td>小于 ( <strong>&lt;</strong> )</td>
+<td><strong>Or</strong></td>
+<td>或</td>
+</tr>
+<tr>
+<td>整数除法 (<strong>\</strong> )</td>
+<td>大于号 ( <strong>&gt;</strong> )</td>
+<td><strong>Xor</strong></td>
+<td>异或</td>
+</tr>
+<tr>
+<td>求模算法 ( <strong>Mod</strong> )</td>
+<td>小于或等于 ( ** &lt; ** )</td>
+<td><strong>Eqv</strong></td>
+<td>等价</td>
+</tr>
+<tr>
+<td>加法和减法 ( <strong>+</strong>， <strong>-</strong> )</td>
+<td>大于或等于 ( <strong>&gt;=</strong> )</td>
+<td><strong>Imp</strong></td>
+<td>蕴含</td>
+</tr>
+<tr>
+<td>字符串连接 ( <strong>&amp;;</strong> )</td>
+<td><strong>LikeIs</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p><strong>数组</strong>是指拥有相同名称的同类元素。使用数组名称和一个索引号可以引用数组的某个特定元素，索引号从0开始。</p>
+<p><strong>数组声明</strong>：可以用Dim或Public语句来声明数组，就像声明普通变量一样。</p>
+<pre><code class="vb">Dim MyArray(1 To 100) As Integer
+Dim MyArray(100) As Integer &#39;与上句效果一样，VBA假定从0开始&#39;
+Option Base 1 &#39;包含此语句时，即让VBA假定索引号从1开始&#39;
+Dim MyArray(1 To 10, 1 To 10) As Integer &#39;声明10x10的二维数组&#39;
+MyArray(3, 4) = 125 &#39;给以上矩阵的某个元素赋值&#39;
+Dim MyArray(1 To 10, 1 To 10, 1 To 10) As Integer  &#39;声明10x10x10的三维数组&#39;
+MyArray(3, 4, 5) = 125 &#39;给以上矩阵的某个元素赋值&#39;
+Dim MyArray() As Integer &#39;声明动态数组，使用一组空括号&#39;
+ReDim MyArray(1 To X) &#39;使用动态数组之前，必须使用ReDim语句说明VBA数组包含多少个元素，此例中x是一个数值&#39;
+ReDim Preserve MyArray(1 To y) &#39;可以使用任意次数的ReDim，每次使用将破坏原有值，若想保留原有值，则加上Preserve&#39;</code></pre>
+<h3 id="对象变量"><a href="#对象变量" class="headerlink" title="对象变量"></a>对象变量</h3><p><strong>对象变量</strong>是代表一个完整对象的变量，如单元格区域或工作表。对象变量很重要，可以显著地简化代码并且可使代码的执行速度更快。同样使用Dim或Public语句进行声明。</p>
+<pre><code class="vb">Dim InputArea As Range &#39;该语句把变量InputArea声明为一个Range对象变量&#39;
+Set InputArea = Range(&quot;C16:E16&quot;) &#39;使用关键字Set可以把对象付给变量&#39;
+    Sub ObjVar() &#39;将MyCell声明为一个Range对象后，Set语句把一个对象赋给它，然后后面的语句可以使用更简单的MyCell引用来代替冗长的Worksheets(&quot;Sheet1&quot;).Range(&quot;A1&quot;)引用&#39;
+    Dim MyCell As Range
+    Set MyCell = Worksheets(&quot;Sheet1&quot;).Range(&quot;A1&quot;)
+    MyCell.Value = 124
+    MyCell.Font.Bold = True
+    MyCell.Font.Italic = True
+    MyCell.Font.Size = 14
+    MyCell.Font.Name = Cambria
+End Sub
+</code></pre>
+<p><strong>用户自定义数据类型</strong>：VBA允许用户自定义数据类型。用户自定义数据类型可以方便处理一些数据类型。例如，如果应用程序要处理客户的信息，可能要创建一个名为CustomerInfo的用户自定义数据类型，如下所示：</p>
+<pre><code class="vb">Type CustomerInfo
+    Company As String
+    Contact As String
+    RegionCode As Long
+    Sales As Double
+End Type</code></pre>
+<p>在用户创建了自定义数据类型后，可使用Dim语句把变量声明为这种类型。</p>
+<pre><code class="vb">Dim Customers(1 To 100) As CustomerInfo &#39;采用如下语句引用记录中的某个tedingdebug&#39;
+Customers(1).Cmpany = &quot;Acme Tools&quot;
+Customers(1).Contact = &quot;Tim Robertson&quot;
+Customers(1).RegionCode = 3
+Customers(1).Sales = 150674.98
+Customers(2) = Customers(1)
+&#39;上面的示例等于下面的指令块&#39;
+Customers(2).Company = Customers(1).Company
+Customers(2).Contact = Customers(1).Contact
+Customers(2).Contact = Customers(1).RegionCode
+Customers(2).Sales = Customers(1).Sales</code></pre>
+<h2 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h2><p>在VBA中，可以使用很多但不是所有的Excel的工作表函数。Worksheet-Function对象包含在Application对象中，Worksheet-Function对象包含可从VBA过程调用的所有工作表函数。在为VBA语句中使用工作表函数，可以使用如下语句。</p>
+<pre><code>Application.WorksheetFunction</code></pre><p>下面的示例阐述了如何在VBA过程中使用Excel工作表函数。在Excel中很少用到ROMAN函数，可以将十进制数转换为罗马数字。</p>
+<pre><code class="vb">Sub ShowRoman()
+    Dim DecValue As Long
+    Dim RomanValue As String
+    DecValue = 1939
+    RomanValue = Application.WorksheetFunction.Roman(DecValue)
+    MsgBox RomanValue
+End Sub</code></pre>
+<p>注意：不能使用具有等价的VBA函数的工作表函数，例如VBA不能访问Excel的SQRT工作表函数。</p>
+<p><strong>MsgBox</strong>函数正式语法包含5个参数（方括号中的参数是可选的）</p>
+<pre><code class="vb">MsgBox( prompt ** [, ***buttons* ] [, title ] [, helpfile, context ] )</code></pre>
+<p><strong>MsgBox</strong> 语法包含以下 <a href="https://msdn.microsoft.com/zh-cn/vba/language-reference-vba/articles/vbe-glossary" target="_blank" rel="noopener">命名参数</a>：</p>
+<table>
+<thead>
+<tr>
+<th><strong>部件</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>prompt</strong></td>
+<td>必需。 <a href="https://msdn.microsoft.com/zh-cn/vba/language-reference-vba/articles/vbe-glossary" target="_blank" rel="noopener">字符串表达式</a>在对话框中显示为消息。 <strong>prompt</strong> 的最大长度约为 1024 个字符，具体取决于所使用的字符的宽度。如果 <strong>prompt</strong> 包含多个行，则可以通过在每行之间使用回车符 ( <strong>Chr(</strong> 13 <strong>)</strong> )、换行符 ( <strong>Chr(</strong>10 <strong>)</strong> ) 或回车符和换行符的组合 ( <strong>Chr(</strong> 13 <strong>)</strong> &amp; <strong>Chr(</strong> 10 <strong>)</strong> ) 分隔这些行。</td>
+</tr>
+<tr>
+<td><strong>buttons</strong></td>
+<td>可选。一个 <a href="https://msdn.microsoft.com/zh-cn/vba/language-reference-vba/articles/vbe-glossary" target="_blank" rel="noopener">数值表达式</a>，是用于指定要显示的按钮的数量和类型、要使用的图标样式、默认按钮的标识和消息框的模态的值的总和。如果省略 <strong>buttons</strong> ，则其默认值为 0。</td>
+</tr>
+<tr>
+<td><strong>title</strong></td>
+<td>可选。对话框的标题栏中显示的字符串表达式。如果省略了 <strong>title</strong> ，应用程序名称将位于标题栏内。</td>
+</tr>
+<tr>
+<td><strong>helpfile</strong></td>
+<td>可选。确定要用于为对话框提供上下文相关帮助的帮助文件的字符串表达式。如果提供了 <strong>helpfile</strong> ，则还必须提供 <strong>context</strong> 。</td>
+</tr>
+<tr>
+<td><strong>context</strong></td>
+<td>可选。一个数值表达式，是由帮助作者分配给适当的帮助主题的帮助上下文编号。如果提供了 <strong>context</strong> ，则还必须提供 <strong>helpfile</strong> 。</td>
+</tr>
+</tbody></table>
+<p>下面的示例把结果值赋给了一个变量，或在不使用赋值语句的情况下使用函数，如下图所示：</p>
+<pre><code>Dim Ans As Long
+Ans = MsgBox(&quot;Continue?&quot;, vbYesNo + vbQuestion, &quot;Tell me&quot;)
+If Ans = vbNo Then Exit Sub</code></pre><p>注意，buttons参数中使用了两个内置参数之和(vbYesNo+vbQuestion)。使用vbYesNo可以在消息框中显示两个按钮：一个按钮标签是“是”，一个为“否”。vbQuestion添加到参数中会显示一个问号图标。</p>
+<h2 id="处理对象和集合"><a href="#处理对象和集合" class="headerlink" title="处理对象和集合"></a>处理对象和集合</h2><p>VBA提供了两种简化对象和集合处理的结构:</p>
+<ul>
+<li>With-End With结构</li>
+<li>For Each-Next 结构</li>
+</ul>
+<p><strong>With-End With结构</strong>允许在单个对象上执行多项操作。以下过程修改了选中区域的6个属性（选中区域假定为一个Range对象）：</p>
+<pre><code class="vb">Sub ChangeFont1()
+    Selection.Font.Name = &quot;Cambria&quot;
+    Selection.Font.Bold = True
+    Selection.Font.Italic = True
+    Selection.Font.Size = 12
+    Selection.Font.Underline = xlUnderlineStyleSingle
+    Selection.Font.ThemeColor = xlThemeColorAccent1
+End Sub</code></pre>
+<p>可用With-End With结构重新编写该过程，下面 结果与上面一样,但速度更快：</p>
+<pre><code class="vb">Sub ChangeFont2()
+    With Selection.Font
+        .Name = &quot;Cambria&quot;
+        .Bold = True
+        .Italic = True
+        .Size = 12
+        .Underline = xlUnderlineStyleSingle
+        .ThemeColor = xlThemeColorAccent1
+    End With
+End Sub</code></pre>
+<p><strong>For Each-Next结构</strong>:语法如下：</p>
+<pre><code class="vb">For Each element In Collection
+    [instructions]
+    [Exit For]
+    [instructions]
+Next [element]</code></pre>
+<p>下面的过程在活动工作簿中的Worksheets集合上使用For Each-Next结构。在执行这个过程时，MsgBox函数显示出每个工作表的Name属性。</p>
+<pre><code class="vb">Sub CountSheets()
+    Dim Item As Worksheet &#39;Item为Worksheet对象变量&#39;
+    For Each Item In ActiveWorkbook.Worksheets
+        MsgBox Item.Name
+    Next Item
+End Sub</code></pre>
+<p>下面示例使用了For Each-Next结构来遍历Windows集合中所有对象，并计算隐藏窗口总数。</p>
+<pre><code class="vb">Sub HiddenWindows()
+    Dim Cnt As Integer
+    Dim Win As Window
+    Cnt = 0
+    For Each Win In Windows
+        If Not Win.Visible Then Cnt = Cnt + 1
+    Next Win
+    MsgBox Cnt &amp; &quot;hidden windows&quot;
+End Sub</code></pre>
+<p>下面示例中关闭了除活动工作簿之外的所有工作簿。使用了If-Then结构对Workbooks集合中的每个工作簿求值。</p>
+<pre><code class="vb">Sub CloseInactive()
+    Dim Book As Workbook
+    For Each Book In Workbooks
+        If Book.Name &lt;&gt; ActiveWorkbook.Name Then Book.Close
+    Next Book
+End Sub</code></pre>
+<p>For Each-Next一个常见的用法就是遍历单元格区域中所有的单元格。下一个For Each-Next结构的示例将在用户选择了单元格区域后才执行。因为选区中的每一个单元格都是一个Range对象，所以Selection对象扮演由Range对象组成的集合的角色。这个过程对每个单元格求值并使用VBA的UCase函数把单元格的内容转换为大写字母（数字单元格不受影响）。</p>
+<pre><code class="vb">Sub MakeUpperCase()
+    Dim Cell As Selection
+    For Each Cell In Selection
+        Cell.Value = UCase(Cell.Value)
+    Next Cell
+End Sub</code></pre>
+<p>下面示例选择了活动工作表中的第一行的第一个负数。</p>
+<pre><code class="vb">Sub SelectNegtive()
+    Dim Cell As Range
+    For Each Cell In Range(&quot;1:1&quot;)
+        If Cell.Value &lt; 0 Then
+           Cell.Select
+           Exit For
+        End If
+    Next Cell
+End Sub</code></pre>
+<p>该示例使用了If-Then结构来检查每个单元格的数值。如果单元格是负值，那么选定该单元格，然后执行Exit For语句时结束该循环。</p>
+<p>##控制过程的执行</p>
+<h3 id="Go-To语句"><a href="#Go-To语句" class="headerlink" title="Go To语句"></a>Go To语句</h3><p>在下面过程中，使用VBA的Input函数来获得函数用户名。如果姓名不是Howard,那么过程将转移到执行带有WrongName标签的分支并结束。否则，该过程执行其他代码。Exit Sub语句将结束该过程的执行。</p>
+<pre><code class="vb">Sub GoToDemo()
+    UserName = InputBox(&quot;Enter YOur Name&quot;)
+    If UserName &lt;&gt; &quot;Howard&quot; Then GoTo WrongName
+    MsgBox (&quot;Welcome Howard ...&quot;)
+    &#39;-[More Codes here]-
+    Exit Sub
+WrongName:
+    MsgBox &quot;Sorry.Only Howard can run this macro&quot;
+End Sub</code></pre>
+<h3 id="If-Then结构"><a href="#If-Then结构" class="headerlink" title="If-Then结构"></a>If-Then结构</h3><p>If-Then结构基本语法如下：</p>
+<pre><code class="vb">If condition Then true_instructions [Else false_instructionw]</code></pre>
+<p>这种常用的指令提供了赋予应用程序决策能力的方式。好的决策是成功编写程序的关键。下面例子阐述了不喊Else子句的If-Then结构。</p>
+<pre><code class="vb">Sub GreenMe1()
+    If Time &lt; 0.5 Then MsgBox &quot;Good Morning&quot;
+End Sub</code></pre>
+<p>另一种给该历程编写代码的方法是使用多个子句：</p>
+<pre><code class="vb">Sub GreenMe1()
+    If Time &lt; 0.5 Then 
+        MsgBox &quot;Good Morning&quot;
+    End If
+End Sub</code></pre>
+<p>还可以多添加一个If-Then语句，如下所示：</p>
+<pre><code class="vb">Sub GreenMe2()
+    If Time &lt; 0.5 Then MsgBox &quot;Good Morning&quot;
+    If Time &gt;= 0.5 Then MsgBox &quot;Good Afternoon&quot;
+End Sub</code></pre>
+<p>还有一种方法运用If-Then结构的Else子句,这里使用了换行连续序列，If-Then-Else实际上是一条语句。</p>
+<pre><code class="vb">Sub GreenMe3()
+    If Time &lt; 0.5 Then MsgBox &quot;Good Morning&quot; Else _
+    MsgBox &quot;Good Afternoon&quot;
+End Sub</code></pre>
+<p>如果想执行基于条件的多条语句，可以用如下形式：</p>
+<pre><code class="vb">Sub GreenMe3a()
+    If Time &lt; 0.5 Then 
+        MsgBox &quot;Good Morning&quot; Else _
+    Else
+        MsgBox &quot;Good Afternoon&quot;
+    End If
+End Sub</code></pre>
+<p>对于更复杂的情形来说，则需要另一种语法：</p>
+<pre><code class="vb">If condition Then
+    [true_instructions]
+[ElseIf condition-n Then
+    [alternate_instructions]]
+[Else
+    [default_instructions]]
+End If</code></pre>
+<p>以下为示例：</p>
+<pre><code class="vb">Sub GreetMe5()
+    If Time &lt; 0.5 Then 
+        MsgBox &quot;Good Morning&quot; 
+    ElseIf Time &gt;= 0.5 And Time &lt; 0.75 Then
+        MsgBox &quot;Good Afternoon&quot;
+    Else
+        MsgBox &quot;Good Evening&quot;
+    End If
+End Sub</code></pre>
+<p>下面过程阐述另一种方法来编写上述代码，其中使用了If-The-Else结构（没有使用ElseIf）。这个过程效率更高，更容易读懂。</p>
+<pre><code class="vb">Sub GreetMe6()
+    If Time &lt; 0.5 Then 
+        MsgBox &quot;Good Morning&quot; 
+    Else
+        If Time &gt;= 0.5 And Time &lt; 0.75 Then
+            MsgBox &quot;Good Afternoon&quot;
+        Else
+            If Time &gt;= 0.75 Then
+                MsgBox &quot;Good Evening&quot;
+            End If
+        End If
+    End If
+End Sub</code></pre>
+<p>以下示例使用了If-Then结构的简单形式。这个过程用户输入Quantity的值，然后会显示折扣，由于考虑空字符，因此把Quantity声明为Variant而不是Integer</p>
+<pre><code class="vb">Sub Discount1()
+    Dim Quantity As Variant
+    Dim Discount As Double
+    Quantity = InputBox(&quot;Enter Quantity: &quot;)
+    If Quantity = &quot;&quot; Then Exit Sub
+    If Quantity &gt;= 0 Then Discount = 0.1
+    If Quantity &gt;= 25 Then Discount = 0.1
+    If Qantity &gt;= 50 Then Discount = 0.2
+    If Quantity &gt;= 75 Then Discount = 0.25
+    MsgBox &quot;Discount: &quot; &amp; Discount
+End Sub</code></pre>
+<p>下面过程使用了另一种语法对上一个过程进行了重新编写。这种情况下在执行了True指令块后，该过程立即结束。</p>
+<pre><code class="vb">Sub Discount2()
+    Dim Quantity As Variant
+    Dim Discount As Double
+    Quantity = InputBox(&quot;Enter Quantity: &quot;)
+    If Quantity = &quot;&quot; Then Exit Sub
+    If Quantity &gt;= 0 And Quantity &lt; 25 Then
+        Discount = 0.1
+    ElseIf Qantity &lt; 50 Then 
+        Discount = 0.15
+    ElseIf Quantity &lt; 75 Then 
+        Discount = 0.2
+    Else
+        Discount = 0.25
+    End If
+    MsgBox &quot;Discount: &quot; &amp; Discount
+End Sub</code></pre>
+<p>VBA也提供了替代If-Then结构的另一种方法，即用IIf函数。</p>
+<blockquote>
+<p>IIf(expr,truepart,falsepart)</p>
+</blockquote>
+<p>示例：</p>
+<pre><code class="vb">MsgBox IIf(Range(&quot;A1&quot;) = 0, &quot;Zero&quot;, &quot;Nonzero&quot;)
+MsgBox IIf(n = 0, 0, 1/n) &#39;即使expr为True时，第三个参数仍要计算，此例中会生成一个除零的错误消息。&#39;</code></pre>
+<h3 id="Select-Case结构"><a href="#Select-Case结构" class="headerlink" title="Select Case结构"></a>Select Case结构</h3><p><strong>SelectCase</strong>便于在三个或多个选项之间做选择，只要发现为True的情况，就退出Select Case结构，因此为例最大限度提升效率，应先检测最可能发生的情况。是If-Then-Else结构的很好替代。语法如下：</p>
+<pre><code class="vb">Select Case testexpression
+    [Case expressionlist-n
+        [instructions-n]]
+    [Case Else
+        [default_instructions]]
+End Select</code></pre>
+<p>以下为示例，对GreetMe重新编写</p>
+<pre><code class="vb">Sub GreetMe()
+    Dim Msg As String
+    Select Case Time
+        Case Is &lt; 0.5
+            Msg = &quot;Good Morning&quot;
+        Case 0.5 To 0.75
+            Msg = &quot;Good Afternoon&quot;
+        Case Else
+            Msg = &quot;Good Evening&quot;
+    End Select
+    MsgBox Msg
+End Sub
+</code></pre>
+<p>对Discount重新编写：</p>
+<pre><code class="vb">Sub Discount2()
+    Dim Quantity As Variant
+    Dim Discount As Double
+    Quantity = InputBox(&quot;Enter Quantity: &quot;)
+    Select Case Quntity
+    Case &quot;&quot;
+        Exit Sub
+    Case 0 To 24
+        Discount = 0.1
+    Case 25 To 49
+        Discount = 0.15
+    Case 50 To 74
+        Discount = 0.2
+    Case Is &gt;= 75
+        Discount = 0.25
+    End Select
+    MsgBox &quot;Discount: &quot; &amp; Discount
+End Sub</code></pre>
+<p>下面过程使用VBA的WeekDay函数确定当天是否为周末（即Weekday函数返回1，7）：</p>
+<pre><code class="vb">Sub GreetUser1()
+    Select Case Weekday(Now)
+        Case 1, 7
+            MsgBox &quot;This is the weekend&quot;
+        Case Else
+            MsgBox &quot;This is not the weekend&quot;
+    End Select
+End Sub</code></pre>
+<p>下面示例显示了对前面代码的过程进行编写的另一种方法：</p>
+<pre><code class="vb">Sub GreetUser2()
+    Select Case Weekday(Now)
+        Case 2, 3, 4, 5, 6
+            MsgBox &quot;This is not the weekend&quot;
+        Case Else
+            MsgBox &quot;This is not the weekend&quot;
+    End Select
+End Sub</code></pre>
+<p>可以把指令与关键字Case放在同一行上（VBA分割符：），这样的处理会使VBA代码变得更加简洁，例如：</p>
+<pre><code class="vb">Sub Discount2()
+    Dim Quantity As Variant
+    Dim Discount As Double
+    Quantity = InputBox(&quot;Enter Quantity: &quot;)
+    Select Case Quntity
+    Case &quot;&quot;: Exit Sub
+    Case 0 To 24: Discount = 0.1
+    Case 25 To 49: Discount = 0.15
+    Case 50 To 74: Discount = 0.2
+    Case Is &gt;= 75: Discount = 0.25
+    End Select
+    MsgBox &quot;Discount: &quot; &amp; Discount
+End Sub</code></pre>
+<p>以下示例为使用VBA的TypeName函数来确定选择的对象（单元格区域、什么都不选择或其他对象）。如果选择的是单元格区域，过程将执行嵌套的Select Case结构并测试单元格区域内的单元格数目。如果选择的是一个单元格，将显示”One Cell is Selected”:</p>
+<pre><code class="vb">Sub SelectionType()
+    Select Case TypeName(Selection)
+        Case &quot;Range&quot;
+            Select Case Selection.Count
+                Case 1
+                    MsgBox &quot;One cell is selected&quot;
+                Case Else
+                    MsgBox Selection.Rows.Count &amp; &quot; rows&quot;
+            End Select
+        Case &quot;Nothing&quot;
+            MsgBox &quot;Nothing is selected&quot;
+        Case Else
+            MsgBox &quot;Something other than a range&quot;
+    End Select
+End Sub</code></pre>
+<h3 id="For-Next循环"><a href="#For-Next循环" class="headerlink" title="For-Next循环"></a>For-Next循环</h3><p>在不是绝对必要的情况下，不赞成编程人员使用GoTo语句，使用GoTo语句进行循环违背了结构化程序设计理念。最简单的一个好循环就是For-Next循环。语法如下：</p>
+<pre><code class="vb">For counter = start To end [Step stepval]
+    [instructions]
+    [Exit For]
+    [instructions]
+Next counter</code></pre>
+<p>以下示例计算前100整数平方根总和，其中Count为循环计数器变量，每重复一次，循环计数器就加1：</p>
+<pre><code class="vb">Sub SumSquareRoobts()
+    Dim Sum As Double
+    Dim Count As Integer
+    Sum = 0
+    For Count = 1 To 100
+        Sum = Sum + Sqr(Count)
+    Next Count
+    MsgBox Sum
+End Sub</code></pre>
+<p><strong>结构化程序设计</strong>：结构化程序设计基本的前提是例程或代码片段只应该有一个入口和一个出口。换言之，代码的主体应该是独立的单元，而程序控制应该不跳入这个单元内部或从这个单元中间退出。VBA是一种结构化的语言，它提供了标准的结构化构造，如If-Then-Else、Select Case、For-Next、Do Until以及Do While循环。</p>
+<p>以下示例为删除了活动工作表中第2、4、6、8和第10行的内容，为了避免行数发生变化，因此从下方向上删除：</p>
+<pre><code class="vb">Sub DeleteRows()
+    Dim RowNum As Long
+    For RowNum = 10 To 2 Step -2
+        Rows(RowNum).Delete
+    Next RowNum
+End Sub</code></pre>
+<p>以下示例为For-Next结构的良好循环：</p>
+<pre><code class="vb">Sub GoodLoop()
+    Dim StartVal As Integer
+    Dim NumToFill As Integer
+    Dim Cnt As Integer
+    StartVal = 1
+    NumToFill = 100
+    For Cnt = 0 To NumToFill - 1
+        ActiveCell.Offset(Cnt, 0).Value = StartVal + Cnt
+    Next Cnt
+End Sub</code></pre>
+<p>For-Next循环还可在循环中包含一条或多条Exit For语句。在遇到这条语句时，循环立即终止，控制权交给For-Next循环的Next语句后面的一条语句。下面的示例说明了Exit For语句的用法。该过程确定了在活动工作表中的列A中包含最大值的单元格是哪一个：</p>
+<pre><code class="vb">Sub ExitForDemo()
+    Dim MaxVal As Double
+    Dim Row As Long
+    MaxVal = Application.WorksheetFunction.Max(Range(&quot;A:A&quot;)) 
+    For Row = 1 To 1048576
+        If Cells(Row, 1).Value = MaxVal Then
+            Exit For
+        End If
+    Next Row
+    MsgBox &quot;Max value is in Row &quot; &amp; Row
+    Cells(Row, 1).Activate
+End Sub</code></pre>
+<p>实际上，用一条语句即可完成上述任务：</p>
+<pre><code class="vb">Range(&quot;A:A&quot;).Find(Application.WorksheetFunction.Max(Range(&quot;A:A&quot;))).Activate</code></pre>
+<p>使用For-Next循环来初始化一个10x10x10的数组，使得数组的元素值都为-1.</p>
+<pre><code class="vb">Sub NestedLoops()
+    Dim MyArray(1 To 10, 1 To 10, 1 To 10)
+    Dim i As Integer, j As Integer, k As Integer
+    For i = 1 To 10
+        For j = 1 To 10
+            For k = 1 To 10
+                MyArray(i, j, k) = -1
+            Next k
+        Next j
+    Next i
+End Sub</code></pre>
+<h3 id="Do-While循环"><a href="#Do-While循环" class="headerlink" title="Do While循环"></a>Do While循环</h3><p><strong>Do While循环</strong>只有在满足指定条件时才会执行Do While循环。</p>
+<pre><code class="vb">Do [While condition]
+    [instructions]
+    [Exit Do]
+    [instructions]
+&#39;或&#39;
+Do  &#39;第二种语法至少执行一次&#39;
+    [instructions]
+    [Exit Do]
+    [instructions]
+Loop [While condition]</code></pre>
+<p>以下示例把当月的日期写到工作表的第一个以活动单元格为起点的列中，TheDate变量包含了写到工作表的日期。</p>
+<pre><code class="vb">Sub EnterDates1()
+    Dim TheDate As Date
+    TheDate = DateSerial(Year(Date), Month(Date), 1) &#39;Date返回当前日期，Month返回作为参数的日期对应月份，DateSerial返回年月日&#39;
+    Do While Month(TheDate) = Month(Date)
+        ActiveCell = TheDate
+        TheDate = TheDate + 1
+        ActiveCell.Offset(1, 0).Activate
+    Loop
+End Sub</code></pre>
+<p>第二种语法：</p>
+<pre><code class="vb">Sub EnterDates1()
+    Dim TheDate As Date
+    TheDate = DateSerial(Year(Date), Month(Date), 1) &#39;Date返回当前日期，Month返回作为参数的日期对应月份，DateSerial返回年月日&#39;
+    Do
+        ActiveCell = TheDate
+        TheDate = TheDate + 1
+        ActiveCell.Offset(1, 0).Activate
+    Loop While Month(TheDate) = Month(Date)
+End Sub</code></pre>
+<p>Do While也可以包含一条或多条Exit Do语句。遇到Exit Do语句时，循环会立即结束，控制权交给Loop语句后面的语句。</p>
+<h3 id="Do-Untill循环"><a href="#Do-Untill循环" class="headerlink" title="Do Untill循环"></a>Do Untill循环</h3><p><strong>Do Untill</strong>循环中，一直执行循环直至循环条件值为True，也有两种语法模式：</p>
+<pre><code class="vb">Do [Untill condition]
+   [instructions]
+   [Exit Do]
+   [instructions] 
+Loop</code></pre>
+<p>第二种语法：</p>
+<pre><code class="vb">Do 
+   [instructions]
+   [Exit Do]
+   [instructions] 
+Loop [Untill condition]</code></pre>
+<p>下面示例与Do While日期录入示例效果一致，唯一区别在于两个过程计算条件的位置不同（位于循环开始处和位于循环结尾处）</p>
+<pre><code class="vb">Sub EnterDates3()
+    Dim TheDate As Date
+    TheDate = DateSerial(Year(Date), Month(Date), 1) &#39;Date返回当前日期，Month返回作为参数的日期对应月份，DateSerial返回年月日&#39;
+    Do Until Month(TheDate) &lt;&gt; Month(Date)
+        ActiveCell = TheDate
+        TheDate = TheDate + 1
+        ActiveCell.Offset(1, 0).Activate
+    Loop
+End Sub</code></pre>
+<p>下面是第二个示例：</p>
+<pre><code class="vb">Sub EnterDates3()
+    Dim TheDate As Date
+    TheDate = DateSerial(Year(Date), Month(Date), 1) &#39;Date返回当前日期，Month返回作为参数的日期对应月份，DateSerial返回年月日&#39;
+    Do
+        ActiveCell = TheDate
+        TheDate = TheDate + 1
+        ActiveCell.Offset(1, 0).Activate
+    Loop Until Month(TheDate) &lt;&gt; Month(Date)
+End Sub</code></pre>
+<p>另一个示例：</p>
+<pre><code class="vb">Sub DoUntilDemo1()
+    Dim LineCt As Long
+    Dim LineOfText As String
+    Open &quot;c:\data\textfile.txt&quot; For Input As #1
+    LineCt = 0
+    Do Until EOF(1)
+        Line Input #1, LineOfText
+        Range(&quot;A1&quot;).Ofset(LineCt, 0) = UCase(LineOfText)
+        LineCt = LineCt + 1
+    Loop
+    Close #1
+End Sub</code></pre>
+<p>注意：VBA还支持另外一种循环：While Wend。包含这种循环结构主要是处于兼容性的目的。下面是通过While Wend循环编写的日期录入过程的代码：</p>
+<pre><code class="VB">Sub EnterDates5()
+    Dim TheDate As Date
+    TheDate = DateSerial(Year(Date), Month(Date), 1)
+    While Month(TheDate) = Month(Date)
+        ActiveCell = TheDate
+        TheDate = TheDate + 1
+        ActiveCell.Offset(1, 0).Activate
+    Wned
+End Sub</code></pre>
+<h1 id="第三天：VBA子过程"><a href="#第三天：VBA子过程" class="headerlink" title="第三天：VBA子过程"></a>第三天：VBA子过程</h1><p>##关于过程</p>
+<p><strong>“过程”</strong>是一系列位于VBA模块中的VBA语句，在VBE中可以访问这些VBA模块，一个模块可以包含任意数量的过程。</p>
+<p>使用Sub关键字生命的过程必须遵循以下语法格式：</p>
+<pre><code class="vb">[Private | Public][Static] Sub name ([arglist])
+    [instructions]
+    [Exit Sub]
+    [instructions]
+End Sub</code></pre>
+<p>其中：Sub、name和End Sub必需，其余可选。</p>
+<ul>
+<li>Private：表明只有痛一个模块的其他过程才可以访问这个过程。</li>
+<li>Public：表明该工作簿中所有模块的其他过程都可以访问这个过程。如果该过程包含在含义Option Private Module语句的模块中，那么这个过程就不可以用于该工程之外。</li>
+<li>Static：表明过程结束时将保存过程的变量。</li>
+<li>Sub：表示过程的起点。</li>
+<li>name：过程名称。</li>
+<li>arglist：代表一系列变量，逗号分隔，括号括起。</li>
+<li>instructions：代表有效的VBA指令。</li>
+<li>Exit Sub：在正式结束之前，强制立即从过程中退出的语句。</li>
+<li>End Sub：表示过程的结束。</li>
+</ul>
+<p><strong>公共过程</strong>：Public声明。</p>
+<p><strong>私有过程</strong>：Excel中宏对话框中只显示公共过程，用Private定义私有过程，仅可以被同一模块下的其他过程调用。在第一个Sub语句前加入 Option Private Module可以将模块中所有过程强制设为私有过程，此时可以在Sub前省略Private。</p>
+<h2 id="过程的执行"><a href="#过程的执行" class="headerlink" title="过程的执行"></a>过程的执行</h2><p>调用VBA过程有几种方法：</p>
+<ul>
+<li>使用“运行”|“运行子过程/用户窗体”命令，或使用工具栏上的按钮。</li>
+<li>“宏”对话框中运行</li>
+<li>Ctrl指定快捷键</li>
+<li>插入控件指定宏的模式</li>
+<li>在事件反生时执行</li>
+<li>在立即窗口中执行</li>
+</ul>
+<pre><code class="vb">Sub ChangeCase()
+    Dim MyString As String
+    MyString = &quot;This is a test&quot;
+    MyString = UCase(MyString)
+    Debug.Print MyString
+End Sub &#39;在立即窗口中输入ChangeCase时：Debug.Print语句将立即显示结果&#39;</code></pre>
+<ul>
+<li>编写一个子过程，子过程和函数过程可以执行其他过程。有三种方式：</li>
+</ul>
+<pre><code class="vb">Sub AddTwo(arg1, arg2)
+    MsgBox arg1 * arg2
+End Sub
+
+AddTwo 12, 6 &#39;第一种调用方式，参数不放在括号里&#39;
+Call AddTwo(12, 6) &#39;第二种调用方式，使用关键字Call&#39;
+Run &quot;AddTwo&quot;, 12, 6 &#39;第三种，使用Application对象的Run方法&#39;</code></pre>
+<p>通常使用Call来清楚表明正在调用的某个过程。当过程名称指定给某个变量时，只能使用Run。</p>
+<pre><code>Sub Main()
+    Dim SubToCall As String &#39;SubCall变量被赋予一个代表过程名称的字符串
+    Select Case Weekday(Now)
+        Case 1, 7: SubToCall = &quot;WeekEnd&quot;
+        Case Else: SubToCall = &quot;Daily&quot;
+    End Select
+        Application.Run SubToCall
+End Sub
+
+Sub WeekEnd()
+    MsgBox &quot;Today is a weekend&quot;
+End Sub
+
+Sub Daily()
+    MsgBox &quot;Today is not a weekend&quot;
+End Sub</code></pre><p><strong>调用其他模块的过程</strong>时，可以在过程名称前加上模块名。</p>
+<pre><code class="vb">Module1.MySub
+Call Module.MySub &#39;两条语句中任选一句&#39;</code></pre>
+<p><strong>调用另一个工作簿的过程</strong>有两种方式。一种先创建饮用，创建饮用后可以使用如下其中一条语句：</p>
+<pre><code class="vb">YourSub
+Call YourSub &#39;与上效果一致&#39;
+YourProject.YourModule.YourSub &#39;为准确识别另一个工作簿的某个过程，可以使用此语法指定工程名称、模块名称和过程名称。&#39;
+Call YourProject.YourModule.YourSub &#39;使用关键字Call&#39;</code></pre>
+<p>创建引用的方式：“工具”|引用|点击要添加引用的工作簿，按确定即可，被引用的工作簿可以看作单独的对象库，引用后被引用工作簿不必打开。</p>
+<p>另一种方式方法是使用Application对象的Run方法，这种方法不需要建立引用，但是含有该过程的工作簿必须是打开的。下列语句执行了位于budget macro.xlsm工作簿中的Consolidate过程：</p>
+<pre><code class="vb">Application.Run &quot;&#39;budget macro.xlsm&#39;!Consolidate&quot; &#39;工作簿名称包括在了单引号内，此种语法只有当文件名包括了一个或多个空格时才是必须的&#39;
+Application.Run &quot;budget.xlsm!Consolidate&quot; </code></pre>
+<p>注意：创建小型过程而不是大型单个过程是非常好的习惯，模块化方法不仅使工作变得更加容易，而且可以简化处理代码人员的工作。</p>
+<h2 id="向过程中传递参数"><a href="#向过程中传递参数" class="headerlink" title="向过程中传递参数"></a>向过程中传递参数</h2><p>过程中的“参数”提供了它在指令中要使用的数据，通过参数传递的数据可能是以下一种：</p>
+<ul>
+<li>变量</li>
+<li>常量</li>
+<li>表达式</li>
+<li>数组</li>
+<li>对象</li>
+</ul>
+<pre><code class="vb">Sub Main()
+    Dim File(1 To 3) As String
+    Dim i As Integer
+    File(1) = &quot;Dept1.xlsx&quot;
+    File(2) = &quot;Dept2.xlsx&quot;
+    File(3) = &quot;Dept3.xlsx&quot;
+    For i = 1 To 3
+        Call Processfile(TheFile)
+    Next i
+End Sub
+
+Sub Processfile()
+    Workbooks.Open Filename:=TheFile
+End Sub</code></pre>
+<p>可采用下面两种方式将参数传递给过程：</p>
+<ul>
+<li>通过引用：通过引用传递参数方法（默认方法）只是传递变量的内存地址。对过程的参数修改将影响到原始变量。</li>
+<li>通过数值：通过数值传递参数传递的是原始变量的副本。因此，对过程中所做的参数修改不会影响到原变量。</li>
+</ul>
+<pre><code class="vb">Sub Main()
+    Dim Value As Integer
+    MyValue = 12
+    Call Process(MyValue)
+    MsgBox MyValue
+End Sub
+
+Sub Process(YourValue)             &#39;调用此过程，输出结果120，Process过程结束后把控制权交给了Main&#39;
+    YourValue = YourValue * 10
+End Sub
+
+Sub Process(ByVal YourValue)       &#39;调用此过程则对YourValue的修改不会影响到Main过程的MyValue的值&#39;
+    YourValue = YourValue * 10
+End Sub</code></pre>
+<p>使用参数的过程可以直接在参数列表中定义数据类型，再此调用时作为参数传递的数据必须与这个参数的数据类型进行匹配。下面语句接收两个不同的参数：</p>
+<pre><code class="vb">Sub Process(Iterations As Integer, TheFile As String)</code></pre>
+<h2 id="错误处理技术"><a href="#错误处理技术" class="headerlink" title="错误处理技术"></a>错误处理技术</h2><p>一般而言，运行错误时将导致VBA代码停止运行，用户会看到错误编号和内容。好的应用程序不会让用户处理这些消息，而是在应用程序中集成了错误处理代码，进而可以捕获并采取相应的动作。为了能让错误处理过程起作用，必须关闭发生错误则中断设置。在VBE中选择“工具”|“选项”|“通用”|“遇到未知错误则中断”。</p>
+<p>可使用On Error语句<strong>捕获错误</strong>，基本上有下列两种办法：</p>
+<ul>
+<li>忽略错误并允许VBA继续执行代码：代码可以稍后检查Err对象，进而确定错误。</li>
+</ul>
+<pre><code class="vb">On Error Resume Next &#39;插入此语句会使错误发生时VBA代码继续执行&#39;</code></pre>
+<ul>
+<li>跳转到代码中特殊的错误处理部分，进而采取动作：这一代码部分位于过程的末尾，还用标签进行了标识。有些错误无关紧要，但是当想知道发生了什么错误时，可以使用Err对象确定错误编号。VBA的Error函数可以显示与Err.Number相应的文本。</li>
+</ul>
+<pre><code class="vb">If Err.Number &lt;&gt; 0 Then MsgBox &quot;An error occurred.&quot; &#39;可使用此语句检查是否存在错误 &#39;</code></pre>
+<pre><code class="vb">Sub ChangeSheetName()
+    On Error Resume Next
+    Worksheets(&quot;sheet1&quot;).Name = &quot;Raw Data&quot;
+    If Err.Number &lt;&gt; 0 Then
+        MsgBox &quot;Error &quot; &amp; Err &amp; &quot;: &quot; &amp; Error(Err.Number)
+    End If
+End Sub</code></pre>
+<p>注意：引用Err对象等同于访问Err对象的Number属性。</p>
+<pre><code class="vb">MsgBox Err
+MsgBox Err.Number &#39;与上一语句效果相同&#39;
+On Error GoTo ErrorHandler &#39;还可以使用On Error语句指定在错误发生时应跳转到过程中的某个位置，可以使用此标签标识。&#39;</code></pre>
+<p>示例1：</p>
+<pre><code class="vb">&#39;下面的示例没有使用错误处理&#39;
+Sub SelectionFormulas() 
+    Selection.SpecialCells(xlFormulas).Select &#39;SpecialCells选中了当前单元格区域选区中所有的单元格&#39;
+End Sub
+
+&#39;下面的示例使用了On Error Resume Next语句防止显示错误处理&#39;
+Sub SelectionFormulas2()
+    On Error Resume Next
+    Selection.SpecialCells(xlFormulas).Select
+    On Error GoTo 0 &#39;为了执行该语句，On Error GoTo 0语句将恢复为普通的错误处理&#39;
+End Sub
+
+&#39;下面的语句使用了另一条语句来确定是否会发生错误。如果发生错误，将会向用户显示消息&#39;
+Sub SelectionFormulas3()
+    On Error Resume Next
+    Selection.SpecialCells(xlFormulas).Select
+    If Err.Number = 1004 Then MsgBox &quot;No formula cells were found.&quot;
+    On Error GoTo 0 &#39;为了执行该语句，On Error GoTo 0语句将恢复为普通的错误处理&#39;
+End Sub</code></pre>
+<p>示例二：</p>
+<pre><code class="vb">&#39;此示例说明了通过跳转到某个标签而进行的错误处理。该例试图把值赋给当前选中的区域，如果出现错误，赋值语句会出错，On Error语句就指定跳转到Handler标签。注意这个标签中使用了Exit Sub语句，避免了没有出现错误时执行错误处理代码，如果省略这个条语句，即使没有出现错误也会显示错误消息。&#39;
+Sub ErrorDemo()
+    On Error GoTo Handler
+    Selection.Value = 123 
+    Exit Sub
+Handler:
+    MsgBox &quot;Cannot assign a value to the selection&quot;
+End Sub</code></pre>
+<p>示例三：</p>
+<pre><code class="vb">&#39;下面示例检测某个特定工作簿是否打开，这里没有使用任何错误处理代码。&#39;
+Sub CheckForFiel1()
+    Dim FileName As String
+    Dim FileExists As Boolean
+    Dim book As Workbook
+    FileName = &quot;BUDGET.XLSX&quot;
+    FileExists = False
+
+    &#39;Cycle through all open workbooks
+    For Each book In Workbooks
+        If UCase(book.Name) = FileName Then FileExists = True
+    Next book
+
+    &#39;Display appropriate message
+    If FileExists Then
+        MsgBox FileName &amp; &quot; is open&quot;
+    Else
+        MsgBox FileName &amp; &quot; is not open&quot;
+    End If
+End Sub
+
+&#39;对上述示例进行改写，使用错误处理代码即可确定文件是否打开。在下面示例中，On Error Resume Next导致VBA忽略了任何错误。通过把工作簿赋值给某个对象变量，接下来通过关键字Set引用这个工作簿，如果没有工作簿没有打开，便会出现错误。If-Then-Else结构检查Err的value属性并显示出相应消息。&#39;
+Sub CheckForFiel2()
+    Dim FileName As String
+    Dim x As Workbook
+    FileName = &quot;BUDGET.XLSX&quot;
+    On Error Resume Next
+    Set x = Workbooks(FileName)
+    If Err = 0 Then
+        MsgBox FileName &amp; &quot; is open&quot;
+    Else
+        MsgBox FileName &amp; &quot; is not open&quot;
+    End If
+End Sub</code></pre>
+<h2 id="使用子过程的实际示例"><a href="#使用子过程的实际示例" class="headerlink" title="使用子过程的实际示例"></a>使用子过程的实际示例</h2><p><strong>目标</strong>：开发一个程序，使其通过工作表的字母顺序重新整理所在的工作簿。</p>
+<p>第一步，进行初始准备，建立包含5个工作表的空白工作簿，打乱顺序，保存为Text.xlsx。创建子过程并保存到个人宏工作簿的模块中（个人宏存储状态为个人宏工作簿），子过程存放程序代码。</p>
+<p>第二步，编写代码获取工作表的名称。</p>
+<pre><code class="vb">&#39;由于初始不知道工作表个数，因此用带括号的Dim语句声明数组，再用ReDim重新定义维数。&#39;
+Sub SortSheets()
+    Dim SheetNames() As String
+    Dim i As Long
+    Dim SheetCount As Long
+    SheetCount = ActiveWorkbook.Sheets.Count
+    ReDim SheetNames(1 To SheetCount)
+    For i = 1 To SheetCount
+        SheetNames(i) = ActiveWorkbook.Sheets(i).Name
+        Debug.Print SheetNames(i)
+    Next i
+End Sub</code></pre>
+<p>第三步，编写排序过程。</p>
+<pre><code class="vb">&#39;排序过程采用冒泡排序算法，这个过程接受了一个参数：一个名为List的一位数组。传递给过程的数组可以任意长。这里使用LBound和UBound两个函数把数组的下界和上界分别指定给First和Last变量。&#39;
+Sub BubbleSort(List() As String)
+    Dim First As Long, Last As Long
+    Dim i As Long, j As Long
+    Dim Temp As String
+    First = LBound(List)
+    Last = UBound(List)
+    For i = First To Last - 1
+        For j = i + 1 To Last
+            If UCase(List(i)) &gt; UCase(List(j)) Then
+                Temp = List(j)
+                List(j) = List(i)
+                List(i) = Temp
+            End If
+        Next j
+    Next i
+End Sub
+&#39;这是一个临时过程可以测试BubbleSort过程。&#39;
+Sub SortTester()
+    Dim x(1 To 5) As String
+    Dim i As Long
+    x(1) = &quot;dog&quot;
+    x(2) = &quot;cat&quot;
+    x(3) = &quot;pig&quot;
+    x(4) = &quot;elephant&quot;
+    x(5) = &quot;lion&quot;
+    Call BubbleSort(x)
+    For i = 1 To 5
+        Debug.Print i, x(i)
+    Next i
+End Sub</code></pre>
+<p>第三步,编写移动表代码：</p>
+<pre><code class="vb">For i = 1 To SheetCount
+    Sheets(SheetNames(i)).Move Before:=Sheets(i)
+Next i</code></pre>
+<p>第四步，整合代码，添加注释。</p>
+<p>第五步，测试并修复问题:</p>
+<ul>
+<li>包含很多工作表的工作簿要花费很长时间进行排序，在移动中，屏幕要不断更新。</li>
+</ul>
+<ul>
+<li>BubbleSort过程会导致所有字母都是大写的表（例如SUMMARY）放在Sheet1的前面，使用UCase函数修复，或是在模块顶部添加Option Compare Text。</li>
+<li>避免没有可见工作簿而引起的异常，在运行前测试是否为空工作簿。</li>
+<li>如果工作簿受保护，则move失败，可以在运行前测试工作表状态。</li>
+<li>排序后，活动工作表变成了最后一个工作表，修复为原来的工作表活动状态。</li>
+<li>如果按Ctrl+Break快捷键中断宏的运行，VBA就会显示错误的信息，可以设置禁用Ctrl+Break。</li>
+<li>如果不小心按下快捷键，则会进行排序，因此要在运行前增加提示信息。</li>
+</ul>
+<pre><code class="vb">Sub SortSheets()
+&#39;   This routine sorts the sheets of the active workbook in ascending order.&#39;
+&#39;   Use Ctrl+Shift+S to execute&#39;
+
+    Dim SheetNames() As String
+    Dim i As Long
+    Dim SheetCount As Long
+
+    If ActiveWorkbook Is Nothing Then Exit Sub &#39; No active workbook&#39;
+    SheetCount = ActiveWorkbook.Sheets.Count
+
+&#39;   Check for protected workbook structure&#39;
+    If ActiveWorkbook.ProtectStructure Then
+        MsgBox ActiveWorkbook.Name &amp; &quot; is protected.&quot;, _
+           vbCritical, &quot;Cannot Sort Sheets.&quot;
+        Exit Sub
+    End If
+
+&#39;   Make user verify&#39;
+    If MsgBox(&quot;Sort the sheets in the active workbook?&quot;, _
+      vbQuestion + vbYesNo) &lt;&gt; vbYes Then Exit Sub
+
+&#39;   Disable Ctrl+Break&#39;
+    Application.EnableCancelKey = xlDisabled
+
+&#39;   Get the number of sheets&#39;
+    SheetCount = ActiveWorkbook.Sheets.Count
+
+&#39;   Redimension the array&#39;
+    ReDim SheetNames(1 To SheetCount)
+
+&#39;   Store a reference to the active sheet&#39;
+    Set OldActive = ActiveSheet
+
+&#39;   Fill array with sheet names&#39;
+    For i = 1 To SheetCount
+        SheetNames(i) = ActiveWorkbook.Sheets(i).Name
+    Next i
+
+&#39;   Sort the array in ascending order&#39;
+    Call BubbleSort(SheetNames)
+
+&#39;   Turn off screen updating&#39;
+    Application.ScreenUpdating = False
+
+&#39;   Move the sheets&#39;
+    For i = 1 To SheetCount
+        ActiveWorkbook.Sheets(SheetNames(i)).Move _
+            Before:=ActiveWorkbook.Sheets(i)
+    Next i
+
+&#39;   Reactivate the original active sheet&#39;
+    OldActive.Activate
+
+End Sub
+
+Sub BubbleSort(List() As String)
+    Dim First As Long, Last As Long
+    Dim i As Long, j As Long
+    Dim Temp As String
+    First = LBound(List)
+    Last = UBound(List)
+    For i = First To Last - 1
+        For j = i + 1 To Last
+            If UCase(List(i)) &gt; UCase(List(j)) Then
+                Temp = List(j)
+                List(j) = List(i)
+                List(i) = Temp
+            End If
+        Next j
+    Next i
+End Sub</code></pre>
+<p>因为SortSheets宏存储在个人宏工作簿，所以只要Excel在运行，都可以使用这个宏。</p>
+<h1 id="第四天：创建函数过程"><a href="#第四天：创建函数过程" class="headerlink" title="第四天：创建函数过程"></a>第四天：创建函数过程</h1><h2 id="子过程与函数过程"><a href="#子过程与函数过程" class="headerlink" title="子过程与函数过程"></a>子过程与函数过程</h2><p>VBA允许创建子过程和函数过程，子过程可以被看成由用户或另一个过程执行的命令。而函数过程通常返回一个数值（或一个数组），就像Excel的工作表函数一样。</p>
+<h2 id="创建自定义函数"><a href="#创建自定义函数" class="headerlink" title="创建自定义函数"></a>创建自定义函数</h2><p>函数示例：</p>
+<pre><code class="vb">&#39;开头使用零Function而不是Sub,函数名称为REMOVEVOWELS,这个自定义函数只使用了一个参数(Txt),As String指定了参数类型。接下来的语句使用了For Next循环，该循环过程遍历了每一个输入的字符，然后构成一个字符串。循环的第一条指令使用了VBA的Mid函数从输入的字符串中返回了一个字符，并把该字符串转换成大写字母。然后使用Excel中Like运算符来比较一列字符。当If子句为true时，字符就添加到了REMOVEVOWLS中。&#39;
+Function REMOVEVOWELS(Txt) As String
+&#39;REMOVE ALL VOWELS FROM THE Txt argument&#39;
+    Dim i As Long
+    REMOVEVOWELS = &quot;&quot;
+    For i = 1 To Len(Txt)
+        If Not UCase(Mid(Txt, i, 1)) Like &quot;[AEIOU]&quot; Then
+            REMOVEVOWELS = REMOVEVOWELS &amp; Mid(Txt, i, 1)
+        End If
+    Next i
+End Function
+&#39;以下为Select Case实现方法&#39;
+Function REMOVEVOWELS(Txt) As String
+&#39;REMOVE ALL VOWELS FROM THE Txt argument&#39;
+    Dim i As Long
+    Dim TempString As String
+    TempString = &quot;&quot;
+    For i = 1 To Len(Txt)
+        Select Case UCase(Mid(Txt, i, 1))
+            Case &quot;A&quot;, &quot;E&quot;, &quot;I&quot;, &quot;O&quot;, &quot;U&quot;
+                &#39;Do nothing&#39;
+            Case Else
+                TempString = TempString &amp; Mid(Txt, i, 1)
+            End Select
+        Next i
+        REMOVEVOWELS = TempString
+End Function</code></pre>
+<p><strong>使用方法</strong>：</p>
+<ul>
+<li>在模块中放入上述函数代码，在工作表中使用的时候=REMOVEVOWELS(A1)，或是嵌套使用，例如：=UPPER(REMOVEVOWELS(A1)</li>
+<li>在VBA过程中使用函数，要在模块内容中放入上述函数代码，并添加以下代码，调用宏。</li>
+</ul>
+<pre><code class="vb">Sub ZapTheVowels()
+    Dim UserInput As String
+    UserInput = InputBox(&quot;Enter some text: &quot;)
+    MsgBox REMOVEVOWELS(UserInput), vbInformation, UserInput
+End Sub</code></pre>
+<p>注意：自定义工作表函数只返回一个值，它不能执行与对象有关的动作。因此，在开发自定义函数时，函数过程中的代码不能处理单元格区域或在工作表上进行修改。</p>
+<h2 id="函数过程"><a href="#函数过程" class="headerlink" title="函数过程"></a>函数过程</h2><p>声明函数的语法如下：</p>
+<pre><code class="vb">[Public | Private |Static Function Name(arglist)[As type] ]
+    [instructions]
+    [name = expression]
+    [Exit Function]
+    [instructions]
+    [name = expression]
+End Function</code></pre>
+<p>创建自定义函数，首先要插入一个VBA模块（或使用已有的标准VBA模块）。需要牢记：通常在执行结束时，至少给函数名称赋值一次。</p>
+<p><strong>函数作用域、执行函数的过程、函数过程的参数</strong>参考子过程相关部分。</p>
+<p><strong>函数示例</strong>：</p>
+<p>示例一：</p>
+<pre><code class="vb">&#39;以下函数为无参数函数，阐明了如何创建一个包装器函数，使它只返回一个属性或是一个VBA函数的结果。&#39;
+Function USER()
+    &#39;返回当前用户名&#39;
+    USER = Apication.UserName
+End Function
+
+Function EXCELDIR() As String
+    &#39;返回Excel加载的字典&#39;
+    EXCELDIR = Application.Path
+End Function
+
+Function SHEETCOUNT()
+    &#39;返回工作簿中工作表的个数&#39;
+    SHEETCOUNT = Application.Caller.Parent.Parent.Sheets.Count
+End Function
+
+Function SHEETNAME()
+    &#39;返回工作表名称&#39;
+    SHEETNAME = Application.Caller.Parent.Name
+End Function
+
+Function STATICRAND()
+    &#39;返回随机数&#39;
+    STATICRAND = Rnd()
+End Function</code></pre>
+<p>示例二：</p>
+<pre><code class="vb">&#39;用来计算销售人员佣金的函数，佣金与月销售额成正比。此为带有一个参数的函数。&#39;
+Function COMMISSION(Sales)
+    Const Tier1 = 0.08
+    Const Tier2 = 0.105
+    Const Tier3 = 0.12
+    Const Tier4 = 0.14
+&#39;   Calculates sales commissions
+    Select Case Sales
+       Case 0 To 9999.99: COMMISSION = Sales * Tier1
+       Case 10000 To 19999.99: COMMISSION = Sales * Tier2
+       Case 20000 To 39999.99: COMMISSION = Sales * Tier3
+       Case Is &gt;= 40000: COMMISSION = Sales * Tier4
+    End Select
+End Function
+&#39;假设销售人员在工作时间每增长1年，支付总佣金就增长1%。此为带有两个参数的函数。&#39;
+Function COMMISSION2(Sales, Years) As Single
+&#39;    Calculates sales commissions based on&#39;
+&#39;    years in service&#39;
+     Const Tier1 = 0.08
+     Const Tier2 = 0.105
+     Const Tier3 = 0.12
+     Const Tier4 = 0.14
+     Select Case Sales
+        Case 0 To 9999.99: COMMISSION2 = Sales * Tier1
+        Case 10000 To 19999.99: COMMISSION2 = Sales * Tier2
+        Case 20000 To 39999.99: COMMISSION2 = Sales * Tier3
+        Case Is &gt;= 40000: COMMISSION2 = Sales * Tier4
+     End Select
+     COMMISSION2 = COMMISSION2 + (COMMISSION2 * Years / 100)
+End Function
+&#39;CalcComm会显示一个输入框，它请求用户输入销售额。下述过程使用了VBA内置的两个常量：vbTab代表一个制表符（隔开输出的不同部分），vbCrLf指定回车和换行（跳到下一行）。VBA的Format函数可以显示制定格式的值。&#39;
+Sub CalcComm()
+    Dim Sales As Double
+    Dim Message As String
+    Dim Ans As Integer
+
+&#39;   Prompt for sales amount&#39;
+    Sales = Val(InputBox(&quot;Enter Sales:&quot;, &quot;Sales Commission Calculator&quot;))
+
+&#39;   Exit if canceled&#39;
+    If Sales = 0 Then Exit Sub
+
+&#39;   Build the message&#39;
+    Message = &quot;Sales Amount:&quot; &amp; vbTab &amp; Format(Sales, &quot;$#,##0&quot;)
+    Message = Message &amp; vbCrLf &amp; &quot;Commission:&quot; &amp; vbTab
+    Message = Message &amp; Format(COMMISSION(Sales), &quot;$#,##0&quot;)
+    Message = Message &amp; vbCrLf &amp; vbCrLf &amp; &quot;Another?&quot;
+
+&#39;   Display the result and prompt for another&#39;
+    Ans = MsgBox(Message, vbYesNo, &quot;Sales Commission Calculator&quot;)
+    If Ans = vbYes Then CalcComm
+End Sub</code></pre>
+<p>示例三：</p>
+<pre><code class="vb">&#39;函数可以接受一个或多个数组，作为参数、处理数组并返回一个值。该数组可以由单元格组成。下面函数接受一个数组并返回数组内数字总和。&#39;
+Function SUMARRAY(List) As Double
+    Dim Item As Variant
+    SUMARRAY = 0
+    For Each Item In List
+        If WorksheetFunction.IsNumber(Item) Then _
+            SUMARRAY = SUMARRAY + Item
+    Next Item
+End Function
+&#39;下面过程阐述了如何从子过程调用这种函数。计算包含100个随机数的值的和。&#39;
+Sub MakeList()
+    Dim Nums(1 To 100) As Double
+    Dim i As Integer
+    For i = 1 To 100
+        Nums(i) = Rnd * 1000
+    Next i
+    MsgBox SUMARRAY(Nums)
+End Sub</code></pre>
+<p>示例四：</p>
+<pre><code class="vb">&#39;下面举例为带有可选参数的函自定义函数，该函数随机从输入单元格区域中选择一个单元格并返回了它的内容。如果第二个参数的值为True，那么只要重新计算工作表，所选中的单元格的值就会发生变化（即把这个函数标记为易失性函数）。&#39;
+Function DRAWONE(Rng As Variant, Optional Recalc As Boolean = False)
+&#39;    Chooses one cell at random from a range&#39;
+
+&#39;    Make function volatile if Recalc is True&#39;
+     Application.Volatile Recalc
+
+&#39;    Determine a random cell
+     DRAWONE = Rng(Int((Rng.Count) * Rnd + 1))
+End Function
+&#39;以下所有公式都是有效的，且前两个公式结果相同。&#39;
+= DRAWOME(A1:A100)
+= DRAWONE(A1:A100,False)
+= DRAWONE(A1:A100,True)
+
+Sub DescribeFunction()
+    Dim FuncName As String
+    Dim FuncDesc As String
+    Dim FuncCat As Long
+    Dim Arg1Desc As String, Arg2Desc As String
+
+    FuncName = &quot;DRAWONE&quot;
+    FuncDesc = &quot;Displays the contents of a random cell from a range&quot;
+    FuncCat = 5 &#39;Lookup &amp; Reference
+    Arg1Desc = &quot;The range that contains the values&quot;
+    Arg2Desc = &quot;(Optional) If False or missing, a new cell is not &quot;
+    Arg2Desc = Arg2Desc &amp; &quot;selected when recalculated. If True, a &quot;
+    Arg2Desc = Arg2Desc &amp; &quot;new cell is selected when recalculated.&quot;
+
+    Application.MacroOptions _
+        Macro:=FuncName, _
+        Description:=FuncDesc, _
+        Category:=FuncCat, _
+        ArgumentDescriptions:=Array(Arg1Desc, Arg2Desc)
+End Sub</code></pre>
+<p>示例五：</p>
+<pre><code class="vb">&#39;以下示例是一个返回VBA数组的函数。用到了VBA中的ARRAY函数，ARRAY函数返回包含一个数组的Variant数据类型的值（多个值）。使用VBA中的IsMissing函数来测试是否缺少参数，在此情况下，不可能为函数的参数列表中省略的参数指定默认值，因为默认值要在函数内部定义。只有当可选参数为Variant数据类型时，才可以使用IsMissing函数。&#39;
+Function MONTHNAMES(Optional MIndex)
+    Dim AllNames As Variant
+    Dim MonthVal As Long
+
+    AllNames = Array(&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;, &quot;Jun&quot;, _
+       &quot;Jul&quot;, &quot;Aug&quot;, &quot;Sep&quot;, &quot;Oct&quot;, &quot;Nov&quot;, &quot;Dec&quot;)
+    If IsMissing(MIndex) Then
+        MONTHNAMES = AllNames
+        Else
+        Select Case MIndex
+            Case Is &gt;= 1
+&#39;            Determine month value (for example, 13=1)
+             MonthVal = ((MIndex - 1) Mod 12)
+             MONTHNAMES = AllNames(MonthVal)
+          Case Is &lt;= 0 &#39; Vertical array
+             MONTHNAMES = Application.Transpose(AllNames)
+         End Select
+    End If
+End Function</code></pre>
+<p>示例六：</p>
+<pre><code class="vb">Function REMOVEVOWELS2(txt) As String
+&#39; Removes all vowels from the Txt argument&#39;
+&#39; Returns #Value if Txt is not a string&#39;
+    Dim i As Long
+    Dim TempString As String
+    TempString = &quot;&quot;
+    If Application.WorksheetFunction.IsText(Txt) Then
+        For i = 1 To Len(txt)
+            Select Case ucase(Mid(txt, i, 1))
+                Case &quot;A&quot;, &quot;E&quot;, &quot;I&quot;, &quot;O&quot;, &quot;U&quot;
+                    &#39;Do nothing
+                Case Else
+                    TempString = TempString &amp; Mid(txt, i, 1)
+                    REMOVEVOWELS2 = TempString
+            End Select
+        Next i
+    Else
+    REMOVEVOWELS = CVErr(xlErrNA)
+    End If
+End Function
+
+Sub ZapTheVowels()
+     Dim UserInput As String
+     UserInput = InputBox(&quot;Enter some text:&quot;)
+     MsgBox REMOVEVOWELS(UserInput), vbInformation, UserInput
+End Sub</code></pre>
+<p>示例七：</p>
+<pre><code class="vb">&#39;带有不定数量参数的函数。下面函数可以包含任意数量单个值的参数（不适用于多个单元格参数的参数）。该函数仅返回这些参数值的总和。&#39;
+Function SIMPLESUM(ParamArray arglist() As Variant) As Double
+    For Each arg In arglist
+        SIMPLESUM = SIMPLESUM + arg
+    Next arg
+End Function
+&#39;下面进行了修改以便能处理多个单元格的参数。&#39;
+Function SIMPLESUM(ParamArray arglist() As Variant) As Double
+    Dim Cell As Range
+    For Each arg In arglist
+        For Each Cell In arg
+            SIMPLESUM = SIMPLESUM + Cell
+        Next Cell
+    Next arg
+End Function</code></pre>
+<h2 id="模拟Excel的SUM函数"><a href="#模拟Excel的SUM函数" class="headerlink" title="模拟Excel的SUM函数"></a>模拟Excel的SUM函数</h2><pre><code class="vb">&#39;以下创建了自定义函数MYSUM，与上节介绍的SIMPLESUM函数不同的是，MYSUM函数将几乎完全模拟Excel中的SUM函数。&#39;
+Function MYSUM(ParamArray args() As Variant) As Variant
+&#39; Emulates Excel&#39;s SUM function&#39;
+
+&#39; Variable declarations&#39;
+  Dim i As Variant
+  Dim TempRange As Range, cell As Range
+  Dim ECode As String
+  Dim m, n
+  MYSUM = 0
+
+&#39; Process each argument&#39;
+  For i = 0 To UBound(args)
+&#39;   Skip missing arguments&#39;
+    If Not IsMissing(args(i)) Then
+&#39;     What type of argument is it?&#39;
+      Select Case TypeName(args(i))
+        Case &quot;Range&quot;
+&#39;         Create temp range to handle full row or column ranges&#39;
+          Set TempRange = Intersect(args(i).Parent.UsedRange, args(i))
+          For Each cell In TempRange
+            If IsError(cell) Then
+              MYSUM = cell &#39; return the error&#39;
+              Exit Function
+            End If
+            If cell = True Or cell = False Then
+              MYSUM = MYSUM + 0
+            Else
+              If IsNumeric(cell) Or IsDate(cell) Then _
+                 MYSUM = MYSUM + cell
+              End If
+          Next cell
+        Case &quot;Variant()&quot;
+            n = args(i)
+            For m = LBound(n) To UBound(n)
+               MYSUM = MYSUM(MYSUM, n(m)) &#39;recursive call
+            Next m
+        Case &quot;Null&quot;  &#39;ignore it&#39;
+        Case &quot;Error&quot; &#39;return the error&#39;
+          MYSUM = args(i)
+          Exit Function
+        Case &quot;Boolean&quot;
+&#39;         Check for literal TRUE and compensate
+          If args(i) = &quot;True&quot; Then MYSUM = MYSUM + 1
+        Case &quot;Date&quot;
+          MYSUM = MYSUM + args(i)
+        Case Else
+          MYSUM = MYSUM + args(i)
+      End Select
+    End If
+  Next i
+End Function</code></pre>
+<h2 id="扩展日期函数"><a href="#扩展日期函数" class="headerlink" title="扩展日期函数"></a>扩展日期函数</h2><p>VBA可以识别的最早日期为0100年1月1日。以下为常用日期函数：</p>
+<ul>
+<li>XDATE(y,m,d,fmt)：返回给定年、月、日的日期。选择提供日期格式字符串。</li>
+<li>XDATEADD(xdate1,days,fmt)：将一个日期增加指定的天数。fmt为可以选择提供日期的字符串。</li>
+<li>XDATEDIF(xdate1,xdate2)：返回两个日期相隔天数。</li>
+<li>XDATEYEARDIF(xdate1,xdate2)：返回两个日期之间相隔的年数。</li>
+<li>XDATEYEAR(xdate1)：返回第一个日起年份。</li>
+<li>XDATEMONTH(xdate1)：返回第一个日起月份。</li>
+<li>XDATEDAY(xdate1)：返回第一个日期日子。</li>
+<li>XDATEDOW(xdate1)：返回一个日期是一周中的哪一天(1~7的整数)</li>
+</ul>
+<h2 id="函数的调试"><a href="#函数的调试" class="headerlink" title="函数的调试"></a>函数的调试</h2><p>在工作表中使用公式来测试函数过程时，VBA运行错误不会出现在熟悉的弹出式错误框中。</p>
+<ul>
+<li>把MsgBox函数放在关键位置中以监视特定变量的值。</li>
+<li>通过从子过程调用函数而不是从工作表公式来测试过程。</li>
+<li>在函数中设置断点，然后逐语句调试函数。</li>
+<li>在代码中使用一个或多个临时的Debug.Print语句，进而在VBE中的“立即窗口”中写入数值。</li>
+</ul>
+<h1 id="第五天：了解Excel事件"><a href="#第五天：了解Excel事件" class="headerlink" title="第五天：了解Excel事件"></a>第五天：了解Excel事件</h1><h2 id="识别Excel可以监视的事件类型"><a href="#识别Excel可以监视的事件类型" class="headerlink" title="识别Excel可以监视的事件类型"></a>识别Excel可以监视的事件类型</h2><p>对于Excel来说，发生任何事情都要通过事件。某个具体事件发生时，就是告诉Excel要运行的某个宏或某段代码。Excel可监视很多不同的事件，可以分为以下几类：</p>
+<ul>
+<li>工作簿事件：某个具体工作簿发生的事件。包括Open事件，BeforeSave事件和NewSheet事件等。</li>
+<li>工作表事件：某个具体工作表发生的事件。此类事件包括Change事件，SelectionChange事件和Calculate事件等。</li>
+<li>图表事件：某个具体图表发生的事件。此类事件包括Select事件和SeriesChange事件等。</li>
+<li>应用程序事件：应用程序发生的事件。此类事件包括NewWorkbook事件、WorkbookBeforeClose事件和SheetChange事件等。</li>
+<li>用户窗体事件：具体的用户窗体或包含在该用户窗体中的对象发生的事件。Initialize事件和Click事件。</li>
+<li>与对象无关的事件。Ontime事件和Onkey事件。</li>
+</ul>
+<p>事件以特定的顺序发生VB编辑器窗口中，每个工程都被列在了工程窗口，工程组件被排在了一个折叠窗口。每个组件都有自己的代码模块：</p>
+<ul>
+<li>Sheet对象：使用这个模块处理与特定工作表有关的代码。</li>
+<li>Chart对象：使用这个模块处理与图表有关的代码。</li>
+<li>ThisWorkbook对象：使用这个模块处理与工作簿有关的事件处理代码。</li>
+<li>通用VBA模块：不能把事件处理程序放在一个通用（即非对象）模块。</li>
+<li>UserForm对象：使用这个模块处理与用户窗体或用户窗体上的控件有关的事件处理程序代码。</li>
+<li>类模块：使用类模块处理特定的事件处理程序，包括应用程序级别的事件和嵌入式图表事件。</li>
+</ul>
+<p>即使<strong>事件处理程序必须放在正确的模块中</strong>，过程也可以调用存储在其他模块中其他标准过程。</p>
+<p><strong>禁用事件</strong>通常是为了防止级联事件的无限循环，防止级联顺序的无限循环的另一种方法为在程序开头声明一个Static布尔变量：</p>
+<pre><code class="vb">&#39;示例&#39;
+Static AbortProc As Boolean
+IfAborProc = False
+    AbortProc = False
+    Exit = Sub
+End If
+&#39;禁用和启用事件使用如下代码&#39;
+Application.EnableEvents = False
+Application.EnableEvents = True</code></pre>
+<p><strong>使用参数的事件处理程序</strong>：有些事件处理程序会使用一个参数列表。例如，创建一个事件处理程序来监视工作簿的SheetActivate事件，工作簿的BeforePrint事件。</p>
+<pre><code class="vb">&#39;工作簿的BeforePrint事件&#39;
+Private Sub Workbook_BeforePrint(Cancel As Boolean)
+    Dim Msg As String, Ans As Integer
+    Msg = &quot;Have you loaded the 5164 label stock?&quot;
+    Ans = MsgBox(Msg, vbYesNo, &quot;About to print...&quot;)
+    If Ans = vbNo Then Cancel = True
+End Sub
+&#39;工作簿的SheetActivate事件&#39;
+Private Sub Workbook_SheetActivate(ByVal Sh As Object)
+    MsgBox TypeName(Sh) &amp; vbCrLf &amp; Sh.Name
+End Sub</code></pre>
+<h2 id="工作簿级别的事件"><a href="#工作簿级别的事件" class="headerlink" title="工作簿级别的事件"></a>工作簿级别的事件</h2><p><strong>Open事件</strong>：</p>
+<pre><code class="vb">&#39;Workbook_Open过程的一个示例。它使用VBA的Weekday函数来确定今天是星期几，如果为星期五则会弹出消息框&#39;
+Private Sub Workbook_Open()
+    If Weekday(Now) = vbFriday Then
+        Msg = &quot;Today is Friday.Make sure that you &quot;
+        Msg = Msg &amp; &quot;do your weekly backup!&quot;
+        MsgBox Msg, vbInformation
+    End If
+End Sub</code></pre>
+<p><strong>NewSheet事件</strong>：</p>
+<pre><code class="vb">&#39;向工作簿中添加一个新工作表中执行下列过程。该工作表将作为参数传递给过程。由于新表可以是工作表也可以是图表，因此If语句判断工作表类型。若是工作表，代码会调整全部列宽度，并在新的工作表单元格A1中插入一个日期和时间戳。&#39;
+Private Sub Workbook_NewSheet(ByVal Sh As Object)
+    If TypeName(Sh) = &quot;Worksheet&quot; Then
+        Sh.Cells.ColumnWidth = 35
+        Sh.Range(&quot;A1&quot;) = &quot;Sheet added &quot; &amp; Now()
+    End If
+End Sub</code></pre>
+<p><strong>Deactivate事件</strong>：</p>
+<pre><code class="vb">&#39;该过程在工作簿被禁用并且不再让用户禁用该工作簿时执行。&#39;
+Private Sub Workbook_Deactivate()
+    Me.Activate
+    MsgBox &quot;Sorry, you may not leave this workbook&quot;
+End Sub</code></pre>
+<p><strong>BeforPrint事件</strong>：</p>
+<pre><code class="vb">&#39;该过程在工作簿打印或预览时更新每个工作表的左页脚，在Sheet1上插入单元格A1的内容。&#39;
+Private Sub Workbook_BeforePrint(Cancel As Boolean)
+    Dim sht As Object
+    For Each sht In ThisWorkbook.Sheets
+        sht.PageSetup.LeftFooter = Worksheets(&quot;Sheet1&quot;).Range(&quot;A1&quot;)
+    Next sht
+End Sub
+&#39;在打印或预览之前隐藏工作表Sheet1中的B:D列&#39;
+Private Sub Workbook_BeforePrint(Cancel As Boolean)
+    Worksheets(&quot;Sheet1&quot;).Range(&quot;B:D&quot;).EntireColumn.Hidden = True
+End Sub 
+&#39;调度了OnTime事件，该事件在打印或预览5秒后调用一个名为UnhideColumns的过程。&#39;
+Private Sub Workbook_BeforePrint(Cancel As Boolean)
+    Worksheets(&quot;Sheet1&quot;).Range(&quot;B:D&quot;).EntireColumn.Hidden = True
+    Application.OnTime Now() + TimeValue(&quot;0:00:05&quot;),&quot;UnhideColumns&quot;
+End Sub </code></pre>
+<p><strong>BeforeClose事件</strong>：</p>
+<pre><code class="vb">&#39;打开一个工作簿，能显示自定义快捷菜单。工作簿打开时，使用Work_Open创建菜单项，关闭工作簿时使用Workbook_BeforeClose过程来删除这些菜单项。&#39;
+Private Sub Workbook_Open()
+    &#39;simulated procedure
+    Call CreateShortcutMenuItems
+    MsgBox &quot;Shortcut menu items have been added.&quot;
+End Sub
+&#39;该过程检查了Workbook对象的Saved属性。&#39;
+Private Sub Workbook_BeforeClose(Cancel As Boolean)
+    Dim Msg As String
+    If Me.Saved = False Then
+        Msg = &quot;Do you want to save the changes you made to &quot;
+        Msg = Msg &amp; Me.Name &amp; &quot;?&quot;
+        Ans = MsgBox(Msg, vbQuestion + vbYesNoCancel)
+        Select Case Ans
+            Case vbYes
+                Me.Save
+            Case vbCancel
+                Cancel = True
+                Exit Sub
+        End Select
+    End If
+    Call DeleteShortcutMenuItems
+    Me.Saved = True
+End Sub
+
+Sub DeleteShortcutMenuItems()
+    &#39;simulated procedure
+    MsgBox &quot;Shortcut menu items have been deleted.&quot;
+End Sub</code></pre>
+<h2 id="检查工作表事件"><a href="#检查工作表事件" class="headerlink" title="检查工作表事件"></a>检查工作表事件</h2><p><strong>Change事件</strong>：</p>
+<pre><code class="vb">&#39;当用户修改工作表中任何单元格时都会触发Change事件，当计算某个公式而生成的值或向工作表添加一个对象时，并不会触发Change事件。以下过程在工作表被修改时执行，显示一个消息框，这个消息框用来显示Target单元格区域的地址。&#39;
+Private Sub Worksheet_Change(ByVal Target As Excel.Range)
+    MsgBox &quot;Range &quot; &amp; Target.Address &amp; &quot; was changed.&quot;
+End Sub
+&#39;监视特定单元格区域修改。以下过程假设工作表有一个名为InputRange的单元格区域，只监视该单元格，使用了名为MRange的Range对象，表明想要监视其改动的单元格区域。该过程使用VBA中的Intersect函数来确定Target单元格区域是否与MRange单元格区域相交叉。&#39;
+Private Sub Worksheet_Change(ByVal Target As Excel.Range)
+    Dim MRange As Range
+    Set MRange = Range(&quot;InputRange&quot;)
+    If Not Intersect(Target, MRange) Is Nothing Then _
+        MsgBox &quot;A changed cell is in the input range.&quot;
+End Sub
+
+&#39;监视单元格区域，将公式加粗。首先利用Intersect确定Target区域与工作表已使用的单元格区域的交集来确定符合条件的单元格区域。&#39;
+Private Sub Worksheet_Change(ByVal Target As Excel.Range)
+    Dim cell As Range
+    Set Target = Intersect(Target, Target.Parent.UsedRange)
+    If Not Target Is Nothing Then
+        For Each cell In Target
+            If cell.HasFormula Then cell.Font.Bold = True
+        Next cell
+    End If
+End Sub
+
+&#39;监视单元格区域，验证数据有效性。Worksheet_Change过程创建了一个Range对象，表示待验证的工作表单元格区域。然后循环遍历Target参数中的每个单元格，该参数表示被修改的单元格。代码确定是否每个单元格都包含在待验证的单元格区域中。如果是，则会将该单元格作为参数传递给另一个自定义函数(EntryIsValid)，如果该单元格是一个有效的输入，则返回True。如果不是有效的，EntryIsValid函数将返回一个字符串来说明该问题，并通过一个消息框通知用户。消息框被解除后，无效输入会从单元格清除，单元格被激活。注意：在清空单元格之前，事件是禁用的。如果事件没有禁用，那么清空单元格会生成Change事件从而引起死循环。&#39;            
+Private Sub Worksheet_Change(ByVal Target As Excel.Range)
+    Dim VRange As Range, cell As Range
+    Dim Msg As String
+    Dim ValidateCode As Variant
+    Set VRange = Range(&quot;InputRange&quot;)
+    If Intersect(VRange, Target) Is Nothing Then Exit Sub
+    For Each cell In Intersect(VRange, Target)
+        ValidateCode = EntryIsValid(cell)
+        If TypeName(ValidateCode) = &quot;String&quot; Then
+            Msg = &quot;Cell &quot; &amp; cell.Address(False, False) &amp; &quot;:&quot;
+            Msg = Msg &amp; vbCrLf &amp; vbCrLf &amp; ValidateCode
+            MsgBox Msg, vbCritical, &quot;Invalid Entry&quot;
+            Application.EnableEvents = False
+            cell.ClearContents
+            cell.Activate
+            Application.EnableEvents = True
+        End If
+    Next cell
+End Sub
+
+Private Function EntryIsValid(cell) As Variant
+&#39;   Returns True if cell is an integer between 1 and 12&#39;
+&#39;   Otherwise it returns a string that describes the problem&#39;
+
+&#39;   Numeric&#39;
+    If Not WorksheetFunction.IsNumber(cell) Then
+        EntryIsValid = &quot;Non-numeric entry.&quot;
+        Exit Function
+    End If
+
+&#39;   Integer?&#39;
+    If CInt(cell) &lt;&gt; cell Then
+        EntryIsValid = &quot;Integer required.&quot;
+        Exit Function
+    End If
+
+&#39;   Between 1 and 12?&#39;
+    If cell &lt; 1 Or cell &gt; 12 Then
+        EntryIsValid = &quot;Valid values are between 1 and 12.&quot;
+        Exit Function
+    End If
+
+&#39;   It passed all the tests&#39;
+    EntryIsValid = True
+End Function
+&#39;以上方法过于冗余，调整为下&#39;
+Private Sub Worksheet_Change(ByVal Target As Range)
+    Dim VT As Long
+    &#39;Do all cells in the validation range&#39;
+    &#39;still have validation?&#39;
+    On Error Resume Next
+    VT = Range(&quot;InputRange&quot;).Validation.Type
+    If Err.Number &lt;&gt; 0 Then
+        Application.Undo
+        MsgBox &quot;Your last operation was canceled. &quot; &amp; _
+        &quot;It would have deleted data validation rules.&quot;, vbCritical
+    End If
+End Sub</code></pre>
+<p><strong>SelectionChange事件</strong>：</p>
+<pre><code class="vb">&#39;以下过程显示了SelectionChange事件，当用户在工作表中做出新的选择会执行该事件。&#39;
+Private Sub Worksheet_SelectionChange(ByVal Target As Excel.Range)
+    Cells.Interior.ColorIndex = xlNone &#39;将工作表中所有单元格的背景色删除。&#39;
+    With ActiveCell &#39;活动单元格在整行和整列上都被加上了淡蓝色的阴影。&#39;
+        .EntireRow.Interior.Color = RGB(219, 229, 241)
+        .EntireColumn.Interior.Color = RGB(219, 229, 241)
+    End With
+End Sub</code></pre>
+<p>注意：执行Worksheet_SelectionChange宏会销毁Undo堆栈，因此使用该技术禁用Excel撤销功能。</p>
+<p><strong>BeforeDoubleClick事件</strong>：</p>
+<pre><code class="vb">&#39;以下过程在双击单元格会切换单元格样式，在Good和Normal样式间进行切换。&#39;
+Private Sub Worksheet_BeforeDoubleClick _
+  (ByVal Target As Excel.Range, Cancel As Boolean)
+    If Target.Style = &quot;Good&quot; Then
+        Target.Style = &quot;Normal&quot;
+    Else
+        Target.Style = &quot;Good&quot;
+    End If
+    Cancel = True
+End Sub</code></pre>
+<p><strong>BeforRightClick事件</strong>：</p>
+<pre><code class="vb">&#39;以下过程捕获RightClick事件，将Cancel参数设置为True，这样就取消了RightClick事件，取消了快捷菜单。&#39;
+Private Sub Worksheet_BeforeRightClick _
+  (ByVal Target As Excel.Range, Cancel As Boolean)
+    Cancel = True
+    MsgBox &quot;The shortcut menu is not available.&quot;
+End Sub
+&#39;以下过程检验了右击的单元格是否包含数值，如果包含，则会显示“设置单元格格式”对话框的“数字”选项卡，并将Cancel参数设置为True（避免显示正常的快捷菜单），如果单元格不包含数值，则不发生任何事。&#39;
+Private Sub Worksheet_BeforeRightClick _
+  (ByVal Target As Excel.Range, Cancel As Boolean)
+  If IsNumeric(Target) And Not IsEmpty(Target) Then
+    Application.CommandBars.ExwcuteMso (&quot;NumberFormastDialog&quot;)
+    Cancel = True
+    End If
+End Sub</code></pre>
+<h2 id="监视应用程序事件"><a href="#监视应用程序事件" class="headerlink" title="监视应用程序事件"></a>监视应用程序事件</h2><p>要监视所有打开的工作簿或工作表，可使用应用程序级别的事件。</p>
+<p><strong>启用应用程序级别事件</strong>：要使用Application级别的事件，需要执行如下操作：</p>
+<ul>
+<li>创建一个新的<strong>类模块</strong></li>
+<li>“视图”|“属性窗口”|“属性”|“名称”下设置类模块名称，例如clsApp</li>
+</ul>
+<ul>
+<li>在该类模块中，使用WithEvents关键字来声明一个公共的Application对象</li>
+</ul>
+<p>​        例如:</p>
+<pre><code>   ```vb</code></pre><p>Public WithEvents XL As Application<br>       ```</p>
+<ul>
+<li>创建一个变量，该变量用来指向类模块中声明的Application对象。该变量应该是在常规的VBA模块（而非类模块）中声明的模块级别对象变量。</li>
+</ul>
+<pre><code class="vb">Dim X As New clsApp</code></pre>
+<ul>
+<li>将声明的变量与Application对象连接到一起，这通常在Workbook_Open过程中完成。</li>
+</ul>
+<pre><code class="vb">Set X.XL = Application</code></pre>
+<ul>
+<li>为类模块中的XL对象编写事件处理程序。</li>
+</ul>
+<p><strong>确定工作簿何时被打开</strong>：</p>
+<p>该示例通过将信息存储在CSV文本文件中，来追踪打开每个工作簿，该文件可导入Excel中。首先插入一个新的类模块，将其命名为claApp，类模块代码如下：</p>
+<pre><code class="vb">&#39;该段代码将AppEvents声明为一个包含事件的Application对象。打开工作簿就会调用AppEvents_WorkbookOpen过程，该事件处理程序调用了UpdateLogFile过程，并传递了Wb变量，该变量表示的是打开的工作簿。&#39;
+Public WithEvents AppEvents As Application
+
+Private Sub AppEvents_WorkbookOpen(ByVal Wb As Excel.Workbook)
+    Call UpdateLogFile(Wb)
+End Sub</code></pre>
+<p>然后添加一个VBA模块，插入如下代码：</p>
+<pre><code class="vb">Sub Init()
+&#39;   Called by Workbook_Open
+    Set AppObject.AppEvents = Application &#39;AppObject被声明为clsApp（类模块的名称）类型。&#39;
+End Sub
+    &#39;UpdateLogFile过程打开一个文本文件，如果不存在则会创建一个文本文件。然后写入被打开工作簿的信息。&#39;
+Sub UpdateLogFile(Wb)
+    Dim txt As String
+    Dim Fname As String
+    On Error Resume Next
+    txt = Wb.FullName
+    txt = txt &amp; &quot;,&quot; &amp; Date &amp; &quot;,&quot; &amp; Time
+    txt = txt &amp; &quot;,&quot; &amp; Application.UserName
+    Fname = Application.DefaultFilePath &amp; &quot;\logfile.csv&quot;
+    Open Fname For Append As #1
+    MsgBox txt &#39;用来显示写入CSV文件的信息&#39;
+    Print #1, txt
+    Close #1
+End Sub</code></pre>
+<p>对Init过程的调用放在Workbook_Open过程中，该过程位于ThisWorkbook的代码模块中，该过程如下：</p>
+<pre><code class="vb">Private Sub Workbook_Open() &#39;当工作簿被打开时，Init就会创建对象变量。&#39;
+    Call Init
+End Sub</code></pre>
+<h2 id="访问与对象无关联的事件"><a href="#访问与对象无关联的事件" class="headerlink" title="访问与对象无关联的事件"></a>访问与对象无关联的事件</h2><p><strong>OnTime事件</strong></p>
+<pre><code class="vb">&#39;该示例中，SetAlarm过程使用Application对象的OnTime方法来设置OnTime事件。该方法使用了两个参数，时间和时间到来时执行的过程。&#39;
+Sub SetAlarn()
+    Application.OnTime TimeValue(&quot;15:00:00&quot;), &quot;DisplayAlarm&quot; &#39;下午三点执行&#39;
+    &#39;Application.OnTime Now+TimeValue(&quot;00:20:00&quot;), &quot;DisplayAlarm&quot;，此为二十分钟后执行&#39;
+    &#39;Application.OnTime DateSerial(2013,4,1)+TimeValue(&quot;15:00:00&quot;), &quot;DisplayAlarm&quot;,具体时间&#39;
+End Sub
+
+Sub DisplayAlarm()
+    Beep
+    MsgBox &quot;Wake Up.It&#39;s time for yoyr afternoon break&quot;
+End Sub</code></pre>
+<pre><code class="vb">&#39;下面过程展示了如何编辑重复文件。示例中，单元格A1每5秒更新一次时间。执行UpdateClock过程会将时间写入单元格A1中，5秒后则编辑另一个事件。则事件重复运行UpdateClock过程。如果要停止事件，挨饿执行StopClock过程。NextTick是一个模块级别的变量，它保存下一个事件的时间。&#39;
+Dim NextTick As Date
+
+Sub UpdateClock()
+&#39;   Updates cell A1 with the current time&#39;
+    ThisWorkbook.Sheets(1).Range(&quot;A1&quot;) = Time
+&#39;   Set up the next event five seconds from now&#39;
+    NextTick = Now + TimeValue(&quot;00:00:05&quot;)
+    Application.OnTime NextTick, &quot;UpdateClock&quot;
+End Sub
+
+Sub StopClock()
+&#39;   Cancels the OnTime event (stops the clock)&#39;
+    On Error Resume Next
+    Application.OnTime NextTick, &quot;UpdateClock&quot;, , False
+End Sub</code></pre>
+<p><strong>OnKey事件</strong></p>
+<pre><code class="vb">&#39;下面的示例使用了Onkey方法来建立一个OnKey事件。该事件重新指定了PgDn和PgUp键。执行Setup_OnKey过程后，按下PgDn键会执行PgDn_Sub过程，按下PgUp键会执行PgUp_Sub过程。最终的效果是，按下PgDn键将会将指针下移一行，按PgUp键会将指针上移一行。使用PgUp和PgDn的按键组合不受影响。所以，诸如Ctrl+PgDn的组合键仍会激活工作簿的下一个工作表。&#39;
+Sub Setup_OnKey()
+    Application.OnKey &quot;{PgDn}&quot;, &quot;PgDn_Sub&quot;
+    Application.OnKey &quot;{PgUp}&quot;, &quot;PgUp_Sub&quot;
+    MsgBox &quot;PgUp and PgDown have been re-mapped.&quot;
+End Sub
+
+Sub Cancel_OnKey() &#39;执行此过程将OnKey事件取消，将这些按键恢复到正常的功能。&#39;
+    Application.OnKey &quot;{PgDn}&quot;
+    Application.OnKey &quot;{PgUp}&quot;
+    MsgBox &quot;PgUp and PgDown have been restored to normal.&quot;
+End Sub
+
+Sub PgDn_Sub()
+    On Error Resume Next &#39;使用此语句来忽略生成的所有错误，如第一行的PgUp,图表工作表下的移动等。&#39;
+    ActiveCell.Offset(1, 0).Activate
+End Sub
+
+Sub PgUp_Sub()
+    On Error Resume Next
+    ActiveCell.Offset(-1, 0).Activate
+End Sub
+</code></pre>
+<h1 id="第六天-VBA编程示例与技巧"><a href="#第六天-VBA编程示例与技巧" class="headerlink" title="第六天 VBA编程示例与技巧"></a>第六天 VBA编程示例与技巧</h1><h2 id="使用VBA处理单元格区域"><a href="#使用VBA处理单元格区域" class="headerlink" title="使用VBA处理单元格区域"></a>使用VBA处理单元格区域</h2><p>处理VBA单元格区域包括以下几个方面：复制单元格区域、移动单元格区域、选择单元格区域、确定单元格内信息类型、提示输入单元格的值、确定一列中第一个空单元格、暂停宏以允许用户选择单元格区域、统计单元格区域中的单元格数、遍历单元格区域中的单元格以及其他几个与单元格有关的常用操作。</p>
+<p><strong>复制单元格</strong></p>
+<pre><code class="vbscript">&#39;单元格Copy方法可以接受一个参数，该参数代表已复制单元格区域的目标。&#39;
+Sub CopyRange1()
+    Range(&quot;A1&quot;).Copy Range(&quot;B1&quot;) &#39;活动工作表时可用&#39;
+    Range(&quot;A1:C100&quot;).Copy Range(&quot;D1&quot;) &#39;复制单元格区域，目标是粘贴到的左上单元格&#39;
+End Sub
+
+Sub CopyRange2()
+    Workbook(&quot;File1.xlsx&quot;).Sheets(&quot;Sheet1&quot;).Range(&quot;A1&quot;).Copy _
+    Workbook(&quot;File2.xlsx&quot;).Sheets(&quot;Sheet1&quot;).Range(&quot;A1&quot;) &#39;任意工作簿均可使用&#39;
+End Sub
+&#39;使用对象变量来代表单元格&#39;
+Sub CopyRange3()
+    Dim Rng1 As Range, Rng2 As Range
+    Set Rng1 = Workbook(&quot;File1.xlsx&quot;).Sheets(&quot;Sheet1&quot;).Range(&quot;A1&quot;)
+    Set Rng2 = Workbook(&quot;File2.xlsx&quot;).Sheets(&quot;Sheet1&quot;).Range(&quot;A1&quot;)
+    Rng1.Copy Rng2
+End Sub</code></pre>
+<p><strong>移动单元格</strong></p>
+<pre><code class="vb">&#39;移动单元格可以使用Cut方法，需要指出目的地单元格区域左上方单元格&#39;
+Sub MoveRange1()
+    Range(&quot;A1:C6&quot;).Cut Range(&quot;H1&quot;) 
+End Sub</code></pre>
+<p><strong>复制大小可变的单元格区域</strong></p>
+<pre><code class="vb">&#39;用到了CurrentRegion属性，返回某个特殊的单元格区域，此例为返回单元格A1&#39;
+Sub CopyCurrentRegion2()
+    Range(&quot;A1&quot;).CurrentRegion.Copy Sheets(&quot;Sheet2&quot;).Range(&quot;A1&quot;)
+End Sub
+&#39;若要复制的单元格区域是一个表，可以使用如下代码：&#39;
+Sub CopyTable()
+    Range(&quot;Table[#A11]&quot;).Copy Sheets(&quot;Sheet2&quot;).Range(&quot;A1&quot;)
+End Sub</code></pre>
+<p><strong>选中或识别各种类型的单元格区域</strong></p>
+<pre><code class="vb">&#39;Range对象的End方法，End方法接受了一个参数，这个参数决定了选区的扩展方向，以下语句从单元格到某方向的最后一个非空单元格，若为空行，则到最后一个单元格。&#39;
+Range(ActiveCell,ActiveCell.End(xlDown)).Select &#39;从单元格一直选到了表格中最后一个非空单元格&#39;
+Range(Range(&quot;A2&quot;),Range(&quot;A2&quot;).End(xlDown)).Select &#39;使用一个特定的单元格作为起点&#39;
+Range(ActiveCell, ActiveCell.End(xlUp)).Select &#39;向上选择&#39;
+Range(ActiveCell, ActiveCell.End(xlToRight)).Select &#39;向右选择&#39;
+Range(ActiveCell, ActiveCell.End(xlToLeft)).Select &#39;向左选择&#39;
+ActiveCell.CurrentRegion.Select &#39;选中当前区域&#39;
+
+Sub SelectActiveArea()&#39;
+Range(Range(&quot;A1&quot;), ActiveCell.SpecialCells(xlLastCell)).Select &#39;选中从A1开始到最后的单元格区域&#39;
+End Sub
+
+Sub SelectActiveColumn() &#39;选中列，至山或下为空单元格为止&#39;
+    Dim TopCell As Range
+    Dim BottomCell As Range   
+    If IsEmpty(ActiveCell) Then Exit Sub
+&#39;   ignore error if activecell is in Row 1
+    On Error Resume Next
+    If IsEmpty(ActiveCell.Offset(-1, 0)) Then Set TopCell = ActiveCell Else Set TopCell = ActiveCell.End(xlUp)
+    If IsEmpty(ActiveCell.Offset(1, 0)) Then Set BottomCell = ActiveCell Else Set BottomCell = ActiveCell.End(xlDown)
+    Range(TopCell, BottomCell).Select
+End Sub
+
+&#39;选中行，直到左行左右均为空单元格为止&#39;
+Sub SelectActiveRow()
+    Dim LeftCell As Range
+    Dim RightCell As Range
+
+    If IsEmpty(ActiveCell) Then Exit Sub
+&#39;   ignore error if activecell is in Column A
+    On Error Resume Next
+    If IsEmpty(ActiveCell.Offset(0, -1)) Then Set LeftCell = ActiveCell Else Set LeftCell = ActiveCell.End(xlToLeft)
+    If IsEmpty(ActiveCell.Offset(0, 1)) Then Set RightCell = ActiveCell Else Set RightCell = ActiveCell.End(xlToRight)
+    Range(LeftCell, RightCell).Select
+End Sub
+
+&#39;选取整列&#39;
+Sub SelectEntireColumn()
+    ActiveCell.EntireColumn.Select
+End Sub
+
+&#39;选取整行&#39;
+Sub SelectEntireRow()
+    ActiveCell.EntireRow.Select
+End Sub
+
+&#39;选取整个工作表&#39;
+Sub SelectEntireSheet()
+    Cells.Select&#39;
+End Sub
+
+&#39;向下选取非空单元格&#39;
+Sub ActivateNextBlankDown()
+    ActiveCell.Offset(1, 0).Select
+    Do While Not IsEmpty(ActiveCell)
+        ActiveCell.Offset(1, 0).Select
+    Loop
+End Sub
+
+&#39;向右选取非空单元格&#39;
+Sub ActivateNextBlankToRight()
+    ActiveCell.Offset(0, 1).Select
+    Do While Not IsEmpty(ActiveCell)
+        ActiveCell.Offset(0, 1).Select
+    Loop
+End Sub
+
+&#39;选中一行中第一个非空到最后一个非空单元格区域&#39;
+Sub SelectFirstToLastInRow()
+    Dim LeftCell As Range
+    Dim RightCell As Range
+
+    Set LeftCell = Cells(ActiveCell.Row, 1)
+    Set RightCell = Cells(ActiveCell.Row, 256)
+
+    If IsEmpty(LeftCell) Then Set LeftCell = LeftCell.End(xlToRight)
+    If IsEmpty(RightCell) Then Set RightCell = RightCell.End(xlToLeft)
+    If LeftCell.Column = 256 And RightCell.Column = 1 Then ActiveCell.Select Else Range(LeftCell, RightCell).Select
+End Sub
+
+&#39;选中一列中第一个非空到最后一个非空单元格区域&#39;
+Sub SelectFirstToLastInColumn()
+    Dim TopCell As Range
+    Dim BottomCell As Range
+
+    Set TopCell = Cells(1, ActiveCell.Column)
+    Set BottomCell = Cells(16384, ActiveCell.Column)
+
+    If IsEmpty(TopCell) Then Set TopCell = TopCell.End(xlDown)
+    If IsEmpty(BottomCell) Then Set BottomCell = BottomCell.End(xlUp)
+    If TopCell.Row = 16384 And BottomCell.Row = 1 Then ActiveCell.Select Else Range(TopCell, BottomCell).Select
+End Sub
+                                                                                                 &#39;选中当前区域&#39;                                                                  
+Sub SelectCurrentRegion()
+    ActiveCell.CurrentRegion.Select
+End Sub
+
+Sub FormatCurrentRegion() &#39;不选中单元格而以某种方式处理它们的情况&#39;
+    ActiveCell.CurrentRegion.Font.Bold = True
+End Sub</code></pre>
+<p><strong>调整单元格区域大小</strong></p>
+<pre><code class="vb">&#39;Range的Resize属性使得很容易改变单元格大小，Resize有两个参数，分别表示被调整的单元格区域的总行数和总列数&#39;
+&#39;执行以下语句后，MyRange对象变成了20行5列（单元格区域A1:E20）&#39;
+Set MyRange = Range(&quot;A1&quot;)
+Set MyRange = MyRange.Resize(20,5)
+&#39;以下语句使MyRange的大小增加一行，由于省略了第二个参数，列数不变&#39;
+Set MyRange = MyRange.Resize(MyRange.Rows.Count + 1)      
+
+&#39;更改单元格区域名称定义，名为Data的单元格区域需要添加额外一行来扩展命名的单元格区域&#39;         
+With Range(&quot;Data&quot;)
+   .Resize(.Rows.Count +1).Name = &quot;Data&quot;
+End With</code></pre>
+<p><strong>提示输入单元格的值</strong></p>
+<pre><code class="vb">&#39;会弹出InputBox输入框，从用户那里获得要要插入到单元格的值&#39;
+Sub GetValue1()
+    Range(&quot;A1&quot;).Value = InputBox(&quot;Enter the value&quot;)
+End Sub
+
+&#39;如果用户单击“取消”按钮则会导致UserEntry变为空值，不会采取任何动作&#39;
+Sub GetValue2()
+    Dim UserEntry As Variant
+    UserEntry = InputBox(&quot;Enter the value&quot;)
+    If UserEntry &lt;&gt; &quot;&quot; Then Range(&quot;A1&quot;).Value = UserEntry
+End Sub
+
+&#39;增加有效性验证条件，要求输入的为介于1和12之间的数值&#39;
+Sub GetValue3()
+    Dim UserEntry As Variant
+    Dim Msg As String
+    Const MinVal As Integer = 1
+    Const MaxVal As Integer = 12
+    Msg = &quot;Enter a value between &quot; &amp; MinVal &amp; &quot; and &quot; &amp; MaxVal
+    Do
+        UserEntry = InputBox(Msg)
+        If UserEntry = &quot;&quot; Then Exit Sub
+        If IsNumeric(UserEntry) Then
+            If UserEntry &gt;= MinVal And UserEntry &lt;= MaxVal Then Exit Do
+        End If
+        Msg = &quot;Your previous entry was INVALID.&quot;
+        Msg = Msg &amp; vbNewLine
+        Msg = Msg &amp; &quot;Enter a value between &quot; &amp; MinVal &amp; &quot; and &quot; &amp; MaxVal
+    Loop
+    ActiveSheet.Range(&quot;A1&quot;).Value = UserEntry
+End Sub</code></pre>
+<p><strong>在下一个空单元格中输入一个值</strong></p>
+<pre><code class="vb">&#39;下例提示用户输入姓名和数值，然后把这些数据输入下一个空白行中。&#39;
+Sub GetData()
+    Dim NextRow As Long
+    Dim Entry1 As String, Entry2 As String
+  Do
+    &#39;Determine next empty row&#39;
+    NextRow = Cells(Rows.Count, 1).End(xlUp).Row + 1
+
+&#39;   Prompt for the data
+    Entry1 = InputBox(&quot;Enter the name&quot;)
+    If Entry1 = &quot;&quot; Then Exit Sub
+    Entry2 = InputBox(&quot;Enter the amount&quot;)
+    If Entry2 = &quot;&quot; Then Exit Sub
+
+&#39;   Write the data
+    Cells(NextRow, 1) = Entry1
+    Cells(NextRow, 2) = Entry2
+  Loop
+End Sub</code></pre>
+<p><strong>暂停宏运行以便获得用户选中的单元格区域</strong></p>
+<pre><code class="vb">&#39;下例使用了Excel的InputBox方法（Excel的Input方法与VBA的InputBox函数不同）。下例阐述了如何暂停宏的运行并允许用户选中单元格。随后代码把公式插入指定元格区域的每个单元格中。&#39;
+&#39;把InputBox方法的Type参数的值设为8是这个过程的关键。Type参数为8是告诉这个Excel该输入框只接受有效的单元格区域。&#39;
+Sub GetUserRange()
+    Dim UserRange As Range
+
+    Prompt = &quot;Select a range for the random numbers.&quot;
+    Title = &quot;Select a range&quot;
+
+&#39;   Display the Input Box
+    On Error Resume Next &#39;忽略了用户单击“取消”按钮时反生的错误，如果单击取消，则不定义UserRange，如果单击确定，宏将继续执行。&#39;
+    Set UserRange = Application.InputBox( _
+        Prompt:=Prompt, _
+        Title:=Title, _
+        Default:=ActiveCell.Address, _
+        Type:=8) &#39;Range selection
+    On Error GoTo 0 &#39;恢复为普通的错误处理方式&#39;
+
+&#39;   Was the Input Box canceled?&#39;
+    If UserRange Is Nothing Then
+        MsgBox &quot;Canceled.&quot;
+    Else
+        UserRange.Formula = &quot;=RAND()&quot;
+    End If
+End Sub
+&#39;这里没有必要检测单元格区域选取的有效性了，Excel已经考虑到了，如果无效，则会弹出提示框。&#39;</code></pre>
+<p><strong>计算选中单元格的数目</strong></p>
+<pre><code class="vb">&#39;可创建宏来处理用户选中的单元格区域&#39;
+MsgBox Selection.Count &#39;显示消息框，其中包含了当前选取的单元格数目。使用Range对象的Count属性&#39;
+CellCount = Range(&quot;Data&quot;).Count &#39;把活动工作表中Data单元格区域中的单元格数目赋给变量CellCount。&#39;
+Selection.Columns Count &#39;该表达式计算出了当前选中的单元格区域的列数&#39;
+RowsCount = Range(&quot;Data&quot;).Rows.Count &#39;使用Rows属性计算Data单元格区域的行数并赋给变量RowCount&#39;</code></pre>
+<p><strong>确定单元格区域的类型</strong></p>
+<pre><code class="vb">&#39;在选区中包含多个单元格区域的情况下，Range对象由一些各自独立的区域组成。要确定这种选区是不是多个选区，可使用Area方法，它将返回一个Area集合。这集合代表多单元格区域的选取中的所有单元格。&#39;
+NumAreas = Selection.Areas.Count &#39;可使用该表达式确定选取中的单元格是否包含多个区域，若NumAreas&gt;1，则包含多个区域&#39;
+&#39;下面使用了名为AreaType的函数，该函数返回一个说明单元格区域的选区类型的文本字符串&#39;
+Function AreaType(RangeArea As Range) As String
+    &#39;returns the type of a range in an area
+    Select Case True
+        Case RangeArea.Cells.CountLarge = 1
+            AreaType = &quot;Cell&quot;
+        Case RangeArea.CountLarge = Cells.CountLarge &#39;如果单元格中的单元格数目等于工作表中的单元格数目&#39;
+            AreaType = &quot;Worksheet&quot;
+        Case RangeArea.Rows.CountLarge = Cells.Rows.Count
+            AreaType = &quot;Column&quot;
+        Case RangeArea.Columns.CountLarge = Cells.Columns.Count
+            AreaType = &quot;Row&quot;
+        Case Else
+            AreaType = &quot;Block&quot;
+End Function</code></pre>
+<p><strong>有效地循环遍历选中的单元格区域</strong></p>
+<pre><code class="vb">&#39;以下示例中，ColorNegative过程给选区中内容为负值的所有单元格都应用红色背景。&#39;
+Sub ColorNegative() &#39;遍历效率低&#39;
+&#39;   Makes negative cells red&#39;
+    Dim cell As Range
+    If TypeName(Selection) &lt;&gt; &quot;Range&quot; Then Exit Sub
+    Application.ScreenUpdating = False
+    For Each cell In Selection
+        If cell.Value &lt; 0 Then
+            cell.Interior.Color = RGB(255, 0, 0)
+        Else
+            cell.Interior.Color = xlNone
+        End If
+    Next cell
+End Sub
+
+&#39;进行修改，创建了一个Range对象变量WorkRange，这个变量由选中单元格区域和工作表中所使用的单元格区域交集&#39; 
+Sub ColorNegative2()
+&#39;   Makes negative cells red
+    Dim WorkRange As Range
+    Dim cell As Range
+    If TypeName(Selection) &lt;&gt; &quot;Range&quot; Then Exit Sub
+    Application.ScreenUpdating = False
+    Set WorkRange = Application.Intersect(Selection, ActiveSheet.UsedRange)
+    For Each cell In WorkRange
+        If cell.Value &lt; 0 Then
+            cell.Interior.Color = RGB(255, 0, 0)
+        Else
+            cell.Interior.Color = xlNone
+        End If
+    Next cell
+End Sub
+
+&#39;ColorNegative2过称仍没那么高效，原因在于它处理了空的单元格。进行改进，使用了SpecialCells方法生成了选取的两个子集：一个子集(ConstantCells)只包含那些含有数字常量的单元格；另一个子集(FormulaCells)只包括那些含有数字公式的单元格。然后代码中使用了两个ForEach-Next结构来处理这些子集中的单元格。实际效果是只对非空的、非文本的单元格求值，因此极大地加快了宏的运行速度。&#39;
+Sub ColorNegative3()
+&#39;   Makes negative cells red
+    Dim FormulaCells As Range, ConstantCells As Range
+    Dim cell As Range
+    If TypeName(Selection) &lt;&gt; &quot;Range&quot; Then Exit Sub
+    Application.ScreenUpdating = False
+
+&#39;   Create subsets of original selection&#39;
+    On Error Resume Next &#39;如果任何单元格都不符合要求，SpecialCells方法将生成一个错误，因此On Error是必须的&#39;
+    Set FormulaCells = Selection.SpecialCells(xlFormulas, xlNumbers)
+    Set ConstantCells = Selection.SpecialCells(xlConstants, xlNumbers)
+    On Error GoTo 0
+
+&#39;   Process the formula cells
+    If Not FormulaCells Is Nothing Then
+        For Each cell In FormulaCells
+            If cell.Value &lt; 0 Then
+                cell.Interior.Color = RGB(255, 0, 0)
+            Else
+                cell.Interior.Color = xlNone
+            End If
+            Next cell
+    End If
+
+&#39;   Process the constant cells&#39;
+    If Not ConstantCells Is Nothing Then
+        For Each cell In ConstantCells
+            If cell.Value &lt; 0 Then
+                cell.Interior.Color = RGB(255, 0, 0)
+            Else
+                cell.Interior.Color = xlNone
+            End If
+        Next cell
+    End If
+End Sub    </code></pre>
+<p><strong>删除所有空行</strong></p>
+<pre><code class="vb">&#39;下列例程展示如何删除单元格中所有空行，该例程快捷高效，原因是不会检查所有的行，而只是检测已使用单元格区域的行，是否使用某一行由Worksheet对象的UsedRange属性确定&#39;
+Sub DeleteEmptyRows()
+    Dim LastRow As Long
+    Dim r As Long
+    Dim Counter As Long
+    Application.ScreenUpdating = False
+    LastRow = ActiveSheet.UsedRange.Rows.Count + _
+      ActiveSheet.UsedRange.Rows(1).Row - 1
+    For r = LastRow To 1 Step -1
+        If Application.WorksheetFunction.CountA(Rows(r)) = 0 Then
+            Rows(r).Delete
+            Counter = Counter + 1
+        End If
+    Next r
+    Application.ScreenUpdating = True
+    MsgBox Counter &amp; &quot; Empty rows were deleted.&quot;
+End Sub
+&#39;第一步：找到单元格区域中最后一行=单元格区域使用的行数+第一行编号-1，赋值给LastRow&#39;
+&#39;第二步：遍历每行，使用Excel中的COUNTA工作表函数来确定某一行是否为空，若该函数返回0，则删除。&#39;
+&#39;注意：遍历从最后一行开始，因为若从上至下删除一行后，循环中的计数器就不准确了。&#39;</code></pre>
+<p><strong>任意次数地复制行</strong></p>
+<pre><code class="vb">&#39;该宏复制行，使得第二列内值大于1的非空单元格复制指定值数量-1的单元格。通过单元格B2来初始化cell,也就是含有第一个数字的单元格。该循环利用了FillDown方法来插入新行，然后复制改行，递增变量cell变量，循环进行，直到碰到非空单元格。&#39;
+Sub DupeRows()
+  Dim cell As Range
+&#39; 1st cell with number of tickets
+  Set cell = Range(&quot;B2&quot;)
+  Do While Not IsEmpty(cell)
+    If cell &gt; 1 Then
+      Range(cell.Offset(1, 0), cell.Offset(cell.Value - 1, 0)).EntireRow.Insert
+      Range(cell, cell.Offset(cell.Value - 1, 1)).EntireRow.FillDown
+    End If
+   Set cell = cell.Offset(cell.Value, 0)
+    Loop
+End Sub</code></pre>
+<p><strong>确定单元格区域是否包含在另一个单元格区域内</strong></p>
+<pre><code class="vb">&#39;下面的InRange函数接收两个参数，都是Range对象。如果第一个单元格区域包含在第二个单元格区域内，则该函数返回True。这个函数可用在公式表达中。&#39;
+&#39;Application对象的Union方法返回一个表示合并了两个Range对象的Range对象。合并后单元格区域包含这两个单元格区域的并集。&#39;
+&#39;如果两个单元格区域在不同的工作表中，则Union方法将报错，因此用On Error事项处理。&#39;
+Function InRange(rng1, rng2) As Boolean
+&#39;   Returns True if rng1 is a subset of rng2
+    On Error GoTo ErrHandler
+    If Union(rng1, rng2).Address = rng2.Address Then
+        InRange = True
+        Exit Function
+    End If
+ErrHandler:
+    InRange = False
+End Function</code></pre>
+<p><strong>确定单元格区域的类型</strong></p>
+<pre><code class="vb">&#39;Excel提供了很多可以帮助确定单元格内数据类型的内置函数，其中包括ISTEXT,ISLOGICAL和ISERROR。此外，VBA中还包括诸多如IsEmpty、IsDate和IsNumeric。&#39;
+Function CELLTYPE(Rng)
+&#39;   Returns the cell type of the upper left
+&#39;   cell in a range
+    Dim TheCell As Range
+    Set TheCell = Rng.Range(&quot;A1&quot;) &#39;CellType函数接收任意单元格区域，但该过程中这条语句只应用于单元格区域左上方单元格&#39;
+    Select Case True
+        Case IsEmpty(TheCell)
+            CELLTYPE = &quot;Blank&quot;
+        Case TheCell.NumberFormat = &quot;@&quot;
+            CELLTYPE = &quot;Text&quot;
+        Case Application.IsText(TheCell)
+            CELLTYPE = &quot;Text&quot;
+        Case Application.IsLogical(TheCell)
+            CELLTYPE = &quot;Logical&quot;
+        Case Application.IsErr(TheCell)
+            CELLTYPE = &quot;Error&quot;
+        Case IsDate(TheCell)
+            CELLTYPE = &quot;Date&quot;
+        Case InStr(1, TheCell.Text, &quot;:&quot;) &lt;&gt; 0
+            CELLTYPE = &quot;Time&quot;
+        Case IsNumeric(TheCell)
+            CELLTYPE = &quot;Number&quot;
+    End Select
+End Function</code></pre>
+<p><strong>读写单元格区域</strong></p>
+<pre><code class="vb">&#39;Excel从单元格中读取的速度要比向单元格中写入数据的速度快，因为写操作要用到计算引擎。以下过程说明了读写单元格区域的相对速度，这个过程先创建一个数组，然后用For-Next循环把数组写到某个单元格区域，接着把单元格区域中的值读到这个数组中。&#39;
+Sub WriteReadRange()
+    Dim MyArray()
+    Dim Time1 As Double
+    Dim NumElements As Long, i As Long
+    Dim WriteTime As String, ReadTime As String
+    Dim Msg As String
+
+    NumElements = 60000
+    ReDim MyArray(1 To NumElements)
+
+&#39;   Fill the array&#39;
+    For i = 1 To NumElements
+        MyArray(i) = i
+    Next i
+
+&#39;   Write the array to a range&#39;
+    Time1 = Timer
+    For i = 1 To NumElements
+        Cells(i, 1) = MyArray(i)
+    Next i
+    WriteTime = Format(Timer - Time1, &quot;00:00&quot;)
+
+&#39;   Read the range into the array&#39;
+    Time1 = Timer
+    For i = 1 To NumElements
+        MyArray(i) = Cells(i, 1)
+    Next i
+    ReadTime = Format(Timer - Time1, &quot;00:00&quot;)
+
+&#39;   Show results&#39;
+    Msg = &quot;Write: &quot; &amp; WriteTime
+    Msg = Msg &amp; vbCrLf
+    Msg = Msg &amp; &quot;Read: &quot; &amp; ReadTime
+    MsgBox Msg, vbOKOnly, NumElements &amp; &quot; Elements&quot;
+End Sub</code></pre>
+<p><strong>在单元格区域写入值的更好的方法</strong></p>
+<pre><code class="vb">&#39;下例说明填充单元格区域最容易理解的方法（不是最有效的），这个示例使用一个For-Next循环把数组值插入某个单元格中。&#39;
+Sub LoopFillRange()
+&#39;   Fill a range by looping through cells&#39;
+
+    Dim CellsDown As Long, CellsAcross As Long
+    Dim CurrRow As Long, CurrCol As Long
+    Dim StartTime As Double
+    Dim CurrVal As Long
+
+&#39;   Get the dimensions&#39;
+    CellsDown = InputBox(&quot;How many cells down?&quot;)
+    If CellsDown = 0 Then Exit Sub
+    CellsAcross = InputBox(&quot;How many cells across?&quot;)
+    If CellsAcross = 0 Then Exit Sub
+
+&#39;   Record starting time&#39;
+    StartTime = Timer
+
+&#39;   Loop through cells and insert values&#39;
+    CurrVal = 1
+    Application.ScreenUpdating = False
+    For CurrRow = 1 To CellsDown
+        For CurrCol = 1 To CellsAcross
+            Range(&quot;A1&quot;).Offset(CurrRow - 1, CurrCol - 1).Value = CurrVal
+            CurrVal = CurrVal + 1
+        Next CurrCol
+    Next CurrRow
+
+&#39;   Display elapsed time&#39;
+    Application.ScreenUpdating = True
+    MsgBox Format(Timer - StartTime, &quot;00.00&quot;) &amp; &quot; seconds&quot;
+End Sub</code></pre>
+<pre><code class="vb">&#39;以下介绍一种可产生相同效果但更快捷的方法，先把过程插入到某个数组，然后使用一条语句把数组的内容传递到单元格区域中。&#39;
+Sub ArrayFillRange()
+&#39;   Fill a range by transferring an array&#39;
+
+    Dim CellsDown As Long, CellsAcross As Long
+    Dim i As Long, j As Long
+    Dim StartTime As Double
+    Dim TempArray() As Double
+    Dim TheRange As Range
+    Dim CurrVal As Long
+
+&#39;   Get the dimensions&#39;
+    CellsDown = InputBox(&quot;How many cells down?&quot;)
+    If CellsDown = 0 Then Exit Sub
+    CellsAcross = InputBox(&quot;How many cells across?&quot;)
+    If CellsAcross = 0 Then Exit Sub
+
+ &#39;  Record starting time&#39;
+    StartTime = Timer
+
+&#39;   Redimension temporary array&#39;
+    ReDim TempArray(1 To CellsDown, 1 To CellsAcross)
+
+&#39;   Set worksheet range&#39;
+    Set TheRange = Range(Cells(1, 1), Cells(CellsDown, CellsAcross))
+
+&#39;   Fill the temporary array&#39;
+    CurrVal = 0
+    Application.ScreenUpdating = False
+    For i = 1 To CellsDown
+        For j = 1 To CellsAcross
+            TempArray(i, j) = CurrVal
+            CurrVal = CurrVal + 1
+        Next j
+    Next i
+
+&#39;   Transfer temporary array to worksheet&#39;
+    TheRange.Value = TempArray
+
+&#39;   Display elapsed time&#39;
+    Application.ScreenUpdating = True
+    MsgBox Format(Timer - StartTime, &quot;00.00&quot;) &amp; &quot; seconds&quot;
+End Sub</code></pre>
+<p><strong>传递一维数组中的内容</strong></p>
+<pre><code class="vb">&#39;把一维数组的内容传递给某个单元格区域中时，这个单元格区域中的单元格必须是水平方向的，如果使用垂直方向的单元格区域时，则必须把数组转换成垂直的。可使用Excel的TRANSPORT函数完成数组转置任务。&#39;
+&#39;例如将含有100个元素的数组MyArray转置并传递给垂直方向工作表单元格区域&#39;
+Range(&quot;A1:A100&quot;).Value = Application.WorksheetFunction.Transport(MyArray)</code></pre>
+<p><strong>将单元格区域传递给Variant类型的数组</strong></p>
+<pre><code class="vb">&#39;下例把单元格区域中的数据传递给一个Variant类型的二维数组。然后用消息框显示出这个Variant数组每一维的上界。&#39;
+Sub RangeToVariant2()
+    Dim x As Variant
+    x = Range(&quot;A1:L600&quot;).Value
+    MsgBox UBound(x, 1) &#39;显示600，原单元格区域的行数
+    MsgBox UBound(x, 2) &#39;显示12，列数
+End Sub
+&#39;下例中，先把单元格区域（名为data）中的数据读入Variant类型的数组中，然后对该数组中的每一个元素执行乘法运算，接着把Variant类型数组中的数据传回这个单元格区域。&#39;
+Sub RangeToVariant2()
+    Dim x As Variant
+    Dim r As Long, c As Integer
+
+&#39;   Read the data into the variant&#39;
+    x = Range(&quot;data&quot;).Value
+
+&#39;   Loop through the variant array&#39;
+    For r = 1 To UBound(x, 1)
+        For c = 1 To UBound(x, 2)
+&#39;           Multiply by 2
+            x(r, c) = x(r, c) * 2
+        Next c
+    Next r
+
+&#39;   Transfer the variant back to the sheet&#39;
+    Range(&quot;data&quot;) = x
+End Sub</code></pre>
+<p><strong>按数值选择单元格</strong></p>
+<pre><code class="vb">&#39;以下示例阐述如何通过数值选择单元格，以下选择出含有负值的单元格，很容易对选择条件进行修改。&#39;
+&#39;从检查选区开始，如果只是一个单元格，则搜索整个工作表，若至少含有两个以上的单元格，则只搜索选中的单元格区域。使用SpecialCells方法进一步对被搜索的单元格进行细化，进而创建一个仅由数值常量组成的Range对象。&#39;
+&#39;包含在Font-Next循环中的代码可检查单元格的值。如果它满足标准，则使用Union方法把该单元格添加到Range对象FoundCells中。注意不能在第一个单元格中使用Union方法，如果FoundCells不含单元格，那么尝试Union方法将生成一个错误。&#39;
+&#39;循环结束时，FoundCells对象将由满足标准的单元格组成，如果没有，则是Nothing，否则选中这些单元格。&#39;
+Sub SelectByValue()
+    Dim Cell As Object
+    Dim FoundCells As Range
+    Dim WorkRange As Range
+
+    If TypeName(Selection) &lt;&gt; &quot;Range&quot; Then Exit Sub
+
+&#39;   Check all or selection?&#39;
+    If Selection.CountLarge = 1 Then
+        Set WorkRange = ActiveSheet.UsedRange
+    Else
+       Set WorkRange = Application.Intersect(Selection, ActiveSheet.UsedRange)
+    End If
+
+&#39;   Reduce the search to numeric cells only&#39;
+    On Error Resume Next
+    Set WorkRange = WorkRange.SpecialCells(xlConstants, xlNumbers)
+    If WorkRange Is Nothing Then Exit Sub
+    On Error GoTo 0
+
+&#39;   Loop through each cell, add to the FoundCells range if it qualifies&#39;
+    For Each Cell In WorkRange
+        If Cell.Value &lt; 0 Then
+            If FoundCells Is Nothing Then
+                Set FoundCells = Cell
+            Else
+                Set FoundCells = Application.Union(FoundCells, Cell)
+            End If
+        End If
+    Next Cell
+
+&#39;   Show message, or select the cells&#39;
+    If FoundCells Is Nothing Then
+        MsgBox &quot;No cells qualify.&quot;
+    Else
+        FoundCells.Select
+        MsgBox &quot;Selected &quot; &amp; FoundCells.Count &amp; &quot; cells.&quot;
+    End If
+End Sub</code></pre>
+<p><strong>复制非连续单元格区域</strong></p>
+<pre><code class="vb">&#39;Excel不支持复制非连续单元格区域，可以使用宏来迂回解决此问题。以下VBA过程允许把多个选区复制到一个位置。&#39;
+Sub CopyMultipleSelection()
+    Dim SelAreas() As Range
+    Dim PasteRange As Range
+    Dim UpperLeft As Range
+    Dim NumAreas As Integer, i As Integer
+    Dim TopRow As Long, LeftCol As Integer
+    Dim RowOffset As Long, ColOffset As Integer
+
+    If TypeName(Selection) &lt;&gt; &quot;Range&quot; Then Exit Sub
+
+&#39;   Store the areas as separate Range objects&#39;
+    NumAreas = Selection.Areas.Count    &#39;得出所选单元格区域数量&#39;
+    ReDim SelAreas(1 To NumAreas) &#39;重新定义SelAreas维度&#39;
+    For i = 1 To NumAreas
+        Set SelAreas(i) = Selection.Areas(i)
+    Next 
+
+&#39;   Determine the upper left cell in the multiple selection&#39;
+    TopRow = ActiveSheet.Rows.Count
+    LeftCol = ActiveSheet.Columns.Count
+    For i = 1 To NumAreas &#39;在多个选区中确定左上单元格&#39;
+        If SelAreas(i).Row &lt; TopRow Then TopRow = SelAreas(i).Row
+        If SelAreas(i).Column &lt; LeftCol Then LeftCol = SelAreas(i).Column
+    Next
+    Set UpperLeft = Cells(TopRow, LeftCol)
+
+&#39;   Get the paste address&#39;
+    On Error Resume Next
+    Set PasteRange = Application.InputBox _
+      (Prompt:=&quot;Specify the upper left cell for the paste range:&quot;, _
+      Title:=&quot;Copy Mutliple Selection&quot;, _
+      Type:=8)
+    On Error GoTo 0
+&#39;   Exit if canceled&#39;
+    If TypeName(PasteRange) &lt;&gt; &quot;Range&quot; Then Exit Sub
+
+&#39;   Make sure only the upper left cell is used&#39;
+    Set PasteRange = PasteRange.Range(&quot;A1&quot;)
+
+&#39;   Copy and paste each area&#39;
+    For i = 1 To NumAreas
+        RowOffset = SelAreas(i).Row - TopRow
+        ColOffset = SelAreas(i).Column - LeftCol
+        SelAreas(i).Copy PasteRange.Offset(RowOffset, ColOffset)
+    Next i
+End Sub</code></pre>
+<h2 id="出处理工作簿和工作表"><a href="#出处理工作簿和工作表" class="headerlink" title="出处理工作簿和工作表"></a>出处理工作簿和工作表</h2><p><strong>保存所有工作簿</strong></p>
+<pre><code class="vb">&#39;以下过程遍历Workbooks集合中所有工作簿，并保存以前保存了的每个文件。&#39;
+Public Sub SaveAllWorkbooks1()
+    Dim Book As Workbook
+    For Each Book In Workbooks
+        If Book.Path &lt;&gt; &quot;&quot; Then Book.Save
+    Next Book
+End Sub
+&#39;若Path属性的值为空，就表明从未保存过这个文件（为新工作簿），忽略此类。&#39;
+&#39;更有效的方法是检查Save属性，如果工作簿自上次以来从未修改过，则属性为True。&#39;
+Public Sub SaveAllWorkbooks2()
+    Dim Book As Workbook
+    For Each Book In Workbooks
+        If Book.Path &lt;&gt; &quot;&quot; Then
+            If Book.Saved &lt;&gt; True Then
+                Book.Save
+            End If
+        End If
+    Next Book
+End Sub</code></pre>
+<p><strong>保存和关闭所有工作簿</strong></p>
+<pre><code class="vb">&#39;以下过程将循环遍历Workbooks集合，该代码将保存和关闭所有工作簿。&#39;
+Public Sub CloseAllWorkbooks()
+    Dim Book As Workbook
+    For Each Book In Workbooks
+        If Book.Name &lt;&gt; ThisWorkbook.Name Then
+            Book.Close savechanges:=True
+        End If
+    Next Book
+    ThisWorkbook.Close savechanges:=True
+End Sub
+&#39;上述If语句用来确定该工作簿是不是包含这些代码的工作簿。该过程必须有这条语句，原因是关闭上述工作簿将结束代码，而不会影响后续工作簿。在其他所有工作簿关闭后，包含代码的工作簿会关闭自身。&#39;</code></pre>
+<p><strong>隐藏选区之外的区域</strong></p>
+<pre><code class="vb">&#39;本节示例将隐藏除单元格区域选区之外的所有行和列&#39;
+Sub HideRowsAndColumns()
+    Dim row1 As Long, row2 As Long
+    Dim col1 As Long, col2 As Long
+
+    If TypeName(Selection) &lt;&gt; &quot;Range&quot; Then Exit Sub
+
+&#39;   If last row or last column is hidden, unhide all and quit
+    If Rows(Rows.Count).EntireRow.Hidden Or Columns(Columns.Count).EntireColumn.Hidden Then
+        Cells.EntireColumn.Hidden = False
+        Cells.EntireRow.Hidden = False
+        Exit Sub
+    End If
+
+    row1 = Selection.Rows(1).Row
+    row2 = row1 + Selection.Rows.Count - 1
+    col1 = Selection.Columns(1).Column
+    col2 = col1 + Selection.Columns.Count - 1
+
+    Application.ScreenUpdating = False
+    On Error Resume Next
+&#39;   Hide rows
+    Range(Cells(1, 1), Cells(row1 - 1, 1)).EntireRow.Hidden = True
+    Range(Cells(row2 + 1, 1), Cells(Rows.Count, 1)).EntireRow.Hidden = True
+&#39;   Hide columns
+    Range(Cells(1, 1), Cells(1, col1 - 1)).EntireColumn.Hidden = True
+    Range(Cells(1, col2 + 1), Cells(1, Columns.Count)).EntireColumn.Hidden = True
+End Sub
+&#39;如果在最后一行或最后一列隐藏时执行过程，则会显示所有列。&#39;
+&#39;如果单元格区域由非连续区域的单元格组成，那么第一个区域将被用作隐藏行和列的基础&#39;</code></pre>
+<p><strong>创建超链接内容表</strong></p>
+<pre><code class="vb">&#39;CreateTOC过程在活动工作簿开头插入一个新工作表。然后以每个工作表的超链接列表形式创建一个内容表。&#39;
+Sub CreateTOC()
+    Dim i As Integer
+    Sheets.Add Before:=Sheets(1)
+    For i = 2 To Worksheets.Count
+      ActiveSheet.Hyperlinks.Add _
+         Anchor:=Cells(i, 1), _
+         Address:=&quot;&quot;, _
+         SubAddress:=&quot;&#39;&quot; &amp; Worksheets(i).Name &amp; &quot;&#39;!A1&quot;, _
+         TextToDisplay:=Worksheets(i).Name
+     Next i
+End Sub
+&#39;由于不可创建图表工作表的超链接，因此代码使用了Worksheets集合而不是Sheets集合。&#39;</code></pre>
+<p><strong>同步工作表</strong></p>
+<pre><code class="vb">&#39;下面的VBA宏使用活动的工作表为基础，然后在这个工作簿中的所有其他工作表上执行下列操作：选中与工作表上同样的单元格区域，使得左上角的单元格等同于工作表上的左上方单元格。&#39;
+Sub SynchSheets()
+&#39;   Duplicates the active sheet&#39;s active cell upperleft cell
+&#39;   Across all worksheets&#39;
+    If TypeName(ActiveSheet) &lt;&gt; &quot;Worksheet&quot; Then Exit Sub
+    Dim UserSheet As Worksheet, sht As Worksheet
+    Dim TopRow As Long, LeftCol As Integer
+    Dim UserSel As String
+
+    Application.ScreenUpdating = False
+
+&#39;   Remember the current sheet&#39;
+    Set UserSheet = ActiveSheet
+
+&#39;   Store info from the active sheet&#39;
+    TopRow = ActiveWindow.ScrollRow
+    LeftCol = ActiveWindow.ScrollColumn
+    UserSel = ActiveWindow.RangeSelection.Address
+
+&#39;   Loop through the worksheets&#39;
+    For Each sht In ActiveWorkbook.Worksheets
+        If sht.Visible Then &#39;skip hidden sheets
+            sht.Activate
+            Range(UserSel).Select
+            ActiveWindow.ScrollRow = TopRow
+            ActiveWindow.ScrollColumn = LeftCol
+        End If
+    Next sht
+
+&#39;   Restore the original position
+    UserSheet.Activate
+    Application.ScreenUpdating = True
+End Sub</code></pre>
+<h2 id="VBA技巧"><a href="#VBA技巧" class="headerlink" title="VBA技巧"></a>VBA技巧</h2><p><strong>切换布尔类型的属性值</strong></p>
+<pre><code class="vb">&#39;切换布尔类型属性的最简单方法是Not,该示例切换了某个选区的WrapText属性的值。&#39;
+Sub ToggleWrapText()
+&#39;Toogle text wrap alignment for selected cells
+    If TypeName(Selection) = &quot;Range&quot; Then
+        Selection.WrapText = Not ActiveCell.WrapText
+    End If
+End Sub
+&#39;可使用Not切换其他很多属性的值。&#39;
+ActiveWindow.DisplayHeadings = Not ActiveWindow.DisplayHeadings &#39;切换显示工作表中的行和列边界&#39;
+ActiveWindow.DisplayGridlines = Not ActiveWindow.DisplayGridlines &#39;切换是否显示工作表中的网格线&#39;</code></pre>
+<p><strong>显示日期和时间</strong></p>
+<pre><code class="vb">&#39;以下过程显示了包含当前日期和时间对话框，这个示例还在消息框中的标题栏中显示了一条个性化消息。&#39;
+&#39;使用Date函数作为传递给Format函数的参数，其结果是一个字符串，包含经过格式化的日期，时间也如此。&#39;
+&#39;使用了命名的格式(Long Date和Medium Time),以便确保不管用户所在国家的设置有何不同，这个宏都能正常运行。也可以使用TheDate = Format(Date, &quot;mm/dd/yy&quot;)&#39;
+Sub DateAndTime()
+&#39;   Displays the current date and time
+    Dim TheDate As String, TheTime As String
+    Dim LastSaved As String
+    Dim Greeting As String
+    Dim FullName As String, FirstName As String
+    Dim SpaceInName As Long
+
+    TheDate = Format(Date, &quot;Long Date&quot;)
+    TheTime = Format(Time, &quot;Medium Time&quot;)
+
+&#39;   Determine greeting based on time
+    Select Case Time
+        Case Is &lt; 0.5:     Greeting = &quot;Good Morning, &quot;
+        Case Is &gt;= 0.7083: Greeting = &quot;Good Evening, &quot;
+        Case Else:         Greeting = &quot;Good Afternoon, &quot;
+    End Select
+
+&#39;   Last saved
+    LastSaved = &quot;Document Last Saved: &quot; &amp; ActiveWorkbook.BuiltinDocumentProperties(12)
+
+&#39;   Append user&#39;s first name to greeting
+    FullName = Application.UserName
+    SpaceInName = InStr(1, FullName, &quot; &quot;, 1)
+
+&#39;   Handle situation when name has no space
+    If SpaceInName = 0 Then SpaceInName = Len(FullName)
+    FirstName = Left(FullName, SpaceInName)
+    Greeting = Greeting &amp; FirstName
+
+&#39;   Show the message
+    MsgBox TheDate &amp; vbCrLf &amp; vbCrLf &amp; &quot;It&#39;s &quot; &amp; TheTime, vbOKOnly, Greeting
+End Sub</code></pre>
+<p><strong>显示友好时间</strong></p>
+<pre><code class="vb">&#39;用文字形式显示时间差
+unction FT(t1, t2)
+    Dim SDif As Double, DDif As Double
+
+    If Not (IsDate(t1) And IsDate(t2)) Then
+        FT = CVErr(xlErrValue)
+        Exit Function
+    End If
+
+    DDif = Abs(t2 - t1)
+    SDif = DDif * 24 * 60 * 60
+
+    If DDif &lt; 1 Then
+       If SDif &lt; 10 Then FT = &quot;Just now&quot;: Exit Function
+       If SDif &lt; 60 Then FT = SDif &amp; &quot; seconds ago&quot;: Exit Function
+       If SDif &lt; 120 Then FT = &quot;a minute ago&quot;: Exit Function
+       If SDif &lt; 3600 Then FT = Round(SDif / 60, 0) &amp; &quot;minutes ago&quot;: Exit Function
+       If SDif &lt; 7200 Then FT = &quot;An hour ago&quot;: Exit Function
+       If SDif &lt; 86400 Then FT = Round(SDif / 3600, 0) &amp; &quot; hours ago&quot;: Exit Function
+    End If
+    If DDif = 1 Then FT = &quot;Yesterday&quot;: Exit Function
+    If DDif &lt; 7 Then FT = Round(DDif, 0) &amp; &quot; days ago&quot;: Exit Function
+    If DDif &lt; 31 Then FT = Round(DDif / 7, 0) &amp; &quot; weeks ago&quot;: Exit Function
+    If DDif &lt; 365 Then FT = Round(DDif / 30, 0) &amp; &quot; months ago&quot;: Exit Function
+    FT = Round(DDif / 365, 0) &amp; &quot; years ago&quot;
+End Function</code></pre>
+<p><strong>获得字体列表</strong></p>
+<pre><code class="vb">&#39;ShowInstallerFonts宏在活动工作表中的列A中显示了安装的字体清单。这个宏创建了一个临时工具栏（一个CommandBar对象），然后添加Font控件，并从该控件中读取字体。最后删除临时工具栏。&#39;
+&#39;Excel仍旧支持旧式的CommandBar属性和方法，这些属性和方法主要用来处理工具栏和菜单。&#39;
+Sub ShowInstalledFonts()
+    Dim FontList As CommandBarControl
+    Dim TempBar As CommandBar
+    Dim i As Long
+
+&#39;   Create temporary CommandBar&#39;
+    Set TempBar = Application.CommandBars.Add
+    Set FontList = TempBar.Controls.Add(ID:=1728)
+
+&#39;   Put the fonts into column A&#39;
+    Range(&quot;A:A&quot;).ClearContents
+    For i = 0 To FontList.ListCount - 1
+        Cells(i + 1, 1) = FontList.List(i + 1)
+&#39;       Cells(i + 1, 1).Font.Name = FontList.List(i + 1) &#39;可以显示实际字体的每个字体名称&#39;
+    Next i
+
+&#39;   Delete temporary CommandBar&#39;
+    TempBar.Delete
+End Sub</code></pre>
+<p><strong>对数组进行排序</strong></p>
+<p>VBA没有提供一种对数组进行排序的方法。以下介绍四种不同的排序方法。</p>
+<ul>
+<li><strong>工作表排序</strong>：把数组中的数据传递到工作表的单元格区域，进行排序，再将数据传递回数组。这种过程把数组作为唯一的参数。</li>
+<li><strong>冒泡排序</strong>：冒泡排序算法很容易编写，但是算法速度较慢。</li>
+<li><strong>快速排序</strong>：这种排序算法比冒泡排序算法快很多，但更难读懂。并且只能处理Integer或Long数据类型。</li>
+<li>计数排序：这种排序方法非常快捷，但很难读懂。与快速排序算法一样，只能处理Integer或Long数据类型。</li>
+</ul>
+<pre><code class="vb">&#39;工作表排序&#39;
+Sub WorksheetSort(list)
+&#39;   Sorts an array by transferring it to
+&#39;   A worksheet and using Excel&#39;s sorting command&#39;
+
+    Dim First As Integer, Last As Long
+    Dim i As Long
+    Dim FirstCell As Range, LastCell As Range
+    Dim CurrCell As Range, FillRange As Range
+
+    First = LBound(list, 1)
+    Last = UBound(list, 1)
+    Set FirstCell = Sheets(&quot;Sheet1&quot;).Cells(1, 1)
+    Set LastCell = Sheets(&quot;Sheet1&quot;).Cells(Last, 1)
+    Set FillRange = Range(FirstCell, LastCell)
+    Application.ScreenUpdating = False
+
+&#39;   Transfer the array to worksheet&#39;
+    FillRange.Value = list
+
+&#39;   Sort the worksheet range&#39;
+    FirstCell.CurrentRegion.Sort Key1:=FirstCell, Order1:=xlAscending, Orientation:=xlTopToBottom
+
+&#39;   Transfer range back to the array and clear range&#39;
+    For i = First To Last
+        list(i, 0) = FirstCell.Offset(i - 1, 0)
+    Next i
+    FillRange.Clear
+    Application.ScreenUpdating = True
+End Sub</code></pre>
+<pre><code class="vb">&#39;冒泡排序&#39;
+Sub BubbleSort(list() As Long)
+&#39;   Sorts an array using bubble sort algorithm&#39;
+&#39;   Works with any data type&#39;
+    Dim First As Integer, Last As Long
+    Dim i As Long, j As Long
+    Dim Temp
+
+    First = LBound(list)
+    Last = UBound(list)
+    For i = First To Last - 1
+        For j = i + 1 To Last
+            If list(i) &gt; list(j) Then
+                Temp = list(j)
+                list(j) = list(i)
+                list(i) = Temp
+            End If
+        Next j
+    Next i
+End Sub</code></pre>
+<pre><code class="vb">&#39;快速排序&#39;
+&#39;This technique works only with Integer or Long values.&#39;
+
+Public Sub Quicksort(list() As Long, ByVal min As Long, ByVal max As Long)
+    Dim med_value As Long
+    Dim hi As Long
+    Dim lo As Long
+    Dim i As Long
+
+    &#39; If min &gt;= max, the list contains 0 or 1 items so it is sorted.&#39;
+    If min &gt;= max Then Exit Sub
+
+    &#39; Pick the dividing value.&#39;
+    i = Int((max - min + 1) * Rnd + min)
+    med_value = list(i)
+
+    &#39; Swap it to the front.&#39;
+    list(i) = list(min)
+
+    lo = min
+    hi = max
+    Do
+        &#39; Look down from hi for a value &lt; med_value.&#39;
+        Do While list(hi) &gt;= med_value
+            hi = hi - 1
+            If hi &lt;= lo Then Exit Do
+        Loop
+        If hi &lt;= lo Then
+            list(lo) = med_value
+            Exit Do
+        End If
+
+        &#39; Swap the lo and hi values.&#39;
+        list(lo) = list(hi)
+
+        &#39; Look up from lo for a value &gt;= med_value.&#39;
+        lo = lo + 1
+        Do While list(lo) &lt; med_value
+            lo = lo + 1
+            If lo &gt;= hi Then Exit Do
+        Loop
+        If lo &gt;= hi Then
+            lo = hi
+            list(hi) = med_value
+            Exit Do
+        End If
+
+        &#39; Swap the lo and hi values.&#39;
+        list(hi) = list(lo)
+    Loop
+
+    &#39; Sort the two sublists.&#39;
+    Quicksort list(), min, lo - 1
+    Quicksort list(), lo + 1, max
+End Sub</code></pre>
+<pre><code class="vb">&#39;计数排序&#39;
+Sub CountingSort(list)
+    Dim counts()
+    Dim i As Long
+    Dim j As Long
+    Dim next_index As Long
+    Dim min, max
+    Dim min_value As Variant, max_value As Variant
+
+&#39;   Allocate the counts array. VBA automatically&#39;
+&#39;   initialises all entries to 0.&#39;
+
+    min_value = Minimum(list)
+    max_value = Maximum(list)
+
+    min = LBound(list)
+    max = UBound(list)
+
+    ReDim counts(min_value To max_value)
+
+    &#39; Count the values.&#39;
+    For i = min To max
+        counts(list(i)) = counts(list(i)) + 1
+    Next i
+
+    &#39; Write the items back into the list array.&#39;
+    next_index = min
+    For i = min_value To max_value
+        For j = 1 To counts(i)
+            list(next_index) = i
+            next_index = next_index + 1
+        Next j
+    Next i
+End Sub
+
+Function Minimum(list)
+    Dim i As Long
+    Minimum = list(LBound(list))
+    For i = LBound(list) To UBound(list)
+        If list(i) &lt; Minimum Then Minimum = list(i)
+    Next i
+End Function
+
+Function Maximum(list)
+    Dim i As Long
+    Maximum = list(LBound(list))
+    For i = LBound(list) To UBound(list)
+        If list(i) &gt; Maximum Then Maximum = list(i)
+    Next i
+End Function</code></pre>
+<p><strong>处理一系列文件</strong></p>
+<pre><code class="vb">&#39;本节示例阐述了如何对存储在磁盘上的几个不同的文件执行某个宏。这个示例提示用户输入文件规范，然后处理所有匹配的文件。在这个示例中，处理工作包括导入文件和输入一系列汇总公式，这些公式用于描述文件中的数据。&#39;
+&#39;匹配的文件名存储在FoundFiles数组中，该过程使用了一个For-Next循环来处理这些文件。&#39;
+Sub BatchProcess()
+    Dim FileSpec As String
+    Dim i As Integer
+    Dim FileName As String
+    Dim FileList() As String
+    Dim FoundFiles As Integer
+
+&#39;   Specify path and file spec&#39;
+    FileSpec = ThisWorkbook.Path &amp; &quot;\&quot; &amp; &quot;text??.txt&quot;
+    FileName = Dir(FileSpec)
+
+&#39;   Was a file found?&#39;
+    If FileName &lt;&gt; &quot;&quot; Then
+        FoundFiles = 1
+        ReDim Preserve FileList(1 To FoundFiles)
+        FileList(FoundFiles) = FileName
+    Else
+        MsgBox &quot;No files were found that match &quot; &amp; FileSpec
+        Exit Sub
+    End If
+
+&#39;   Get other filenames&#39;
+    Do
+        FileName = Dir
+        If FileName = &quot;&quot; Then Exit Do
+        FoundFiles = FoundFiles + 1
+        ReDim Preserve FileList(1 To FoundFiles)
+        FileList(FoundFiles) = FileName &amp; &quot;*&quot;
+    Loop
+
+&#39;   Loop through the files and process them&#39;
+    For i = 1 To FoundFiles
+        Call ProcessFiles(FileList(i))
+    Next i
+End Sub
+
+&#39;上述循环中调用了下面ProcessFiles过程完成处理工作。在这个简单过程中，使用OpenText方法来导入文件，并插入5个公式。&#39;
+Sub ProcessFiles(FileName As String)
+&#39;   Import the file
+    Workbooks.OpenText FileName:=ThisWorkbook.Path &amp; &quot;\&quot; &amp; FileName, _
+        Origin:=xlWindows, _
+        StartRow:=1, _
+        DataType:=xlFixedWidth, _
+        FieldInfo:= _
+        Array(Array(0, 1), Array(3, 1), Array(12, 1))
+&#39;   Enter summary formulas
+    Range(&quot;D1&quot;).Value = &quot;A&quot;
+    Range(&quot;D2&quot;).Value = &quot;B&quot;
+    Range(&quot;D3&quot;).Value = &quot;C&quot;
+    Range(&quot;E1:E3&quot;).Formula = &quot;=COUNTIF(B:B,D1)&quot;
+    Range(&quot;F1:F3&quot;).Formula = &quot;=SUMIF(B:B,D1,C:C)&quot;
+End Sub</code></pre>
+<p>##用于代码中的一些有用函数</p>
+<p>以下展示一些实用函数，这里使用Provate关键字声明了这些函数，所以它们不会出现在Excel的”插入函数”对话框中。</p>
+<p><strong>FileExists</strong> 函数：该函数接收了一个参数（带文件名的路径），如果文件存在，返回True。</p>
+<pre><code class="vb">Private Function FileExists(fname) As Boolean
+&#39;   Returns TRUE if the file exists&#39;
+    Dim x As String
+    x = Dir(fname)
+    If x &lt;&gt; &quot;&quot; Then FileExists = True _
+        Else FileExists = False
+End Function</code></pre>
+<p><strong>FileNameOnly</strong> 函数：该函数从文件名中提取路径。</p>
+<pre><code class="vb">&#39;使用了VBA的Split函数，Split函数接收一个含分隔符的字符串，并返回包含分隔符之间的元素的Variant数组。&#39;
+Private Function FileNameOnly(pname) As String
+&#39;   Returns the filename from a path/filename string&#39;
+    Dim temp As Variant
+    length = Len(pname)
+    temp = Split(pname, Application.PathSeparator)
+    FileNameOnly = temp(UBound(temp))
+End Function
+&#39;如果文件存在，下面方法更简单，它将从路径中提取且只返回文件名。&#39;
+Private Function FileNameOnly2(panme) As String
+    FileNameOnly2 = Dir(pname)
+End Function</code></pre>
+<p><strong>PathExists</strong> 函数:该函数接收一个参数路径，如果路径存在，那么返回True。</p>
+<pre><code class="vb">Private Function PathExists(pname) As Boolean
+&#39;   Returns TRUE if the path exists
+  If Dir(pname, vbDirectory) = &quot;&quot; Then
+    PathExists = False
+ Else
+    PathExists = (GetAttr(pname) And vbDirectory) = vbDirectory
+ End If
+End Function</code></pre>
+<p><strong>RangeNameExists</strong> 函数：该函数接收一个参数(单元格区域名称)。如果活动工作簿中存在这个单元格区域的名称，则返回True。</p>
+<pre><code class="vb">Private Function RangeNameExists(nname) As Boolean
+&#39;   Returns TRUE if the range name exists
+    Dim n As Name
+    RangeNameExists = False
+    For Each n In ActiveWorkbook.Names
+        If UCase(n.Name) = UCase(nname) Then
+            RangeNameExists = True
+            Exit Function
+        End If
+    Next n
+End Function</code></pre>
+<p><strong>SheetExists</strong> 函数：该函数接收一个参数(工作表的名称)。如果活动工作簿中包含这个工作表，则返回True。</p>
+<pre><code class="vb">Private Function SheetExists(sname) As Boolean
+&#39;   Returns TRUE if sheet exists in the active workbook&#39;
+    Dim x As Object
+    On Error Resume Next
+    Set x = ActiveWorkbook.Sheets(sname)
+    If Err = 0 Then SheetExists = True _
+        Else SheetExists = False
+End Function</code></pre>
+<p><strong>WorkbooklsOpen</strong> 函数：该函数接收一个参数(工作簿的名称)。如果打开了这个工作簿，则返回True。</p>
+<pre><code class="vb">Private Function WorkbookIsOpen(wbname) As Boolean
+&#39;   Returns TRUE if the workbook is open&#39;
+    Dim x As Workbook
+    On Error Resume Next
+    Set x = Workbooks(wbname)
+    If Err = 0 Then WorkbookIsOpen = True _
+        Else WorkbookIsOpen = False
+End Function</code></pre>
+<p><strong>测试集合成员关系的通用函数</strong>：接收两个参数，分别是集合(一个对象)和项(一个字符串)，若这个项是集合成员，则返回True。</p>
+<pre><code class="vb">Private Function IsInCollection(Coln As Object, Item As String) As Boolean
+    Dim Obj As Object
+    On Error Resume Next
+    Set Obj = Coln(Item)
+    IsInCollection = Not Obj Is Nothing
+End Function
+&#39;例如:&#39;
+MsgBox IsInCollection(ActiveWorkbook.Names,&quot;Data&quot;) &#39;确定单元格区域Data是否包含在活动工作簿中&#39;
+MsgBox IsInCollection(Workbooks,&quot;budget.xlsx&quot;) &#39;确定是否打开了名为Budget的工作簿&#39;
+MsgBox IsInCollection(ActiveWorkbook.Worksheets,&quot;Sheet1&quot;) &#39;确定活动工作簿是否包含名为Sheet1的工作表&#39;</code></pre>
+<p><strong>检索已经关闭的工作簿的值</strong>:VBA没有提供从关闭的文件工作簿文件中检索值的方法。然而，可以利用Excel来处理链接的文件。</p>
+<pre><code class="vb">&#39;GetValue函数接收4个参数：&#39;
+&#39;- path:已经关闭的文件所在的驱动器盘符和路径（如d:\files）&#39;
+&#39;- file:工作簿的名称(如budget.xlsx)&#39;
+&#39;- sheet:工作表的名称(如sheet1)&#39;
+&#39;- ref:单元格的引用(如C4)&#39;
+&#39;该函数通过调用宏XLM来达到目的。&#39;
+Private Function GetValue(path, file, sheet, ref)
+&#39;   Retrieves a value from a closed workbook&#39;
+    Dim arg As String
+
+&#39;   Make sure the file exists&#39;
+    If Right(path, 1) &lt;&gt; &quot;\&quot; Then path = path &amp; &quot;\&quot;
+    If Dir(path &amp; file) = &quot;&quot; Then
+        GetValue = &quot;File Not Found&quot;
+        Exit Function
+    End If
+
+&#39;   Create the argument&#39;
+    arg = &quot;&#39;&quot; &amp; path &amp; &quot;[&quot; &amp; file &amp; &quot;]&quot; &amp; sheet &amp; &quot;&#39;!&quot; &amp; _
+      Range(ref).Range(&quot;A1&quot;).Address(, , xlR1C1)
+
+&#39;   Execute an XLM macro&#39;
+    GetValue = ExecuteExcel4Macro(arg)
+End Function</code></pre>
+<pre><code class="vb">&#39;以下过程阐述了如何使用GetValue函数。其中显示了位于2013budget.xlsx文件中Sheet1工作表上的单元格A1中的值，该文件位于C盘的XLFiles\Budget目录下。&#39;
+Sub TestGetValue()
+    Dim p As String, f As String
+    Dim s As String, a As String
+
+    p = ThisWorkbook.path
+    f = &quot;myworkbook.xlsx&quot;
+    s = &quot;Sheet2&quot;
+    a = &quot;C1&quot;
+    MsgBox GetValue(p, f, s, a)
+End Sub</code></pre>
+<pre><code class="vb">&#39;以下是个示例，这个过程展示了如何从已经关闭的文件中读取1200个值(100行和12列)，然后把这些值放到工作表中。&#39;
+Sub TestGetValue2()
+    Dim p As String, f As String
+    Dim s As String, a As String
+    Dim r As Long, c As Long
+
+    p = ThisWorkbook.path
+    f = &quot;myworkbook.xlsx&quot;
+    s = &quot;Sheet1&quot;
+    Application.ScreenUpdating = False
+    For r = 1 To 100
+        For c = 1 To 12
+            a = Cells(r, c).Address
+            Cells(r, c) = GetValue(p, f, s, a)
+        Next c
+    Next r
+End Sub</code></pre>
+<h2 id="一些有用的工作表函数"><a href="#一些有用的工作表函数" class="headerlink" title="一些有用的工作表函数"></a>一些有用的工作表函数</h2><p>以下示例都是自定义函数，可用于工作表中的公式中。必须在一个VBA模块中定义这些Function过程(而不是在与ThisWorkbook、Sheet或UserForm关联的代码模块中)</p>
+<p><strong>返回单元格的信息</strong></p>
+<p>一以下函数不能自动更新，因为没有触发Excel的自动计算引擎。为强制实施全局的重新计算和更新所有自定义函数，可按Ctrl+Alt+F9快捷键操作。或是在函数中添加语句：Application.Volatile</p>
+<pre><code class="vb">&#39;如果单元格参数包含粗体格式，则下面的函数返回True：&#39;
+Function ISBOLD(Cell) As Boolean
+&#39;   Returns TRUE if cell is bold
+    ISBOLD = Cell.Range(&quot;A1&quot;).Font.Bold
+End Function
+&#39;以上函数只对那些显式运用的格式才有效，但不适用于使用条件格式化来运用的格式。以下重写ISBOLD函数，使得其可以应用于根据条件设置的格式&#39;
+Function ISBOLD(Cell) As Boolean
+&#39;Returns TRUE if cell is bold，even if from conditional formatting
+    ISBOLD = Cell.Range(&quot;A1&quot;).Font.Bold
+End Function</code></pre>
+<pre><code class="vb">&#39;如果单元格参数包含斜体格式，则下面的函数返回True：&#39;
+Function ISITALIC(Cell) As Boolean
+&#39;   Returns TRUE if cell is italic
+    ISITALIC = Cell.Range(&quot;A1&quot;).Font.Italic
+End Function</code></pre>
+<pre><code class="vb">&#39;如果单元格中包含混合格式（只有部分字符是粗体显示时），上述两个函数都将显示错误信息。只有单元格中所有的字符都粗体显示时，下面的函数才会返回True:&#39;
+Function ALLBOLD(Cell) As Boolean
+&#39;   Returns TRUE if all characters in cell are bold
+    If IsNull(Cell.Font.Bold) Then 
+        ALLBOLD = FALSE
+    ELSE
+        ALLBOLD = cell.Font.Bold
+    End If
+End Function
+&#39;ALLBOLD函数可简化成如下形式&#39;
+Function ALLBOLD(Cell) As Boolean
+&#39;   Returns TRUE if all characters in cell are bold&#39;
+    ALLBOLD = Not IsNull(Cell.Font.Bold)
+End Function</code></pre>
+<pre><code class="vb">&#39;以下函数返回一个整数，对应于单元格填充颜色的索引号，如果没有颜色填充单元格，则返回-4142。&#39;
+Function FILLCOLOR(Cell) As Integer
+&#39;   Returns an integer corresponding to
+&#39;   cell&#39;s interior color
+    Application.Volatile
+    FILLCOLOR = Cell.Range(&quot;A1&quot;).Interior.ColorIndex
+End Function</code></pre>
+<p><strong>会说话的工作表</strong></p>
+<p>SAYIT函数使用了Excel的文本转换成语音的转换生成器，来“讲述”它的参数(可以为文本文字或是单元格引用)</p>
+<pre><code class="vb">Function SAYIT(txt)
+    Application.Speech.Speak(txt)
+    SAYIT = txt
+End Function
+&#39;该函数有一些娱乐作用，有时还是很有用的，例如：在公式中使用该函数&#39;
+= IF(SUM(A:A)&gt;25000,SayIt(&quot;Goal Reached&quot;))</code></pre>
+<p><strong>显示保存或打印文件的时间</strong></p>
+<pre><code class="vb">&#39;下面函数将返回上一次保存工作簿的日期和时间&#39;
+Function LASTSAVED()
+    Application.Volatile
+    LASTSAVED = ThisWorkbook. _
+      BuiltinDocumentProperties(&quot;Last Save Time&quot;)
+End Function</code></pre>
+<pre><code class="vb">&#39;类似于LASTSAVED的函数，但返回的是上次打印或预览工作簿的时间和日期，若从未打印，返回#Value错误&#39;
+Function LASTPRINTED()
+    Application.Volatile
+    LASTPRINTED = ThisWorkbook. _
+      BuiltinDocumentProperties(&quot;Last Print Date&quot;)
+End Function</code></pre>
+<pre><code class="vb">&#39;某些情况下，想要把以上函数保存在另一个工作簿(如personal.xlsb)或加载项中。因为这些函数引用了ThisWorkbook，不经饿正确与你系那个。下面给出更通用的版本，使用了Application.Caller，它将返回一个Range对象，而对象代表了调用该函数的单元格。Parent.Parent的使用将返回工作簿(即Range对象父对象的父对象，也是一个Workbook对象)&#39;
+Function LastSaved2()
+    Application.Volatile
+    LastSaved2 = Application.Caller.Parent.Parent. _
+      BuiltinDocumentProperties(&quot;Last Save Time&quot;)
+End Function</code></pre>
+<p><strong>理解对象的父对象</strong></p>
+<p>Excel的对象模型是一种层次结构：对象包含在其他对象中，层次结构最顶端是Application对象。Excel对象包含其他对象，而这些对象又包含其他对象等，以下为层次结构。</p>
+<pre><code class="vb">Application 对象
+    Workbook 对象
+        Worksheet 对象
+            Range 对象</code></pre>
+<pre><code class="vb">&#39;以下示例，函数只接收一个参数（单元格区域）&#39;
+Function SheetName(ref) As String
+    SheetName = ref.Parent.Name &#39;返回工作表名称&#39;
+End Function
+
+Function WorkbookName(ref) As String
+    WorkbookName = ref.Parent.Parent.Name &#39;返回workbook对象&#39;
+End Function
+
+Function AppName(ref) As String
+    AppName = ref.Parent.Parent.Parent.Name &#39;返回单元格的application对象名称&#39;
+End Function</code></pre>
+<p><strong>计算两个值之间的单元格数目</strong></p>
+<pre><code class="vb">&#39;以下函数在第一个参数InRange代表的单元格区域内，值介于第二个参数和第三个参数代表的两个值之间的单元格数目
+&#39;使用了Excel的COUNTIFS函数&#39;
+Function COUNTBETWEEN(InRange, num1, num2) As Long
+&#39;   Counts number of values between num1 and num2&#39;
+    With Application.WorksheetFunction
+        If num1 &lt;= num2 Then
+            COUNTBETWEEN = .CountIfs(InRange, &quot;&gt;=&quot; &amp; num1, _
+                InRange, &quot;&lt;=&quot; &amp; num2)
+        Else
+            COUNTBETWEEN = .CountIfs(InRange, &quot;&gt;=&quot; &amp; num2, _
+                InRange, &quot;&lt;=&quot; &amp; num1)
+        End If
+    End With
+End Function</code></pre>
+<p><strong>确定行或列中最后一个非空单元格</strong></p>
+<pre><code class="vb">&#39;以下展示的两个函数分别返回列或行中的最后一个非空单元格的内容，若输入单元格区域不是整行或整列则返回单元格区域左上方单元格所在的行或列中最后一个非空单元格的值。&#39;
+Function LASTINCOLUMN(Rng As Range)
+&#39;   Returns the contents of the last non-empty cell in a column&#39;
+    Dim LastCell As Range
+    Application.Volatile
+    With Rng.Parent
+        With .Cells(.Rows.Count, Rng.Column)
+            If Not IsEmpty(.Value) Then
+                LASTINCOLUMN = .Value
+            ElseIf IsEmpty(.End(xlUp)) Then
+                LASTINCOLUMN = &quot;&quot;
+            Else
+                LASTINCOLUMN = .End(xlUp).Value
+            End If
+         End With
+    End With
+End Function
+
+Function LASTINROW(Rng As Range)
+&#39;   Returns the contents of the last non-empty cell in a row&#39;
+    Application.Volatile
+    With Rng.Parent
+        With .Cells(Rng.Row, .Columns.Count)
+            If Not IsEmpty(.Value) Then
+                LASTINROW = .Value
+            ElseIf IsEmpty(.End(xlToLeft)) Then
+                LASTINROW = &quot;&quot;
+            Else
+                LASTINROW = .End(xlToLeft).Value
+            End If
+         End With
+    End With
+End Function
+&#39;- Application.Volatile:使得无论何时计算工作表都会执行这个函数&#39;
+&#39;- Rows.Count返回工作表中的行数。因为不是所有的工作表都含有相同的行数，所以这里没有使用编码的值，而使用      了Count属性。&#39;
+&#39;- rng.Column返回rng参数中的左上角单元格所在的列号&#39;
+&#39;- 使用rng.Parent后，即使rng参数引用其他工作表或工作簿，该函数也能正确运行&#39;
+&#39;- End方法(使用xlUp参数)等同于激活列中的最后一个单元格，即按End键，然后按向上箭头键&#39;
+&#39;- IsEmpty函数检测单元格是否为空。如果是空，就返回空字符串。如果没有这条语句，那么空单元格返回的值是0&#39;</code></pre>
+<p><strong>字符串与模式匹配</strong></p>
+<pre><code class="vb">&#39;ISLIKE函数接收两个参数：&#39;
+&#39; - text: 文本字符串或对包含文本字符串的单元格的引用&#39;
+&#39; - pattern:通配符字符串（?匹配任意单个字符，*匹配0或多个字符，#匹配任意单个数字，[charlist]匹配字符列表中任意单个字符，[!charlist]不在字符列表中的任意单个字符）&#39;
+Function ISLIKE(text As String, pattern As String) As Boolean
+&#39;   Returns true if the first argument is like the second&#39;
+    ISLIKE = text Like pattern
+End Function
+&#39;该函数基本上是一个包装器，它允许在公式中利用VBA功能强大的Like运算符。&#39;
+
+&#39;示例：&#39;
+=ISLIKE(&quot;guiter&quot;,&quot;g*&quot;) &#39;返回TRUE&#39;
+=ISLIKE(&quot;Unit1&quot;,&quot;Unit?&quot;) &#39;返回True&#39;
+=ISLIKE(&quot;a&quot;,&quot;[aeiou]&quot;) &#39;返回TRUE，此例可以增加用UPPER函数&#39;
+=ISLIKE(A1,&quot;1##&quot;)</code></pre>
+<p><strong>从字符串中提取第n个元素</strong></p>
+<p>EXTRACTELEMENT是一个自定义工作表函数(也可以从VBA过程中掉用)，它从文本字符串中提取一个元素。</p>
+<p>EXTRACTELEMENT函数使用了如下三个参数：</p>
+<ul>
+<li>Txt:从中提取文本字符串，可以是字面上的字符串或单元格引用。</li>
+<li>n:整型，代表要提取的元素个数。</li>
+<li>Separator:用作分隔符的单个字符。</li>
+</ul>
+<p>该函数的代码如下：</p>
+<pre><code class="vb">Function EXTRACTELEMENT(txt, n, Separator) As String
+&#39;   Returns the nth element of a text string, where the&#39;
+&#39;   elements are separated by a specified separator character&#39;
+    Dim AllElements As Variant
+    AllElements = Split(txt, Separator)
+    EXTRACTELEMENT = AllElements(n - 1)
+End Function</code></pre>
+<p><strong>拼写出数字</strong></p>
+<p>SPELLDOLLARS函数返回使用文本拼写出的数字。</p>
+<pre><code class="vb">=SPELLDOLLARS(123.45) &#39;返回字符串One hundred twenty-three and 45/100 dollars&#39;</code></pre>
+<p><strong>多功能函数</strong></p>
+<pre><code class="vb">&#39;以下示例描述了某些情况下或许很有用的方法，使得一个工作表函数就像多个函数一样。下面函数包含两个参数，单元格区域rng和操作op,根据op值不同，返回使用下列列出的任意一种工作表函数计算出的值。&#39;
+Function STATFUNCTION(Rng, op)
+    Select Case UCase(op)
+        Case &quot;SUM&quot;
+            STATFUNCTION = WorksheetFunction.Sum(Rng)
+        Case &quot;AVERAGE&quot;
+            STATFUNCTION = WorksheetFunction.Average(Rng)
+        Case &quot;MEDIAN&quot;
+            STATFUNCTION = WorksheetFunction.Median(Rng)
+        Case &quot;MODE&quot;
+            STATFUNCTION = WorksheetFunction.Mode(Rng)
+        Case &quot;COUNT&quot;
+            STATFUNCTION = WorksheetFunction.Count(Rng)
+        Case &quot;MAX&quot;
+            STATFUNCTION = WorksheetFunction.Max(Rng)
+        Case &quot;MIN&quot;
+            STATFUNCTION = WorksheetFunction.Min(Rng)
+        Case &quot;VAR&quot;
+            STATFUNCTION = WorksheetFunction.Var(Rng)
+        Case &quot;STDEV&quot;
+            STATFUNCTION = WorksheetFunction.StDev(Rng)
+        Case Else
+            STATFUNCTION = CVErr(xlErrNA)
+    End Select
+End Function</code></pre>
+<p><strong>SHEETOFFSET函数</strong></p>
+<p>VBA函数SHEETOFFSET,它允许以相对方式寻址工作表。例如，可使用下列公式引用前一个工作表中的单元格A1:</p>
+<pre><code class="vb">=SHEETOFFSET(-1,A1) &#39;该函数第一个参数代表相对的工作表，第二个参数必须是对某个单元格的引用。本例引用前一个工作表中的单元格A1。&#39;
+&#39;该函数VBA代码如下：&#39;
+Function SHEETOFFSET(Offset As Long, Optional Cell As Variant)
+&#39;   Returns cell contents at Ref, in sheet offset
+    Dim WksIndex As Long, WksNum As Long
+    Dim wks As Worksheet
+    Application.Volatile
+    If IsMissing(Cell) Then Set Cell = Application.Caller
+    WksNum = 1
+    For Each wks In Application.Caller.Parent.Parent.Worksheets
+        If Application.Caller.Parent.Name = wks.Name Then
+            SHEETOFFSET = Worksheets(WksNum + Offset).Range(Cell(1).Address)
+            Exit Function
+        Else
+            WksNum = WksNum + 1
+        End If
+    Next wks
+End Function</code></pre>
+<p><strong>返回所有工作表中的最大值</strong></p>
+<pre><code class="vb">&#39;如果需要跨很多工作表确定单元格B1中的最大值，则可以使用以下公式：&#39;
+    =MAx(Sheet1:Sheet4!B1)
+&#39;下面的MAXALLSHEETS函数只接收一个单元格参数，它返回工作簿中所有工作表内该单元格中的最大值。&#39;
+Function MAXALLSHEETS(Cell)
+    Dim MaxVal As Double
+    Dim Addr As String
+    Dim Wksht As Object
+    Application.Volatile
+    Addr = Cell.Range(&quot;A1&quot;).Address
+    MaxVal = -9.9E+307
+    For Each Wksht In Cell.Parent.Parent.Worksheets
+        If Wksht.Name = Cell.Parent.Name And _
+          Addr = Application.Caller.Address Then
+        &#39; avoid circular reference
+        Else
+            If IsNumeric(Wksht.Range(Addr)) Then
+                If Wksht.Range(Addr) &gt; MaxVal Then _
+                  MaxVal = Wksht.Range(Addr).Value
+            End If
+        End If
+    Next Wksht
+    If MaxVal = -9.9E+307 Then MaxVal = 0
+    MAXALLSHEETS = MaxVal
+End Function</code></pre>
+<p><strong>返回没有重复随机整数元素的数组</strong></p>
+<pre><code class="vb">&#39;以下函数将返回没有重复整数元素的数组，规定在多个单元格数组公式中使用该函数。｛=RANDOMINTEGERS()｝
+&#39;首先选中单元格区域,然后按Ctrl+Shift+Enter快捷键输入公式。公式返回没有重复整数的数组。&#39;
+&#39;RANDOMINTEGERS函数的代码如下：&#39;
+Function RANDOMINTEGERS()
+    Dim FuncRange As Range
+    Dim V() As Variant, ValArray() As Variant
+    Dim CellCount As Double
+    Dim i As Integer, j As Integer
+    Dim r As Integer, c As Integer
+    Dim Temp1 As Variant, Temp2 As Variant
+    Dim RCount As Integer, CCount As Integer
+
+&#39;   Create Range object&#39;
+    Set FuncRange = Application.Caller
+
+&#39;   Return an error if FuncRange is too large&#39;
+    CellCount = FuncRange.Count
+    If CellCount &gt; 1000 Then
+        RANDOMINTEGERS = CVErr(xlErrNA)
+        Exit Function
+    End If
+
+&#39;   Assign variables&#39;
+    RCount = FuncRange.Rows.Count
+    CCount = FuncRange.Columns.Count
+    ReDim V(1 To RCount, 1 To CCount)
+    ReDim ValArray(1 To 2, 1 To CellCount)
+
+&#39;   Fill array with random numbers&#39;
+&#39;   and consecutive integers&#39;
+    For i = 1 To CellCount
+        ValArray(1, i) = Rnd
+        ValArray(2, i) = i
+    Next i
+
+&#39;   Sort ValArray by the random number dimension&#39;
+    For i = 1 To CellCount
+        For j = i + 1 To CellCount
+            If ValArray(1, i) &gt; ValArray(1, j) Then
+                Temp1 = ValArray(1, j)
+                Temp2 = ValArray(2, j)
+                ValArray(1, j) = ValArray(1, i)
+                ValArray(2, j) = ValArray(2, i)
+                ValArray(1, i) = Temp1
+                ValArray(2, i) = Temp2
+            End If
+        Next j
+    Next i
+
+&#39;   Put the randomized values into the V array&#39;
+    i = 0
+    For r = 1 To RCount
+        For c = 1 To CCount
+            i = i + 1
+            V(r, c) = ValArray(2, i)
+        Next c
+    Next r
+    RANDOMINTEGERS = V
+End Function</code></pre>
+<p><strong>随机化单元格区域</strong></p>
+<p>下面的RANGERANDOMIZE函数接收一个单元格类型的参数，返回输入单元格区域组成的数组(随机顺序)：</p>
+<pre><code class="vb">Function RANGERANDOMIZE(Rng)
+    Dim V() As Variant, ValArray() As Variant
+    Dim CellCount As Double
+    Dim i As Integer, j As Integer
+    Dim r As Integer, c As Integer
+    Dim Temp1 As Variant, Temp2 As Variant
+    Dim RCount As Integer, CCount As Integer
+
+&#39;   Return an error if rng is too large&#39;
+    CellCount = Rng.Count
+    If CellCount &gt; 1000 Then
+        RANGERANDOMIZE = CVErr(xlErrNA)
+        Exit Function
+    End If
+
+&#39;   Assign variables&#39;
+    RCount = Rng.Rows.Count
+    CCount = Rng.Columns.Count
+    ReDim V(1 To RCount, 1 To CCount)
+    ReDim ValArray(1 To 2, 1 To CellCount)
+
+&#39;   Fill ValArray with random numbers&#39;
+&#39;   and values from rng
+    For i = 1 To CellCount
+        ValArray(1, i) = Rnd
+        ValArray(2, i) = Rng(i)
+    Next i
+
+&#39;   Sort ValArray by the random number dimension&#39;
+    For i = 1 To CellCount
+        For j = i + 1 To CellCount
+            If ValArray(1, i) &gt; ValArray(1, j) Then
+                Temp1 = ValArray(1, j)
+                Temp2 = ValArray(2, j)
+                ValArray(1, j) = ValArray(1, i)
+                ValArray(2, j) = ValArray(2, i)
+                ValArray(1, i) = Temp1
+                ValArray(2, i) = Temp2
+            End If
+        Next j
+    Next i
+
+&#39;   Put the randomized values into the V array&#39;
+    i = 0
+    For r = 1 To RCount
+        For c = 1 To CCount
+            i = i + 1
+            V(r, c) = ValArray(2, i)
+        Next c
+    Next r
+    RANGERANDOMIZE = V
+End Function
+&#39;上述代码与RANDOMINTEFERS函数代码非常类似，使用该函数作为数组公式(按Ctrl+Shift+Enter键)。&#39;
+=｛RANGERANDOMIZE(A2:A11)｝ &#39;该函数随机返回单元格A2:A11中的内容&#39;</code></pre>
+<p><strong>对单元格区域进行排序</strong></p>
+<p>SORTED函数接收一个单列单元格区域参数，并返回排序的单元格区域。</p>
+<pre><code class="vb">Function SORTED(Rng)
+    Dim SortedData() As Variant
+    Dim Cell As Range
+    Dim Temp As Variant, i As Long, j As Long
+    Dim NonEmpty As Long
+
+&#39;   Transfer data to SortedData&#39;
+    For Each Cell In Rng
+        If Not IsEmpty(Cell) Then
+            NonEmpty = NonEmpty + 1
+            ReDim Preserve SortedData(1 To NonEmpty)
+            SortedData(NonEmpty) = Cell.Value
+        End If
+    Next Cell
+
+&#39;   Sort the array&#39;
+    For i = 1 To NonEmpty
+        For j = i + 1 To NonEmpty
+            If SortedData(i) &gt; SortedData(j) Then
+                Temp = SortedData(j)
+                SortedData(j) = SortedData(i)
+                SortedData(i) = Temp
+            End If
+        Next j
+    Next i
+
+&#39;   Transpose the array and return it&#39;
+    SORTED = Application.Transpose(SortedData)
+End Function
+&#39;将SORTED函数作为数组公式(按Ctrl+Shift+Enter键)。Sorted函数返回排过序的数组内容。&#39;
+&#39;SORTED函数首先创建一个名为SortedData的数组。这个数组包括参数单元格区域中的所有非空值。接着，数组使用冒泡排序算法进行排序，由于该书组是一个一维水平数组，所以必须在函数返回之前转置它。&#39;
+&#39;SORTED函数可用于任意大小的单元格区域，只要它在单行或单列中。如果非排序的数据在一行中，那么公式需要使用Excel的TRANSPOSE函数水平显示排序的数据。例如：=TRABSPOSE(SORTED(A1:L16))&#39;</code></pre>
+<p>注：以上源代码可以在<a href="http://www.tupwk.com.cn/index.asp" target="_blank" rel="noopener">清华大学出版社–第五事业部</a>下载。</p>
+
+    </div>
+</article>
+                </main>
+                <aside class="aside">
+                    <section class="aside-section">
+                        
+    <h1>Categories</h1>
+
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/生の术/">生の术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生の迹/">生の迹</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生の道/">生の道</a></li></ul>
+
+                    </section>
+                    <section class="aside-section">
+                        
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archiveshl/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archiveshl/2018/">2018</a></li></ul>
+
+
+                    </section>
+                    <section class="aside-section tag">
+                        
+    <h1>Tags</h1>
+
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VBA/">VBA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据科学/">数据科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缠论/">缠论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自言语/">自言语</a></li></ul>
+
+                    </section>
+                </aside>
+        </div>
+    </body>
+
+</html>

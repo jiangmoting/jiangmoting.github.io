@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="jiangmoting, autumn">
+    <title>
+        TT ❤ LL 印迹
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script>
+        infiniteScroll()
+
+        // for mobile menu
+        $(function () {
+            $('.social-button').click(function () {
+                if ($('.social-links').hasClass('hide-links')) {
+                    $('.social-links').removeClass('hide-links')
+                } else {
+                    $('.social-links').addClass('hide-links')
+                }
+            })
+        })
+    </script>
+</head>
+
+    <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <div class="container">
+            <header class="header">
+    <h1 class="title">
+        <a href="/" class="logo">
+            TT ❤ LL 印迹
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <nav class="links">
+        <button class="social-button">
+            menu
+        </button>
+        <ul class="social-links hide-links">
+            
+                <li>
+                    <a href="http://nipponcolors.com/">
+                        当下
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://nipponcolors.com/">
+                        未来
+                    </a>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+                <main class="main">
+                    <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/生の术/">
+            生の术
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        Markdown语法和Typora
+    </h2>
+    <ul class="post-date">
+        <li>
+            2018-01-18
+        </li>
+        <li>
+            绛墨铤
+        </li>
+    </ul>
+    <div class="post-content">
+        <h2 id="声明：以下内容来源于Typora客户端中的MarkDown-Reference。"><a href="#声明：以下内容来源于Typora客户端中的MarkDown-Reference。" class="headerlink" title="声明：以下内容来源于Typora客户端中的MarkDown Reference。"></a><strong>声明</strong>：以下内容来源于Typora客户端中的MarkDown Reference。</h2><h1 id="Markdown-For-Typora"><a href="#Markdown-For-Typora" class="headerlink" title="Markdown For Typora"></a>Markdown For Typora</h1><h2 id="overview"><a href="#overview" class="headerlink" title="overview"></a>overview</h2><p><strong>Markdown</strong>是由<a href="http://daringfireball.net/" target="_blank" rel="noopener">Daring Fireball</a>开发出来，参见最初的<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="noopener">指导手册</a>。但是其语法在不同的解析器和编辑器上也存在差异。<strong>Typora</strong>使用[Github Flavored Markdown][GFM].</p>
+<p>需要注意的是HTML片段在markdown源中能被识别但是不会被解析和呈现。另外，markdown原始源代码在保存之后或许会出现小的格式差异。</p>
+<p><strong>大纲</strong></p>
+<p>[TOC]</p>
+<h2 id="区块元素"><a href="#区块元素" class="headerlink" title="区块元素"></a>区块元素</h2><h3 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h3><p>一个 Markdown 段落是由一个或多个连续的文本行组成，它的前后要有一个以上的空行。在Typora中，你只需要按下<code>Return</code>键即可生成新的段落。</p>
+<p><code>Shift</code>+<code>Return</code>组合键可以实现换行，但是大多数markdown解析器会忽略换行符。如果你想其他的markdown解析器识别对你的换行符，可以在行末按两个空格键或是插<code>&lt;be/&gt;</code>。</p>
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>标题在行的开头使用1-6个哈希字符，分别对应1-6级标题。例如：</p>
+<pre><code class="markdown">#This is an H1
+##This is an H2
+#####This is an H6</code></pre>
+<p>在Typroa中，可在若干个’#’键后输入标题内容，然后按<code>Return</code>键以创建标题。</p>
+<h3 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h3><p>Markdown使用email形式&gt;字符来进行区块引用，展示如下：</p>
+<pre><code class="markdown">&gt; This is a blockquote with two paragraphs. This is first paragraph.
+&gt;
+&gt; This is second pragraph.Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+&gt; This is another blockquote with one paragraph. There is three empty line to seperate two blockquote.</code></pre>
+<p>在Typroa中，输入’&gt;’在其后引用内容即可生成引用区块，并为您插入适当的’&gt;’或是行符。区块引用可以嵌套，如果想内置新的引用区块，可以添加额外的’&gt;’来实现。</p>
+<p>###列表</p>
+<p>输入<code>*列表1</code>可以生成无序列表，’*’可以用’+’或是’-‘替代。</p>
+<p>输入<code>1.列表1</code>会生成有序列表，markdown代码如下：</p>
+<pre><code class="markdown">##无序列表
+*   Red
+*   Green
+*   Blue
+##有序列表
+1.  Red
+2.  Green
+3.  Blue</code></pre>
+<h3 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h3><p>任务列表是用[]或是[x]标记项目（完成或未完成）的列表，例如：</p>
+<pre><code class="markdown">- [ ] 任务列表项
+- [ ] 列表需求语法
+- [ ] 正常 ** 格式 **, @mentions,
+- [ ] 未完成
+- [x] 已完成</code></pre>
+<p>通过单击前面的复选框可以改变完成或未完成状态。</p>
+<h3 id="Fenced-代码区块"><a href="#Fenced-代码区块" class="headerlink" title="(Fenced)代码区块"></a>(Fenced)代码区块</h3><p>Typroa仅支持Github Flavored Markdown中的fences,并不支持markdown中原始的代码区块。</p>
+<p>使用fences很简单：输入```并按<code>Return</code>键。在```后可以添加可选语言标识符，输入以下语法进行强调：</p>
+<pre><code class="gfm">Here&#39;s as example
+```
+function test() {
+  console.log(&quot;notice the blank line before this function?&quot;);
+}
+```
+语法突出显示：
+```ruby
+require &#39;redcarpet&#39;
+markdown = Redcarpet.new(&quot;Hello World!&quot;)
+puts markdown.to_html
+```</code></pre>
+<h3 id="数学区块"><a href="#数学区块" class="headerlink" title="数学区块"></a>数学区块</h3><p>可以使用<strong>MathJax</strong>来引用<em>LaTex</em>中的数学表达式。</p>
+<p>输入<code>$$</code>然后按<code>Return</code>键会触发接收<em>Tex/Latex</em>源的输入区段。示例如下：<br>$$<br>\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \<br>\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \<br>\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \<br>\end{vmatrix}<br>$$<br>在markdown源文件中，数学区块是用<code>$$</code>包裹的<em>LaTex</em>语法：</p>
+<pre><code class="markdown">$$
+\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} 
+\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\
+\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\
+\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \\
+\end{vmatrix}
+$$</code></pre>
+<h3 id="表"><a href="#表" class="headerlink" title="表"></a>表</h3><p>输入<code>|一级标题 |二级标题 |</code>后按<code>Return</code>键就能创建一个两列的表格。</p>
+<p>表格创建后，将光标放于该焦点上将会弹出一个工具栏，可以用于调整、对齐和删除表格。还可以使用上下文菜单来复制、增加或删除表格的行或列。</p>
+<p>下面的描述可以跳过，因为markdown中关于表格的源代码可以在typora中自动生成。</p>
+<p>markdown源代码中展示如下：</p>
+<pre><code class="markdown">| 一级标题 | 二级标题 |
+| ------- | ------ |
+| 表格内容1| 表格内容2|</code></pre>
+<p>你也可以内置markdown例如链接、粗体、意大利体或者是。</p>
+<p>最后，通过包含colons:</p>
+<pre><code class="markdown">| Left-Aligned  | Center Aligned  | Right Aligned |
+| :------------ |:---------------:| -----:|
+| col 3 is      | some wordy text | $1600 |
+| col 2 is      | centered        |   $12 |
+| zebra stripes | are neat        |    $1 |</code></pre>
+<h3 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h3><pre><code class="markdown">可以用[^footnoe]形式来创建脚注。
+[^footnote]: 这是一段**脚注** *文本*。</code></pre>
+<p>会生成：</p>
+<p>可以用[^footnoe]形式来创建脚注。</p>
+<p>[^footnote]: 这是一段<strong>脚注</strong> <em>文本</em> 。</p>
+<p>鼠标放在”footnote”上可以查看脚注的内容。</p>
+<h3 id="水平线"><a href="#水平线" class="headerlink" title="水平线"></a>水平线</h3><p>在空行上输入<code>***</code>或是<code>---</code>然后按<code>Return</code>即可生成水平线。</p>
+<hr>
+<h3 id="YAML-Front-Matter"><a href="#YAML-Front-Matter" class="headerlink" title="YAML Front Matter"></a>YAML Front Matter</h3><p>Typora现在支持<a href="http://jekyllrb.com/docs/frontmatter" target="_blank" rel="noopener">YAML FRONT MATTER  </a>。在文章头部输入<code>---</code>然后按<code>Enter</code>即可生成。也可以从菜单上插入metedata block。</p>
+<h3 id="内容目录-TOC"><a href="#内容目录-TOC" class="headerlink" title="内容目录(TOC)"></a>内容目录(TOC)</h3><p>输入<code>TOC</code>并按<code>Enter</code>键会创建内容目录用以提取书写内容的所有标题，目录会自动更新。</p>
+<h3 id="图表（顺序图，流程图，鱼线图）"><a href="#图表（顺序图，流程图，鱼线图）" class="headerlink" title="图表（顺序图，流程图，鱼线图）"></a>图表（顺序图，流程图，鱼线图）</h3><p>Typora支持<a href="https://bramp.github.io/js-sequence-diagrams/]" target="_blank" rel="noopener">顺序图</a>、<a href="http://flowchart.js.org/" target="_blank" rel="noopener">流程图</a> 和<a href="https://knsv.github.io/mermaid/#mermaid" target="_blank" rel="noopener">鱼线图</a>。</p>
+<p>详细请参考<a href="http://support.typora.io/Draw-Diagrams-With-Markdown/" target="_blank" rel="noopener">文档</a></p>
+<h2 id="Span元素"><a href="#Span元素" class="headerlink" title="Span元素"></a>Span元素</h2><p>Span元素在你输入后立即就会被解析和转译，移动光标至这些span元素中间会将这些元素扩展到markdown源中。下面会对这些span元素进行解释。</p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>Markdown支持两种链接形式：内置和嵌套。</p>
+<p>在两种形式中，链接文本内容均用[方括号]引用。</p>
+<p>在输入方括号后， 用紧邻方括号的一组圆括号内置链接地址来创建内置链接。在圆括号中输入你想要插入链接的URL地址，链接中可以选择是否插入标题属性，例如：</p>
+<pre><code class="markdown">This is [an example](http://example.com/ &quot;Title&quot;) inline link.
+
+[This link](http://example.net/) has no title attribute.</code></pre>
+<p>会产生：</p>
+<p>This is <a href="http://example.com/" title"" target="_blank" rel="noopener">an example</a> inline link. (<code>&lt;p&gt;This is &lt;a href=&quot;http://example.com/&quot; title=&quot;Title&quot;&gt;</code>)</p>
+<p><a href="http://example.net/" target="_blank" rel="noopener">This link</a> has no title attribute. (<code>&lt;p&gt;&lt;a href=&quot;http://example.net/&quot;&gt;This link&lt;/a&gt; has no</code>)</p>
+<p>####内置链接</p>
+<p><strong>可以将  href  设置为标题</strong>,它将创建一个书签,  允许您在单击后跳转到该节。例如: </p>
+<p>命令  (在  Windows: Ctrl  上) +  单击<a href="#区块元素">链接</a>将跳转到页眉块元素。若要查看如何写入,  请移动游标或单击  <code>⌘</code>键的链接,将该元素扩展到降价源.</p>
+<p>####参考链接</p>
+<p>引用样式链接使用第二组方括号,  在其中放置您选择的标签来标识链接:</p>
+<pre><code class="markdown">这是 [示例] [id] 引用样式链接. 
+然后, 在文档中的任何位置, 在一行上自行定义链接标签: 
+[id]: http://example.com/&quot;此处可选标题&quot; </code></pre>
+<p>在  typora,  它们将呈现如下:<br>这是一个<a href="http://example.com/" title="Optional Title Here" target="_blank" rel="noopener">示例</a>引用样式链接。</p>
+<p>隐式链接名称快捷方式允许您省略链接的名称,  在这种情况下,  链接文本本身将用作名称。只需使用一组空的方括号  (例如,  将  “Google”  一词链接到<br>google.com  网站,  您就可以简单地编写:  </p>
+<pre><code class="markdown">[Google][]
+定义：
+[Google]:http://google.com/</code></pre>
+<p>在  typora  单击链接将展开它进行编辑,  命令  +  单击将在  web  浏览器中打开超链接。</p>
+<h3 id="UELs"><a href="#UELs" class="headerlink" title="UELs"></a>UELs</h3><p>Typora  允许您将  url  作为链接插入,  包装为 &lt; 括号&gt;。</p>
+<p><code>&lt; i@typora.io i@typora &gt;</code>变为<a href="mailto:i@typora.io" target="_blank" rel="noopener">i@typora.io</a> i@typora. io</p>
+<p>Typora  将自动链接标准网址。e. g: <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a>.  </p>
+<h3 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h3><p>图像看起来与链接相似,  但需要另外一个 <code>!</code>字符置于在链接开始前。图像语法如下所示: </p>
+<pre><code class="markdown">![Alt text](/path/to/img.jpg)
+
+![Alt text](/path/to/img.jpg &quot;Optional title&quot;)</code></pre>
+<p>您可以从图像文件或浏览器中  “拖动” &amp; “移除”  插入图像。并通过单击图像修改markdown源代码。如果在拖动  &amp;  删除时图像与当前编辑文档位于同一目录或子目录中,  则将使用相对路径。 </p>
+<p>有关图像的更多内容,  请阅读&lt;<a href="http://support.typora.io//Images/" target="_blank" rel="noopener">http://support.typora.io//Images/</a> &gt;。</p>
+<h3 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h3><p>markdown将星号  (<code>*</code>)  和下划线  (<code>_</code>)  视为重点指标。与一个<code>*</code> 或 <code>_</code> 一起包装的文本<br>将用  HTML <code>&lt; em &gt;</code> 标记进行包装。E. g:</p>
+<pre><code class="markdown">*单星号*
+_单下划线_</code></pre>
+<p>输出：</p>
+<p> <em>单星号</em><br><em>单下划线</em></p>
+<p>GFM  将忽略单词中的下划线,  通常在代码和名称中使用,  如下: </p>
+<blockquote>
+<p>wow_great_stuff</p>
+<p>do_this_and_do_that_and_another_thing.</p>
+</blockquote>
+<p>若要在将其用在强调分隔符的位置上生成字面星号或下划线,  可以使用反斜线转义它: </p>
+<pre><code class="markdown">\*this text is surrounded by literal asterisks\*</code></pre>
+<p>Typora  建议使用 <code>*</code> 符号. </p>
+<h3 id="Strong"><a href="#Strong" class="headerlink" title="Strong"></a>Strong</h3><p>双*’s’或  _’s 将用  HTML  包装 <code>&lt; strong &gt;</code> 标记, e g: </p>
+<pre><code class="markdown">**单星号**
+
+__单下划线__</code></pre>
+<p>输出：</p>
+<p><strong>单星号</strong></p>
+<p><strong>单下划线</strong></p>
+<p>Typora  建议使用 <code>**</code> 符号. </p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>要指示代码跨度,  请用  backtick  引号  (‘)  包装它。与预先格式化的代码块不同, 代码范围指示正常段落中的代码。例如: </p>
+<pre><code class="markdown">使用 `printf ()`函数.  </code></pre>
+<p>将产生：</p>
+<p>使用 <code>printf ()</code>函数. </p>
+<h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><p>GFM  添加syntax以创建文本删除线,  这在标准Markdown中删去了。</p>
+<p><code>~~错误内容.~~</code> becomes <del>错误内容.</del></p>
+<h3 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h3><p>下划线由原生  HTML  驱动。<br><code>&lt; u &gt;下划线&lt;/u &gt;</code> 变为<u>下划线</u></p>
+<h3 id="Emoji表情"><a href="#Emoji表情" class="headerlink" title="Emoji表情"></a>Emoji表情</h3><p>使用语法输入emoji表情 <code>:smile:</code> .</p>
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><p>Typora  无法呈现  html  片段。但是  typora  可以分析和渲染非常有限的  HTML 片段,  作为降价的扩展,  包括:    </p>
+<ul>
+<li>Underline: <code>&lt;u&gt;underline&lt;/u&gt;</code></li>
+<li>Image: <code>&lt;img src=&quot;http://www.w3.org/html/logo/img/mark-word-icon.png&quot; width=&quot;200px&quot; /&gt;</code> (And <code>width</code>, <code>height</code> attribute in HTML tag, and <code>width</code>, <code>height</code>, <code>zoom</code> style in <code>style</code> attribute will be applied.)</li>
+<li>Comments: <code>&lt;!-- This is some comments --&gt;</code></li>
+<li>Hyperlink: <code>&lt;a href=&quot;http://typora.io&quot; target=&quot;_blank&quot;&gt;link&lt;/a&gt;</code>.</li>
+</ul>
+<p>它们的大多数属性、样式或类都将被忽略。对于其他标记, typora  将将它们呈现为原始  HTML  片段。 但是这些  HTML  将在打印或导出时导出。 </p>
+<h3 id="内联数学"><a href="#内联数学" class="headerlink" title="内联数学"></a>内联数学</h3><p>要使用此功能,  请首先启用<code>Preference面板</code>-&gt;<code>Markdown</code> 选项卡。然后使用  <code>$</code> 包装  TeX<br>命令,  例如: <code>$\lim_{x \to \infty} \exp(-x) = 0$</code>将作为LaTex命令呈现.<br>触发内联数学的内联预览:  输入  “$”,  然后按 <code>ESC</code> 键,  然后输入  TeX  命令,  预览工具提示将像下面一样可见: </p>
+<img src="http://typora.io/img/inline-math.gif" style="zoom:50%;">
+
+<h3 id="下标"><a href="#下标" class="headerlink" title="下标"></a>下标</h3><p>要使用此功能,  请首先启用<code>Preference面板</code>-&gt;<code>Markdown</code> 选项卡。然后使用 <code>~</code>来包装下标<br>内容,  例如:<code>H~2~O</code>, <code>X~long\ text~</code>/</p>
+<p>###上标</p>
+<p>要使用此功能,  请首先启用<code>Preference面板</code>-&gt;<code>Markdown</code> 选项卡。然后使用 <code>^</code>来包装下标<br>内容,  例如:<code>X^2^</code>.</p>
+<h3 id="高亮"><a href="#高亮" class="headerlink" title="高亮"></a>高亮</h3><p>要使用此功能,  请首先启用<code>Preference面板</code>-&gt;<code>Markdown</code> 选项卡。然后使用 <code>==</code>来包装下标<br>内容,  例如：<code>==highlight==</code>. </p>
+
+    </div>
+</article>
+                </main>
+                <aside class="aside">
+                    <section class="aside-section">
+                        
+    <h1>Categories</h1>
+
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/生の术/">生の术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生の迹/">生の迹</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生の道/">生の道</a></li></ul>
+
+                    </section>
+                    <section class="aside-section">
+                        
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archiveshl/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archiveshl/2018/">2018</a></li></ul>
+
+
+                    </section>
+                    <section class="aside-section tag">
+                        
+    <h1>Tags</h1>
+
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VBA/">VBA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据科学/">数据科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缠论/">缠论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自言语/">自言语</a></li></ul>
+
+                    </section>
+                </aside>
+        </div>
+    </body>
+
+</html>

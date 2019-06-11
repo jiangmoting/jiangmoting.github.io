@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="jiangmoting, autumn">
+    <title>
+        TT ❤ LL 印迹
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script>
+        infiniteScroll()
+
+        // for mobile menu
+        $(function () {
+            $('.social-button').click(function () {
+                if ($('.social-links').hasClass('hide-links')) {
+                    $('.social-links').removeClass('hide-links')
+                } else {
+                    $('.social-links').addClass('hide-links')
+                }
+            })
+        })
+    </script>
+</head>
+
+    <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <div class="container">
+            <header class="header">
+    <h1 class="title">
+        <a href="/" class="logo">
+            TT ❤ LL 印迹
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <nav class="links">
+        <button class="social-button">
+            menu
+        </button>
+        <ul class="social-links hide-links">
+            
+                <li>
+                    <a href="http://nipponcolors.com/">
+                        当下
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://nipponcolors.com/">
+                        未来
+                    </a>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+                <main class="main">
+                    <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/生の术/">
+            生の术
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        VBA常用技巧3--Wordbook(工作簿)对象
+    </h2>
+    <ul class="post-date">
+        <li>
+            2018-05-10
+        </li>
+        <li>
+            绛墨铤
+        </li>
+    </ul>
+    <div class="post-content">
+        <h2 id="第3章-Wordbook（工作簿）对象"><a href="#第3章-Wordbook（工作簿）对象" class="headerlink" title="第3章     Wordbook（工作簿）对象"></a>第3章     Wordbook（工作簿）对象</h2><h3 id="技巧40-工作簿的引用方法"><a href="#技巧40-工作簿的引用方法" class="headerlink" title="技巧40     工作簿的引用方法"></a>技巧40     工作簿的引用方法</h3><p>VBA中，在不同的工作簿之间转换需要指定引用的工作簿，通常有下面几种方法。</p>
+<h4 id="40-1-使用工作簿的名称"><a href="#40-1-使用工作簿的名称" class="headerlink" title="40-1    使用工作簿的名称"></a>40-1    使用工作簿的名称</h4><p>工作簿名称是指Excel文件的文件名，可以使用Workbooks集合引用方式来引用工作簿，如下面的代码所示。</p>
+<pre><code class="vb">Sub WbPath ()
+    MsgBox &quot;名称为：&quot; &amp; Workbooks(&quot;工作簿的引用方法.xls&quot;).Path
+End Sub
+代码解析：
+WbPath过程显示工作簿“工作簿的引用方法”的路径。应用于Workbook对象的Path属性将完整路径返回给应用程序，语法如下：
+expression.Path
+参数expression是必需的，一个有效的对象。</code></pre>
+<h4 id="40-2-使用工作簿的索引号"><a href="#40-2-使用工作簿的索引号" class="headerlink" title="40-2    使用工作簿的索引号"></a>40-2    使用工作簿的索引号</h4><p>工作簿索引号是指工作簿打开的顺序，Excel根据工作簿打开的顺序以1开始进行编号。下面的代码显示应用程序打开的第一个工作簿的名称。</p>
+<pre><code class="vb">Sub WbName()
+    MsgBox &quot;第一个打开的工作簿名字为：&quot; &amp; Workbooks(1).Name
+End Sub
+代码解析：
+WbName过程显示应用程序打开的第一个工作簿的名称。应用于Workbook对象的Name属性返回对象的名称，语法如下：
+expression.Name
+参数expression是必需的，一个有效的对象。
+运行WbName过程结果如图 40 2所示。</code></pre>
+<p>图 40 2    返回工作簿名称<br>如果需要返回包含完整路径的工作簿名称则使用Workbook对象的FullName属性，如下面的代码所示。</p>
+<pre><code class="vb">Sub WbFullName()
+    MsgBox &quot;包括完整路径的工作簿名称为：&quot; &amp; Workbooks(1).FullName
+End Sub
+WbFullName过程显示应用程序打开的第一个工作簿的完整路径和名称。FullName属性返回对象的名称，包括其磁盘路径的字符串，此属性等价于在Path属性后加上当前文件系统的分隔符，然后加上Name属性。
+运行WbFullName过程结果如图 40 3所示。</code></pre>
+<h4 id="40-3-使用ThisWorkbook"><a href="#40-3-使用ThisWorkbook" class="headerlink" title="40-3    使用ThisWorkbook"></a>40-3    使用ThisWorkbook</h4><p>使用ThisWorkbook代表当前宏代码运行的工作簿，如下面的代码所示。</p>
+<pre><code class="vb">Sub WbClose()
+    ThisWorkbook.Close SaveChanges:=False
+End Sub
+代码解析：
+WbThis过程使用Close方法关闭当前宏代码运行的工作簿，不保存对工作簿的任何更改。关于应用于Workbook对象的Close方法请参阅技巧45-1。
+注意 本属性仅可在 Microsoft Excel内使用。不能使用此属性访问任何其他应用程序的工作簿。</code></pre>
+<h4 id="40-4-使用ActiveWorkbook"><a href="#40-4-使用ActiveWorkbook" class="headerlink" title="40-4    使用ActiveWorkbook"></a>40-4    使用ActiveWorkbook</h4><p>使用ActiveWorkbook代表活动窗口（最上面的窗口）的工作簿，如下面的代码所示。</p>
+<pre><code class="vb">Sub WbActive()
+    MsgBox &quot;当前活动工作簿名字为：&quot; &amp; ActiveWorkbook.Name
+End Sub
+代码解析：
+WbActive过程显示活动工作簿的名称，ActiveWorkbook属性返回一个Workbook对象，该对象代表活动窗口（最上面的窗口）的工作簿。如果没有打开任何窗口或者活动窗口为信息窗口或剪贴板窗口，则返回 Nothing。
+运行WbActive过程结果如图 40 4所示。</code></pre>
+<h3 id="技巧41-新建工作簿文件"><a href="#技巧41-新建工作簿文件" class="headerlink" title="技巧41     新建工作簿文件"></a>技巧41     新建工作簿文件</h3><p>在VBA中使用Add方法新建工作簿，如下面的代码所示。</p>
+<pre><code class="vb">Sub AddNowbook() &#39;AddNowbook过程使用Add方法建立新的工作簿并对新建工作簿进行操作
+    Dim Nowbook As Workbook &#39;声明变量类型
+    Dim ShName As Variant
+    Dim Arr As Variant
+    Dim i As Integer
+    Dim myNewWorkbook As Integer
+    myNewWorkbook = Application.SheetsInNewWorkbook &#39;保存Excel自动插入到新工作簿中的工作表数目
+    ShName = Array(&quot;余额&quot;, &quot;单价&quot;, &quot;数量&quot;, &quot;金额&quot;) &#39;将数组元素赋值给变量
+    Arr = Array(&quot;01月&quot;, &quot;02月&quot;, &quot;03月&quot;, &quot;04月&quot;, &quot;05月&quot;, &quot;06月&quot;, &quot;07月&quot;, &quot;08月&quot;, &quot;09月&quot;, &quot;10月&quot;, &quot;11月&quot;, &quot;12月&quot;)
+    Application.SheetsInNewWorkbook = 4 &#39;将Application对象的SheetsInNewWorkbook属性设置为4，在新建工作簿时插入4张工作表
+    Set Nowbook = Workbooks.Add &#39;使用Add方法建立新的工作簿，应用于Workbooks对象的Add方法新建工作簿，新建的工作簿将成为活动工作簿
+    With Nowbook
+        For i = 1 To 4
+            With .Sheets(i)
+            &#39;将新建工作簿的工作表进行重命名并给单元格赋值
+                .Name = ShName(i - 1)
+                .Range(&quot;B1&quot;).Resize(1, UBound(Arr) + 1) = Arr
+                .Range(&quot;A2&quot;) = &quot;品名&quot;
+            End With
+        Next
+        .SaveAs Filename:=ThisWorkbook.Path &amp; &quot;\&quot; &amp; &quot;存货明细.xls&quot; &#39;使用SaveAs方法将新建工作簿重命名为“存货明细.xls”保存在同一目录中
+        .Close Savechanges:=True &#39;使用Close方法关闭工作簿
+    End With
+    Set Nowbook = Nothing
+    Application.SheetsInNewWorkbook = myNewWorkbook &#39;恢复工作簿的默认设置
+End Sub
+
+关于SaveAs方法请参阅技巧47-2。
+关于Close方法请参阅技巧45-1。
+运行AddNowbook过程将在工作簿同一目录中新建“存货明细.xls”工作簿。
+
+注意 本例中没有考虑工作簿同名因素，如果目录中已有“存货明细.xls”工作簿</code></pre>
+<p>图 41 2    同名提示</p>
+<h3 id="技巧42-打开指定的工作簿"><a href="#技巧42-打开指定的工作簿" class="headerlink" title="技巧42     打开指定的工作簿"></a>技巧42     打开指定的工作簿</h3><p>VBA中使用Open方法打开一个工作簿，如下面的代码所示。</p>
+<pre><code class="vb">Sub Openfile()
+    Dim x As Integer
+    For x = 1 To Workbooks.Count
+        If Workbooks(x).Name = &quot;123.xls&quot; Then
+            MsgBox &quot;&quot;&quot;123&quot;&quot;工作簿已经打开!&quot;
+            Exit Sub
+        End If
+    Next
+    Workbooks.Open ThisWorkbook.Path &amp; &quot;\123.xls&quot;
+End Sub
+代码解析：
+Openfile过程打开同一目录中的“123”工作簿。
+第3行代码利用Workbook对象的Count属性取得打开工作簿的数目，使用For...Next 语句遍历所有打开的工作簿。遍历工作簿除了使用For...Next 语句外还可以使用For...Each...Next语句来遍历Workbook对象集合中的所有元素。
+第4行到第8行代码遍历所有打开的工作簿，如果Workbook对象集合中存在“123”工作簿，说明“123”工作簿已打开，则显示一条如图 42 1所示的提示信息。
+第9行代码如果“123”工作簿没有被打开则使用Open方法打开“123”工作簿。
+Open方法应用于Workbooks 对象时打开一个工作簿，语法如下：
+expression.Open(FileName, UpdateLinks, ReadOnly, Format, Password, WriteResPassword, IgnoreReadOnlyRecommended, Origin, Delimiter, Editable, Notify, Converter, AddToMru, Local, CorruptLoad)
+参数expression是必需的，返回一个Workbooks对象
+参数FileName是必需的，要打开的工作簿的文件名。</code></pre>
+<p>参数UpdateLinks是可选的，指定文件中链接的更新方式。如果省略本参数，则提示用户选择链接的更新方式。否则，该参数的取值应为表格 42 1中的某个值。<br>值    描述<br>0    不更新任何引用<br>1    更新外部引用，但不更新远程引用<br>2    更新远程引用，但不更新外部引用<br>3    同时更新远程引用和外部引用<br>表格 42 1    UpdateLinks参数值<br>参数ReadOnly是可选的，如果该值为True，则以只读模式打开工作簿。<br>参数Format是可选的，如果Microsoft Excel正在打开一个文本文件，则该参数用于指定分隔字符，如表格 42 2所示。如果省略本参数，则使用当前的分隔符。<br>值    分隔符<br>1    制表符<br>2    逗号<br>3    空格<br>4    分号<br>5    没有分隔符<br>6    自定义字符(请参阅 Delimiter 参数)<br>表格 42 2    Format参数值<br>参数Password是可选的，该字符串指定打开一个受保护工作簿的密码。如果省略该参数并且指定工作簿已设置密码，则提示用户输入密码。<br>参数WriteResPassword是可选的，该字符串为一个写保护工作簿的写入权密码。如果省略该参数并且指定工作簿已设置密码，则提示用户输入密码。<br>参数IgnoreReadOnlyRecommended是可选的，如果该值为True，则设置Microsoft Excel不显示建议只读消息（如果该工作簿以“建议只读”选项保存）。<br>参数Origin是可选的，如果文件为文本文件，则该参数用于指示该文件来源于何种操作系统。<br>参数Delimiter是可选的，如果该文件为文本文件并且Format参数为 6，则此参数用于指定用作分隔符的字符。<br>参数Editable是可选的，如果该文件为Microsoft Excel 4.0加载宏，则该参数的值为True时可打开该加载宏以便在窗口中看到。如果该参数的值为False或者省略该参数，则该加载宏以隐藏方式打开，并且无法设为可见。<br>参数Notify是可选的，当该文件不能以可读写模式打开时，如果该参数的值为True，则可将该文件添加到文件通知列表。<br>参数Converter是可选的，打开文件时试用的第一个文件转换器的索引号。<br>参数AddToMru是可选的，如果该值为True，则将该工作簿添加到最近使用的文件列表中。默认值为False。<br>参数Local是可选的，如果该值为True，则以Microsoft Excel（包括控制面版设置）的语言保存文件。如果该值为False（默认值），则以 Visual Basic for Applications (VBA)的语言保存文件，其中Visual Basic for Applications (VBA)为典型安装的美国英语版本，除非VBA项目的Workbooks.Open来自旧的国际化的XL5/95 VBA项目。<br>参数CorruptLoad是可选的，可为以下常量之一：xlNormalLoad、xlRepairFile 和 xlExtractData。如果未指定任何值，则默认值通常为普通状态。</p>
+<h3 id="技巧43-判断指定工作簿是否打开"><a href="#技巧43-判断指定工作簿是否打开" class="headerlink" title="技巧43     判断指定工作簿是否打开"></a>技巧43     判断指定工作簿是否打开</h3><h4 id="43-1-遍历Workbooks集合方法"><a href="#43-1-遍历Workbooks集合方法" class="headerlink" title="43-1    遍历Workbooks集合方法"></a>43-1    遍历Workbooks集合方法</h4><p>通过遍历当前应用程序所有已打开的工作簿文件(Workbooks集合)，判断指定名称的工作簿是否打开，如下面的代码所示。</p>
+<pre><code class="vb">Sub WorkbookIsOpen_1()
+    Dim Wb As Workbook
+    Dim myWb As String
+    myWb = &quot;Excel Home.xls&quot;
+    For Each Wb In Workbooks
+        If Wb.Name = myWb Then
+            MsgBox &quot;工作簿&quot; &amp; myWb &amp; &quot;已经被打开!&quot;
+            Exit Sub
+        End If
+    Next
+    MsgBox &quot;工作簿&quot; &amp; myWb &amp; &quot;没有被打开!&quot;
+End Sub
+代码解析：
+WorkbookIsOpen_1过程通过遍历当前应用程序中所有已打开的工作簿文件(Workbooks集合)，判断“Excel Home”工作簿是否打开。
+第5行代码使用For...Each...Next语句来遍历Workbook对象集合中的所有元素。
+第6行到第8行代码如果Workbook对象集合包含“Excel Home.xls”工作簿名称，说明文件已打开，使用Exit Sub语句结束代码的运行。
+第11行代码如果运行到此行代码说明“Excel Home.xls”工作簿没有被打开。</code></pre>
+<h4 id="43-2-错误处理方法"><a href="#43-2-错误处理方法" class="headerlink" title="43-2    错误处理方法"></a>43-2    错误处理方法</h4><p>使用错误处理程序判断指定名称的工作簿是否打开，如下面的代码所示。</p>
+<pre><code class="vb">Sub WorkbookIsOpen_2() &#39;使用错误处理程序判断“Excel Home”工作簿是否打开
+    Dim Wb As Workbook
+    Dim myWb As String
+    myWb = &quot;Excel Home.xls&quot;
+    Err.Clear &#39;使用Clear方法清除Err对象的所有属性设置
+    On Error GoTo line &#39;启动错误处理程序,代码发生错误则执行line行后面的代码
+    Set Wb = Application.Workbooks(myWb)
+    MsgBox &quot;工作簿&quot; &amp; myWb &amp; &quot;已经被打开!&quot;
+    Set Wb = Nothing
+    Exit Sub
+line:
+    MsgBox &quot;工作簿&quot; &amp; myWb &amp; &quot;没有被打开!&quot;
+    Set Wb = Nothing
+End Sub
+第7行代码使用Set语句将Workbook对象引用赋给变量Wb，如果 “Excel Home.xls”工作簿没有被打开将发生下标越界错误，此时执行第12、13行代码，否则执行第8、9行代码。</code></pre>
+<h3 id="技巧44-禁用宏则关闭工作簿"><a href="#技巧44-禁用宏则关闭工作簿" class="headerlink" title="技巧44     禁用宏则关闭工作簿"></a>技巧44     禁用宏则关闭工作簿</h3><p>通常情况下，当应用程序的宏安全性的安全级别设置为“中”时，打开包含Microsoft Excel 4.0版的宏的工作簿，将显示如图 44 1所示的“安全警告”对话框。</p>
+<p>图 44 1    安全警告对话框<br>如果用户选择“禁用宏”按钮，则会显示如图 44 2所示的警告消息框，当用户选择“否”时，不能打开该工作簿；用户选择“是”时，打开该工作簿，但VBA宏被禁止，而Microsoft Excel 4.0版的宏未被禁止。</p>
+<p>图 44 2    Microsoft Excel 4.0宏警告对话框<br>我们可以利用禁用VBA宏不能禁止Microsoft Excel 4.0版的宏这个特点，使用Microsoft Excel 4.0版的宏来实现禁用宏则关闭工作簿的功能。<br>步骤1    新建或打开需要添加此项功能的工作簿文件。<br>步骤2    按&lt;Ctrl+F11&gt;组合键为工作簿添加一个宏表，添加的宏表名称默认为“Macro1”。<br>步骤3    在宏表“Macro1”的A1至A7单元格中输入下面的内容。<br>禁用宏则关闭工作簿<br>=ERROR(FALSE)<br>=IF(ERROR.TYPE(RUN(“TestMacro”))=4)<br>=  ALERT(“因禁用了宏功能,文件将被关闭!”,3)<br>=  FILE.CLOSE(FALSE)<br>=END.IF()<br>=RETURN()<br>完成后的宏表如图 44 3所示。</p>
+<p>图 44 3    完成输入后的宏表<br>代码解析：<br>Microsoft Excel 4.0宏函数以等号（=）开始，其他不是由等号开始的内容将被视作注释。通常用作定义的宏名称或者作为宏函数实现功能的注释内容设置为斜体字样以示区别，如图 44 3中单元格A1所示。<br>第2行代码关闭错误检查功能。如果关闭错误检查，那么当宏执行遇到错误时，Microsoft Excel 将不予理会而继续执行。<br>第3行到第6行代码使用If函数与End.If函数构成条件判断语句。其中，第3行中的语句通过检查宏函数RUN(“TestMacro”)的返回错误类型是否为4（禁用宏时的返回结果），判断工作簿是否禁用了宏功能。如果第3行的结果为True，则执行下面的语句。<br>在第4、5行代码，插入几个空格来表示相关代码之间的层次结构。第4行中的代码显示一个消息框。第5行中的代码关闭当前活动工作簿，设置参数值为Fasle表示关闭时工作簿时不保存对其所作的更改。<br>第7行代码终止当前代码的执行。Microsoft Excel 4.0宏要求每个宏必须使用RETURN或HALT函数结束。<br>步骤4    为每个表添加工作表级别的名称“Auto_Activate”，并将引用都指向宏表“Macro1”的A2单元格。“Auto_Activate”是一个自动宏，表被激活时自动执行。<br>添加工作表级别的名称的方法如下：选择一张工作表，假设为表“Sheet1”，单击菜单“插入”→“名称”→“定义名称”。在“定义名称”对话框中添加名称，如图 44 4所示。</p>
+<p>图 44 4    定义工作表级别的名称<br>输入完成后单击“确定”按钮，完成一张工作表的“Auto_Activate”的定义。完成定义后的名称将在“定义名称”对话框中显示，如图 44 5所示。依次为每个表添加“Auto_Activate”名称。</p>
+<p>图 44 5    名称对话框中的工作表级名称<br>此外，使用VBA也可以实现同样的操作，并且使用VBA的好处是能够隐藏名称，以避免名称被删除或修改。代码如下：\</p>
+<pre><code class="vb">Sub AddPrivateNames()
+    Dim sht As Object
+    For Each sht In Sheets
+        ThisWorkbook.Names.Add sht.Name &amp; &quot;!Auto_Activate&quot;, _
+&quot;=Macro1!$A$2&quot;, False
+    Next
+End Sub
+步骤5    运行下面的代码，隐藏宏表工作表：
+Sub HideMacroSheet()
+    ThisWorkbook.Excel4MacroSheets(1).Visible = xlSheetHidden
+End Sub
+步骤6    保存工作簿。
+当应用程序的宏安全性的安全级设置为“中”时，如果用户打开该工作簿文件并选择“禁用宏”，将显示如图 44 2所示的警告消息框。当用户选择“是”时，活动工作表上的自动宏“Auto_Activate”将被执行，执行结果显示如图 44 6所示的消息框，当用户选择“确定”按钮后，将强制关闭该工作簿文件。</code></pre>
+<p>图 44 6    警告消息框</p>
+<h3 id="技巧45-关闭工作簿不显示保存对话框"><a href="#技巧45-关闭工作簿不显示保存对话框" class="headerlink" title="技巧45     关闭工作簿不显示保存对话框"></a>技巧45     关闭工作簿不显示保存对话框</h3><p>当用户更改工作簿后，没有进行保存操作而直接关闭工作簿时，将显示如图 45 1所示的消息框，提示用户是否保存对工作簿的更改，如果希望不显示该消息框而直接关闭关闭工作簿，可以在关闭时进行相应的设置。</p>
+<p>图 45 1    提示保存对话框</p>
+<h4 id="45-1-使用Close方法关闭工作簿"><a href="#45-1-使用Close方法关闭工作簿" class="headerlink" title="45-1    使用Close方法关闭工作簿"></a>45-1    使用Close方法关闭工作簿</h4><p>使用Close方法关闭工作簿的，可以在Close方法中指定相应的参数，如下面的代码所示。</p>
+<pre><code class="vb">Sub wbClose_1()
+    ThisWorkbook.Close SaveChanges:=False
+End Sub
+代码解析：
+wbClose_1过程使用Close方法关闭工作簿，并放弃所有对工作簿的更改。
+应用于Workbook对象的Close方法关闭对象，语法如下：
+expression.Close(SaveChanges, Filename, RouteWorkbook)
+其中SaveChanges参数是可选的，如果工作簿没有改变则忽略此参数；如果工作簿发生了改变并且在另外的窗口中也打开了该工作簿，则仍然忽略此参数；如果工作簿发生了改变并且没有在另外的窗口中打开，则此参数将指定是否在工作簿中保存所发生的更改。取值与操作如表格 45 1所示：
+值    作用
+True    将改变保存到工作簿。如果该工作簿尚未命名，则使用 FileName 指定的名称。如果省略 FileName 参数，则要求用户输入文件名。
+False    不将改变保存到此文件。
+省略    显示一个对话框，要求用户决定是否保存所做的更改。
+表格 45 1    SaveChanges参数值的作用
+如果希望在关闭工作簿时自动保存更改，将SaveChanges参数值设置为True即可。</code></pre>
+<p>还可以在使用Close方法关闭工作簿时设置Workbook对象的Saved属性，如下面的代码所示。</p>
+<pre><code class="vb">Sub wbClose_2()
+    ThisWorkbook.Saved = True
+    ThisWorkbook.Close 
+End Sub
+代码解析：
+wbClose_2过程使用Close方法关闭工作簿，并放弃所有对工作簿的更改。
+Workbook对象的Saved属性指示工作簿从上次保存至今是否发生过更改，如果工作簿进行了更改，则该属性值为False，否则为True。应用程序在关闭工作簿之前判断该属性的值，如果其值为False，则显示提示是否保存的消息框，询问用户是否保存对工作簿所做的更改。
+第2行代码将该属性的值设置为True，使Excel认为已经保存了对工作簿所作的更改（实际上没有保存更改），从而不再显示提示是否保存的消息框。</code></pre>
+<p>如果需要保存对工作簿所作的更改，那么应该在Close方法之前使用Save方法保存工作簿，代码如下：</p>
+<pre><code class="vb">Sub wbClose_3()
+    ThisWorkbook.Save
+    ThisWorkbook.Close 
+End Sub
+代码解析：
+wbClose_3过程使用Save方法保存工作簿所做的更改，然后使用Close方法关闭工作簿。</code></pre>
+<h4 id="45-2-单击工作簿关闭按钮关闭工作簿"><a href="#45-2-单击工作簿关闭按钮关闭工作簿" class="headerlink" title="45-2    单击工作簿关闭按钮关闭工作簿"></a>45-2    单击工作簿关闭按钮关闭工作簿</h4><p>如果是通过单击工作簿的关闭按钮等操作关闭工作簿的，则使用BeforeClose事件过程来控制，如下面的代码所示。</p>
+<pre><code class="vb">Private Sub Workbook_BeforeClose(Cancel As Boolean)
+     Me.Saved = True
+End Sub
+代码解析：
+工作簿的Workbook_BeforeClose事件，将工作簿的Saved属性设置为True，不保存更改而直接关闭工作簿，且不显示提示保存的消息框。
+如果希望保存对工作簿的更改，则在Workbook_BeforeClose事件中使用Save方法保存工作簿，如下面的代码所示。
+Private Sub Workbook_BeforeClose(Cancel As Boolean)
+    Me.Save
+End Sub</code></pre>
+<h3 id="技巧46-禁用工作簿的关闭按钮"><a href="#技巧46-禁用工作簿的关闭按钮" class="headerlink" title="技巧46     禁用工作簿的关闭按钮"></a>技巧46     禁用工作簿的关闭按钮</h3><p>一般情况下，用户可以通过菜单“文件”→“关闭”、工作簿窗口右上角的“关闭窗口”按钮或者任务栏中图标右键菜单中的“关闭”菜单项关闭工作簿。如果希望禁用上述关闭工作簿的功能，而只能通过代码关闭工作簿，则可以在相应的工作簿事件中实现，如下面的代码所示。</p>
+<pre><code class="vb">Dim BClose As Boolean
+Private Sub Workbook_BeforeClose(Cancel As Boolean)
+    If BClose = False Then
+        Cancel = True
+        MsgBox &quot;此功能已经被禁止，请使用&quot;&quot;关闭&quot;&quot;按钮关闭工作簿!&quot;, vbExclamation, &quot;提示&quot;
+    End If
+End Sub
+Public Sub CloseWorkbook()
+    BClose = True
+    Me.Close
+End Sub
+代码解析：
+第1行代码在模块顶部声明变量BClose为Boolean类型，默认初始值为False。
+第2行到第7行代码工作簿的BeforeClose事件过程，通过变量BClose的当前值决定是否能够关闭工作簿，只有当BClose的值为True时，才允许关闭工作簿。如果变量BClose的值为False时将参数Cancel的值设置为True，以禁止关闭操作。
+第8行到第11行代码CloseWorkbook过程，将变量BClose的当前值设置为True后使用Close方法关闭工作簿。关于Close方法请参阅技巧45-1。
+在添加以上代码后，用户只能通过调用CloseWorkbook过程关闭工作簿。如果通过菜单“文件”→“关闭”或者单击工作簿窗口右上角的“关闭窗口”按钮关闭工作簿，将显示如图 46 1所示的消息框。</code></pre>
+<p>图 46 1    禁用关闭按钮</p>
+<h3 id="技巧47-保存工作簿的方法"><a href="#技巧47-保存工作簿的方法" class="headerlink" title="技巧47     保存工作簿的方法"></a>技巧47     保存工作簿的方法</h3><h4 id="47-1-使用Save方法"><a href="#47-1-使用Save方法" class="headerlink" title="47-1    使用Save方法"></a>47-1    使用Save方法</h4><p>使用Workbook对象的Save方法保存工作簿的更改，如下面的代码所示。</p>
+<pre><code class="vb">Sub SaveWork()
+    ThisWorkbook.Save
+End Sub
+代码解析：
+SaveWork过程保存代码所在的工作簿的修改。
+Save方法保存指定工作簿所做的更改，语法如下：
+expression.Save
+参数expression是必需的，该表达式返回一个Workbook对象。
+如果是第一次保存工作簿，请使用SaveAs方法为该文件指定文件名，请参阅技巧47-2。</code></pre>
+<h4 id="47-2-直接保存为另一文件名"><a href="#47-2-直接保存为另一文件名" class="headerlink" title="47-2    直接保存为另一文件名"></a>47-2    直接保存为另一文件名</h4><p>如果需要将工作簿另存为另一个文件名，可以使用Workbook对象的SaveAs方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub SaveAsWork()
+    ThisWorkbook.SaveAs Filename:=ThisWorkbook.Path &amp; &quot;\123.xls&quot;
+End Sub
+代码解析：
+SaveAsWork过程将代码所在的工作簿保存为“123”工作簿文件。
+Workbook对象的SaveAs方法使用另外一个不同的文件名保存对工作簿所做的更改，语法如下：
+SaveAs(FileName,FileFormat,Password,WriteResPassword,ReadOnlyRecommended,CreateBackup,AccessMode,ConflictResolution,AddToMru,TextCodepage,TextVisualLayout,Local)
+其中，参数Filename可选，表示要保存文件的文件名的字符串。可包含完整路径，如果不指定路径，将文件保存到当前文件夹中。
+使用SaveAs方法将工作簿另存为新文件后，将关闭原工作簿文件。</code></pre>
+<h4 id="47-3-保存工作簿副本"><a href="#47-3-保存工作簿副本" class="headerlink" title="47-3    保存工作簿副本"></a>47-3    保存工作簿副本</h4><p>如果用户希望工作簿在保存为另一文件名后，能继续编辑原工作簿，那么可以使用SaveCopyAs方法，如下面的代码所示。</p>
+<pre><code class="vb">Sub SaveCopyWork()
+    ThisWorkbook.SaveCopyAs ThisWorkbook.Path &amp; &quot;\123.xls&quot;
+End Sub
+代码解析：
+SaveCopyWork过程使用SaveCopyAs方法保存代码所在的工作簿副本，并指定其名称。
+SaveCopyAs方法将指定工作簿的副本保存到文件，但不修改内存中的打开工作簿，语法如下：
+SaveCopyAs(Filename)
+参数Filename是必需的，用于指定工作簿副本的文件名。</code></pre>
+<h3 id="技巧48-保存指定工作表为工作簿文件"><a href="#技巧48-保存指定工作表为工作簿文件" class="headerlink" title="技巧48     保存指定工作表为工作簿文件"></a>技巧48     保存指定工作表为工作簿文件</h3><p>如果需要将工作簿中的工作表单独保存为一个工作簿文件，可以使用Worksheet对象的Copy方法，将指定的工作表复制到一个新建的工作簿，如下面的代码所示。</p>
+<pre><code class="vb">Sub SheetCopy()
+    On Error GoTo line
+    ActiveSheet.Copy
+    ActiveWorkbook.Close SaveChanges:=True, Filename:=ThisWorkbook.Path &amp; &quot;\SheetCopy.xls&quot;
+    Exit Sub
+line:
+    ActiveWorkbook.Close False
+End Sub
+代码解析：
+SheetCopy过程将活动工作表单独保存为一个工作簿文件。
+第2行代码错误处理语句。备份过程中，如果已存在同名工作簿，会出现如所示的提示，如果选择了“否”或“取消”，此时新工作簿已经建立，在执行4行代码时发生错误，使程序中断，所以使用GoTo语句执行第7行代码，关闭新建立的工作簿并且不保存。
+第3行代码使用Copy方法新建一个工作簿，新工作簿中包含复制的工作表。应用于Worksheet对象的Copy方法将指定工作表复制到工作簿的另一位置，语法如下：
+Copy (Before, After)
+其中，参数Before是可选的，用来指定工作表，复制的工作表将置于此工作表之前。参数After是可选的，用来指定工作表，复制的工作表将置于此工作表之后。
+不能同时指定Before参数和After参数。当Copy方法省略参数时，应用程序将新建一个空工作簿（新建工作簿将成为活动窗口），并将Copy方法引用的工作表复制到该空工作簿中。
+第4行代码使用Workbook对象的Close方法关闭新建的工作簿。应用于Workbooks集合和Workbook对象的Close方法请参阅技巧45-1。</code></pre>
+<p>如果需要将工作簿中的几个工作表单独保存为一个工作簿文件时，可以以数组的形式指定要复制的工作表，如下面的代码所示。</p>
+<pre><code class="vb">Sub ArrSheetCopy()
+    On Error GoTo line
+    Worksheets(Array(&quot;Sheet1&quot;, &quot;Sheet2&quot;)).Copy
+    ActiveWorkbook.SaveAs Filename:=ThisWorkbook.Path &amp; &quot;\ArrSheetCopy.xls&quot;
+    ActiveWorkbook.Close SaveChanges:=True
+    Exit Sub
+line:
+    ActiveWorkbook.Close False
+End Sub
+代码解析：
+ArrSheetCopy过程将“Sheet1”和“Sheet2”工作表单独保存为一个工作簿文件。
+第4行代码使用SaveAs方法保存活动工作簿，关于SaveAs方法请参阅技巧47-2。</code></pre>
+<h3 id="技巧49-打印预览时不触发事件"><a href="#技巧49-打印预览时不触发事件" class="headerlink" title="技巧49     打印预览时不触发事件"></a>技巧49     打印预览时不触发事件</h3><p>在工作表打印之前或进行打印预览时，会触发工作簿的BeforePrint事件。在某些情况下希望在打印预览时能禁止触发该事件，例如如图 49 1所示的工作表中用户在打印时使用下面的代码将流水号的数值自动加1。<br>Private Sub Workbook_BeforePrint(Cancel As Boolean)<br>    Sheet1.Range(“J1”) = Sheet1.Range(“J1”) + 1<br>End Sub</p>
+<pre><code>
+图 49 1    自动增加流水号
+但是在打印预览时并不希望流水号的数值自动加1，此时，需要修改系统的打印预览功能，如下面的代码所示。
+
+​```vb
+Private Sub Workbook_Open()
+    Dim CmdCtrls As CommandBarControls
+    Dim Cmd As CommandBarControl
+    Set CmdCtrls = Application.CommandBars.FindControls(ID:=109)
+    For Each Cmd In CmdCtrls
+        Cmd.OnAction = &quot;ThisWorkbook.MyPrint&quot;
+    Next
+End Sub
+代码解析：
+工作簿的Open事件过程，在打开工作簿时，修改系统中所有打印预览命令按钮和菜单项的动作，指定其OnAction属性为ThisWorkbook代码窗口中的公用过程MyPrint。
+第4行代码使用FindControls方法将所有打印预览命令按钮和菜单项赋给变量CmdCtrls，FindControls方法返回符合指定条件的CommandBarControls集合，语法如下：
+expression.FindControls(Type, Id, Tag, Visible)
+其中参数expression是必需的，该表达式返回一个CommandBars集合。
+参数Id是可选的，要查找控件的标识符。打印预览命令控件的标识符为109。
+第5行到第7行代码遍历所有打印预览命令控件，指定其OnAction属性为ThisWorkbook代码窗口中的公用过程MyPrint。OnAction属性返回或设置一个Visual Basic 的过程名，该过程在用户单击或更改某命令栏控件的值时运行。</code></pre><p>MyPrint过程代码如下：</p>
+<pre><code class="vb">Public Sub MyPrint()
+    With Application
+        .EnableEvents = False
+        .ActiveSheet.PrintPreview EnableChanges:=False
+        .EnableEvents = True
+    End With
+End Sub
+代码解析：
+MyPrint过程通过禁止对象事件，使工作表打印预览时不触发工作簿的BeforePrint事件。
+第3行代码将Application对象的EnableEvents属性设置为False，禁用事件，使事件不能触发。
+第4行代码使用PrintPreview方法对工作表执行打印预览。PrintPreview方法以打印效果显示指定的对象，该方法只有一个参数EnableChanges，用来指定是否可以修改页面设置，当其值为False时，禁止在打印预览时修改页面设置，默认值为True。
+第5行代码将Application对象的EnableEvents属性设置为True，启用事件。</code></pre>
+<p>为了在工作簿时恢复默认的打印预览设置，在ThisWorkbook代码窗口写入以下代码：</p>
+<pre><code class="vb">Private Sub Workbook_BeforeClose(Cancel As Boolean)
+    Dim CmdCtrls As CommandBarControls
+    Dim Cmd As CommandBarControl
+    Set CmdCtrls = Application.CommandBars.FindControls(ID:=109)
+    For Each Cmd In CmdCtrls
+        Cmd.OnAction = &quot;&quot;
+    Next
+End Sub
+代码解析：
+工作簿的BeforeClose事件过程，关闭工作簿时将所有打印预览命令按钮和菜单项的OnAction属性恢复为默认的动作。
+经过以上设置，工作表只有在进行打印时“流水号”数值才自动加1。</code></pre>
+<h3 id="技巧50-设置工作簿文档属性信息"><a href="#技巧50-设置工作簿文档属性信息" class="headerlink" title="技巧50     设置工作簿文档属性信息"></a>技巧50     设置工作簿文档属性信息</h3><p>使用DocumentProperties集合对象的BuiltinDocumentProperties属性可以设置文档的属性信息，如下面的代码所示。</p>
+<pre><code class="vb">Sub WbBuiltin()
+    With ThisWorkbook
+        .BuiltinDocumentProperties(&quot;Title&quot;) = &quot;Wordbook（工作簿）对象&quot;
+        .BuiltinDocumentProperties(&quot;Subject&quot;) = &quot;设置工作簿的文档属性信息&quot;
+        .BuiltinDocumentProperties(&quot;Author&quot;) = &quot;yuanzhuping&quot;
+        .BuiltinDocumentProperties(&quot;Company&quot;) = &quot;tzzls&quot;
+        .BuiltinDocumentProperties(&quot;Comments&quot;) = &quot;工作簿文档属性信息&quot;
+        .BuiltinDocumentProperties(&quot;Keywords&quot;) = &quot;Excel VBA&quot;
+    End With
+    MsgBox &quot;工作簿文档属性信息设置完毕！&quot;
+End Sub
+代码解析：
+WbBuiltin过程设置代码所在工作簿的属性信息，应用于Workbook对象的BuiltinDocumentProperties属性返回一个DocumentProperties集合，该集合代表指定工作簿的所有内置文档属性，本属性返回的是内置文档属性的整个集合。通过指定属性的名称或集合中的索引号返回集合中的单个成员（一个DocumentProperty对象）。
+第3行代码设置标题，第4行代码设置主题，第5行代码设置作者，第6行代码设置公司，第7行代码设置备注，第8行代码设置关键字。
+工作簿文档属性信息设置如图 50 1所示。</code></pre>
+<p>图 50 1    工作簿文档属性信息</p>
+<h3 id="技巧51-不打开工作簿取得其他工作簿数据"><a href="#技巧51-不打开工作簿取得其他工作簿数据" class="headerlink" title="技巧51     不打开工作簿取得其他工作簿数据"></a>技巧51     不打开工作簿取得其他工作簿数据</h3><p>在Excel的使用过程中，经常需要引用其他工作簿的数据，而用户往往希望能在不打开工作簿或看似不打开工作簿的情况下取得其他工作簿中的数据，有以下几种方法可以实现。</p>
+<h4 id="51-1-使用公式"><a href="#51-1-使用公式" class="headerlink" title="51-1    使用公式"></a>51-1    使用公式</h4><p>如果需要引用的数据不是太多，可以使用公式取得引用工作簿中的工作表数据，如下面的代码所示。</p>
+<pre><code class="vb">Sub CopyData_1()
+    Dim Temp As String
+    Temp = &quot;&#39;&quot; &amp; ThisWorkbook.Path &amp; &quot;\[数据表.xls]Sheet1&#39;!&quot;
+    With Sheet1.Range(&quot;A1:F22&quot;)
+        .FormulaR1C1 = &quot;=&quot; &amp; Temp &amp; &quot;RC&quot;
+        .Value = .Value
+    End With
+End Sub
+代码解析：
+CopyData_1过程在工作表中写入公式引用“数据表”中同一位置单元格中的数据。
+第3行代码将引用工作簿的路径赋给变量Temp。
+第5行代码在作表中写入公式引用数据。
+第6行代码将公式转换为数值。</code></pre>
+<h4 id="51-2-使用GetObject函数"><a href="#51-2-使用GetObject函数" class="headerlink" title="51-2    使用GetObject函数"></a>51-2    使用GetObject函数</h4><p>使用GetObject函数来获取对指定的Excel工作表的引用，如下面的代码所示。</p>
+<pre><code class="vb">Sub CopyData_2() &#39;CopyData_2过程使用GetObject函数来获取“数据表”工作簿中的数据
+    Dim Wb As Workbook
+    Dim Temp As String
+    Application.ScreenUpdating = False &#39;关闭屏幕更新加快运行速度
+    Temp = ThisWorkbook.Path &amp; &quot;\数据表.xls&quot; &#39;将引用工作簿的路径赋给变量Temp
+    Set Wb = GetObject(Temp) &#39;使用Set语句将GetObject函数返回的对象赋给对象变量Wb
+        With Wb.Sheets(1).Range(&quot;A1&quot;).CurrentRegion
+            Range(&quot;A1&quot;).Resize(.Rows.Count, .Columns.Count) = .Value &#39;将“数据表”工作簿中的第1张工作表已使用区域的数据赋给本工作表的单元格
+            Wb.Close False
+        End With
+    Set Wb = Nothing
+    Application.ScreenUpdating = True
+End Sub
+GetObject函数返回文件中的ActiveX对象的引用，语法如下：
+GetObject([pathname] [, class])
+参数pathname是可选的，包含待检索对象的文件的全路径和名称。如果省略，则class参数是必需的。
+参数class是可选的，代表该对象的类的字符串。
+Class参数的格式为appname.objecttype，语法的各个部分如表格 51 1所示。
+部分    描述
+appname    必需的，提供该对象的应用程序名称。
+objecttype    必需的，待创建对象的类型或类。
+表格 51 1    Class参数语法的各个部分
+第7行到第10行代码，当GetObject函数指定的对象被激活之后，就可以在代码中使用对象变量Wb来访问这个对象的属性和方法。
+其中第7、8行代码将“数据表”工作簿中的第1张工作表已使用区域的数据赋给本工作表的单元格，第9行代码关闭“数据表”工作簿，使用GetObject函数返回对象的引用时，虽然在窗口中看不到对象的实例，但实际上是打开的，所以需用Close语句将其关闭。
+第12行代码开启屏幕更新。</code></pre>
+<h4 id="51-3-隐藏Application对象"><a href="#51-3-隐藏Application对象" class="headerlink" title="51-3    隐藏Application对象"></a>51-3    隐藏Application对象</h4><p>通过隐藏Application对象来模拟不打开工作簿取数，如下面的代码所示。</p>
+<pre><code class="vb">Sub CopyData_3() &#39;隐藏Application对象来模拟不打开工作簿取数
+    Dim myApp As New Application &#39;使用New关键字隐式地创建一个Application对象
+    Dim Sh As Worksheet
+    Dim Temp As String
+    Temp = ThisWorkbook.Path &amp; &quot;\数据表.xls&quot;
+    myApp.Visible = False &#39;将新创建的Application对象的Visible属性设置为False，使之隐藏
+    Set Sh = myApp.Workbooks.Open(Temp).Sheets(1) &#39;使用Open方法打开“数据表”工作簿
+    With Sh.Range(&quot;A1&quot;).CurrentRegion
+        Range(&quot;A1&quot;).Resize(.Rows.Count, .Columns.Count) = .Value
+    End With
+    myApp.Quit
+    Set Sh = Nothing
+        Set myApp = Nothing
+End Sub
+代码解析：
+第7行代码使用Open方法打开“数据表”工作簿（关于Open方法请参阅技巧42 ，因为工作簿是使用新创建的、隐藏的Application对象打开的，所以在窗口中是不可视的。
+第8行到第10行代码将“数据表”工作簿中的第1张工作表已使用区域的数据赋给本工作表的单元格。
+第11行代码使用Quit方法退出新打开的Excel程序。</code></pre>
+<h4 id="51-4-使用ExecuteExcel4Macro方法"><a href="#51-4-使用ExecuteExcel4Macro方法" class="headerlink" title="51-4    使用ExecuteExcel4Macro方法"></a>51-4    使用ExecuteExcel4Macro方法</h4><p>使用ExecuteExcel4Macro方法可以做到不打开工作簿的情况下获取其他工作薄中指定工作表的数据，如下面的代码所示。</p>
+<pre><code class="vb">Sub CopyData_4() &#39;使用ExecuteExcel4Macro方法获取“数据表”工作薄中指定工作表的数据
+    Dim RCount As Long
+    Dim CCount As Long
+    Dim Temp As String
+    Dim Temp1 As String
+    Dim Temp2 As String
+    Dim Temp3 As String
+    Dim R As Long
+    Dim C As Long
+    Dim arr() As Variant
+    Temp = &quot;&#39;&quot; &amp; ThisWorkbook.Path &amp; &quot;\[数据表.xls]Sheet1&#39;!&quot;
+    Temp1 = Temp &amp; Rows(1).Address(, , xlR1C1)
+    Temp1 = &quot;Counta(&quot; &amp; Temp1 &amp; &quot;)&quot;
+    CCount = Application.ExecuteExcel4Macro(Temp1)
+    Temp2 = Temp &amp; Columns(&quot;A&quot;).Address(, , xlR1C1)
+    Temp2 = &quot;Counta(&quot; &amp; Temp2 &amp; &quot;)&quot;
+    RCount = Application.ExecuteExcel4Macro(Temp2)
+    ReDim arr(1 To RCount, 1 To CCount)
+    For R = 1 To RCount
+        For C = 1 To CCount
+            Temp3 = Temp &amp; Cells(R, C).Address(, , xlR1C1)
+            arr(R, C) = Application.ExecuteExcel4Macro(Temp3)
+        Next
+    Next
+    Range(&quot;A1&quot;).Resize(RCount, CCount).Value = arr
+End Sub
+代码解析：
+第14、16行代码使用ExecuteExcel4Macro方法执行Counta函数取得“数据表”工作薄中指定工作表的行数和列数合计。
+ExecuteExcel4Macro方法执行一个Microsoft Excel 4.0宏函数，然后返回此函数的结果，语法如下：
+expression.ExecuteExcel4Macro(String)
+参数expression是可选的，返回一个Application对象。
+参数String是必需的，一个不带等号的Microsoft Excel 4.0宏语言函数，所有引用必须是像R1C1这样的字符串。
+因为Microsoft Excel 4.0 宏不在当前工作簿或工作表的环境中求值，所有的引用都是外部引用，所以无需打开引用工作簿但是需要明确指定工作簿名称。
+第18行代码使用ReDim语句为动态数组arr重新分配存储空间。
+第19行到第24行代码循环取值，将“数据表”工作薄中指定工作表的数据赋给动态数组arr。
+第25行代码将动态数组arr的值赋给工作表的单元格。</code></pre>
+<h4 id="51-5-使用SQL连接"><a href="#51-5-使用SQL连接" class="headerlink" title="51-5    使用SQL连接"></a>51-5    使用SQL连接</h4><p>使用SQL建立与工作簿的连接，查询数据记录后复制到当前工作表中，如下面的代码所示。</p>
+<pre><code class="vb">Sub CopyData_5() &#39;使建立与“数据表”工作簿的连接，查询数据记录后复制到当前工作表中
+    Dim Sql As String
+    Dim j As Integer
+    Dim R As Integer
+    Dim Cnn As ADODB.Connection
+    Dim rs As ADODB.Recordset
+    With Sheet5
+        .Cells.Clear &#39;删除当前工作表的所有数据
+        Set Cnn = New ADODB.Connection
+        With Cnn
+            .Provider = &quot;microsoft.jet.oledb.4.0&quot;
+            .ConnectionString = &quot;Extended Properties=Excel 8.0;&quot; _
+                &amp; &quot;Data Source=&quot; &amp; ThisWorkbook.Path &amp; &quot;\数据表&quot;
+            .Open
+        End With
+        Set rs = New ADODB.Recordset
+        Sql = &quot;select * from [Sheet1$]&quot;
+        rs.Open Sql, Cnn, adOpenKeyset, adLockOptimistic
+            For j = 0 To rs.Fields.Count - 1
+                .Cells(1, j + 1) = rs.Fields(j).Name
+            Next
+        R = .Range(&quot;A65536&quot;).End(xlUp).Row
+        .Range(&quot;A&quot; &amp; R + 1).CopyFromRecordset rs
+    End With
+    rs.Close
+    Cnn.Close
+    Set rs = Nothing
+    Set Cnn = Nothing
+End Sub
+代码解析：
+第9行到第15行代码建立与“数据表”工作簿的连接。
+第16行到第24行代码查询“数据表”工作簿的全部数据，并复制到工作表中。其中第20行代码将字段名称（标题行）复制到工作表中，第23行代码将查询到的数据记录复制到工作表。</code></pre>
+<h3 id="技巧52-返回窗口的可视区域地址"><a href="#技巧52-返回窗口的可视区域地址" class="headerlink" title="技巧52     返回窗口的可视区域地址"></a>技巧52     返回窗口的可视区域地址</h3><p>VBA中使用VisibleRange属性返回当前窗口的可视区域，如下面的代码所示。</p>
+<pre><code class="vb">Sub VbRange()
+    Dim s As String
+    s = ActiveWindow.VisibleRange.Address(0, 0)
+    MsgBox &quot;窗口的可视区域为：&quot; &amp; s
+End Sub
+代码解析：
+VbRange过程使用消息框显示当前窗口的可视区域的地址。
+应用于当前Window对象的VisibleRange属性返回一个Range对象，代表当前窗口的可视区域。窗口的可视区域就是用户可以在窗口或窗格中看到的单元格区域，如果行或列部分可见，该行或列也包括在可视区域中。
+因为VisibleRange属性返回的是一个Range对象，因此可以直接使用该对象的属性和方法。
+当窗口的大小发生变化时，返回的可视区域的地址也会不同，如图 52 1、图 52 2所示。</code></pre>
+
+    </div>
+</article>
+                </main>
+                <aside class="aside">
+                    <section class="aside-section">
+                        
+    <h1>Categories</h1>
+
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/生の术/">生の术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生の迹/">生の迹</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生の道/">生の道</a></li></ul>
+
+                    </section>
+                    <section class="aside-section">
+                        
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archiveshl/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archiveshl/2018/">2018</a></li></ul>
+
+
+                    </section>
+                    <section class="aside-section tag">
+                        
+    <h1>Tags</h1>
+
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VBA/">VBA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据科学/">数据科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缠论/">缠论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自言语/">自言语</a></li></ul>
+
+                    </section>
+                </aside>
+        </div>
+    </body>
+
+</html>
